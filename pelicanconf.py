@@ -23,7 +23,7 @@ AUTHOR_FEED_RSS = None
 LINKS = (('Pelican', 'http://getpelican.com/'),
          ('Python.org', 'http://python.org/'),
          ('Jinja2', 'http://jinja.pocoo.org/'),
-         ('You can modify those links in your config file', '#'),)
+         ('Full Stack Python', 'https://www.fullstackpython.com/'),)
 
 # Social widget
 SOCIAL = (('You can add links in your config file', '#'),

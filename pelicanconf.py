@@ -3,8 +3,9 @@
 from __future__ import unicode_literals
 
 AUTHOR = 'Lewis Davies'
-SITENAME = 'LewisDavi.es - Data Science Survival Manual'
-SITEURL = ''
+SITENAME = 'Data Science Survival Guide - LewisDavi.es'
+SITEURL = 'http://lewisdavi.es'
+THEME = 'theme/'
 
 PATH = 'content'
 

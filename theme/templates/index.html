@@ -1,21 +1,19 @@
 {% extends "base.html" %}
 
 {% block content %}
-<hr>
-<div class="page-header">
-  <h1>Hello</h1>
-</div>
+<h1>The Data Science Survival Guide</h1>
+<p>Like anything worth doing, learning data science is tough. There's a lot to learn and I only have so much juice in my mind grapes. Although it's a little sparse right now, this site will be my personal notebook for useful data wrangling, plotting, and (eventually) machine learning snippets.</p>
+<p>This site is inspired by (i.e. completely stolen from) <a href="http://chrisalbon.com" target="_blank">ChrisAlbon.com</a>, which has been a huge help as I've learned to analyse data with Python. This site is also open source and on Github, so feel free to use my far inferior code!</p>
 
-<div class="row">
-  <div class="col-md-8">
-    <h1>{{ SITENAME }}</h1>
-    {% for article in articles %}
-      <h2><a href="/{{ article.slug }}.html">{{ article.title }}</a></h2>
-      <label>Posted on <strong>{{ article.date }}</strong></label>
-      {{ article.content|truncate(110) }}
-    {% else %}
-      No posts yet!
-    {% endfor %}
-  </div>
-</div>
+<hr>
+
+{% for cat in categories %}
+<h2 id="{{ cat[0].name|replace(" ", "-") }}">{{ cat[0].name }}</h2>
+<ul>
+  {% for article in cat[1] %}
+  <a href="{{ article.url }}"><li>{{ article.title|e }}</li></a>
+  {% endfor %}
+</ul>
+{% endfor %}
+
 {% endblock %}

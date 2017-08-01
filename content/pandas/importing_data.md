@@ -44,7 +44,10 @@ df_dict = pd.read_excel('data.xlsx', sheetname=[0, 2, 'Sheet4', 'Sales 2016'])
 ### SQL
 It's best if the credentials are stored in a separate file so you can share your notebook without sharing your credentials. Simply save them in a separate Python file and load them with the code below. Your ```db.py``` file should look like this:
 
-```user = 'your_username'
+
+```python
+# Example db.py file
+user = 'your_username'
 password = 'your_super_tricky_password'
 host = 'your_hostname'
 port = 5432 # this is a common setting

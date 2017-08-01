@@ -15,7 +15,7 @@ import pandas as pd
 
 
 ```python
-# If the file is in your current working directory, you can simply use the filename as an arguement
+# If the file is in your current working directory, you can use the filename as an arguement
 df = pd.read_csv('data.csv')
 
 # If the raw data is somewhere else, you'll need to specifiy the full path
@@ -48,7 +48,8 @@ user = 'your_username'
 password = 'your_super_tricky_password'
 host = 'your_hostname'
 port = 5432 # this is a common setting
-database = 'your_database_identifier'```
+database = 'your_database_identifier'
+```
 
 
 ```python

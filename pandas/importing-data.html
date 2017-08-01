@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Importing data</title>
+
+  <!-- Latest compiled and minified Bootstrap CSS -->
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+  <div class="navbar navbar-fixed-top navbar-inverse bg-inverse">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-10 col-sm-offset-1">
+
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a href="http://lewisdavi.es" class="navbar-brand">LewisDavi.es</a>
+          </div>
+
+          <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Contents <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <a href="http://lewisdavi.es#Pandas"><li>Pandas</li></a>
+                </ul>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  </div>
+
+
+  <div class="container">
+    <div class="spacer" style="height:60px"></div>
+    <div class="row">
+      <div class="col-sm-10 col-sm-offset-1">
+<div class="row">
+  <div class="col-md-8">
+    <h1>Importing data</h1>
+    <label>Posted on <strong>2017-08-01 00:00:00+01:00</strong></label>
+    <h3>Import libraries</h3>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+</pre></div>
+
+
+<h3>CSV</h3>
+<div class="highlight"><pre><span></span><span class="c1"># If the file is in your current working directory, you can simply use the filename as an arguement</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data.csv&#39;</span><span class="p">)</span>
+
+<span class="c1"># If the raw data is somewhere else, you&#39;ll need to specifiy the full path</span>
+<span class="nb">file</span> <span class="o">=</span> <span class="s1">&#39;/path/to/file/data.csv&#39;</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="nb">file</span><span class="p">)</span>
+
+<span class="c1"># You can specify the separator with the sep argument</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="nb">file</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;;&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<h3>Excel</h3>
+<div class="highlight"><pre><span></span><span class="c1"># By default, a DataFrame will be created from the first sheet of your Excel file</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;data.xlsx&#39;</span><span class="p">)</span>
+
+<span class="c1"># We can specify the sheet to import with the sheetname argument (an integer or string)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;data.xlsx&#39;</span><span class="p">,</span> <span class="n">sheetname</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># returns second sheet</span>
+
+<span class="c1"># Specifying multiple sheets will return a dictionary of DataFrames</span>
+<span class="n">df_dict</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;data.xlsx&#39;</span><span class="p">,</span> <span class="n">sheetname</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;Sheet4&#39;</span><span class="p">,</span> <span class="s1">&#39;Sales 2016&#39;</span><span class="p">])</span>
+</pre></div>
+
+
+<h3>SQL</h3>
+<p>It's best if the credentials are stored in a separate file so you can share your notebook without sharing your credentials. Simply save them in a separate Python file and load them with the code below. Your <code>db.py</code> file should look like this:</p>
+<div class="highlight"><pre><span></span>user = &#39;your_username&#39;
+password = &#39;your_super_tricky_password&#39;
+host = &#39;your_hostname&#39;
+port = 5432 # this is a common setting
+database = &#39;your_database_identifier&#39;```
+
+
+```python
+# Load database credentials
+exec(open(&quot;/path/to/file/db.py&quot;).read())
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="c1"># I mainly interact with a PostgreSQL database, so I use an additional library for this</span>
+<span class="kn">import</span> <span class="nn">psycopg2</span>
+
+<span class="c1"># We connect to the database - use the variable names from db.py</span>
+<span class="n">con</span> <span class="o">=</span> <span class="n">psycopg2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">user</span><span class="o">=</span><span class="n">user</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="n">password</span><span class="p">,</span> <span class="n">host</span><span class="o">=</span><span class="n">host</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="n">port</span><span class="p">,</span> <span class="n">database</span><span class="o">=</span><span class="n">database</span><span class="p">)</span>
+
+<span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">select</span>
+<span class="s2">    c.id</span>
+<span class="s2">    , c.name</span>
+<span class="s2">    , c.city</span>
+<span class="s2">from</span>
+<span class="s2">    customers c</span>
+<span class="s2">limit</span>
+<span class="s2">    10</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="c1"># Then run the query, save the output as a DataFrame</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="n">con</span><span class="p">)</span>
+
+<span class="c1"># And finally disconnect from the database</span>
+<span class="n">con</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+
+
+<h3>Some useful arguments</h3>
+<div class="highlight"><pre><span></span><span class="c1"># Specify a column to use as the index</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data.csv&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># Change column names - length of names list must match the number of columns</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data.csv&#39;</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Name&#39;</span><span class="p">,</span> <span class="s1">&#39;Age&#39;</span><span class="p">,</span> <span class="s1">&#39;Score&#39;</span><span class="p">])</span>
+
+<span class="c1"># If parse_dates = True, pandas will try to conver the index to datetime</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data.csv&#39;</span><span class="p">,</span> <span class="n">parse_dates</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+<span class="c1"># You can also pass in a list of columns to parse as datetimes</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data.csv&#39;</span><span class="p">,</span> <span class="n">parse_dates</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;account_created_at&#39;</span><span class="p">,</span> <span class="s1">&#39;last_order_date&#39;</span><span class="p">]</span>
+</pre></div>
+  </div>
+</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html

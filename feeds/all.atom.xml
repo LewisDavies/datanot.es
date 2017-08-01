@@ -41,16 +41,14 @@
 
 &lt;h3&gt;SQL&lt;/h3&gt;
 &lt;p&gt;It's best if the credentials are stored in a separate file so you can share your notebook without sharing your credentials. Simply save them in a separate Python file and load them with the code below. Your &lt;code&gt;db.py&lt;/code&gt; file should look like this:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;user = &amp;#39;your_username&amp;#39;
-password = &amp;#39;your_super_tricky_password&amp;#39;
-host = &amp;#39;your_hostname&amp;#39;
+&lt;p&gt;```user = 'your_username'
+password = 'your_super_tricky_password'
+host = 'your_hostname'
 port = 5432 # this is a common setting
-database = &amp;#39;your_database_identifier&amp;#39;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Load database credentials&lt;/span&gt;
-&lt;span class="k"&gt;exec&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;/path/to/file/db.py&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;read&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
+database = 'your_database_identifier'&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;```python
+# Load database credentials
+exec(open(&amp;quot;/path/to/file/db.py&amp;quot;).read())
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -91,4 +89,4 @@ database = &amp;#39;your_database_identifier&amp;#39;
 
 &lt;span class="c1"&gt;# You can also pass in a list of columns to parse as datetimes&lt;/span&gt;
 &lt;span class="n"&gt;df&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;pd&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;read_csv&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;data.csv&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;parse_dates&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;account_created_at&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;last_order_date&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;</content></entry></feed>
+&lt;/pre&gt;&lt;/div&gt;</content><category term="load"></category><category term="CSV"></category><category term="SQL"></category><category term="Excel"></category></entry></feed>

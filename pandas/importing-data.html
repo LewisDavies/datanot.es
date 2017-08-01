@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Importing data</title>
+  <title>Importing data - Data Science Survival Guide - LewisDavi.es</title>
 
   <!-- Latest compiled and minified Bootstrap CSS -->
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -51,11 +51,9 @@
     <div class="spacer" style="height:60px"></div>
     <div class="row">
       <div class="col-sm-10 col-sm-offset-1">
-<div class="row">
-  <div class="col-md-8">
-    <h1>Importing data</h1>
-    <label>Posted on <strong>2017-08-01 00:00:00+01:00</strong></label>
-    <h3>Import libraries</h3>
+<h1>Importing data</h1>
+<label>Posted on 01 August 17</label>
+<h3>Import libraries</h3>
 <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
 </pre></div>
 
@@ -87,16 +85,14 @@
 
 <h3>SQL</h3>
 <p>It's best if the credentials are stored in a separate file so you can share your notebook without sharing your credentials. Simply save them in a separate Python file and load them with the code below. Your <code>db.py</code> file should look like this:</p>
-<div class="highlight"><pre><span></span>user = &#39;your_username&#39;
-password = &#39;your_super_tricky_password&#39;
-host = &#39;your_hostname&#39;
+<p>```user = 'your_username'
+password = 'your_super_tricky_password'
+host = 'your_hostname'
 port = 5432 # this is a common setting
-database = &#39;your_database_identifier&#39;
-</pre></div>
-
-
-<div class="highlight"><pre><span></span><span class="c1"># Load database credentials</span>
-<span class="k">exec</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s2">&quot;/path/to/file/db.py&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+database = 'your_database_identifier'</p>
+<div class="highlight"><pre><span></span>```python
+# Load database credentials
+exec(open(&quot;/path/to/file/db.py&quot;).read())
 </pre></div>
 
 
@@ -138,8 +134,6 @@ database = &#39;your_database_identifier&#39;
 <span class="c1"># You can also pass in a list of columns to parse as datetimes</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data.csv&#39;</span><span class="p">,</span> <span class="n">parse_dates</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;account_created_at&#39;</span><span class="p">,</span> <span class="s1">&#39;last_order_date&#39;</span><span class="p">]</span>
 </pre></div>
-  </div>
-</div>
       </div>
     </div>
   </div>

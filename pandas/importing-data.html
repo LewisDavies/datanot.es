@@ -61,7 +61,7 @@
 
 
 <h3>CSV</h3>
-<div class="highlight"><pre><span></span><span class="c1"># If the file is in your current working directory, you can simply use the filename as an arguement</span>
+<div class="highlight"><pre><span></span><span class="c1"># If the file is in your current working directory, you can use the filename as an arguement</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data.csv&#39;</span><span class="p">)</span>
 
 <span class="c1"># If the raw data is somewhere else, you&#39;ll need to specifiy the full path</span>
@@ -91,12 +91,12 @@
 password = &#39;your_super_tricky_password&#39;
 host = &#39;your_hostname&#39;
 port = 5432 # this is a common setting
-database = &#39;your_database_identifier&#39;```
+database = &#39;your_database_identifier&#39;
+</pre></div>
 
 
-```python
-# Load database credentials
-exec(open(&quot;/path/to/file/db.py&quot;).read())
+<div class="highlight"><pre><span></span><span class="c1"># Load database credentials</span>
+<span class="k">exec</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s2">&quot;/path/to/file/db.py&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
 </pre></div>
 
 

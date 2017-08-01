@@ -1,5 +1,5 @@
 Title: Importing data
-Slug: importing-data
+Slug: pandas/importing-data
 Category: Pandas
 Date: 2017-08-01
 Modified: 2017-08-01

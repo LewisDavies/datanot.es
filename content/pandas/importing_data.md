@@ -1,4 +1,4 @@
-Title: Importing data
+Title: Importing Data
 Slug: pandas/importing-data
 Category: Pandas
 Tags: load, CSV, SQL, Excel

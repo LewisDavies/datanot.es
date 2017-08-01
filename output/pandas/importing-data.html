@@ -10,6 +10,10 @@
   <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+  <!-- Pygments CSS -->
+  <link rel="stylesheet" type="text/css" href="http://lewisdavi.es/theme/css/pygments.css">
+
+
 </head>
 
 <body>
@@ -85,14 +89,17 @@
 
 <h3>SQL</h3>
 <p>It's best if the credentials are stored in a separate file so you can share your notebook without sharing your credentials. Simply save them in a separate Python file and load them with the code below. Your <code>db.py</code> file should look like this:</p>
-<p>```user = 'your_username'
-password = 'your_super_tricky_password'
-host = 'your_hostname'
-port = 5432 # this is a common setting
-database = 'your_database_identifier'</p>
-<div class="highlight"><pre><span></span>```python
-# Load database credentials
-exec(open(&quot;/path/to/file/db.py&quot;).read())
+<div class="highlight"><pre><span></span><span class="c1"># Example db.py file</span>
+<span class="n">user</span> <span class="o">=</span> <span class="s1">&#39;your_username&#39;</span>
+<span class="n">password</span> <span class="o">=</span> <span class="s1">&#39;your_super_tricky_password&#39;</span>
+<span class="n">host</span> <span class="o">=</span> <span class="s1">&#39;your_hostname&#39;</span>
+<span class="n">port</span> <span class="o">=</span> <span class="mi">5432</span> <span class="c1"># this is a common setting</span>
+<span class="n">database</span> <span class="o">=</span> <span class="s1">&#39;your_database_identifier&#39;</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="c1"># Load database credentials</span>
+<span class="k">exec</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s2">&quot;/path/to/file/db.py&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
 </pre></div>
 
 

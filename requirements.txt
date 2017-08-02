@@ -1,6 +1,7 @@
-blinker==1.4
+﻿blinker==1.4
 docutils==0.13.1
 feedgenerator==1.9
+ghp-import==0.5.5
 Jinja2==2.9.6
 Markdown==2.6.8
 MarkupSafe==1.0

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>DataFrame Aggregates - Data Science Survival Guide - LewisDavi.es</title>
+
+  <!-- Latest compiled and minified Bootstrap CSS -->
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <!-- Pygments CSS -->
+  <link rel="stylesheet" type="text/css" href="http://lewisdavi.es/theme/css/pygment.css" />
+
+
+</head>
+
+<body>
+  <div class="navbar navbar-fixed-top navbar-inverse bg-inverse">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-10 col-sm-offset-1">
+
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a href="http://lewisdavi.es" class="navbar-brand">LewisDavi.es</a>
+          </div>
+
+          <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Contents <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <a href="http://lewisdavi.es#Pandas"><li>Pandas</li></a>
+                </ul>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  </div>
+
+
+  <div class="container">
+    <div class="spacer" style="height:60px"></div>
+    <div class="row">
+      <div class="col-sm-10 col-sm-offset-1">
+<h1>DataFrame Aggregates</h1>
+<label>Posted on 03 August 2017</label>
+<h1>Aggregates</h1>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Theresa&#39;</span><span class="p">,</span> <span class="s1">&#39;David&#39;</span><span class="p">,</span> <span class="s1">&#39;Gordon&#39;</span><span class="p">,</span> <span class="s1">&#39;Tony&#39;</span><span class="p">,</span> <span class="s1">&#39;John&#39;</span><span class="p">],</span>
+        <span class="s1">&#39;colour&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Blue&#39;</span><span class="p">,</span> <span class="s1">&#39;Blue&#39;</span><span class="p">,</span> <span class="s1">&#39;Red&#39;</span><span class="p">,</span> <span class="s1">&#39;Red&#39;</span><span class="p">,</span> <span class="s1">&#39;Blue&#39;</span><span class="p">],</span>
+        <span class="s1">&#39;score1&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span>
+        <span class="s1">&#39;score2&#39;</span><span class="p">:</span> <span class="p">[</span><span class="bp">None</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">],</span>
+        <span class="s1">&#39;score3&#39;</span><span class="p">:</span> <span class="p">[</span><span class="bp">None</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="mi">9</span><span class="p">]}</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="n">df</span>
+</pre></div>
+
+
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>colour</th>
+      <th>name</th>
+      <th>score1</th>
+      <th>score2</th>
+      <th>score3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Blue</td>
+      <td>Theresa</td>
+      <td>1</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Blue</td>
+      <td>David</td>
+      <td>5</td>
+      <td>3.0</td>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Red</td>
+      <td>Gordon</td>
+      <td>5</td>
+      <td>7.0</td>
+      <td>6.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Red</td>
+      <td>Tony</td>
+      <td>3</td>
+      <td>5.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Blue</td>
+      <td>John</td>
+      <td>5</td>
+      <td>7.0</td>
+      <td>9.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span>colour     Red
+name      Tony
+score1       5
+score2       7
+score3       9
+dtype: object
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span>colour     Blue
+name      David
+score1        1
+score2        3
+score3        5
+dtype: object
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span>colour            BlueBlueRedRedBlue
+name      TheresaDavidGordonTonyJohn
+score1                            19
+score2                            22
+score3                            20
+dtype: object
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span>colour    5
+name      5
+score1    5
+score2    4
+score3    3
+dtype: int64
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span>score1    3.800000
+score2    5.500000
+score3    6.666667
+dtype: float64
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">median</span><span class="p">()</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span>score1    5.0
+score2    6.0
+score3    6.0
+dtype: float64
+</pre></div>
+
+
+<div class="highlight"><pre><span></span>
+</pre></div>
+      </div>
+    </div>
+  </div>
+</body>
+</html

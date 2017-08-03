@@ -5,7 +5,7 @@ Tags: aggregates, max, min, sum, count, mean, median
 Date: 2017-08-03
 Modified: 2017-08-03
 
-# Aggregates
+### Aggregates
 
 
 ```python

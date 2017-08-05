@@ -1,5 +1,5 @@
-Title: Describe Your Data
-Slug: pandas/describe-your-data
+Title: Describing Your Data
+Slug: pandas/describing-your-data
 Category: Pandas
 Tags: info, describe, max, min, sum, count, mean, median, std, corr
 Date: 2017-08-05

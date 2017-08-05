@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>DataFrame Aggregates - Data Science Survival Guide - LewisDavi.es</title>
+  <title>Describe Your Data - Data Science Survival Guide - LewisDavi.es</title>
 
   <!-- Latest compiled and minified Bootstrap CSS -->
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
@@ -55,24 +55,22 @@
     <div class="spacer" style="height:60px"></div>
     <div class="row">
       <div class="col-sm-10 col-sm-offset-1">
-<h1>DataFrame Aggregates</h1>
-<label>Posted on 03 August 2017</label>
-<h3>Aggregates</h3>
+<h1>Describe Your Data</h1>
+<label>Posted on 05 August 2017</label>
+<h3>Import libraries</h3>
 <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
 </pre></div>
 
 
+<h3>Create DataFrame</h3>
 <div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Theresa&#39;</span><span class="p">,</span> <span class="s1">&#39;David&#39;</span><span class="p">,</span> <span class="s1">&#39;Gordon&#39;</span><span class="p">,</span> <span class="s1">&#39;Tony&#39;</span><span class="p">,</span> <span class="s1">&#39;John&#39;</span><span class="p">],</span>
         <span class="s1">&#39;colour&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Blue&#39;</span><span class="p">,</span> <span class="s1">&#39;Blue&#39;</span><span class="p">,</span> <span class="s1">&#39;Red&#39;</span><span class="p">,</span> <span class="s1">&#39;Red&#39;</span><span class="p">,</span> <span class="s1">&#39;Blue&#39;</span><span class="p">],</span>
         <span class="s1">&#39;score1&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span>
         <span class="s1">&#39;score2&#39;</span><span class="p">:</span> <span class="p">[</span><span class="bp">None</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">],</span>
-        <span class="s1">&#39;score3&#39;</span><span class="p">:</span> <span class="p">[</span><span class="bp">None</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="mi">9</span><span class="p">]}</span>
+        <span class="s1">&#39;score3&#39;</span><span class="p">:</span> <span class="p">[</span><span class="bp">None</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="bp">None</span><span class="p">]}</span>
 
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-</pre></div>
-
-
-<div class="highlight"><pre><span></span><span class="n">df</span>
+<span class="n">df</span>
 </pre></div>
 
 
@@ -132,7 +130,7 @@
       <td>Tony</td>
       <td>3</td>
       <td>5.0</td>
-      <td>NaN</td>
+      <td>9.0</td>
     </tr>
     <tr>
       <th>4</th>
@@ -140,12 +138,112 @@
       <td>John</td>
       <td>5</td>
       <td>7.0</td>
-      <td>9.0</td>
+      <td>NaN</td>
     </tr>
   </tbody>
 </table>
 </div>
 
+<h3>DataFrame information</h3>
+<div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 5 entries, 0 to 4
+Data columns (total 5 columns):
+colour    5 non-null object
+name      5 non-null object
+score1    5 non-null int64
+score2    4 non-null float64
+score3    3 non-null float64
+dtypes: float64(2), int64(1), object(2)
+memory usage: 280.0+ bytes
+</pre></div>
+
+
+<h3>Basic DataFrame statistics</h3>
+<div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+
+
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>score1</th>
+      <th>score2</th>
+      <th>score3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>5.000000</td>
+      <td>4.000000</td>
+      <td>3.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>3.800000</td>
+      <td>5.500000</td>
+      <td>6.666667</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>1.788854</td>
+      <td>1.914854</td>
+      <td>2.081666</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>1.000000</td>
+      <td>3.000000</td>
+      <td>5.000000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>3.000000</td>
+      <td>4.500000</td>
+      <td>5.500000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>5.000000</td>
+      <td>6.000000</td>
+      <td>6.000000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>5.000000</td>
+      <td>7.000000</td>
+      <td>7.500000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>5.000000</td>
+      <td>7.000000</td>
+      <td>9.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h3>Maximum values</h3>
 <div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
 </pre></div>
 
@@ -159,6 +257,7 @@ dtype: object
 </pre></div>
 
 
+<h3>Minimum values</h3>
 <div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
 </pre></div>
 
@@ -172,6 +271,7 @@ dtype: object
 </pre></div>
 
 
+<h3>Sum of values</h3>
 <div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 </pre></div>
 
@@ -185,6 +285,7 @@ dtype: object
 </pre></div>
 
 
+<h3>Count non-null values</h3>
 <div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
 </pre></div>
 
@@ -198,6 +299,7 @@ dtype: int64
 </pre></div>
 
 
+<h3>Mean values</h3>
 <div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 </pre></div>
 
@@ -209,6 +311,7 @@ dtype: float64
 </pre></div>
 
 
+<h3>Median values</h3>
 <div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">median</span><span class="p">()</span>
 </pre></div>
 
@@ -220,8 +323,68 @@ dtype: float64
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>
+<h3>Standard deviation of values</h3>
+<div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
 </pre></div>
+
+
+<div class="highlight"><pre><span></span>score1    1.788854
+score2    1.914854
+score3    2.081666
+dtype: float64
+</pre></div>
+
+
+<h3>Correlation matrix</h3>
+<div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
+</pre></div>
+
+
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>score1</th>
+      <th>score2</th>
+      <th>score3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>score1</th>
+      <td>1.000000</td>
+      <td>0.174078</td>
+      <td>-0.970725</td>
+    </tr>
+    <tr>
+      <th>score2</th>
+      <td>0.174078</td>
+      <td>1.000000</td>
+      <td>0.240192</td>
+    </tr>
+    <tr>
+      <th>score3</th>
+      <td>-0.970725</td>
+      <td>0.240192</td>
+      <td>1.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
       </div>
     </div>
   </div>

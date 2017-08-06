@@ -1,7 +1,7 @@
 Title: Importing Data
 Slug: pandas/importing-data
 Category: Pandas
-Tags: load, CSV, SQL, Excel
+Tags: read_csv, read_excel, psycopg2
 Date: 2017-08-01
 Modified: 2017-08-01
 

@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Basic Filtering with WHERE - Data Science Survival Guide - LewisDavi.es</title>
+
+  <!-- Latest compiled and minified Bootstrap CSS -->
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <!-- Pygments CSS -->
+  <link rel="stylesheet" type="text/css" href="http://lewisdavi.es/theme/css/pygments.css" />
+
+
+</head>
+
+<body>
+  <div class="navbar navbar-fixed-top navbar-inverse bg-inverse">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-10 col-sm-offset-1">
+
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a href="http://lewisdavi.es" class="navbar-brand">LewisDavi.es</a>
+          </div>
+
+          <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Contents <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <a href="http://lewisdavi.es#Pandas"><li>Pandas</li></a>
+                  <a href="http://lewisdavi.es#SQL"><li>SQL</li></a>
+                </ul>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  </div>
+
+
+  <div class="container">
+    <div class="spacer" style="height:60px"></div>
+    <div class="row">
+      <div class="col-sm-10 col-sm-offset-1">
+<h1>Basic Filtering with WHERE</h1>
+<label>Posted on 07 August 2017</label>
+<h3>Load ipython-sql extension</h3>
+<div class="highlight"><pre><span></span><span class="c1"># The 2 lines below prevent an error message from being displayed when we run %load_ext sql</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+
+<span class="o">%</span><span class="n">load_ext</span> <span class="n">sql</span>
+<span class="o">%</span><span class="n">config</span> <span class="n">SqlMagic</span><span class="o">.</span><span class="n">feedback</span> <span class="o">=</span> <span class="bp">False</span>
+</pre></div>
+
+
+<h3>Connect to the database</h3>
+<div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+<span class="n">postgresql</span><span class="p">:</span><span class="o">//</span><span class="n">localhost</span><span class="o">/</span><span class="n">dvdrental</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span>&#39;Connected: None@dvdrental&#39;
+</pre></div>
+
+
+<h3>A simple example</h3>
+<div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+
+<span class="n">SELECT</span>
+    <span class="o">*</span>
+<span class="n">FROM</span>
+    <span class="n">customer_list</span>
+<span class="n">WHERE</span>
+    <span class="o">--</span> <span class="n">Note</span> <span class="n">that</span> <span class="n">equality</span> <span class="n">tests</span> <span class="n">use</span> <span class="n">just</span> <span class="n">one</span> <span class="n">equals</span> <span class="n">sign</span>
+    <span class="n">country</span> <span class="o">=</span> <span class="s1">&#39;Canada&#39;</span>
+</pre></div>
+
+
+<table>
+    <tr>
+        <th>id</th>
+        <th>name</th>
+        <th>address</th>
+        <th>zip code</th>
+        <th>phone</th>
+        <th>city</th>
+        <th>country</th>
+        <th>notes</th>
+        <th>sid</th>
+    </tr>
+    <tr>
+        <td>476</td>
+        <td>Derrick Bourque</td>
+        <td>1153 Allende Way</td>
+        <td>20336</td>
+        <td>856872225376</td>
+        <td>Gatineau</td>
+        <td>Canada</td>
+        <td>active</td>
+        <td>1</td>
+    </tr>
+    <tr>
+        <td>463</td>
+        <td>Darrell Power</td>
+        <td>1844 Usak Avenue</td>
+        <td>84461</td>
+        <td>164414772677</td>
+        <td>Halifax</td>
+        <td>Canada</td>
+        <td>active</td>
+        <td>2</td>
+    </tr>
+    <tr>
+        <td>189</td>
+        <td>Loretta Carpenter</td>
+        <td>891 Novi Sad Manor</td>
+        <td>5379</td>
+        <td>247646995453</td>
+        <td>Oshawa</td>
+        <td>Canada</td>
+        <td>active</td>
+        <td>1</td>
+    </tr>
+    <tr>
+        <td>410</td>
+        <td>Curtis Irby</td>
+        <td>432 Garden Grove Street</td>
+        <td>65630</td>
+        <td>615964523510</td>
+        <td>Richmond Hill</td>
+        <td>Canada</td>
+        <td>active</td>
+        <td>2</td>
+    </tr>
+    <tr>
+        <td>436</td>
+        <td>Troy Quigley</td>
+        <td>983 Santa F Way</td>
+        <td>47472</td>
+        <td>145720452260</td>
+        <td>Vancouver</td>
+        <td>Canada</td>
+        <td>active</td>
+        <td>1</td>
+    </tr>
+</table>
+
+<h3>Filter on multiple conditions with AND</h3>
+<div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+
+<span class="n">SELECT</span>
+    <span class="o">*</span>
+<span class="n">FROM</span>
+    <span class="n">customer_list</span>
+<span class="n">WHERE</span>
+    <span class="n">country</span> <span class="o">=</span> <span class="s1">&#39;Canada&#39;</span>
+    <span class="n">AND</span> <span class="n">sid</span> <span class="o">=</span> <span class="mi">1</span>
+</pre></div>
+
+
+<table>
+    <tr>
+        <th>id</th>
+        <th>name</th>
+        <th>address</th>
+        <th>zip code</th>
+        <th>phone</th>
+        <th>city</th>
+        <th>country</th>
+        <th>notes</th>
+        <th>sid</th>
+    </tr>
+    <tr>
+        <td>476</td>
+        <td>Derrick Bourque</td>
+        <td>1153 Allende Way</td>
+        <td>20336</td>
+        <td>856872225376</td>
+        <td>Gatineau</td>
+        <td>Canada</td>
+        <td>active</td>
+        <td>1</td>
+    </tr>
+    <tr>
+        <td>189</td>
+        <td>Loretta Carpenter</td>
+        <td>891 Novi Sad Manor</td>
+        <td>5379</td>
+        <td>247646995453</td>
+        <td>Oshawa</td>
+        <td>Canada</td>
+        <td>active</td>
+        <td>1</td>
+    </tr>
+    <tr>
+        <td>436</td>
+        <td>Troy Quigley</td>
+        <td>983 Santa F Way</td>
+        <td>47472</td>
+        <td>145720452260</td>
+        <td>Vancouver</td>
+        <td>Canada</td>
+        <td>active</td>
+        <td>1</td>
+    </tr>
+</table>
+
+<h3>The OR operator</h3>
+<div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+
+<span class="n">SELECT</span>
+    <span class="o">*</span>
+<span class="n">FROM</span>
+    <span class="n">customer_list</span>
+<span class="n">WHERE</span>
+    <span class="n">country</span> <span class="o">=</span> <span class="s1">&#39;Canada&#39;</span>
+    <span class="n">OR</span> <span class="n">city</span> <span class="o">=</span> <span class="s1">&#39;Graz&#39;</span>
+</pre></div>
+
+
+<table>
+    <tr>
+        <th>id</th>
+        <th>name</th>
+        <th>address</th>
+        <th>zip code</th>
+        <th>phone</th>
+        <th>city</th>
+        <th>country</th>
+        <th>notes</th>
+        <th>sid</th>
+    </tr>
+    <tr>
+        <td>476</td>
+        <td>Derrick Bourque</td>
+        <td>1153 Allende Way</td>
+        <td>20336</td>
+        <td>856872225376</td>
+        <td>Gatineau</td>
+        <td>Canada</td>
+        <td>active</td>
+        <td>1</td>
+    </tr>
+    <tr>
+        <td>173</td>
+        <td>Audrey Ray</td>
+        <td>1010 Klerksdorp Way</td>
+        <td>6802</td>
+        <td>493008546874</td>
+        <td>Graz</td>
+        <td>Austria</td>
+        <td>active</td>
+        <td>1</td>
+    </tr>
+    <tr>
+        <td>463</td>
+        <td>Darrell Power</td>
+        <td>1844 Usak Avenue</td>
+        <td>84461</td>
+        <td>164414772677</td>
+        <td>Halifax</td>
+        <td>Canada</td>
+        <td>active</td>
+        <td>2</td>
+    </tr>
+    <tr>
+        <td>189</td>
+        <td>Loretta Carpenter</td>
+        <td>891 Novi Sad Manor</td>
+        <td>5379</td>
+        <td>247646995453</td>
+        <td>Oshawa</td>
+        <td>Canada</td>
+        <td>active</td>
+        <td>1</td>
+    </tr>
+    <tr>
+        <td>410</td>
+        <td>Curtis Irby</td>
+        <td>432 Garden Grove Street</td>
+        <td>65630</td>
+        <td>615964523510</td>
+        <td>Richmond Hill</td>
+        <td>Canada</td>
+        <td>active</td>
+        <td>2</td>
+    </tr>
+    <tr>
+        <td>436</td>
+        <td>Troy Quigley</td>
+        <td>983 Santa F Way</td>
+        <td>47472</td>
+        <td>145720452260</td>
+        <td>Vancouver</td>
+        <td>Canada</td>
+        <td>active</td>
+        <td>1</td>
+    </tr>
+</table>
+
+<h3>Combining operators</h3>
+<p>This query will return all details of people matching ONE of the following conditions:
+- They live in London
+- They are named Clive and don't live in Berlin</p>
+<div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+
+<span class="n">SELECT</span>
+    <span class="o">*</span>
+<span class="n">FROM</span>
+    <span class="n">customer_list</span>
+<span class="n">WHERE</span>
+    <span class="n">city</span> <span class="o">=</span> <span class="s1">&#39;Kabul&#39;</span>
+    <span class="n">OR</span> <span class="p">(</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Cecil Vines&#39;</span>
+        <span class="n">AND</span> <span class="n">city</span> <span class="o">=</span> <span class="s1">&#39;London&#39;</span>
+    <span class="p">)</span>
+</pre></div>
+
+
+<table>
+    <tr>
+        <th>id</th>
+        <th>name</th>
+        <th>address</th>
+        <th>zip code</th>
+        <th>phone</th>
+        <th>city</th>
+        <th>country</th>
+        <th>notes</th>
+        <th>sid</th>
+    </tr>
+    <tr>
+        <td>218</td>
+        <td>Vera Mccoy</td>
+        <td>1168 Najafabad Parkway</td>
+        <td>40301</td>
+        <td>886649065861</td>
+        <td>Kabul</td>
+        <td>Afghanistan</td>
+        <td>active</td>
+        <td>1</td>
+    </tr>
+    <tr>
+        <td>512</td>
+        <td>Cecil Vines</td>
+        <td>548 Uruapan Street</td>
+        <td>35653</td>
+        <td>879347453467</td>
+        <td>London</td>
+        <td>United Kingdom</td>
+        <td>active</td>
+        <td>1</td>
+    </tr>
+</table>
+      </div>
+    </div>
+  </div>
+</body>
+</html

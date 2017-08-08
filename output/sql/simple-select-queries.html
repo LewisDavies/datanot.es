@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Simple SELECT Queries - Data Science Survival Guide - LewisDavi.es</title>
+
+  <!-- Latest compiled and minified Bootstrap CSS -->
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <!-- Pygments CSS -->
+  <link rel="stylesheet" type="text/css" href="http://lewisdavi.es/theme/css/pygments.css" />
+
+
+</head>
+
+<body>
+  <div class="navbar navbar-fixed-top navbar-inverse bg-inverse">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-10 col-sm-offset-1">
+
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a href="http://lewisdavi.es" class="navbar-brand">LewisDavi.es</a>
+          </div>
+
+          <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Contents <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <a href="http://lewisdavi.es#Pandas"><li>Pandas</li></a>
+                  <a href="http://lewisdavi.es#SQL"><li>SQL</li></a>
+                </ul>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  </div>
+
+
+  <div class="container">
+    <div class="spacer" style="height:60px"></div>
+    <div class="row">
+      <div class="col-sm-10 col-sm-offset-1">
+<h1>Simple SELECT Queries</h1>
+<label>Posted on 07 August 2017</label>
+<h3>Load ipython-sql extension</h3>
+<div class="highlight"><pre><span></span><span class="c1"># The 2 lines below prevent an error message from being displayed when we run %load_ext sql</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+
+<span class="o">%</span><span class="n">load_ext</span> <span class="n">sql</span>
+<span class="o">%</span><span class="n">config</span> <span class="n">SqlMagic</span><span class="o">.</span><span class="n">feedback</span> <span class="o">=</span> <span class="bp">False</span>
+</pre></div>
+
+
+<h3>Connect to the database</h3>
+<div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+<span class="n">postgresql</span><span class="p">:</span><span class="o">//</span><span class="n">localhost</span><span class="o">/</span><span class="n">dvdrental</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span>&#39;Connected: None@dvdrental&#39;
+</pre></div>
+
+
+<h3>Select all rows and columns</h3>
+<div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+
+<span class="n">SELECT</span>
+    <span class="o">*</span>
+<span class="n">FROM</span>
+    <span class="n">category</span>
+</pre></div>
+
+
+<table>
+    <tr>
+        <th>category_id</th>
+        <th>name</th>
+        <th>last_update</th>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>Action</td>
+        <td>2006-02-15 09:46:27</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>Animation</td>
+        <td>2006-02-15 09:46:27</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>Children</td>
+        <td>2006-02-15 09:46:27</td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td>Classics</td>
+        <td>2006-02-15 09:46:27</td>
+    </tr>
+    <tr>
+        <td>5</td>
+        <td>Comedy</td>
+        <td>2006-02-15 09:46:27</td>
+    </tr>
+    <tr>
+        <td>6</td>
+        <td>Documentary</td>
+        <td>2006-02-15 09:46:27</td>
+    </tr>
+    <tr>
+        <td>7</td>
+        <td>Drama</td>
+        <td>2006-02-15 09:46:27</td>
+    </tr>
+    <tr>
+        <td>8</td>
+        <td>Family</td>
+        <td>2006-02-15 09:46:27</td>
+    </tr>
+    <tr>
+        <td>9</td>
+        <td>Foreign</td>
+        <td>2006-02-15 09:46:27</td>
+    </tr>
+    <tr>
+        <td>10</td>
+        <td>Games</td>
+        <td>2006-02-15 09:46:27</td>
+    </tr>
+    <tr>
+        <td>11</td>
+        <td>Horror</td>
+        <td>2006-02-15 09:46:27</td>
+    </tr>
+    <tr>
+        <td>12</td>
+        <td>Music</td>
+        <td>2006-02-15 09:46:27</td>
+    </tr>
+    <tr>
+        <td>13</td>
+        <td>New</td>
+        <td>2006-02-15 09:46:27</td>
+    </tr>
+    <tr>
+        <td>14</td>
+        <td>Sci-Fi</td>
+        <td>2006-02-15 09:46:27</td>
+    </tr>
+    <tr>
+        <td>15</td>
+        <td>Sports</td>
+        <td>2006-02-15 09:46:27</td>
+    </tr>
+    <tr>
+        <td>16</td>
+        <td>Travel</td>
+        <td>2006-02-15 09:46:27</td>
+    </tr>
+</table>
+
+<h3>Select specific columns</h3>
+<p>Columns are separated by commas. Putting the comma on the following line makes it simpler to comment out columns when testing your query.</p>
+<div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+
+<span class="n">SELECT</span>
+    <span class="n">category_id</span>
+    <span class="p">,</span> <span class="n">name</span>
+<span class="n">FROM</span>
+    <span class="n">category</span>
+</pre></div>
+
+
+<table>
+    <tr>
+        <th>category_id</th>
+        <th>name</th>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>Action</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>Animation</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>Children</td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td>Classics</td>
+    </tr>
+    <tr>
+        <td>5</td>
+        <td>Comedy</td>
+    </tr>
+    <tr>
+        <td>6</td>
+        <td>Documentary</td>
+    </tr>
+    <tr>
+        <td>7</td>
+        <td>Drama</td>
+    </tr>
+    <tr>
+        <td>8</td>
+        <td>Family</td>
+    </tr>
+    <tr>
+        <td>9</td>
+        <td>Foreign</td>
+    </tr>
+    <tr>
+        <td>10</td>
+        <td>Games</td>
+    </tr>
+    <tr>
+        <td>11</td>
+        <td>Horror</td>
+    </tr>
+    <tr>
+        <td>12</td>
+        <td>Music</td>
+    </tr>
+    <tr>
+        <td>13</td>
+        <td>New</td>
+    </tr>
+    <tr>
+        <td>14</td>
+        <td>Sci-Fi</td>
+    </tr>
+    <tr>
+        <td>15</td>
+        <td>Sports</td>
+    </tr>
+    <tr>
+        <td>16</td>
+        <td>Travel</td>
+    </tr>
+</table>
+      </div>
+    </div>
+  </div>
+</body>
+</html

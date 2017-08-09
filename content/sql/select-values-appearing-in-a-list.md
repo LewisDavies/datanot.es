@@ -1,9 +1,10 @@
+
 Title: Select Values Appearing in a List
 Slug: sql/select-values-appearing-in-a-list
 Category: SQL
 Tags: SELECT, FROM, WHERE, IN, NOT, LIMIT
 Date: 2017-08-08
-Modified: 2017-08-08
+Modified: 2017-08-09
 
 ### Load ipython-sql extension
 
@@ -40,9 +41,9 @@ postgresql://localhost/dvdrental
 SELECT
     *
 FROM
-    address
+    address a
 WHERE
-    district IN ('Alberta', 'Jiangsu')
+    a.district IN ('Alberta', 'Jiangsu')
 ```
 
 
@@ -111,9 +112,9 @@ WHERE
 SELECT
     *
 FROM
-    address
+    address a
 WHERE
-    district NOT IN ('Alberta', 'Jiangsu')
+    a.district NOT IN ('Alberta', 'Jiangsu')
 -- For convenience, we'll only show the first 5 results
 LIMIT
     5
@@ -184,10 +185,3 @@ LIMIT
         <td>2006-02-15 09:45:30</td>
     </tr>
 </table>
-
-
-
-
-```python
-
-```

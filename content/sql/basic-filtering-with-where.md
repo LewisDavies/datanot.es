@@ -1,9 +1,10 @@
+
 Title: Basic Filtering with WHERE
 Slug: sql/basic-filtering-with-where
 Category: SQL
 Tags: SELECT, FROM, WHERE, AND, OR
 Date: 2017-08-07
-Modified: 2017-08-07
+Modified: 2017-08-09
 
 ### Load ipython-sql extension
 
@@ -41,10 +42,10 @@ postgresql://localhost/dvdrental
 SELECT
     *
 FROM
-    customer_list
+    customer_list cl
 WHERE
     -- Note that equality tests use just one equals sign
-    country = 'Canada'
+    cl.country = 'Canada'
 ```
 
 
@@ -130,10 +131,10 @@ WHERE
 SELECT
     *
 FROM
-    customer_list
+    customer_list cl
 WHERE
-    country = 'Canada'
-    AND sid = 1
+    cl.country = 'Canada'
+    AND cl.sid = 1
 ```
 
 
@@ -197,10 +198,10 @@ WHERE
 SELECT
     *
 FROM
-    customer_list
+    customer_list cl
 WHERE
-    country = 'Canada'
-    OR city = 'Graz'
+    cl.country = 'Canada'
+    OR cl.city = 'Graz'
 ```
 
 
@@ -300,12 +301,12 @@ This query will return all details of people matching ONE of the following condi
 SELECT
     *
 FROM
-    customer_list
+    customer_list cl
 WHERE
-    city = 'Kabul'
+    cl.city = 'Kabul'
     OR (
-        name = 'Cecil Vines'
-        AND city = 'London'
+        cl.name = 'Cecil Vines'
+        AND cl.city = 'London'
     )
 ```
 

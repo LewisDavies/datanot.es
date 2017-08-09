@@ -1,9 +1,10 @@
+
 Title: Select Values Within a Range
 Slug: sql/select-values-within-a-range
 Category: SQL
 Tags: SELECT, FROM, WHERE, BETWEEN, LIMIT
 Date: 2017-08-08
-Modified: 2017-08-08
+Modified: 2017-08-09
 
 ### Load ipython-sql extension
 
@@ -39,12 +40,12 @@ Note that this is an inclusive search: results matching the specified values are
 ```python
 %%sql
 SELECT
-    title
-    , length
+    f.title
+    , f.length
 FROM
-    film
+    film f
 WHERE
-    length BETWEEN 110 AND 120
+    f.length BETWEEN 110 AND 120
 -- For convenience, we'll only show the first 5 results
 LIMIT
     5
@@ -88,10 +89,10 @@ LIMIT
 ```python
 %%sql
 SELECT
-    title
-    , length
+    f.title
+    , f.length
 FROM
-    film
+    film f
 WHERE
     length NOT BETWEEN 110 AND 120
 LIMIT

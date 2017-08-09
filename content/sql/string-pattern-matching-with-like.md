@@ -1,9 +1,10 @@
+
 Title: String Pattern Matching with LIKE
 Slug: sql/string-pattern-matching-with-like
 Category: SQL
 Tags: SELECT, FROM, WHERE, LIKE
 Date: 2017-08-08
-Modified: 2017-08-08
+Modified: 2017-08-09
 
 ### Load ipython-sql extension
 
@@ -39,13 +40,13 @@ Use an underscore to find values that match a single character
 ```python
 %%sql
 SELECT
-    customer_id
-    , first_name
-    , last_name
+    c.customer_id
+    , c.first_name
+    , c.last_name
 FROM
-    customer
+    customer c
 WHERE
-    first_name LIKE 'Andre_'
+    c.first_name LIKE 'Andre_'
 ```
 
 
@@ -77,13 +78,13 @@ Note that underscores can be combined to match a specific number of characters
 ```python
 %%sql
 SELECT
-    customer_id
-    , first_name
-    , last_name
+    c.customer_id
+    , c.first_name
+    , c.last_name
 FROM
-    customer
+    customer c
 WHERE
-    first_name LIKE 'Jam__'
+    c.first_name LIKE 'Jam__'
 ```
 
 
@@ -121,13 +122,13 @@ A percent sign will match any number of characters
 ```python
 %%sql
 SELECT
-    customer_id
-    , first_name
-    , last_name
+    c.customer_id
+    , c.first_name
+    , c.last_name
 FROM
-    customer
+    customer c
 WHERE
-    first_name LIKE 'Charl%'
+    c.first_name LIKE 'Charl%'
 ```
 
 
@@ -169,13 +170,13 @@ Note that ```%``` will match zero-length sequences, as in the example below
 ```python
 %%sql
 SELECT
-    customer_id
-    , first_name
-    , last_name
+    c.customer_id
+    , c.first_name
+    , c.last_name
 FROM
-    customer
+    customer c
 WHERE
-    first_name LIKE '%Jonathan%'
+    c.first_name LIKE '%Jonathan%'
 ```
 
 

@@ -1,9 +1,10 @@
+
 Title: Simple SELECT Queries
 Slug: sql/simple-select-queries
 Category: SQL
 Tags: SELECT, FROM
 Date: 2017-08-07
-Modified: 2017-08-07
+Modified: 2017-08-09
 
 ### Load ipython-sql extension
 
@@ -41,7 +42,7 @@ postgresql://localhost/dvdrental
 SELECT
     *
 FROM
-    category
+    category c
 ```
 
 
@@ -145,10 +146,10 @@ Columns are separated by commas. Putting the comma on the following line makes i
 %%sql
 
 SELECT
-    category_id
-    , name
+    c.category_id
+    , c.name
 FROM
-    category
+    category c
 ```
 
 

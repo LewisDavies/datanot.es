@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Joining Tables - Data Analysis Survival Guide - LewisDavi.es</title>
+
+  <!-- Latest compiled and minified Bootstrap CSS -->
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <!-- Pygments CSS -->
+  <link rel="stylesheet" type="text/css" href="http://lewisdavi.es/theme/css/pygments.css" />
+
+
+</head>
+
+<body>
+  <div class="navbar navbar-fixed-top navbar-inverse bg-inverse">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-10 col-sm-offset-1">
+
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a href="http://lewisdavi.es" class="navbar-brand">LewisDavi.es</a>
+          </div>
+
+          <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Contents <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <a href="http://lewisdavi.es#Pandas"><li>Pandas</li></a>
+                  <a href="http://lewisdavi.es#SQL"><li>SQL</li></a>
+                </ul>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  </div>
+
+
+  <div class="container">
+    <div class="spacer" style="height:60px"></div>
+    <div class="row">
+      <div class="col-sm-10 col-sm-offset-1">
+<h1>Joining Tables</h1>
+<label>Posted on 09 August 2017</label>
+<h3>Recommended reading</h3>
+<p>I recommend reading the <a href="https://blog.codinghorror.com/a-visual-explanation-of-sql-joins/">Coding Horror's explanation of SQL joins</a> for more detail. Here are a few examples for reference.</p>
+<h3>Load ipython-sql extension</h3>
+<div class="highlight"><pre><span></span><span class="c1"># The 2 lines below prevent an error message from being displayed when we run %load_ext sql</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+
+<span class="o">%</span><span class="n">load_ext</span> <span class="n">sql</span>
+<span class="o">%</span><span class="n">config</span> <span class="n">SqlMagic</span><span class="o">.</span><span class="n">feedback</span> <span class="o">=</span> <span class="bp">False</span>
+</pre></div>
+
+
+<h3>Connect to the database</h3>
+<div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+<span class="n">postgresql</span><span class="p">:</span><span class="o">//</span><span class="n">localhost</span><span class="o">/</span><span class="n">dvdrental</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span>&#39;Connected: None@dvdrental&#39;
+</pre></div>
+
+
+<h3>Joining tables</h3>
+<p>When joining tables, it's handy to give them a shorter alias: this makes it easier to refer to them later. This is important as some tables may have common column names and it's important to differentiate between them.</p>
+<p>Note that this method works in PostgreSQL, but you may need to add <code>AS</code> after the table name in other SQL implementations.</p>
+<div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+<span class="n">SELECT</span>
+    <span class="n">c</span><span class="o">.</span><span class="n">customer_id</span>
+    <span class="p">,</span> <span class="n">c</span><span class="o">.</span><span class="n">first_name</span>
+    <span class="p">,</span> <span class="n">c</span><span class="o">.</span><span class="n">last_name</span>
+    <span class="p">,</span> <span class="n">a</span><span class="o">.</span><span class="n">address</span>
+    <span class="p">,</span> <span class="n">a</span><span class="o">.</span><span class="n">district</span>
+    <span class="p">,</span> <span class="n">a</span><span class="o">.</span><span class="n">city_id</span>
+<span class="n">FROM</span>
+    <span class="n">customer</span> <span class="n">c</span>
+    <span class="o">--</span> <span class="n">To</span> <span class="n">be</span> <span class="n">explicit</span><span class="p">,</span> <span class="n">INNER</span> <span class="n">JOIN</span> <span class="n">can</span> <span class="n">also</span> <span class="n">be</span> <span class="n">used</span> <span class="n">here</span>
+    <span class="n">JOIN</span> <span class="n">address</span> <span class="n">a</span> <span class="n">on</span> <span class="n">a</span><span class="o">.</span><span class="n">address_id</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">address_id</span>
+<span class="n">LIMIT</span>
+    <span class="mi">5</span>
+</pre></div>
+
+
+<table>
+    <tr>
+        <th>customer_id</th>
+        <th>first_name</th>
+        <th>last_name</th>
+        <th>address</th>
+        <th>district</th>
+        <th>city_id</th>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>Mary</td>
+        <td>Smith</td>
+        <td>1913 Hanoi Way</td>
+        <td>Nagasaki</td>
+        <td>463</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>Patricia</td>
+        <td>Johnson</td>
+        <td>1121 Loja Avenue</td>
+        <td>California</td>
+        <td>449</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>Linda</td>
+        <td>Williams</td>
+        <td>692 Joliet Street</td>
+        <td>Attika</td>
+        <td>38</td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td>Barbara</td>
+        <td>Jones</td>
+        <td>1566 Inegl Manor</td>
+        <td>Mandalay</td>
+        <td>349</td>
+    </tr>
+    <tr>
+        <td>5</td>
+        <td>Elizabeth</td>
+        <td>Brown</td>
+        <td>53 Idfu Parkway</td>
+        <td>Nantou</td>
+        <td>361</td>
+    </tr>
+</table>
+
+<h3>Different types of join</h3>
+<p>In addition to <code>INNER JOIN</code>, you can also use <code>OUTER JOIN</code>, <code>LEFT JOIN</code>, <code>RIGHT JOIN</code>, and <code>CROSS JOIN</code>. Since the syntax is essentially the same, I'll explain how they work.</p>
+<h3><code>INNER JOIN</code></h3>
+<p>Find records in table 1 that have a match in table 2, ignoring records that don't appear in both tables. This is how the example above works.</p>
+<h3><code>OUTER JOIN</code></h3>
+<p>Preserve all records from both tables. If a record from table 1 has a match in table 2, join them together. If a record from table 1 doesn't have a match in table 2, return the <code>NULL</code> values for the columns from table 2 (and vice versa).</p>
+<h3><code>LEFT JOIN</code> &amp; <code>RIGHT JOIN</code></h3>
+<p>In a <code>LEFT JOIN</code>, all data from the left table is preserved, with matching data from the right table join where it exists. In a <code>RIGHT JOIN</code>, the data from the right table is preserved instead.</p>
+<p>The 'leftmost' table is the first table specified in your query. For example, in the query above <code>customer</code> is the left table and <code>address</code> is the right table.</p>
+<h3><code>CROSS JOIN</code></h3>
+<p>Match all possible combinations of two tables. As you might expect, this can lead to very large tables and is probably the least common type of join. To deomnstrate, let's <code>CROSS JOIN</code> a small sub-selection on the <code>film</code> and <code>language</code> tables:</p>
+<div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+<span class="n">SELECT</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">film_id</span>
+    <span class="p">,</span> <span class="n">f</span><span class="o">.</span><span class="n">title</span>
+<span class="n">FROM</span>
+    <span class="n">film</span> <span class="n">f</span>
+<span class="n">WHERE</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">film_id</span> <span class="o">&lt;</span> <span class="mi">4</span>
+</pre></div>
+
+
+<table>
+    <tr>
+        <th>film_id</th>
+        <th>title</th>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>Academy Dinosaur</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>Ace Goldfinger</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>Adaptation Holes</td>
+    </tr>
+</table>
+
+<div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+<span class="n">SELECT</span>
+    <span class="n">l</span><span class="o">.</span><span class="n">language_id</span>
+    <span class="p">,</span> <span class="n">l</span><span class="o">.</span><span class="n">name</span>
+<span class="n">FROM</span>
+    <span class="n">language</span> <span class="n">l</span>
+<span class="n">WHERE</span>
+    <span class="n">l</span><span class="o">.</span><span class="n">language_id</span> <span class="o">&lt;</span> <span class="mi">4</span>
+</pre></div>
+
+
+<table>
+    <tr>
+        <th>language_id</th>
+        <th>name</th>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>English             </td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>Italian             </td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>Japanese            </td>
+    </tr>
+</table>
+
+<div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+<span class="n">SELECT</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">film_id</span>
+    <span class="p">,</span> <span class="n">f</span><span class="o">.</span><span class="n">title</span>
+    <span class="p">,</span> <span class="n">l</span><span class="o">.</span><span class="n">language_id</span>
+    <span class="p">,</span> <span class="n">l</span><span class="o">.</span><span class="n">name</span>
+<span class="n">FROM</span>
+    <span class="n">film</span> <span class="n">f</span>
+    <span class="n">CROSS</span> <span class="n">JOIN</span> <span class="n">language</span> <span class="n">l</span>
+<span class="n">WHERE</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">film_id</span> <span class="o">&lt;</span> <span class="mi">4</span>
+    <span class="n">AND</span> <span class="n">l</span><span class="o">.</span><span class="n">language_id</span> <span class="o">&lt;</span> <span class="mi">4</span>
+</pre></div>
+
+
+<table>
+    <tr>
+        <th>film_id</th>
+        <th>title</th>
+        <th>language_id</th>
+        <th>name</th>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>Academy Dinosaur</td>
+        <td>1</td>
+        <td>English             </td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>Academy Dinosaur</td>
+        <td>2</td>
+        <td>Italian             </td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>Academy Dinosaur</td>
+        <td>3</td>
+        <td>Japanese            </td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>Ace Goldfinger</td>
+        <td>1</td>
+        <td>English             </td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>Ace Goldfinger</td>
+        <td>2</td>
+        <td>Italian             </td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>Ace Goldfinger</td>
+        <td>3</td>
+        <td>Japanese            </td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>Adaptation Holes</td>
+        <td>1</td>
+        <td>English             </td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>Adaptation Holes</td>
+        <td>2</td>
+        <td>Italian             </td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>Adaptation Holes</td>
+        <td>3</td>
+        <td>Japanese            </td>
+    </tr>
+</table>
+
+<h3><code>UNION</code></h3>
+<p>Combine the results of two or more <code>SELECT</code> statements into a single table. Returned results are stacked one above the other, not side-by-side as with the <code>JOIN</code>s listed above:</p>
+<div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+<span class="n">SELECT</span>
+    <span class="n">a</span><span class="o">.</span><span class="n">actor_id</span>
+    <span class="p">,</span> <span class="n">a</span><span class="o">.</span><span class="n">first_name</span>
+    <span class="p">,</span> <span class="n">a</span><span class="o">.</span><span class="n">last_name</span>
+<span class="n">FROM</span>
+    <span class="n">actor</span> <span class="n">a</span>
+<span class="n">WHERE</span>
+    <span class="n">a</span><span class="o">.</span><span class="n">actor_id</span> <span class="o">&lt;</span> <span class="mi">4</span>
+</pre></div>
+
+
+<table>
+    <tr>
+        <th>actor_id</th>
+        <th>first_name</th>
+        <th>last_name</th>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>Nick</td>
+        <td>Wahlberg</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>Linda</td>
+        <td>Williams</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>Ed</td>
+        <td>Chase</td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>Mary</td>
+        <td>Smith</td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>Penelope</td>
+        <td>Guiness</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>Patricia</td>
+        <td>Johnson</td>
+    </tr>
+</table>
+
+<div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+<span class="n">SELECT</span>
+    <span class="n">c</span><span class="o">.</span><span class="n">customer_id</span>
+    <span class="p">,</span> <span class="n">c</span><span class="o">.</span><span class="n">first_name</span>
+    <span class="p">,</span> <span class="n">c</span><span class="o">.</span><span class="n">last_name</span>
+<span class="n">FROM</span>
+    <span class="n">customer</span> <span class="n">c</span>
+<span class="n">WHERE</span>
+    <span class="n">c</span><span class="o">.</span><span class="n">customer_id</span> <span class="o">&lt;</span> <span class="mi">4</span>
+</pre></div>
+
+
+<table>
+    <tr>
+        <th>customer_id</th>
+        <th>first_name</th>
+        <th>last_name</th>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>Mary</td>
+        <td>Smith</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>Patricia</td>
+        <td>Johnson</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>Linda</td>
+        <td>Williams</td>
+    </tr>
+</table>
+
+<div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+<span class="n">SELECT</span>
+    <span class="n">a</span><span class="o">.</span><span class="n">actor_id</span>
+    <span class="p">,</span> <span class="n">a</span><span class="o">.</span><span class="n">first_name</span>
+    <span class="p">,</span> <span class="n">a</span><span class="o">.</span><span class="n">last_name</span>
+<span class="n">FROM</span>
+    <span class="n">actor</span> <span class="n">a</span>
+<span class="n">WHERE</span>
+    <span class="n">a</span><span class="o">.</span><span class="n">actor_id</span> <span class="o">&lt;</span> <span class="mi">4</span>
+
+<span class="n">UNION</span>
+
+<span class="n">SELECT</span>
+    <span class="n">c</span><span class="o">.</span><span class="n">customer_id</span>
+    <span class="p">,</span> <span class="n">c</span><span class="o">.</span><span class="n">first_name</span>
+    <span class="p">,</span> <span class="n">c</span><span class="o">.</span><span class="n">last_name</span>
+<span class="n">FROM</span>
+    <span class="n">customer</span> <span class="n">c</span>
+<span class="n">WHERE</span>
+    <span class="n">c</span><span class="o">.</span><span class="n">customer_id</span> <span class="o">&lt;</span> <span class="mi">4</span>
+</pre></div>
+
+
+<table>
+    <tr>
+        <th>actor_id</th>
+        <th>first_name</th>
+        <th>last_name</th>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>Nick</td>
+        <td>Wahlberg</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>Linda</td>
+        <td>Williams</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>Ed</td>
+        <td>Chase</td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>Mary</td>
+        <td>Smith</td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>Penelope</td>
+        <td>Guiness</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>Patricia</td>
+        <td>Johnson</td>
+    </tr>
+</table>
+
+<p>If there were any duplicate rows in these results, <code>UNION</code> would have removed them. To preserve all rows including duplicates, use <code>UNION ALL</code>.</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html

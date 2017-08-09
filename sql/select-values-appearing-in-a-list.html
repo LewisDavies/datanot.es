@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Select Values Appearing in a List - Data Analysis Survival Guide - LewisDavi.es</title>
+
+  <!-- Latest compiled and minified Bootstrap CSS -->
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <!-- Pygments CSS -->
+  <link rel="stylesheet" type="text/css" href="http://lewisdavi.es/theme/css/pygments.css" />
+
+
+</head>
+
+<body>
+  <div class="navbar navbar-fixed-top navbar-inverse bg-inverse">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-10 col-sm-offset-1">
+
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a href="http://lewisdavi.es" class="navbar-brand">LewisDavi.es</a>
+          </div>
+
+          <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Contents <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <a href="http://lewisdavi.es#Pandas"><li>Pandas</li></a>
+                  <a href="http://lewisdavi.es#SQL"><li>SQL</li></a>
+                </ul>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  </div>
+
+
+  <div class="container">
+    <div class="spacer" style="height:60px"></div>
+    <div class="row">
+      <div class="col-sm-10 col-sm-offset-1">
+<h1>Select Values Appearing in a List</h1>
+<label>Posted on 08 August 2017</label>
+<h3>Load ipython-sql extension</h3>
+<div class="highlight"><pre><span></span><span class="c1"># The 2 lines below prevent an error message from being displayed when we run %load_ext sql</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+
+<span class="o">%</span><span class="n">load_ext</span> <span class="n">sql</span>
+<span class="o">%</span><span class="n">config</span> <span class="n">SqlMagic</span><span class="o">.</span><span class="n">feedback</span> <span class="o">=</span> <span class="bp">False</span>
+</pre></div>
+
+
+<h3>Connect to the database</h3>
+<div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+<span class="n">postgresql</span><span class="p">:</span><span class="o">//</span><span class="n">localhost</span><span class="o">/</span><span class="n">dvdrental</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span>&#39;Connected: None@dvdrental&#39;
+</pre></div>
+
+
+<h3>Find values matching a list with IN</h3>
+<div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+<span class="n">SELECT</span>
+    <span class="o">*</span>
+<span class="n">FROM</span>
+    <span class="n">address</span> <span class="n">a</span>
+<span class="n">WHERE</span>
+    <span class="n">a</span><span class="o">.</span><span class="n">district</span> <span class="n">IN</span> <span class="p">(</span><span class="s1">&#39;Alberta&#39;</span><span class="p">,</span> <span class="s1">&#39;Jiangsu&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<table>
+    <tr>
+        <th>address_id</th>
+        <th>address</th>
+        <th>address2</th>
+        <th>district</th>
+        <th>city_id</th>
+        <th>postal_code</th>
+        <th>phone</th>
+        <th>last_update</th>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>47 MySakila Drive</td>
+        <td>None</td>
+        <td>Alberta</td>
+        <td>300</td>
+        <td></td>
+        <td></td>
+        <td>2006-02-15 09:45:30</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>23 Workhaven Lane</td>
+        <td>None</td>
+        <td>Alberta</td>
+        <td>300</td>
+        <td></td>
+        <td>14033335568</td>
+        <td>2006-02-15 09:45:30</td>
+    </tr>
+    <tr>
+        <td>201</td>
+        <td>817 Bradford Loop</td>
+        <td></td>
+        <td>Jiangsu</td>
+        <td>109</td>
+        <td>89459</td>
+        <td>264286442804</td>
+        <td>2006-02-15 09:45:30</td>
+    </tr>
+    <tr>
+        <td>389</td>
+        <td>500 Lincoln Parkway</td>
+        <td></td>
+        <td>Jiangsu</td>
+        <td>210</td>
+        <td>95509</td>
+        <td>550306965159</td>
+        <td>2006-02-15 09:45:30</td>
+    </tr>
+</table>
+
+<h3>Find values not appearing in a list</h3>
+<div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+<span class="n">SELECT</span>
+    <span class="o">*</span>
+<span class="n">FROM</span>
+    <span class="n">address</span> <span class="n">a</span>
+<span class="n">WHERE</span>
+    <span class="n">a</span><span class="o">.</span><span class="n">district</span> <span class="n">NOT</span> <span class="n">IN</span> <span class="p">(</span><span class="s1">&#39;Alberta&#39;</span><span class="p">,</span> <span class="s1">&#39;Jiangsu&#39;</span><span class="p">)</span>
+<span class="o">--</span> <span class="n">For</span> <span class="n">convenience</span><span class="p">,</span> <span class="n">we</span><span class="s1">&#39;ll only show the first 5 results</span>
+<span class="n">LIMIT</span>
+    <span class="mi">5</span>
+</pre></div>
+
+
+<table>
+    <tr>
+        <th>address_id</th>
+        <th>address</th>
+        <th>address2</th>
+        <th>district</th>
+        <th>city_id</th>
+        <th>postal_code</th>
+        <th>phone</th>
+        <th>last_update</th>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>28 MySQL Boulevard</td>
+        <td>None</td>
+        <td>QLD</td>
+        <td>576</td>
+        <td></td>
+        <td></td>
+        <td>2006-02-15 09:45:30</td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td>1411 Lillydale Drive</td>
+        <td>None</td>
+        <td>QLD</td>
+        <td>576</td>
+        <td></td>
+        <td>6172235589</td>
+        <td>2006-02-15 09:45:30</td>
+    </tr>
+    <tr>
+        <td>5</td>
+        <td>1913 Hanoi Way</td>
+        <td></td>
+        <td>Nagasaki</td>
+        <td>463</td>
+        <td>35200</td>
+        <td>28303384290</td>
+        <td>2006-02-15 09:45:30</td>
+    </tr>
+    <tr>
+        <td>6</td>
+        <td>1121 Loja Avenue</td>
+        <td></td>
+        <td>California</td>
+        <td>449</td>
+        <td>17886</td>
+        <td>838635286649</td>
+        <td>2006-02-15 09:45:30</td>
+    </tr>
+    <tr>
+        <td>7</td>
+        <td>692 Joliet Street</td>
+        <td></td>
+        <td>Attika</td>
+        <td>38</td>
+        <td>83579</td>
+        <td>448477190408</td>
+        <td>2006-02-15 09:45:30</td>
+    </tr>
+</table>
+      </div>
+    </div>
+  </div>
+</body>
+</html

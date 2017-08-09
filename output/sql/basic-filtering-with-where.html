@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Basic Filtering with WHERE - Data Science Survival Guide - LewisDavi.es</title>
+  <title>Basic Filtering with WHERE - Data Analysis Survival Guide - LewisDavi.es</title>
 
   <!-- Latest compiled and minified Bootstrap CSS -->
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
@@ -84,10 +84,10 @@
 <span class="n">SELECT</span>
     <span class="o">*</span>
 <span class="n">FROM</span>
-    <span class="n">customer_list</span>
+    <span class="n">customer_list</span> <span class="n">cl</span>
 <span class="n">WHERE</span>
     <span class="o">--</span> <span class="n">Note</span> <span class="n">that</span> <span class="n">equality</span> <span class="n">tests</span> <span class="n">use</span> <span class="n">just</span> <span class="n">one</span> <span class="n">equals</span> <span class="n">sign</span>
-    <span class="n">country</span> <span class="o">=</span> <span class="s1">&#39;Canada&#39;</span>
+    <span class="n">cl</span><span class="o">.</span><span class="n">country</span> <span class="o">=</span> <span class="s1">&#39;Canada&#39;</span>
 </pre></div>
 
 
@@ -166,10 +166,10 @@
 <span class="n">SELECT</span>
     <span class="o">*</span>
 <span class="n">FROM</span>
-    <span class="n">customer_list</span>
+    <span class="n">customer_list</span> <span class="n">cl</span>
 <span class="n">WHERE</span>
-    <span class="n">country</span> <span class="o">=</span> <span class="s1">&#39;Canada&#39;</span>
-    <span class="n">AND</span> <span class="n">sid</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">cl</span><span class="o">.</span><span class="n">country</span> <span class="o">=</span> <span class="s1">&#39;Canada&#39;</span>
+    <span class="n">AND</span> <span class="n">cl</span><span class="o">.</span><span class="n">sid</span> <span class="o">=</span> <span class="mi">1</span>
 </pre></div>
 
 
@@ -226,10 +226,10 @@
 <span class="n">SELECT</span>
     <span class="o">*</span>
 <span class="n">FROM</span>
-    <span class="n">customer_list</span>
+    <span class="n">customer_list</span> <span class="n">cl</span>
 <span class="n">WHERE</span>
-    <span class="n">country</span> <span class="o">=</span> <span class="s1">&#39;Canada&#39;</span>
-    <span class="n">OR</span> <span class="n">city</span> <span class="o">=</span> <span class="s1">&#39;Graz&#39;</span>
+    <span class="n">cl</span><span class="o">.</span><span class="n">country</span> <span class="o">=</span> <span class="s1">&#39;Canada&#39;</span>
+    <span class="n">OR</span> <span class="n">cl</span><span class="o">.</span><span class="n">city</span> <span class="o">=</span> <span class="s1">&#39;Graz&#39;</span>
 </pre></div>
 
 
@@ -322,12 +322,12 @@
 <span class="n">SELECT</span>
     <span class="o">*</span>
 <span class="n">FROM</span>
-    <span class="n">customer_list</span>
+    <span class="n">customer_list</span> <span class="n">cl</span>
 <span class="n">WHERE</span>
-    <span class="n">city</span> <span class="o">=</span> <span class="s1">&#39;Kabul&#39;</span>
+    <span class="n">cl</span><span class="o">.</span><span class="n">city</span> <span class="o">=</span> <span class="s1">&#39;Kabul&#39;</span>
     <span class="n">OR</span> <span class="p">(</span>
-        <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Cecil Vines&#39;</span>
-        <span class="n">AND</span> <span class="n">city</span> <span class="o">=</span> <span class="s1">&#39;London&#39;</span>
+        <span class="n">cl</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Cecil Vines&#39;</span>
+        <span class="n">AND</span> <span class="n">cl</span><span class="o">.</span><span class="n">city</span> <span class="o">=</span> <span class="s1">&#39;London&#39;</span>
     <span class="p">)</span>
 </pre></div>
 

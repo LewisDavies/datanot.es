@@ -1,4 +1,3 @@
-
 Title: Select Values Appearing in a List
 Slug: sql/select-values-appearing-in-a-list
 Category: SQL

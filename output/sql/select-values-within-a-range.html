@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Select Values Within a Range - Data Science Survival Guide - LewisDavi.es</title>
+  <title>Select Values Within a Range - Data Analysis Survival Guide - LewisDavi.es</title>
 
   <!-- Latest compiled and minified Bootstrap CSS -->
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
@@ -82,12 +82,12 @@
 <p>Note that this is an inclusive search: results matching the specified values are included</p>
 <div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
 <span class="n">SELECT</span>
-    <span class="n">title</span>
-    <span class="p">,</span> <span class="n">length</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">title</span>
+    <span class="p">,</span> <span class="n">f</span><span class="o">.</span><span class="n">length</span>
 <span class="n">FROM</span>
-    <span class="n">film</span>
+    <span class="n">film</span> <span class="n">f</span>
 <span class="n">WHERE</span>
-    <span class="n">length</span> <span class="n">BETWEEN</span> <span class="mi">110</span> <span class="n">AND</span> <span class="mi">120</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">length</span> <span class="n">BETWEEN</span> <span class="mi">110</span> <span class="n">AND</span> <span class="mi">120</span>
 <span class="o">--</span> <span class="n">For</span> <span class="n">convenience</span><span class="p">,</span> <span class="n">we</span><span class="s1">&#39;ll only show the first 5 results</span>
 <span class="n">LIMIT</span>
     <span class="mi">5</span>
@@ -124,10 +124,10 @@
 <h3>Find values outside the same range</h3>
 <div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
 <span class="n">SELECT</span>
-    <span class="n">title</span>
-    <span class="p">,</span> <span class="n">length</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">title</span>
+    <span class="p">,</span> <span class="n">f</span><span class="o">.</span><span class="n">length</span>
 <span class="n">FROM</span>
-    <span class="n">film</span>
+    <span class="n">film</span> <span class="n">f</span>
 <span class="n">WHERE</span>
     <span class="n">length</span> <span class="n">NOT</span> <span class="n">BETWEEN</span> <span class="mi">110</span> <span class="n">AND</span> <span class="mi">120</span>
 <span class="n">LIMIT</span>

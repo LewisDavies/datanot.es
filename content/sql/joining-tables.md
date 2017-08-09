@@ -1,4 +1,3 @@
-
 Title: Joining Tables
 Slug: sql/joining-tables
 Category: SQL

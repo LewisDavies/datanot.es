@@ -1,4 +1,3 @@
-
 Title: String Pattern Matching with LIKE
 Slug: sql/string-pattern-matching-with-like
 Category: SQL

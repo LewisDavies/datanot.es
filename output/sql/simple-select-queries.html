@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Simple SELECT Queries - Data Science Survival Guide - LewisDavi.es</title>
+  <title>Simple SELECT Queries - Data Analysis Survival Guide - LewisDavi.es</title>
 
   <!-- Latest compiled and minified Bootstrap CSS -->
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
@@ -84,7 +84,7 @@
 <span class="n">SELECT</span>
     <span class="o">*</span>
 <span class="n">FROM</span>
-    <span class="n">category</span>
+    <span class="n">category</span> <span class="n">c</span>
 </pre></div>
 
 
@@ -181,10 +181,10 @@
 <div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
 
 <span class="n">SELECT</span>
-    <span class="n">category_id</span>
-    <span class="p">,</span> <span class="n">name</span>
+    <span class="n">c</span><span class="o">.</span><span class="n">category_id</span>
+    <span class="p">,</span> <span class="n">c</span><span class="o">.</span><span class="n">name</span>
 <span class="n">FROM</span>
-    <span class="n">category</span>
+    <span class="n">category</span> <span class="n">c</span>
 </pre></div>
 
 

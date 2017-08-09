@@ -1,4 +1,3 @@
-
 Title: Simple SELECT Queries
 Slug: sql/simple-select-queries
 Category: SQL

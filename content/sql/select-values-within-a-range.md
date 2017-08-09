@@ -1,4 +1,3 @@
-
 Title: Select Values Within a Range
 Slug: sql/select-values-within-a-range
 Category: SQL

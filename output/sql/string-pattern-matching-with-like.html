@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>String Pattern Matching with LIKE - Data Science Survival Guide - LewisDavi.es</title>
+  <title>String Pattern Matching with LIKE - Data Analysis Survival Guide - LewisDavi.es</title>
 
   <!-- Latest compiled and minified Bootstrap CSS -->
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
@@ -82,13 +82,13 @@
 <p>Use an underscore to find values that match a single character</p>
 <div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
 <span class="n">SELECT</span>
-    <span class="n">customer_id</span>
-    <span class="p">,</span> <span class="n">first_name</span>
-    <span class="p">,</span> <span class="n">last_name</span>
+    <span class="n">c</span><span class="o">.</span><span class="n">customer_id</span>
+    <span class="p">,</span> <span class="n">c</span><span class="o">.</span><span class="n">first_name</span>
+    <span class="p">,</span> <span class="n">c</span><span class="o">.</span><span class="n">last_name</span>
 <span class="n">FROM</span>
-    <span class="n">customer</span>
+    <span class="n">customer</span> <span class="n">c</span>
 <span class="n">WHERE</span>
-    <span class="n">first_name</span> <span class="n">LIKE</span> <span class="s1">&#39;Andre_&#39;</span>
+    <span class="n">c</span><span class="o">.</span><span class="n">first_name</span> <span class="n">LIKE</span> <span class="s1">&#39;Andre_&#39;</span>
 </pre></div>
 
 
@@ -113,13 +113,13 @@
 <p>Note that underscores can be combined to match a specific number of characters</p>
 <div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
 <span class="n">SELECT</span>
-    <span class="n">customer_id</span>
-    <span class="p">,</span> <span class="n">first_name</span>
-    <span class="p">,</span> <span class="n">last_name</span>
+    <span class="n">c</span><span class="o">.</span><span class="n">customer_id</span>
+    <span class="p">,</span> <span class="n">c</span><span class="o">.</span><span class="n">first_name</span>
+    <span class="p">,</span> <span class="n">c</span><span class="o">.</span><span class="n">last_name</span>
 <span class="n">FROM</span>
-    <span class="n">customer</span>
+    <span class="n">customer</span> <span class="n">c</span>
 <span class="n">WHERE</span>
-    <span class="n">first_name</span> <span class="n">LIKE</span> <span class="s1">&#39;Jam__&#39;</span>
+    <span class="n">c</span><span class="o">.</span><span class="n">first_name</span> <span class="n">LIKE</span> <span class="s1">&#39;Jam__&#39;</span>
 </pre></div>
 
 
@@ -150,13 +150,13 @@
 <p>A percent sign will match any number of characters</p>
 <div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
 <span class="n">SELECT</span>
-    <span class="n">customer_id</span>
-    <span class="p">,</span> <span class="n">first_name</span>
-    <span class="p">,</span> <span class="n">last_name</span>
+    <span class="n">c</span><span class="o">.</span><span class="n">customer_id</span>
+    <span class="p">,</span> <span class="n">c</span><span class="o">.</span><span class="n">first_name</span>
+    <span class="p">,</span> <span class="n">c</span><span class="o">.</span><span class="n">last_name</span>
 <span class="n">FROM</span>
-    <span class="n">customer</span>
+    <span class="n">customer</span> <span class="n">c</span>
 <span class="n">WHERE</span>
-    <span class="n">first_name</span> <span class="n">LIKE</span> <span class="s1">&#39;Charl%&#39;</span>
+    <span class="n">c</span><span class="o">.</span><span class="n">first_name</span> <span class="n">LIKE</span> <span class="s1">&#39;Charl%&#39;</span>
 </pre></div>
 
 
@@ -191,13 +191,13 @@
 <p>Note that <code>%</code> will match zero-length sequences, as in the example below</p>
 <div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
 <span class="n">SELECT</span>
-    <span class="n">customer_id</span>
-    <span class="p">,</span> <span class="n">first_name</span>
-    <span class="p">,</span> <span class="n">last_name</span>
+    <span class="n">c</span><span class="o">.</span><span class="n">customer_id</span>
+    <span class="p">,</span> <span class="n">c</span><span class="o">.</span><span class="n">first_name</span>
+    <span class="p">,</span> <span class="n">c</span><span class="o">.</span><span class="n">last_name</span>
 <span class="n">FROM</span>
-    <span class="n">customer</span>
+    <span class="n">customer</span> <span class="n">c</span>
 <span class="n">WHERE</span>
-    <span class="n">first_name</span> <span class="n">LIKE</span> <span class="s1">&#39;%Jonathan%&#39;</span>
+    <span class="n">c</span><span class="o">.</span><span class="n">first_name</span> <span class="n">LIKE</span> <span class="s1">&#39;%Jonathan%&#39;</span>
 </pre></div>
 
 

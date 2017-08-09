@@ -1,4 +1,3 @@
-
 Title: Basic Filtering with WHERE
 Slug: sql/basic-filtering-with-where
 Category: SQL

@@ -70,6 +70,7 @@
 
 <h3>Connect to the database</h3>
 <div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+
 <span class="n">postgresql</span><span class="p">:</span><span class="o">//</span><span class="n">localhost</span><span class="o">/</span><span class="n">dvdrental</span>
 </pre></div>
 
@@ -80,6 +81,7 @@
 
 <h3>Sample data</h3>
 <div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+
 <span class="n">SELECT</span>
     <span class="n">a</span><span class="o">.</span><span class="n">district</span>
 <span class="n">FROM</span>
@@ -106,6 +108,7 @@
 
 <h3>Remove duplicates with <code>DISTINCT</code></h3>
 <div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+
 <span class="n">SELECT</span> <span class="n">DISTINCT</span>
     <span class="n">a</span><span class="o">.</span><span class="n">district</span>
 <span class="n">FROM</span>
@@ -127,6 +130,7 @@
 <h3>Using <code>DISTINCT ON</code></h3>
 <p>The above example was pretty unrealistic, I'll admit. However, you can include more columns and remove duplicates based on just one with <code>DISTINCT ON</code>.</p>
 <div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+
 <span class="n">SELECT</span>
     <span class="o">*</span>
 <span class="n">FROM</span>
@@ -180,6 +184,7 @@
 </table>
 
 <div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+
 <span class="n">SELECT</span> <span class="n">DISTINCT</span> <span class="n">ON</span> <span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">district</span><span class="p">)</span>
     <span class="o">*</span>
 <span class="n">FROM</span>

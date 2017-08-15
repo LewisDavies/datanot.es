@@ -70,6 +70,7 @@
 
 <h3>Connect to the database</h3>
 <div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+
 <span class="n">postgresql</span><span class="p">:</span><span class="o">//</span><span class="n">localhost</span><span class="o">/</span><span class="n">dvdrental</span>
 </pre></div>
 
@@ -81,6 +82,7 @@
 <h3>Find matches to a single character</h3>
 <p>Use an underscore to find values that match a single character</p>
 <div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+
 <span class="n">SELECT</span>
     <span class="n">c</span><span class="o">.</span><span class="n">customer_id</span>
     <span class="p">,</span> <span class="n">c</span><span class="o">.</span><span class="n">first_name</span>
@@ -112,6 +114,7 @@
 
 <p>Note that underscores can be combined to match a specific number of characters</p>
 <div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+
 <span class="n">SELECT</span>
     <span class="n">c</span><span class="o">.</span><span class="n">customer_id</span>
     <span class="p">,</span> <span class="n">c</span><span class="o">.</span><span class="n">first_name</span>
@@ -149,6 +152,7 @@
 <h3>Find matches to a sequence of characters</h3>
 <p>A percent sign will match any number of characters</p>
 <div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+
 <span class="n">SELECT</span>
     <span class="n">c</span><span class="o">.</span><span class="n">customer_id</span>
     <span class="p">,</span> <span class="n">c</span><span class="o">.</span><span class="n">first_name</span>
@@ -190,6 +194,7 @@
 
 <p>Note that <code>%</code> will match zero-length sequences, as in the example below</p>
 <div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+
 <span class="n">SELECT</span>
     <span class="n">c</span><span class="o">.</span><span class="n">customer_id</span>
     <span class="p">,</span> <span class="n">c</span><span class="o">.</span><span class="n">first_name</span>

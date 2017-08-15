@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Limiting the Number of Returned Results - Data Analysis Survival Guide - LewisDavi.es</title>
+  <title>Conditional Expressions with CASE - Data Analysis Survival Guide - LewisDavi.es</title>
 
   <!-- Latest compiled and minified Bootstrap CSS -->
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
@@ -56,8 +56,8 @@
     <div class="spacer" style="height:60px"></div>
     <div class="row">
       <div class="col-sm-10 col-sm-offset-1">
-<h1>Limiting the Number of Returned Results</h1>
-<label>Posted on 11 August 2017</label>
+<h1>Conditional Expressions with CASE</h1>
+<label>Posted on 15 August 2017</label>
 <h3>Load ipython-sql extension</h3>
 <div class="highlight"><pre><span></span><span class="c1"># The 2 lines below prevent an error message from being displayed when we run %load_ext sql</span>
 <span class="kn">import</span> <span class="nn">warnings</span>
@@ -70,7 +70,6 @@
 
 <h3>Connect to the database</h3>
 <div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
-
 <span class="n">postgresql</span><span class="p">:</span><span class="o">//</span><span class="n">localhost</span><span class="o">/</span><span class="n">dvdrental</span>
 </pre></div>
 
@@ -79,111 +78,16 @@
 </pre></div>
 
 
-<h3>Sample data</h3>
+<h3>Sample from <code>film</code> table</h3>
 <div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
 
 <span class="n">SELECT</span>
-    <span class="o">*</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">film_id</span>
+    <span class="p">,</span> <span class="n">f</span><span class="o">.</span><span class="n">title</span>
+    <span class="p">,</span> <span class="n">f</span><span class="o">.</span><span class="n">rental_rate</span>
+    <span class="p">,</span> <span class="n">f</span><span class="o">.</span><span class="n">length</span>
 <span class="n">FROM</span>
-    <span class="n">category</span> <span class="n">c</span>
-</pre></div>
-
-
-<table>
-    <tr>
-        <th>category_id</th>
-        <th>name</th>
-        <th>last_update</th>
-    </tr>
-    <tr>
-        <td>1</td>
-        <td>Action</td>
-        <td>2006-02-15 09:46:27</td>
-    </tr>
-    <tr>
-        <td>2</td>
-        <td>Animation</td>
-        <td>2006-02-15 09:46:27</td>
-    </tr>
-    <tr>
-        <td>3</td>
-        <td>Children</td>
-        <td>2006-02-15 09:46:27</td>
-    </tr>
-    <tr>
-        <td>4</td>
-        <td>Classics</td>
-        <td>2006-02-15 09:46:27</td>
-    </tr>
-    <tr>
-        <td>5</td>
-        <td>Comedy</td>
-        <td>2006-02-15 09:46:27</td>
-    </tr>
-    <tr>
-        <td>6</td>
-        <td>Documentary</td>
-        <td>2006-02-15 09:46:27</td>
-    </tr>
-    <tr>
-        <td>7</td>
-        <td>Drama</td>
-        <td>2006-02-15 09:46:27</td>
-    </tr>
-    <tr>
-        <td>8</td>
-        <td>Family</td>
-        <td>2006-02-15 09:46:27</td>
-    </tr>
-    <tr>
-        <td>9</td>
-        <td>Foreign</td>
-        <td>2006-02-15 09:46:27</td>
-    </tr>
-    <tr>
-        <td>10</td>
-        <td>Games</td>
-        <td>2006-02-15 09:46:27</td>
-    </tr>
-    <tr>
-        <td>11</td>
-        <td>Horror</td>
-        <td>2006-02-15 09:46:27</td>
-    </tr>
-    <tr>
-        <td>12</td>
-        <td>Music</td>
-        <td>2006-02-15 09:46:27</td>
-    </tr>
-    <tr>
-        <td>13</td>
-        <td>New</td>
-        <td>2006-02-15 09:46:27</td>
-    </tr>
-    <tr>
-        <td>14</td>
-        <td>Sci-Fi</td>
-        <td>2006-02-15 09:46:27</td>
-    </tr>
-    <tr>
-        <td>15</td>
-        <td>Sports</td>
-        <td>2006-02-15 09:46:27</td>
-    </tr>
-    <tr>
-        <td>16</td>
-        <td>Travel</td>
-        <td>2006-02-15 09:46:27</td>
-    </tr>
-</table>
-
-<h3>Using LIMIT</h3>
-<div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
-
-<span class="n">SELECT</span>
-    <span class="o">*</span>
-<span class="n">FROM</span>
-    <span class="n">category</span> <span class="n">c</span>
+    <span class="n">film</span> <span class="n">f</span>
 <span class="n">LIMIT</span>
     <span class="mi">5</span>
 </pre></div>
@@ -191,81 +95,116 @@
 
 <table>
     <tr>
-        <th>category_id</th>
-        <th>name</th>
-        <th>last_update</th>
+        <th>film_id</th>
+        <th>title</th>
+        <th>rental_rate</th>
+        <th>length</th>
+    </tr>
+    <tr>
+        <td>133</td>
+        <td>Chamber Italian</td>
+        <td>4.99</td>
+        <td>117</td>
+    </tr>
+    <tr>
+        <td>384</td>
+        <td>Grosse Wonderful</td>
+        <td>4.99</td>
+        <td>49</td>
+    </tr>
+    <tr>
+        <td>8</td>
+        <td>Airport Pollock</td>
+        <td>4.99</td>
+        <td>54</td>
+    </tr>
+    <tr>
+        <td>98</td>
+        <td>Bright Encounters</td>
+        <td>4.99</td>
+        <td>73</td>
     </tr>
     <tr>
         <td>1</td>
-        <td>Action</td>
-        <td>2006-02-15 09:46:27</td>
-    </tr>
-    <tr>
-        <td>2</td>
-        <td>Animation</td>
-        <td>2006-02-15 09:46:27</td>
-    </tr>
-    <tr>
-        <td>3</td>
-        <td>Children</td>
-        <td>2006-02-15 09:46:27</td>
-    </tr>
-    <tr>
-        <td>4</td>
-        <td>Classics</td>
-        <td>2006-02-15 09:46:27</td>
-    </tr>
-    <tr>
-        <td>5</td>
-        <td>Comedy</td>
-        <td>2006-02-15 09:46:27</td>
+        <td>Academy Dinosaur</td>
+        <td>0.99</td>
+        <td>86</td>
     </tr>
 </table>
 
-<h3>Removing the first <em>n</em> results</h3>
+<h3>Using aggregates</h3>
 <div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
-
 <span class="n">SELECT</span>
-    <span class="o">*</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">film_id</span>
+    <span class="p">,</span> <span class="n">f</span><span class="o">.</span><span class="n">title</span>
+    <span class="p">,</span> <span class="n">CASE</span>
+        <span class="n">WHEN</span> <span class="n">f</span><span class="o">.</span><span class="n">length</span> <span class="o">&gt;</span> <span class="mi">160</span> <span class="n">THEN</span> <span class="s1">&#39;Way too long&#39;</span>
+        <span class="n">WHEN</span> <span class="n">f</span><span class="o">.</span><span class="n">length</span> <span class="o">&gt;</span> <span class="mi">120</span> <span class="n">THEN</span> <span class="s1">&#39;Getting a bit bored now&#39;</span>
+        <span class="n">WHEN</span> <span class="n">f</span><span class="o">.</span><span class="n">length</span> <span class="o">&gt;</span> <span class="mi">80</span> <span class="n">THEN</span> <span class="s1">&#39;Goldilocks zone&#39;</span>
+        <span class="n">ELSE</span> <span class="s1">&#39;Bit of a rip-off&#39;</span>
+        <span class="n">END</span>
 <span class="n">FROM</span>
-    <span class="n">category</span> <span class="n">c</span>
+    <span class="n">film</span> <span class="n">f</span>
 <span class="n">LIMIT</span>
-    <span class="mi">5</span>
-<span class="n">OFFSET</span>
-    <span class="mi">5</span>
+    <span class="mi">10</span>
 </pre></div>
 
 
 <table>
     <tr>
-        <th>category_id</th>
-        <th>name</th>
-        <th>last_update</th>
+        <th>film_id</th>
+        <th>title</th>
+        <th>case</th>
     </tr>
     <tr>
-        <td>6</td>
-        <td>Documentary</td>
-        <td>2006-02-15 09:46:27</td>
+        <td>133</td>
+        <td>Chamber Italian</td>
+        <td>Goldilocks zone</td>
     </tr>
     <tr>
-        <td>7</td>
-        <td>Drama</td>
-        <td>2006-02-15 09:46:27</td>
+        <td>384</td>
+        <td>Grosse Wonderful</td>
+        <td>Bit of a rip-off</td>
     </tr>
     <tr>
         <td>8</td>
-        <td>Family</td>
-        <td>2006-02-15 09:46:27</td>
+        <td>Airport Pollock</td>
+        <td>Bit of a rip-off</td>
     </tr>
     <tr>
-        <td>9</td>
-        <td>Foreign</td>
-        <td>2006-02-15 09:46:27</td>
+        <td>98</td>
+        <td>Bright Encounters</td>
+        <td>Bit of a rip-off</td>
     </tr>
     <tr>
-        <td>10</td>
-        <td>Games</td>
-        <td>2006-02-15 09:46:27</td>
+        <td>1</td>
+        <td>Academy Dinosaur</td>
+        <td>Goldilocks zone</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>Ace Goldfinger</td>
+        <td>Bit of a rip-off</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>Adaptation Holes</td>
+        <td>Bit of a rip-off</td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td>Affair Prejudice</td>
+        <td>Goldilocks zone</td>
+    </tr>
+    <tr>
+        <td>5</td>
+        <td>African Egg</td>
+        <td>Getting a bit bored now</td>
+    </tr>
+    <tr>
+        <td>6</td>
+        <td>Agent Truman</td>
+        <td>Way too long</td>
     </tr>
 </table>
       </div>

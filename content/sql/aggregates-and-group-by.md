@@ -1,9 +1,9 @@
 Title: Aggregates and GROUP BY
 Slug: sql/aggregates-and-group-by
 Category: SQL
-Tags: SELECT, FROM, LIMIT, SUM, AVG, MAX, MIN, COUNT, GROUP BY
+Tags: SELECT, FROM, LIMIT, GROUP BY, sum, avg, max, min, count
 Date: 2017-08-10
-Modified: 2017-08-10
+Modified: 2017-08-15
 
 ### Load ipython-sql extension
 
@@ -22,6 +22,7 @@ warnings.filterwarnings('ignore')
 
 ```python
 %%sql
+
 postgresql://localhost/dvdrental
 ```
 
@@ -93,13 +94,14 @@ LIMIT
 
 
 
-### Syntax example — `SUM`
+### Syntax example — `sum`
 
 
 ```python
 %%sql
+
 SELECT
-    SUM(f.length)
+    sum(f.length)
 FROM
     film f
 ```
@@ -119,15 +121,15 @@ FROM
 
 
 ### Other aggregate functions
-**`AVG`**: Mean of all column values
+**`avg`**: Mean of all column values
 
-**`MAX`**: Highest value in the column
+**`max`**: Highest value in the column
 
-**`MIN`**: Lowest value in the column
+**`min`**: Lowest value in the column
 
-**`COUNT`**: Total number of non-null values
+**`count`**: Total number of non-null values
 
-\*Some aggregates, including `MAX`, `MIN` and `COUNT`, can also be applied to strings.
+\*Some aggregates, including `max`, `min` and `count`, can also be applied to strings.
 
 ### `GROUP BY`
 Let's say we want to find the mean film length at each price point, and all films cost £0.99, £2.99 or £4.99.
@@ -135,9 +137,10 @@ Let's say we want to find the mean film length at each price point, and all film
 
 ```python
 %%sql
+
 SELECT
     f.rental_rate
-    , AVG(f.length)
+    , avg(f.length)
 FROM
     film f
 GROUP BY
@@ -173,15 +176,19 @@ You can group according to more than one column to drill down into your data, bu
 
 ```python
 %%sql
+
 SELECT
     f.rental_rate
     , f.rating
-    , AVG(f.length)
+    , avg(f.length)
 FROM
     film f
 GROUP BY
     f.rental_rate
     , f.rating
+ORDER BY
+    f.rental_rate ASC
+    , f.rating ASC
 ```
 
 
@@ -194,24 +201,14 @@ GROUP BY
         <th>avg</th>
     </tr>
     <tr>
-        <td>4.99</td>
-        <td>R</td>
-        <td>115.8923076923076923</td>
+        <td>0.99</td>
+        <td>G</td>
+        <td>106.7187500000000000</td>
     </tr>
     <tr>
         <td>0.99</td>
         <td>PG</td>
         <td>108.3548387096774194</td>
-    </tr>
-    <tr>
-        <td>2.99</td>
-        <td>R</td>
-        <td>116.3833333333333333</td>
-    </tr>
-    <tr>
-        <td>2.99</td>
-        <td>G</td>
-        <td>113.9661016949152542</td>
     </tr>
     <tr>
         <td>0.99</td>
@@ -220,8 +217,38 @@ GROUP BY
     </tr>
     <tr>
         <td>0.99</td>
+        <td>R</td>
+        <td>123.1857142857142857</td>
+    </tr>
+    <tr>
+        <td>0.99</td>
         <td>NC-17</td>
         <td>111.1780821917808219</td>
+    </tr>
+    <tr>
+        <td>2.99</td>
+        <td>G</td>
+        <td>113.9661016949152542</td>
+    </tr>
+    <tr>
+        <td>2.99</td>
+        <td>PG</td>
+        <td>116.6562500000000000</td>
+    </tr>
+    <tr>
+        <td>2.99</td>
+        <td>PG-13</td>
+        <td>123.5675675675675676</td>
+    </tr>
+    <tr>
+        <td>2.99</td>
+        <td>R</td>
+        <td>116.3833333333333333</td>
+    </tr>
+    <tr>
+        <td>2.99</td>
+        <td>NC-17</td>
+        <td>114.1666666666666667</td>
     </tr>
     <tr>
         <td>4.99</td>
@@ -234,34 +261,14 @@ GROUP BY
         <td>110.9558823529411765</td>
     </tr>
     <tr>
-        <td>0.99</td>
-        <td>R</td>
-        <td>123.1857142857142857</td>
-    </tr>
-    <tr>
-        <td>2.99</td>
-        <td>PG</td>
-        <td>116.6562500000000000</td>
-    </tr>
-    <tr>
         <td>4.99</td>
         <td>PG-13</td>
         <td>123.3636363636363636</td>
     </tr>
     <tr>
-        <td>2.99</td>
-        <td>NC-17</td>
-        <td>114.1666666666666667</td>
-    </tr>
-    <tr>
-        <td>2.99</td>
-        <td>PG-13</td>
-        <td>123.5675675675675676</td>
-    </tr>
-    <tr>
-        <td>0.99</td>
-        <td>G</td>
-        <td>106.7187500000000000</td>
+        <td>4.99</td>
+        <td>R</td>
+        <td>115.8923076923076923</td>
     </tr>
     <tr>
         <td>4.99</td>

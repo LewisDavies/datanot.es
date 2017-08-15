@@ -22,6 +22,7 @@ warnings.filterwarnings('ignore')
 
 ```python
 %%sql
+
 postgresql://localhost/dvdrental
 ```
 
@@ -37,6 +38,7 @@ postgresql://localhost/dvdrental
 
 ```python
 %%sql
+
 SELECT
     a.district
 FROM
@@ -70,6 +72,7 @@ WHERE
 
 ```python
 %%sql
+
 SELECT DISTINCT
     a.district
 FROM
@@ -98,6 +101,7 @@ The above example was pretty unrealistic, I'll admit. However, you can include m
 
 ```python
 %%sql
+
 SELECT
     *
 FROM
@@ -157,6 +161,7 @@ WHERE
 
 ```python
 %%sql
+
 SELECT DISTINCT ON (a.district)
     *
 FROM

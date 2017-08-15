@@ -22,6 +22,7 @@ warnings.filterwarnings('ignore')
 
 ```python
 %%sql
+
 postgresql://localhost/dvdrental
 ```
 
@@ -38,6 +39,7 @@ Use an underscore to find values that match a single character
 
 ```python
 %%sql
+
 SELECT
     c.customer_id
     , c.first_name
@@ -76,6 +78,7 @@ Note that underscores can be combined to match a specific number of characters
 
 ```python
 %%sql
+
 SELECT
     c.customer_id
     , c.first_name
@@ -120,6 +123,7 @@ A percent sign will match any number of characters
 
 ```python
 %%sql
+
 SELECT
     c.customer_id
     , c.first_name
@@ -168,6 +172,7 @@ Note that ```%``` will match zero-length sequences, as in the example below
 
 ```python
 %%sql
+
 SELECT
     c.customer_id
     , c.first_name

@@ -22,6 +22,7 @@ warnings.filterwarnings('ignore')
 
 ```python
 %%sql
+
 postgresql://localhost/dvdrental
 ```
 
@@ -38,6 +39,7 @@ Note that this is an inclusive search: results matching the specified values are
 
 ```python
 %%sql
+
 SELECT
     f.title
     , f.length
@@ -87,13 +89,14 @@ LIMIT
 
 ```python
 %%sql
+
 SELECT
     f.title
     , f.length
 FROM
     film f
 WHERE
-    length NOT BETWEEN 110 AND 120
+    f.length NOT BETWEEN 110 AND 120
 LIMIT
     5
 ```

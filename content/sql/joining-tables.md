@@ -25,6 +25,7 @@ warnings.filterwarnings('ignore')
 
 ```python
 %%sql
+
 postgresql://localhost/dvdrental
 ```
 
@@ -43,6 +44,7 @@ Note that this method works in PostgreSQL, but you may need to add `AS` after th
 
 ```python
 %%sql
+
 SELECT
     c.customer_id
     , c.first_name
@@ -134,6 +136,7 @@ Match all possible combinations of two tables. As you might expect, this can lea
 
 ```python
 %%sql
+
 SELECT
     f.film_id
     , f.title
@@ -170,6 +173,7 @@ WHERE
 
 ```python
 %%sql
+
 SELECT
     l.language_id
     , l.name
@@ -206,6 +210,7 @@ WHERE
 
 ```python
 %%sql
+
 SELECT
     f.film_id
     , f.title
@@ -293,6 +298,7 @@ Combine the results of two or more `SELECT` statements into a single table. Retu
 
 ```python
 %%sql
+
 SELECT
     a.actor_id
     , a.first_name
@@ -349,6 +355,7 @@ WHERE
 
 ```python
 %%sql
+
 SELECT
     c.customer_id
     , c.first_name
@@ -390,6 +397,7 @@ WHERE
 
 ```python
 %%sql
+
 SELECT
     a.actor_id
     , a.first_name

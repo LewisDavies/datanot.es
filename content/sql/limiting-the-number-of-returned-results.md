@@ -22,6 +22,7 @@ warnings.filterwarnings('ignore')
 
 ```python
 %%sql
+
 postgresql://localhost/dvdrental
 ```
 
@@ -37,6 +38,7 @@ postgresql://localhost/dvdrental
 
 ```python
 %%sql
+
 SELECT
     *
 FROM
@@ -141,6 +143,7 @@ FROM
 
 ```python
 %%sql
+
 SELECT
     *
 FROM
@@ -192,6 +195,7 @@ LIMIT
 
 ```python
 %%sql
+
 SELECT
     *
 FROM

@@ -1,19 +1,40 @@
 {% extends "base.html" %}
 
 {% block content %}
+
 <h1>The Data Analysis Survival Guide</h1>
-<p>SQL & Python are incredibly powerful tools for analysing data, but there's a lot to learn about both. This site is my personal notebook on accessing, wrangling, and analysing data, with reusable code snippets available as a reference.</p>
+<p>SQL & Python are incredibly powerful tools for analysing data, but there's a lot to learn about both. This site is my personal notebook on accessing, wrangling and analysing data, with reusable code snippets available as a reference.</p>
 <p>This site is inspired by <a href="http://chrisalbon.com" target="_blank">ChrisAlbon.com</a>, which has been a huge help as I've learned to analyse data. This site is also open source and available on <a href="https://github.com/LewisDavies/lewisdavi.es" target="_blank">Github</a>.</p>
 
 <hr>
 
 {% for cat in categories %}
 <h2 id="{{ cat[0].name|replace(" ", "-") }}">{{ cat[0].name }}</h2>
-<ul>
-  {% for article in cat[1] %}
-  <a href="{{ article.url }}"><li>{{ article.title|e }}</li></a>
-  {% endfor %}
-</ul>
+
+<div class="row">
+  <div class="col-sm-6">
+
+    <ul>
+    {% for article in cat[1] %}
+      {% if loop.index % 2 == 1 %}
+      <a href="{{ article.url }}"><li>{{ article.title|e }}</li></a>
+      {% endif %}
+    {% endfor %}
+    </ul>
+
+  </div>
+  <div class="col-sm-6">
+
+    <ul>
+    {% for article in cat[1] %}
+      {% if loop.index % 2 == 0 %}
+      <a href="{{ article.url }}"><li>{{ article.title|e }}</li></a>
+      {% endif %}
+    {% endfor %}
+    </ul>
+
+  </div>
+</div>
 {% endfor %}
 
 {% endblock %}

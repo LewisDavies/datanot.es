@@ -72,6 +72,7 @@
 
 <h3>Connect to the database</h3>
 <div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+
 <span class="n">postgresql</span><span class="p">:</span><span class="o">//</span><span class="n">localhost</span><span class="o">/</span><span class="n">dvdrental</span>
 </pre></div>
 
@@ -84,6 +85,7 @@
 <p>When joining tables, it's handy to give them a shorter alias: this makes it easier to refer to them later. This is important as some tables may have common column names and it's important to differentiate between them.</p>
 <p>Note that this method works in PostgreSQL, but you may need to add <code>AS</code> after the table name in other SQL implementations.</p>
 <div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+
 <span class="n">SELECT</span>
     <span class="n">c</span><span class="o">.</span><span class="n">customer_id</span>
     <span class="p">,</span> <span class="n">c</span><span class="o">.</span><span class="n">first_name</span>
@@ -163,6 +165,7 @@
 <h3><code>CROSS JOIN</code></h3>
 <p>Match all possible combinations of two tables. As you might expect, this can lead to very large tables and is probably the least common type of join. To deomnstrate, let's <code>CROSS JOIN</code> a small sub-selection on the <code>film</code> and <code>language</code> tables:</p>
 <div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+
 <span class="n">SELECT</span>
     <span class="n">f</span><span class="o">.</span><span class="n">film_id</span>
     <span class="p">,</span> <span class="n">f</span><span class="o">.</span><span class="n">title</span>
@@ -193,6 +196,7 @@
 </table>
 
 <div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+
 <span class="n">SELECT</span>
     <span class="n">l</span><span class="o">.</span><span class="n">language_id</span>
     <span class="p">,</span> <span class="n">l</span><span class="o">.</span><span class="n">name</span>
@@ -223,6 +227,7 @@
 </table>
 
 <div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+
 <span class="n">SELECT</span>
     <span class="n">f</span><span class="o">.</span><span class="n">film_id</span>
     <span class="p">,</span> <span class="n">f</span><span class="o">.</span><span class="n">title</span>
@@ -303,6 +308,7 @@
 <h3><code>UNION</code></h3>
 <p>Combine the results of two or more <code>SELECT</code> statements into a single table. Returned results are stacked one above the other, not side-by-side as with the <code>JOIN</code>s listed above:</p>
 <div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+
 <span class="n">SELECT</span>
     <span class="n">a</span><span class="o">.</span><span class="n">actor_id</span>
     <span class="p">,</span> <span class="n">a</span><span class="o">.</span><span class="n">first_name</span>
@@ -353,6 +359,7 @@
 </table>
 
 <div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+
 <span class="n">SELECT</span>
     <span class="n">c</span><span class="o">.</span><span class="n">customer_id</span>
     <span class="p">,</span> <span class="n">c</span><span class="o">.</span><span class="n">first_name</span>
@@ -388,6 +395,7 @@
 </table>
 
 <div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+
 <span class="n">SELECT</span>
     <span class="n">a</span><span class="o">.</span><span class="n">actor_id</span>
     <span class="p">,</span> <span class="n">a</span><span class="o">.</span><span class="n">first_name</span>

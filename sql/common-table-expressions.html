@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Common Table Expressions - Data Analysis Survival Guide - LewisDavi.es</title>
+
+  <!-- Latest compiled and minified Bootstrap CSS -->
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <!-- Pygments CSS -->
+  <link rel="stylesheet" type="text/css" href="http://lewisdavi.es/theme/css/pygments.css" />
+
+
+</head>
+
+<body>
+  <div class="navbar navbar-fixed-top navbar-inverse bg-inverse">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-10 col-sm-offset-1">
+
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a href="http://lewisdavi.es" class="navbar-brand">LewisDavi.es</a>
+          </div>
+
+          <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Contents <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <a href="http://lewisdavi.es#Pandas"><li>Pandas</li></a>
+                  <a href="http://lewisdavi.es#SQL"><li>SQL</li></a>
+                </ul>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  </div>
+
+
+  <div class="container">
+    <div class="spacer" style="height:60px"></div>
+    <div class="row">
+      <div class="col-sm-10 col-sm-offset-1">
+<h1>Common Table Expressions</h1>
+<label>Posted on 16 August 2017</label>
+<h3>Load ipython-sql extension</h3>
+<div class="highlight"><pre><span></span><span class="c1"># The 2 lines below prevent an error message from being displayed when we run %load_ext sql</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+
+<span class="o">%</span><span class="n">load_ext</span> <span class="n">sql</span>
+<span class="o">%</span><span class="n">config</span> <span class="n">SqlMagic</span><span class="o">.</span><span class="n">feedback</span> <span class="o">=</span> <span class="bp">False</span>
+</pre></div>
+
+
+<h3>Connect to the database</h3>
+<div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+
+<span class="n">postgresql</span><span class="p">:</span><span class="o">//</span><span class="n">localhost</span><span class="o">/</span><span class="n">dvdrental</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span>&#39;Connected: None@dvdrental&#39;
+</pre></div>
+
+
+<h3>Using the <code>WITH</code> clause</h3>
+<p>We use the <code>WITH</code> keyword to create temporary tables just for the query we're currently working on. These are called Common Table Expressions (CTEs).</p>
+<p>In the simple example below, we execute the query in the <code>WITH</code> clause and then return all rows from it.</p>
+<div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+
+<span class="n">WITH</span> <span class="n">rental_cte</span> <span class="n">AS</span> <span class="p">(</span>
+    <span class="n">SELECT</span>
+        <span class="n">r</span><span class="o">.</span><span class="n">rental_id</span>
+        <span class="p">,</span> <span class="n">customer_id</span>
+        <span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">return_date</span>
+    <span class="n">FROM</span>
+        <span class="n">rental</span> <span class="n">r</span>
+    <span class="n">LIMIT</span>
+        <span class="mi">10</span>
+<span class="p">)</span>
+
+<span class="n">SELECT</span>
+    <span class="o">*</span>
+<span class="n">FROM</span>
+    <span class="n">rental_cte</span> <span class="n">rc</span>
+</pre></div>
+
+
+<table>
+    <tr>
+        <th>rental_id</th>
+        <th>customer_id</th>
+        <th>return_date</th>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>459</td>
+        <td>2005-05-28 19:40:33</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>408</td>
+        <td>2005-06-01 22:12:39</td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td>333</td>
+        <td>2005-06-03 01:43:41</td>
+    </tr>
+    <tr>
+        <td>5</td>
+        <td>222</td>
+        <td>2005-06-02 04:33:21</td>
+    </tr>
+    <tr>
+        <td>6</td>
+        <td>549</td>
+        <td>2005-05-27 01:32:07</td>
+    </tr>
+    <tr>
+        <td>7</td>
+        <td>269</td>
+        <td>2005-05-29 20:34:53</td>
+    </tr>
+    <tr>
+        <td>8</td>
+        <td>239</td>
+        <td>2005-05-27 23:33:46</td>
+    </tr>
+    <tr>
+        <td>9</td>
+        <td>126</td>
+        <td>2005-05-28 00:22:40</td>
+    </tr>
+    <tr>
+        <td>10</td>
+        <td>399</td>
+        <td>2005-05-31 22:44:21</td>
+    </tr>
+    <tr>
+        <td>11</td>
+        <td>142</td>
+        <td>2005-06-02 20:56:02</td>
+    </tr>
+</table>
+
+<h3>A common use for CTEs — ranking your results</h3>
+<p>As explained in the page on <a href="{{ SITEURL }}/sql/using-temporary-tables-in-queries-common-table-expressions.html">Window Functions</a>, CTEs are useful when ranking our results.</p>
+<p>Here we will find the last 3 films returned by a sample of customers.</p>
+<div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+
+<span class="n">WITH</span> <span class="n">rental_cte</span> <span class="n">AS</span> <span class="p">(</span>
+    <span class="n">SELECT</span>
+        <span class="n">r</span><span class="o">.</span><span class="n">rental_id</span>
+        <span class="p">,</span> <span class="n">customer_id</span>
+        <span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">return_date</span>
+        <span class="p">,</span> <span class="n">rank</span><span class="p">()</span> <span class="n">OVER</span><span class="p">(</span><span class="n">PARTITION</span> <span class="n">BY</span> <span class="n">r</span><span class="o">.</span><span class="n">customer_id</span> <span class="n">ORDER</span> <span class="n">BY</span> <span class="n">r</span><span class="o">.</span><span class="n">return_date</span> <span class="n">DESC</span><span class="p">)</span> <span class="k">as</span> <span class="n">rk</span>
+    <span class="n">FROM</span>
+        <span class="n">rental</span> <span class="n">r</span>
+<span class="p">)</span>
+
+<span class="n">SELECT</span>
+    <span class="o">*</span>
+<span class="n">FROM</span>
+    <span class="n">rental_cte</span> <span class="n">rc</span>
+<span class="n">WHERE</span>
+    <span class="n">rc</span><span class="o">.</span><span class="n">rk</span> <span class="o">&lt;</span> <span class="mi">4</span>
+<span class="o">--</span> <span class="n">Show</span> <span class="n">only</span> <span class="n">the</span> <span class="n">first</span> <span class="mi">3</span> <span class="n">customers</span> <span class="n">to</span> <span class="n">save</span> <span class="n">space</span>
+<span class="n">LIMIT</span>
+    <span class="mi">9</span>
+</pre></div>
+
+
+<table>
+    <tr>
+        <th>rental_id</th>
+        <th>customer_id</th>
+        <th>return_date</th>
+        <th>rk</th>
+    </tr>
+    <tr>
+        <td>15315</td>
+        <td>1</td>
+        <td>2005-08-30 01:51:46</td>
+        <td>1</td>
+    </tr>
+    <tr>
+        <td>15298</td>
+        <td>1</td>
+        <td>2005-08-28 22:49:37</td>
+        <td>2</td>
+    </tr>
+    <tr>
+        <td>14825</td>
+        <td>1</td>
+        <td>2005-08-27 07:01:57</td>
+        <td>3</td>
+    </tr>
+    <tr>
+        <td>15145</td>
+        <td>2</td>
+        <td>2005-08-31 15:51:04</td>
+        <td>1</td>
+    </tr>
+    <tr>
+        <td>14743</td>
+        <td>2</td>
+        <td>2005-08-29 00:18:56</td>
+        <td>2</td>
+    </tr>
+    <tr>
+        <td>14475</td>
+        <td>2</td>
+        <td>2005-08-27 08:59:32</td>
+        <td>3</td>
+    </tr>
+    <tr>
+        <td>14699</td>
+        <td>3</td>
+        <td>2005-08-29 18:08:48</td>
+        <td>1</td>
+    </tr>
+    <tr>
+        <td>13403</td>
+        <td>3</td>
+        <td>2005-08-27 19:23:07</td>
+        <td>2</td>
+    </tr>
+    <tr>
+        <td>15619</td>
+        <td>3</td>
+        <td>2005-08-26 07:21:14</td>
+        <td>3</td>
+    </tr>
+</table>
+      </div>
+    </div>
+  </div>
+</body>
+</html

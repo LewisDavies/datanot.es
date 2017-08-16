@@ -1,9 +1,9 @@
 Title: Ranking Results with Window Functions
 Slug: sql/ranking-results-with-window-functions
 Category: SQL
-Tags: SELECT, FROM, LIMIT, OVER, PARTITION BY, ORDER BY, rank
+Tags: SELECT, FROM, LIMIT, WHERE, OVER, PARTITION BY, ORDER BY, DESC, rank
 Date: 2017-08-15
-Modified: 2017-08-15
+Modified: 2017-08-16
 
 ### Load ipython-sql extension
 
@@ -33,18 +33,21 @@ postgresql://localhost/dvdrental
 
 
 
-### Sample from `customer` table
+### Ranking results
+Using the `OVER` clause allows us to run a function on the results returned from the database. In this example we rank films from longest to shortest at each rental rate.
 
 
 ```python
 %%sql
 
 SELECT
-    r.rental_id
-    , customer_id
-    , r.return_date
+    f.film_id
+    , f.title
+    , f.rental_rate
+    , f.length
+    , rank() OVER(PARTITION BY f.rental_rate ORDER BY f.length DESC) as rk
 FROM
-    rental r
+    film f
 LIMIT
     5
 ```
@@ -54,157 +57,77 @@ LIMIT
 
 <table>
     <tr>
-        <th>rental_id</th>
-        <th>customer_id</th>
-        <th>return_date</th>
-    </tr>
-    <tr>
-        <td>2</td>
-        <td>459</td>
-        <td>2005-05-28 19:40:33</td>
-    </tr>
-    <tr>
-        <td>3</td>
-        <td>408</td>
-        <td>2005-06-01 22:12:39</td>
-    </tr>
-    <tr>
-        <td>4</td>
-        <td>333</td>
-        <td>2005-06-03 01:43:41</td>
-    </tr>
-    <tr>
-        <td>5</td>
-        <td>222</td>
-        <td>2005-06-02 04:33:21</td>
-    </tr>
-    <tr>
-        <td>6</td>
-        <td>549</td>
-        <td>2005-05-27 01:32:07</td>
-    </tr>
-</table>
-
-
-
-### Ranking our results
-Using the `OVER` clause allows us to run a function on the results returned from the database. In this example we rank all customer rentals in the order they were returned, most-recent first, for each customer.
-
-
-```python
-%%sql
-
-SELECT
-    r.rental_id
-    , customer_id
-    , r.return_date
-    , rank() OVER(PARTITION BY r.customer_id ORDER BY r.return_date DESC) as rk
-FROM
-    rental r
--- Show only the first 10 results or the results are waaay to big!
-LIMIT
-    10
-```
-
-
-
-
-<table>
-    <tr>
-        <th>rental_id</th>
-        <th>customer_id</th>
-        <th>return_date</th>
+        <th>film_id</th>
+        <th>title</th>
+        <th>rental_rate</th>
+        <th>length</th>
         <th>rk</th>
     </tr>
     <tr>
-        <td>15315</td>
-        <td>1</td>
-        <td>2005-08-30 01:51:46</td>
+        <td>813</td>
+        <td>Smoochy Control</td>
+        <td>0.99</td>
+        <td>184</td>
         <td>1</td>
     </tr>
     <tr>
-        <td>15298</td>
+        <td>886</td>
+        <td>Theory Mermaid</td>
+        <td>0.99</td>
+        <td>184</td>
         <td>1</td>
-        <td>2005-08-28 22:49:37</td>
-        <td>2</td>
     </tr>
     <tr>
-        <td>14825</td>
+        <td>821</td>
+        <td>Sorority Queen</td>
+        <td>0.99</td>
+        <td>184</td>
         <td>1</td>
-        <td>2005-08-27 07:01:57</td>
-        <td>3</td>
     </tr>
     <tr>
-        <td>13176</td>
-        <td>1</td>
-        <td>2005-08-23 08:50:54</td>
+        <td>996</td>
+        <td>Young Language</td>
+        <td>0.99</td>
+        <td>183</td>
         <td>4</td>
     </tr>
     <tr>
-        <td>14762</td>
-        <td>1</td>
-        <td>2005-08-23 01:30:57</td>
-        <td>5</td>
-    </tr>
-    <tr>
-        <td>12250</td>
-        <td>1</td>
-        <td>2005-08-22 23:05:29</td>
-        <td>6</td>
-    </tr>
-    <tr>
-        <td>13068</td>
-        <td>1</td>
-        <td>2005-08-20 14:44:16</td>
-        <td>7</td>
-    </tr>
-    <tr>
-        <td>11824</td>
-        <td>1</td>
-        <td>2005-08-19 10:11:54</td>
-        <td>8</td>
-    </tr>
-    <tr>
-        <td>11299</td>
-        <td>1</td>
-        <td>2005-08-10 16:40:52</td>
-        <td>9</td>
-    </tr>
-    <tr>
-        <td>10437</td>
-        <td>1</td>
-        <td>2005-08-10 12:12:04</td>
-        <td>10</td>
+        <td>128</td>
+        <td>Catch Amistad</td>
+        <td>0.99</td>
+        <td>183</td>
+        <td>4</td>
     </tr>
 </table>
 
 
 
+Note that since 3 films are tied for first place, the rank given to the next longest films is 4. If we wanted the next rank to be 2 instead, we could use `dense_rank` in place of `rank`.
+
 ### Working with our rankings
-Once you've made the query above, we can use it as a Common Table Expression to filter it. For example, let's find the two most-recently returned films for each customer.
+Once you've made the query above, we can use it as a [Common Table Expression]({{ SITEURL }}/sql/using-temporary-tables-in-queries-common-table-expressions.html) to filter it. For example, let's try to find the 3 longest films at each price point.
 
 
 ```python
 %%sql
 
-WITH rental_ranked AS (
+WITH film_cte AS (
     SELECT
-        r.rental_id
-        , customer_id
-        , r.return_date
-        , rank() OVER(PARTITION BY r.customer_id ORDER BY r.return_date DESC) as rk
+        f.film_id
+        , f.title
+        , f.rental_rate
+        , f.length
+        , rank() OVER(PARTITION BY f.rental_rate ORDER BY f.length DESC) as rk
     FROM
-        rental r
+        film f
 )
 
 SELECT
     *
 FROM
-    rental_ranked rr
+    film_cte fc
 WHERE
-    rr.rk < 3
-LIMIT
-    10
+    fc.rk < 4
 ```
 
 
@@ -212,75 +135,211 @@ LIMIT
 
 <table>
     <tr>
-        <th>rental_id</th>
-        <th>customer_id</th>
-        <th>return_date</th>
+        <th>film_id</th>
+        <th>title</th>
+        <th>rental_rate</th>
+        <th>length</th>
         <th>rk</th>
     </tr>
     <tr>
-        <td>15315</td>
-        <td>1</td>
-        <td>2005-08-30 01:51:46</td>
-        <td>1</td>
-    </tr>
-    <tr>
-        <td>15298</td>
-        <td>1</td>
-        <td>2005-08-28 22:49:37</td>
-        <td>2</td>
-    </tr>
-    <tr>
-        <td>15145</td>
-        <td>2</td>
-        <td>2005-08-31 15:51:04</td>
+        <td>813</td>
+        <td>Smoochy Control</td>
+        <td>0.99</td>
+        <td>184</td>
         <td>1</td>
     </tr>
     <tr>
-        <td>14743</td>
-        <td>2</td>
-        <td>2005-08-29 00:18:56</td>
-        <td>2</td>
-    </tr>
-    <tr>
-        <td>14699</td>
-        <td>3</td>
-        <td>2005-08-29 18:08:48</td>
+        <td>886</td>
+        <td>Theory Mermaid</td>
+        <td>0.99</td>
+        <td>184</td>
         <td>1</td>
     </tr>
     <tr>
-        <td>13403</td>
-        <td>3</td>
-        <td>2005-08-27 19:23:07</td>
-        <td>2</td>
-    </tr>
-    <tr>
-        <td>15147</td>
-        <td>4</td>
-        <td>2005-08-28 14:33:23</td>
+        <td>821</td>
+        <td>Sorority Queen</td>
+        <td>0.99</td>
+        <td>184</td>
         <td>1</td>
     </tr>
     <tr>
-        <td>13807</td>
-        <td>4</td>
-        <td>2005-08-28 09:06:40</td>
-        <td>2</td>
-    </tr>
-    <tr>
-        <td>13209</td>
-        <td>5</td>
-        <td>None</td>
+        <td>690</td>
+        <td>Pond Seattle</td>
+        <td>2.99</td>
+        <td>185</td>
         <td>1</td>
     </tr>
     <tr>
-        <td>14053</td>
-        <td>5</td>
-        <td>2005-08-26 20:50:59</td>
-        <td>2</td>
+        <td>872</td>
+        <td>Sweet Brotherhood</td>
+        <td>2.99</td>
+        <td>185</td>
+        <td>1</td>
+    </tr>
+    <tr>
+        <td>991</td>
+        <td>Worst Banger</td>
+        <td>2.99</td>
+        <td>185</td>
+        <td>1</td>
+    </tr>
+    <tr>
+        <td>349</td>
+        <td>Gangs Pride</td>
+        <td>2.99</td>
+        <td>185</td>
+        <td>1</td>
+    </tr>
+    <tr>
+        <td>609</td>
+        <td>Muscle Bright</td>
+        <td>2.99</td>
+        <td>185</td>
+        <td>1</td>
+    </tr>
+    <tr>
+        <td>426</td>
+        <td>Home Pity</td>
+        <td>4.99</td>
+        <td>185</td>
+        <td>1</td>
+    </tr>
+    <tr>
+        <td>817</td>
+        <td>Soldiers Evolution</td>
+        <td>4.99</td>
+        <td>185</td>
+        <td>1</td>
+    </tr>
+    <tr>
+        <td>212</td>
+        <td>Darn Forrester</td>
+        <td>4.99</td>
+        <td>185</td>
+        <td>1</td>
+    </tr>
+    <tr>
+        <td>182</td>
+        <td>Control Anthem</td>
+        <td>4.99</td>
+        <td>185</td>
+        <td>1</td>
+    </tr>
+    <tr>
+        <td>141</td>
+        <td>Chicago North</td>
+        <td>4.99</td>
+        <td>185</td>
+        <td>1</td>
     </tr>
 </table>
 
 
 
-Note that `None` is ranked above all other times. To avoid this, we would add a `WHERE` clause to our CTE specifying `return_date IS NOT NULL`.
+### Tailoring our results
+Hmm, it looks like more than three films are tied in the £2.99 and £4.99 price bands. If we want to avoid this, one option is to use `row_number`, specifying how to sort the results.
 
-There are lots of other window functions that can be used in place of `rank`; [check the Postgres docs](https://www.postgresql.org/docs/9.6/static/functions-window.html) for full details.
+Now we'll return the 3 longest films at each rental rate in alphabetical order.
+
+
+```python
+%%sql
+
+WITH film_ranked AS (
+    SELECT
+        f.film_id
+        , f.title
+        , f.rental_rate
+        , f.length
+        , row_number() OVER(PARTITION BY f.rental_rate ORDER BY f.length DESC, f.title ASC) as rk
+    FROM
+        film f
+)
+
+SELECT
+    *
+FROM
+    film_ranked fr
+WHERE
+    fr.rk < 4
+```
+
+
+
+
+<table>
+    <tr>
+        <th>film_id</th>
+        <th>title</th>
+        <th>rental_rate</th>
+        <th>length</th>
+        <th>rk</th>
+    </tr>
+    <tr>
+        <td>813</td>
+        <td>Smoochy Control</td>
+        <td>0.99</td>
+        <td>184</td>
+        <td>1</td>
+    </tr>
+    <tr>
+        <td>821</td>
+        <td>Sorority Queen</td>
+        <td>0.99</td>
+        <td>184</td>
+        <td>2</td>
+    </tr>
+    <tr>
+        <td>886</td>
+        <td>Theory Mermaid</td>
+        <td>0.99</td>
+        <td>184</td>
+        <td>3</td>
+    </tr>
+    <tr>
+        <td>349</td>
+        <td>Gangs Pride</td>
+        <td>2.99</td>
+        <td>185</td>
+        <td>1</td>
+    </tr>
+    <tr>
+        <td>609</td>
+        <td>Muscle Bright</td>
+        <td>2.99</td>
+        <td>185</td>
+        <td>2</td>
+    </tr>
+    <tr>
+        <td>690</td>
+        <td>Pond Seattle</td>
+        <td>2.99</td>
+        <td>185</td>
+        <td>3</td>
+    </tr>
+    <tr>
+        <td>141</td>
+        <td>Chicago North</td>
+        <td>4.99</td>
+        <td>185</td>
+        <td>1</td>
+    </tr>
+    <tr>
+        <td>182</td>
+        <td>Control Anthem</td>
+        <td>4.99</td>
+        <td>185</td>
+        <td>2</td>
+    </tr>
+    <tr>
+        <td>212</td>
+        <td>Darn Forrester</td>
+        <td>4.99</td>
+        <td>185</td>
+        <td>3</td>
+    </tr>
+</table>
+
+
+
+There are lots of other window functions that can also be used here; [check the Postgres docs](https://www.postgresql.org/docs/9.6/static/functions-window.html) for full details.

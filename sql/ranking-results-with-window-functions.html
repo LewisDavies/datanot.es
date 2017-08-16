@@ -10,10 +10,9 @@
   <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+
   <!-- Pygments CSS -->
-  <link rel="stylesheet" type="text/css" href="../theme/css/pygments.css" />
-
-
+  <link rel="stylesheet" type="text/css" href="http://lewisdavi.es/theme/css/pygments.css" />
 </head>
 
 <body>
@@ -143,7 +142,7 @@
 
 <p>Note that since 3 films are tied for first place, the rank given to the next longest films is 4. If we wanted the next rank to be 2 instead, we could use <code>dense_rank</code> in place of <code>rank</code>.</p>
 <h3>Working with our rankings</h3>
-<p>Once you've made the query above, we can use it as a <a href="{{ SITEURL }}/sql/using-temporary-tables-in-queries-common-table-expressions.html">Common Table Expression</a> to filter it. For example, let's try to find the 3 longest films at each price point.</p>
+<p>Once you've made the query above, we can use it as a <a href="{{ SITEURL }}/sql/common-table-expressions.html">Common Table Expression</a> to filter it. For example, let's try to find the 3 longest films at each price point.</p>
 <div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
 
 <span class="n">WITH</span> <span class="n">film_cte</span> <span class="n">AS</span> <span class="p">(</span>

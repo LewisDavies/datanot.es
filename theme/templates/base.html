@@ -22,33 +22,48 @@
     {% endfor %}
   </ul>
 
-  <nav class="teal lighten-1" role="navigation navbar-fixed">
-    <div class="nav-wrapper container">
+  <div class="navbar-fixed">
+    <nav class="teal lighten-1" role="navigation">
+      <div class="nav-wrapper container">
 
-      <a href="{{ SITEURL }}" class="brand-logo">LewisDavi.es</a>
-      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+        <a href="{{ SITEURL }}" class="brand-logo">LewisDavi.es</a>
+        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
 
-      <ul class="right hide-on-med-and-down">
-        <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Categories<i class="material-icons right">arrow_drop_down</i></a></li>
-      </ul>
-      <ul class="side-nav" id="mobile-demo">
-        {% for cat in categories %}
-        <li><a href="{{ SITEURL }}#{{ cat[0]|replace(" ", "-") }}">{{ cat[0]|e }}</a></li>
-        {% endfor %}
-      </ul>
+        <ul class="right hide-on-med-and-down">
+          <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Categories<i class="material-icons right">arrow_drop_down</i></a></li>
+        </ul>
+        <ul class="side-nav" id="mobile-demo">
+          {% for cat in categories %}
+          <li><a href="{{ SITEURL }}#{{ cat[0]|replace(" ", "-") }}">{{ cat[0]|e }}</a></li>
+          {% endfor %}
+        </ul>
 
-    </div>
-  </nav>
+      </div>
+    </nav>
+  </div>
   {% endblock %}
 
-  <div class="container">
-    <br>
-    <div class="row">
-      <div class="col m12">
-        {% block content %}{% endblock %}
+  {% block content %}{% endblock %}
+
+  <footer class="page-footer blue-grey">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+
+          <p class="grey-text text-lighten-4">This site is open source and <a class="grey-text text-lighten-2" href="https://github.com/LewisDavies/lewisdavi.es" target="_blank">available on Github</a>.</p>
+
+        </div>
+        <div class="col l4 offset-l2 s12">
+
+        </div>
       </div>
     </div>
-  </div>
+    <div class="footer-copyright">
+      <div class="container">
+      Copyright © 2017 Lewis Davies
+      </div>
+    </div>
+  </footer>
 
   <!-- Scripts -->
   <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>

@@ -20,30 +20,32 @@
     <li><a href="..#SQL">SQL</a></li>
   </ul>
 
-  <nav class="teal lighten-1" role="navigation navbar-fixed">
-    <div class="nav-wrapper container">
+  <div class="navbar-fixed">
+    <nav class="teal lighten-1" role="navigation">
+      <div class="nav-wrapper container">
 
-      <a href=".." class="brand-logo">LewisDavi.es</a>
-      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+        <a href=".." class="brand-logo">LewisDavi.es</a>
+        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
 
-      <ul class="right hide-on-med-and-down">
-        <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Categories<i class="material-icons right">arrow_drop_down</i></a></li>
-      </ul>
-      <ul class="side-nav" id="mobile-demo">
-        <li><a href="..#Pandas">Pandas</a></li>
-        <li><a href="..#SQL">SQL</a></li>
-      </ul>
+        <ul class="right hide-on-med-and-down">
+          <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Categories<i class="material-icons right">arrow_drop_down</i></a></li>
+        </ul>
+        <ul class="side-nav" id="mobile-demo">
+          <li><a href="..#Pandas">Pandas</a></li>
+          <li><a href="..#SQL">SQL</a></li>
+        </ul>
 
-    </div>
-  </nav>
+      </div>
+    </nav>
+  </div>
 
-  <div class="container">
-    <br>
-    <div class="row">
-      <div class="col m12">
-<h1>Aggregates and GROUP BY</h1>
-<label>Posted on 10 August 2017</label>
-<h3>Load ipython-sql extension</h3>
+<div class="container">
+  <div class="row">
+    <div class="col m12">
+
+      <h1>Aggregates and GROUP BY</h1>
+      <p class="grey-text">10 August 2017 > SQL</p>
+      <h3>Load ipython-sql extension</h3>
 <div class="highlight"><pre><span></span><span class="c1"># The 2 lines below prevent an error message from being displayed when we run %load_ext sql</span>
 <span class="kn">import</span> <span class="nn">warnings</span>
 <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
@@ -276,9 +278,30 @@
         <td>114.4647887323943662</td>
     </tr>
 </table>
-      </div>
+
     </div>
   </div>
+</div>
+
+  <footer class="page-footer blue-grey">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+
+          <p class="grey-text text-lighten-4">This site is open source and <a class="grey-text text-lighten-2" href="https://github.com/LewisDavies/lewisdavi.es" target="_blank">available on Github</a>.</p>
+
+        </div>
+        <div class="col l4 offset-l2 s12">
+
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+      Copyright © 2017 Lewis Davies
+      </div>
+    </div>
+  </footer>
 
   <!-- Scripts -->
   <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>

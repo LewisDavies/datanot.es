@@ -2,57 +2,45 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
   <title>Joining Tables - Data Analysis Survival Guide - LewisDavi.es</title>
 
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css" />
-  <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js"></script>
   <link rel="stylesheet" type="text/css" href="../theme/css/pygments.css" />
+  <link rel="stylesheet" type="text/css" href="../theme/css/style.css" />
 
-  <!--Let browser know website is optimized for mobile-->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 
 <body>
-  <div class="navbar navbar-fixed-top navbar-inverse bg-inverse">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-10 col-sm-offset-1">
+  <!-- Dropdown Structure -->
+  <ul id="dropdown1" class="dropdown-content">
+    <li><a href="..#Pandas">Pandas</a></li>
+    <li><a href="..#SQL">SQL</a></li>
+  </ul>
 
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <a href=".." class="navbar-brand">LewisDavi.es</a>
-          </div>
+  <nav class="teal lighten-1" role="navigation navbar-fixed">
+    <div class="nav-wrapper container">
 
-          <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav navbar-right">
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Contents <span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                  <a href="..#Pandas"><li>Pandas</li></a>
-                  <a href="..#SQL"><li>SQL</li></a>
-                </ul>
-              </li>
-            </ul>
-          </div>
+      <a href=".." class="brand-logo">LewisDavi.es</a>
+      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
 
-        </div>
-      </div>
+      <ul class="right hide-on-med-and-down">
+        <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Categories<i class="material-icons right">arrow_drop_down</i></a></li>
+      </ul>
+      <ul class="side-nav" id="mobile-demo">
+        <li><a href="..#Pandas">Pandas</a></li>
+        <li><a href="..#SQL">SQL</a></li>
+      </ul>
+
     </div>
-  </div>
-
+  </nav>
 
   <div class="container">
-    <div class="spacer" style="height:60px"></div>
+    <br>
     <div class="row">
-      <div class="col-sm-10 col-sm-offset-1">
+      <div class="col m12">
 <h1>Joining Tables</h1>
 <label>Posted on 09 August 2017</label>
 <h3>Recommended reading</h3>
@@ -457,5 +445,11 @@
       </div>
     </div>
   </div>
+
+  <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.js"></script>
+  <script src="../theme/js/init.js"></script>
+
 </body>
 </html

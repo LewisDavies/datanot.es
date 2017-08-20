@@ -3,76 +3,87 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Create A Sample Database On A Mac - Data Analysis Survival Guide - LewisDavi.es</title>
+  <title>Create A Sample Database On A Mac - LewisDavi.es
+</title>
 
   <!-- Latest compiled and minified Bootstrap CSS -->
-  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
-  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="http://lewisdavi.es/theme/css/style.css">
 
+  <link rel="apple-touch-icon" sizes="180x180" href="http://lewisdavi.es/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="http://lewisdavi.es/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="http://lewisdavi.es/favicon-16x16.png">
+  <link rel="manifest" href="http://lewisdavi.es/manifest.json">
+  <link rel="mask-icon" href="http://lewisdavi.es/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="shortcut icon" href="http://lewisdavi.es/favicon.ico">
+  <meta name="msapplication-config" content="http://lewisdavi.es/browserconfig.xml">
+  <meta name="theme-color" content="#ffffff">
 
-  <!-- Pygments CSS -->
-  <link rel="stylesheet" type="text/css" href="http://lewisdavi.es/theme/css/pygments.css" />
+<link rel="stylesheet" type="text/css" href="http://lewisdavi.es/theme/css/pygments.css">
+<link rel="stylesheet" type="text/css" href="http://lewisdavi.es/theme/css/notebooks.css">
 </head>
 
 <body>
-  <div class="navbar navbar-fixed-top navbar-inverse bg-inverse">
+  <nav class="navbar navbar-expand-sm navbar-dark bg-info sticky-top justify-content-between">
     <div class="container">
-      <div class="row">
-        <div class="col-sm-10 col-sm-offset-1">
 
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <a href="http://lewisdavi.es" class="navbar-brand">LewisDavi.es</a>
-          </div>
+      <a class="navbar-brand" href="http://lewisdavi.es">LewisDavi.es</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fa fa-bars" aria-hidden="true"></i>
+      </button>
 
-          <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav navbar-right">
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Contents <span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                  <a href="http://lewisdavi.es#Pandas"><li>Pandas</li></a>
-                  <a href="http://lewisdavi.es#SQL"><li>SQL</li></a>
-                </ul>
-              </li>
-            </ul>
-          </div>
-
-        </div>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Categories
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" href="http://lewisdavi.es#Pandas">Pandas</a>
+              <a class="dropdown-item" href="http://lewisdavi.es#SQL">SQL</a>
+            </div>
+          </li>
+        </ul>
       </div>
+
     </div>
-  </div>
-
-  </div>
-
+  </nav>
 
   <div class="container">
-    <div class="spacer" style="height:60px"></div>
-    <div class="row">
-      <div class="col-sm-10 col-sm-offset-1">
+    <br>
+    <div class="row justify-content-center">
+      <div class="col-sm-12">
 <h1>Create A Sample Database On A Mac</h1>
 <label>Posted on 11 August 2017</label>
-<h3>Download Postgres.app</h3>
+<h4>Download Postgres.app</h4>
 <p><a href="https://postgresapp.com/">Postgres.app</a> makes it simple to set up a PostgreSQL database on a Mac. Simply download it, add it to your Applications, then run it.</p>
-<h3>Add command line tools to your PATH</h3>
+<h4>Add command line tools to your PATH</h4>
 <p>We need to run a few commands to set up our sample database. (The docs have full details)[https://postgresapp.com/documentation/cli-tools.html], but here's how to add the relevant directory to your <code>$PATH</code>.</p>
 <p>Open up a new terminal — you should be in your home directory — and type <code>nano .bash_profile</code>. Add the following lines at the end of your profile:</p>
 <p><code>PATH="$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin"
 export PATH</code></p>
 <p>Save and exit (Ctrl-O and Ctrl-X), then run <code>source .bash_profile</code>.</p>
-<h3>Download the sample database files</h3>
+<h4>Download the sample database files</h4>
 <p>For the next couple of steps, I used the guide from <a href="http://www.postgresqltutorial.com/postgresql-sample-database/">postgresqltutorial.com</a>. Download the sample database from the linked page. Extract the data and <code>dvdrental.tar</code> should apppear in the same directory.</p>
-<h3>Create a new database and load sample data</h3>
+<h4>Create a new database and load sample data</h4>
 <p>Head back to your terminal and run <code>psql</code>. To create our sample database, run <code>CREATE DATABASE dvdrental;</code> in this window. Next, load the sample data with <code>pg_restore -U postgres -d dvdrental /path/to/your/files/dvdrental.tar</code>.</p>
-<h3>Connect to the database</h3>
+<h4>Connect to the database</h4>
 <p>This part is optional, but you'll probably want to take a peek at your data once it's loaded and a client program will make this easy. I'd recommend trying <a href="https://eggerapps.at/postico/">Postico</a>, which is made by the same people who make Postgres.app. It's got a great, minimal interface and is easy to use. You're now ready to make your own tutorials!</p>
       </div>
     </div>
   </div>
+
+  <footer class="footer">
+    <div class="container">
+      <span class="text-muted">Copyright <i class="fa fa-copyright" aria-hidden="true"></i> Lewis Davies 2017</span>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+  <script src="https://use.fontawesome.com/379ba8d96c.js"></script>
+
 </body>
 </html

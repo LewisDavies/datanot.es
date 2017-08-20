@@ -3,13 +3,24 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Describing Your Data - Data Analysis Survival Guide - LewisDavi.es</title>
+  <title>Describing Your Data - LewisDavi.es
+</title>
 
   <!-- Latest compiled and minified Bootstrap CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-  <link rel="stylesheet" type="text/css" href="../theme/css/pygments.css">
   <link rel="stylesheet" type="text/css" href="../theme/css/style.css">
 
+  <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+  <link rel="manifest" href="../manifest.json">
+  <link rel="mask-icon" href="../safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="shortcut icon" href="../favicon.ico">
+  <meta name="msapplication-config" content="../browserconfig.xml">
+  <meta name="theme-color" content="#ffffff">
+
+<link rel="stylesheet" type="text/css" href="../theme/css/pygments.css">
+<link rel="stylesheet" type="text/css" href="../theme/css/notebooks.css">
 </head>
 
 <body>
@@ -44,12 +55,12 @@
       <div class="col-sm-12">
 <h1>Describing Your Data</h1>
 <label>Posted on 05 August 2017</label>
-<h3>Import libraries</h3>
+<h4>Import libraries</h4>
 <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
 </pre></div>
 
 
-<h3>Create DataFrame</h3>
+<h4>Create DataFrame</h4>
 <div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Theresa&#39;</span><span class="p">,</span> <span class="s1">&#39;David&#39;</span><span class="p">,</span> <span class="s1">&#39;Gordon&#39;</span><span class="p">,</span> <span class="s1">&#39;Tony&#39;</span><span class="p">,</span> <span class="s1">&#39;John&#39;</span><span class="p">],</span>
         <span class="s1">&#39;colour&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Blue&#39;</span><span class="p">,</span> <span class="s1">&#39;Blue&#39;</span><span class="p">,</span> <span class="s1">&#39;Red&#39;</span><span class="p">,</span> <span class="s1">&#39;Red&#39;</span><span class="p">,</span> <span class="s1">&#39;Blue&#39;</span><span class="p">],</span>
         <span class="s1">&#39;score1&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span>
@@ -131,7 +142,7 @@
 </table>
 </div>
 
-<h3>DataFrame information</h3>
+<h4>DataFrame information</h4>
 <div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
 </pre></div>
 
@@ -149,7 +160,7 @@ memory usage: 280.0+ bytes
 </pre></div>
 
 
-<h3>Basic DataFrame statistics</h3>
+<h4>Basic DataFrame statistics</h4>
 <div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
 </pre></div>
 
@@ -230,7 +241,7 @@ memory usage: 280.0+ bytes
 </table>
 </div>
 
-<h3>Maximum values</h3>
+<h4>Maximum values</h4>
 <div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
 </pre></div>
 
@@ -244,7 +255,7 @@ dtype: object
 </pre></div>
 
 
-<h3>Minimum values</h3>
+<h4>Minimum values</h4>
 <div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
 </pre></div>
 
@@ -258,7 +269,7 @@ dtype: object
 </pre></div>
 
 
-<h3>Sum of values</h3>
+<h4>Sum of values</h4>
 <div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 </pre></div>
 
@@ -272,7 +283,7 @@ dtype: object
 </pre></div>
 
 
-<h3>Count non-null values</h3>
+<h4>Count non-null values</h4>
 <div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
 </pre></div>
 
@@ -286,7 +297,7 @@ dtype: int64
 </pre></div>
 
 
-<h3>Mean values</h3>
+<h4>Mean values</h4>
 <div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 </pre></div>
 
@@ -298,7 +309,7 @@ dtype: float64
 </pre></div>
 
 
-<h3>Median values</h3>
+<h4>Median values</h4>
 <div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">median</span><span class="p">()</span>
 </pre></div>
 
@@ -310,7 +321,7 @@ dtype: float64
 </pre></div>
 
 
-<h3>Standard deviation of values</h3>
+<h4>Standard deviation of values</h4>
 <div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
 </pre></div>
 
@@ -322,7 +333,7 @@ dtype: float64
 </pre></div>
 
 
-<h3>Correlation matrix</h3>
+<h4>Correlation matrix</h4>
 <div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
 </pre></div>
 

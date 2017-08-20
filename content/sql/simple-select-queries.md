@@ -5,7 +5,7 @@ Tags: SELECT, FROM
 Date: 2017-08-07
 Modified: 2017-08-09
 
-### Load ipython-sql extension
+#### Load ipython-sql extension
 
 
 ```python
@@ -17,7 +17,7 @@ warnings.filterwarnings('ignore')
 %config SqlMagic.feedback = False
 ```
 
-### Connect to the database
+#### Connect to the database
 
 
 ```python
@@ -33,7 +33,7 @@ postgresql://localhost/dvdrental
 
 
 
-### Select all rows and columns
+#### Select all rows and columns
 
 
 ```python
@@ -138,7 +138,7 @@ FROM
 
 
 
-### Select specific columns
+#### Select specific columns
 Columns are separated by commas. Putting the comma on the following line makes it simpler to comment out columns when testing your query.
 
 

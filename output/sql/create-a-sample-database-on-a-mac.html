@@ -3,13 +3,24 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Create A Sample Database On A Mac - Data Analysis Survival Guide - LewisDavi.es</title>
+  <title>Create A Sample Database On A Mac - LewisDavi.es
+</title>
 
   <!-- Latest compiled and minified Bootstrap CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-  <link rel="stylesheet" type="text/css" href="../theme/css/pygments.css">
   <link rel="stylesheet" type="text/css" href="../theme/css/style.css">
 
+  <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+  <link rel="manifest" href="../manifest.json">
+  <link rel="mask-icon" href="../safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="shortcut icon" href="../favicon.ico">
+  <meta name="msapplication-config" content="../browserconfig.xml">
+  <meta name="theme-color" content="#ffffff">
+
+<link rel="stylesheet" type="text/css" href="../theme/css/pygments.css">
+<link rel="stylesheet" type="text/css" href="../theme/css/notebooks.css">
 </head>
 
 <body>
@@ -44,19 +55,19 @@
       <div class="col-sm-12">
 <h1>Create A Sample Database On A Mac</h1>
 <label>Posted on 11 August 2017</label>
-<h3>Download Postgres.app</h3>
+<h4>Download Postgres.app</h4>
 <p><a href="https://postgresapp.com/">Postgres.app</a> makes it simple to set up a PostgreSQL database on a Mac. Simply download it, add it to your Applications, then run it.</p>
-<h3>Add command line tools to your PATH</h3>
+<h4>Add command line tools to your PATH</h4>
 <p>We need to run a few commands to set up our sample database. (The docs have full details)[https://postgresapp.com/documentation/cli-tools.html], but here's how to add the relevant directory to your <code>$PATH</code>.</p>
 <p>Open up a new terminal — you should be in your home directory — and type <code>nano .bash_profile</code>. Add the following lines at the end of your profile:</p>
 <p><code>PATH="$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin"
 export PATH</code></p>
 <p>Save and exit (Ctrl-O and Ctrl-X), then run <code>source .bash_profile</code>.</p>
-<h3>Download the sample database files</h3>
+<h4>Download the sample database files</h4>
 <p>For the next couple of steps, I used the guide from <a href="http://www.postgresqltutorial.com/postgresql-sample-database/">postgresqltutorial.com</a>. Download the sample database from the linked page. Extract the data and <code>dvdrental.tar</code> should apppear in the same directory.</p>
-<h3>Create a new database and load sample data</h3>
+<h4>Create a new database and load sample data</h4>
 <p>Head back to your terminal and run <code>psql</code>. To create our sample database, run <code>CREATE DATABASE dvdrental;</code> in this window. Next, load the sample data with <code>pg_restore -U postgres -d dvdrental /path/to/your/files/dvdrental.tar</code>.</p>
-<h3>Connect to the database</h3>
+<h4>Connect to the database</h4>
 <p>This part is optional, but you'll probably want to take a peek at your data once it's loaded and a client program will make this easy. I'd recommend trying <a href="https://eggerapps.at/postico/">Postico</a>, which is made by the same people who make Postgres.app. It's got a great, minimal interface and is easy to use. You're now ready to make your own tutorials!</p>
       </div>
     </div>

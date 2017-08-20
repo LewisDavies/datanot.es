@@ -1,6 +1,14 @@
 {% extends "base.html" %}
 
-{% block title %}{{ article.title }} - {{ super() }}{% endblock %}
+{% block head %}
+{{ super() }}
+<link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/pygments.css">
+<link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/notebooks.css">
+{% endblock %}
+
+{% block title %}
+{{ article.title }} - {{ SITENAME }}
+{% endblock %}
 
 {% block content %}
 <h1>{{ article.title }}</h1>

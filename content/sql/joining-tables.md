@@ -5,10 +5,10 @@ Tags: SELECT, FROM, WHERE, LIMIT, JOIN, INNER JOIN, OUTER JOIN, LEFT JOIN, RIGHT
 Date: 2017-08-09
 Modified: 2017-08-09
 
-### Recommended reading
+#### Recommended reading
 I recommend reading the [Coding Horror's explanation of SQL joins](https://blog.codinghorror.com/a-visual-explanation-of-sql-joins/) for more detail. Here are a few examples for reference.
 
-### Load ipython-sql extension
+#### Load ipython-sql extension
 
 
 ```python
@@ -20,7 +20,7 @@ warnings.filterwarnings('ignore')
 %config SqlMagic.feedback = False
 ```
 
-### Connect to the database
+#### Connect to the database
 
 
 ```python
@@ -36,7 +36,7 @@ postgresql://localhost/dvdrental
 
 
 
-### Joining tables
+#### Joining tables
 When joining tables, it's handy to give them a shorter alias: this makes it easier to refer to them later. This is important as some tables may have common column names and it's important to differentiate between them.
 
 Note that this method works in PostgreSQL, but you may need to add `AS` after the table name in other SQL implementations.
@@ -116,21 +116,21 @@ LIMIT
 
 
 
-### Different types of join
+#### Different types of join
 In addition to `INNER JOIN`, you can also use `OUTER JOIN`, `LEFT JOIN`, `RIGHT JOIN`, and `CROSS JOIN`. Since the syntax is essentially the same, I'll explain how they work.
 
-### `INNER JOIN`
+#### `INNER JOIN`
 Find records in table 1 that have a match in table 2, ignoring records that don't appear in both tables. This is how the example above works.
 
-### `OUTER JOIN`
+#### `OUTER JOIN`
 Preserve all records from both tables. If a record from table 1 has a match in table 2, join them together. If a record from table 1 doesn't have a match in table 2, return the `NULL` values for the columns from table 2 (and vice versa).
 
-### `LEFT JOIN` & `RIGHT JOIN`
+#### `LEFT JOIN` & `RIGHT JOIN`
 In a `LEFT JOIN`, all data from the left table is preserved, with matching data from the right table join where it exists. In a `RIGHT JOIN`, the data from the right table is preserved instead.
 
 The 'leftmost' table is the first table specified in your query. For example, in the query above `customer` is the left table and `address` is the right table.
 
-### `CROSS JOIN`
+#### `CROSS JOIN`
 Match all possible combinations of two tables. As you might expect, this can lead to very large tables and is probably the least common type of join. To deomnstrate, let's `CROSS JOIN` a small sub-selection on the `film` and `language` tables:
 
 
@@ -292,7 +292,7 @@ WHERE
 
 
 
-### `UNION`
+#### `UNION`
 Combine the results of two or more `SELECT` statements into a single table. Returned results are stacked one above the other, not side-by-side as with the `JOIN`s listed above:
 
 

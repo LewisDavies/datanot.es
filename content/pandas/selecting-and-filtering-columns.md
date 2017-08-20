@@ -5,14 +5,14 @@ Tags: loc, iloc
 Date: 2017-08-05
 Modified: 2017-08-05
 
-### Import libraries
+#### Import libraries
 
 
 ```python
 import pandas as pd
 ```
 
-### Create DataFrame
+#### Create DataFrame
 
 
 ```python
@@ -101,7 +101,7 @@ df
 
 
 
-### Limit column selection
+#### Limit column selection
 
 
 ```python
@@ -165,7 +165,7 @@ df[['name', 'colour']]
 
 
 
-### Filter on values in a column
+#### Filter on values in a column
 
 
 ```python
@@ -239,7 +239,7 @@ df[df['score1'] >= 3]
 
 
 
-### Filter column and limit selection
+#### Filter column and limit selection
 
 
 ```python
@@ -303,7 +303,7 @@ df[df['score1'] >= 1][['name', 'colour']]
 
 
 
-### Return a Series as a DataFrame
+#### Return a Series as a DataFrame
 
 
 ```python

@@ -5,7 +5,7 @@ Tags: SELECT, FROM, WHERE, BETWEEN, LIMIT
 Date: 2017-08-08
 Modified: 2017-08-09
 
-### Load ipython-sql extension
+#### Load ipython-sql extension
 
 
 ```python
@@ -17,7 +17,7 @@ warnings.filterwarnings('ignore')
 %config SqlMagic.feedback = False
 ```
 
-### Connect to the database
+#### Connect to the database
 
 
 ```python
@@ -33,7 +33,7 @@ postgresql://localhost/dvdrental
 
 
 
-### Find values within a range with BETWEEN
+#### Find values within a range with BETWEEN
 Note that this is an inclusive search: results matching the specified values are included
 
 
@@ -84,7 +84,7 @@ LIMIT
 
 
 
-### Find values outside the same range
+#### Find values outside the same range
 
 
 ```python

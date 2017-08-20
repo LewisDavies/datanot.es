@@ -5,7 +5,7 @@ Tags: SELECT, FROM, WHERE, DISTINCT, DISTINCT ON
 Date: 2017-08-11
 Modified: 2017-08-11
 
-### Load ipython-sql extension
+#### Load ipython-sql extension
 
 
 ```python
@@ -17,7 +17,7 @@ warnings.filterwarnings('ignore')
 %config SqlMagic.feedback = False
 ```
 
-### Connect to the database
+#### Connect to the database
 
 
 ```python
@@ -33,7 +33,7 @@ postgresql://localhost/dvdrental
 
 
 
-### Sample data
+#### Sample data
 
 
 ```python
@@ -67,7 +67,7 @@ WHERE
 
 
 
-### Remove duplicates with `DISTINCT`
+#### Remove duplicates with `DISTINCT`
 
 
 ```python
@@ -95,7 +95,7 @@ WHERE
 
 
 
-### Using `DISTINCT ON`
+#### Using `DISTINCT ON`
 The above example was pretty unrealistic, I'll admit. However, you can include more columns and remove duplicates based on just one with `DISTINCT ON`.
 
 

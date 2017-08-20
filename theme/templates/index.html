@@ -14,32 +14,14 @@
   <h3 class="card-header" id="{{ cat[0].name|replace(" ", "-") }}">{{ cat[0].name }}</h3>
 
   <div class="card-body">
-    <div class="row">
-      <div class="col-sm-6">
 
-        <ul>
-        {% for article in cat[1] %}
-          {% if loop.index % 2 == 1 %}
-          <a href="{{ article.url }}"><li>{{ article.title|e }}</li></a>
-          {% endif %}
-        {% endfor %}
-        </ul>
+    <ul>
+    {% for article in cat[1]|sort(attribute='date') %}
+      <a href="{{ article.url }}"><li>{{ article.title|e }}</li></a>
+    {% endfor %}
+    </ul>
 
-      </div>
-      <div class="col-sm-6">
-
-        <ul>
-        {% for article in cat[1] %}
-          {% if loop.index % 2 == 0 %}
-          <a href="{{ article.url }}"><li>{{ article.title|e }}</li></a>
-          {% endif %}
-        {% endfor %}
-        </ul>
-
-      </div>
-    </div>
   </div>
-
 </div>
 
 <br>

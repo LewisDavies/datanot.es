@@ -5,14 +5,14 @@ Tags: loc, iloc
 Date: 2017-08-05
 Modified: 2017-08-05
 
-### Import libraries
+#### Import libraries
 
 
 ```python
 import pandas as pd
 ```
 
-### Create DataFrame
+#### Create DataFrame
 
 
 ```python
@@ -103,7 +103,7 @@ df
 
 
 
-### Select by label
+#### Select by label
 
 
 ```python
@@ -272,7 +272,7 @@ df.loc['Theresa', 'colour']
 
 
 
-### Select by position
+#### Select by position
 
 
 ```python

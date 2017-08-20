@@ -5,7 +5,7 @@ Tags: SELECT, FROM, LIMIT, OFFSET
 Date: 2017-08-11
 Modified: 2017-08-11
 
-### Load ipython-sql extension
+#### Load ipython-sql extension
 
 
 ```python
@@ -17,7 +17,7 @@ warnings.filterwarnings('ignore')
 %config SqlMagic.feedback = False
 ```
 
-### Connect to the database
+#### Connect to the database
 
 
 ```python
@@ -33,7 +33,7 @@ postgresql://localhost/dvdrental
 
 
 
-### Sample data
+#### Sample data
 
 
 ```python
@@ -138,7 +138,7 @@ FROM
 
 
 
-### Using LIMIT
+#### Using LIMIT
 
 
 ```python
@@ -190,7 +190,7 @@ LIMIT
 
 
 
-### Removing the first *n* results
+#### Removing the first *n* results
 
 
 ```python

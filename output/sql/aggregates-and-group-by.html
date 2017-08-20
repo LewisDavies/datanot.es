@@ -3,13 +3,24 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Aggregates and GROUP BY - Data Analysis Survival Guide - LewisDavi.es</title>
+  <title>Aggregates and GROUP BY - LewisDavi.es
+</title>
 
   <!-- Latest compiled and minified Bootstrap CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-  <link rel="stylesheet" type="text/css" href="../theme/css/pygments.css">
   <link rel="stylesheet" type="text/css" href="../theme/css/style.css">
 
+  <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+  <link rel="manifest" href="../manifest.json">
+  <link rel="mask-icon" href="../safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="shortcut icon" href="../favicon.ico">
+  <meta name="msapplication-config" content="../browserconfig.xml">
+  <meta name="theme-color" content="#ffffff">
+
+<link rel="stylesheet" type="text/css" href="../theme/css/pygments.css">
+<link rel="stylesheet" type="text/css" href="../theme/css/notebooks.css">
 </head>
 
 <body>
@@ -44,7 +55,7 @@
       <div class="col-sm-12">
 <h1>Aggregates and GROUP BY</h1>
 <label>Posted on 10 August 2017</label>
-<h3>Load ipython-sql extension</h3>
+<h4>Load ipython-sql extension</h4>
 <div class="highlight"><pre><span></span><span class="c1"># The 2 lines below prevent an error message from being displayed when we run %load_ext sql</span>
 <span class="kn">import</span> <span class="nn">warnings</span>
 <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
@@ -54,7 +65,7 @@
 </pre></div>
 
 
-<h3>Connect to the database</h3>
+<h4>Connect to the database</h4>
 <div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
 
 <span class="n">postgresql</span><span class="p">:</span><span class="o">//</span><span class="n">localhost</span><span class="o">/</span><span class="n">dvdrental</span>
@@ -65,7 +76,7 @@
 </pre></div>
 
 
-<h3>Sample from <code>film</code> table</h3>
+<h4>Sample from <code>film</code> table</h4>
 <div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
 
 <span class="n">SELECT</span>
@@ -119,7 +130,7 @@
     </tr>
 </table>
 
-<h3>Syntax example — <code>sum</code></h3>
+<h4>Syntax example — <code>sum</code></h4>
 <div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
 
 <span class="n">SELECT</span>
@@ -138,13 +149,13 @@
     </tr>
 </table>
 
-<h3>Other aggregate functions</h3>
+<h4>Other aggregate functions</h4>
 <p><strong><code>avg</code></strong>: Mean of all column values</p>
 <p><strong><code>max</code></strong>: Highest value in the column</p>
 <p><strong><code>min</code></strong>: Lowest value in the column</p>
 <p><strong><code>count</code></strong>: Total number of non-null values</p>
 <p>*Some aggregates, including <code>max</code>, <code>min</code> and <code>count</code>, can also be applied to strings.</p>
-<h3><code>GROUP BY</code></h3>
+<h4><code>GROUP BY</code></h4>
 <p>Let's say we want to find the mean film length at each price point, and all films cost £0.99, £2.99 or £4.99.</p>
 <div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
 

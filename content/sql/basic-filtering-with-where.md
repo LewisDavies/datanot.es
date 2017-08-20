@@ -5,7 +5,7 @@ Tags: SELECT, FROM, WHERE, AND, OR
 Date: 2017-08-07
 Modified: 2017-08-09
 
-### Load ipython-sql extension
+#### Load ipython-sql extension
 
 
 ```python
@@ -17,7 +17,7 @@ warnings.filterwarnings('ignore')
 %config SqlMagic.feedback = False
 ```
 
-### Connect to the database
+#### Connect to the database
 
 
 ```python
@@ -33,7 +33,7 @@ postgresql://localhost/dvdrental
 
 
 
-### A simple example
+#### A simple example
 
 
 ```python
@@ -122,7 +122,7 @@ WHERE
 
 
 
-### Filter on multiple conditions with AND
+#### Filter on multiple conditions with AND
 
 
 ```python
@@ -189,7 +189,7 @@ WHERE
 
 
 
-### The OR operator
+#### The OR operator
 
 
 ```python
@@ -289,7 +289,7 @@ WHERE
 
 
 
-### Combining operators
+#### Combining operators
 This query will return all details of people matching ONE of the following conditions:
 - They live in London
 - They are named Clive and don't live in Berlin

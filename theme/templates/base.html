@@ -2,14 +2,23 @@
 <html lang="en">
 
 <head>
+  {% block head %}
   <meta charset="utf-8">
   <title>{% block title %}{{ SITENAME }}{% endblock %}</title>
 
   <!-- Latest compiled and minified Bootstrap CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-  <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/pygments.css">
   <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/style.css">
 
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ SITEURL }}/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ SITEURL }}/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="{{ SITEURL }}/favicon-16x16.png">
+  <link rel="manifest" href="{{ SITEURL }}/manifest.json">
+  <link rel="mask-icon" href="{{ SITEURL }}/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="shortcut icon" href="{{ SITEURL }}/favicon.ico">
+  <meta name="msapplication-config" content="{{ SITEURL }}/browserconfig.xml">
+  <meta name="theme-color" content="#ffffff">
+  {% endblock %}
 </head>
 
 <body>

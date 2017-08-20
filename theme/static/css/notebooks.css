@@ -1,0 +1,79 @@
+/* ---------------------------------------------------------
+Adapted from Code Cell Highlighting
+Source: http://www.sebastianraschka.com/CSS/codehilite.css
+By way of http://chrisalbon.com
+---------------------------------------------------------*/
+
+/* ---------------------------------------------------------
+Tables
+---------------------------------------------------------*/
+
+.body table,tr,th,td{
+    font-family: sans-serif;
+    border:1px solid black;
+    border-collapse:collapse;
+    font-size: 0.8rem;
+    margin: 1em 0 2em 0;
+    padding: 4px;
+}
+
+.body td, th{
+    text-align:left;
+    vertical-align:middle;
+    padding:4px 8px 4px 4px;
+    word-break:break-all;
+}
+
+.body th{
+   font-weight:bold;
+}
+
+.body td {
+  text-align: center !important;
+}
+
+/* ---------------------------------------------------------
+Images
+---------------------------------------------------------*/
+
+ img{
+    max-width: 100%;
+    height: auto;
+    width: 100%\9; /* ie8 */
+    display:block;
+}
+
+/* ---------------------------------------------------------
+Render Math
+---------------------------------------------------------*/
+
+div.math{
+    font-size: 1em;
+}
+
+/* ---------------------------------------------------------
+Custom Styles
+---------------------------------------------------------*/
+
+h1 {
+  font-size: 2rem;
+}
+
+h4 {
+  font-size: 1.3rem;
+  padding: 20px 0 8px 0;
+}
+
+pre {
+  border: 1px solid #dbdbdb !important;
+  border-radius: 2px !important;
+  padding: 4px 8px;
+}
+
+table {
+  margin-bottom: 20px;
+}
+
+.highlight {
+  font-size: 0.9em;
+}

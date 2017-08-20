@@ -3,7 +3,7 @@
 from __future__ import unicode_literals
 
 AUTHOR = 'Lewis Davies'
-SITENAME = 'Data Analysis Survival Guide - LewisDavi.es'
+SITENAME = 'LewisDavi.es'
 SITEURL = 'http://lewisdavi.es'
 THEME = 'theme'
 
@@ -34,3 +34,23 @@ DEFAULT_PAGINATION = False
 
 # Uncomment following line if you want document-relative URLs when developing
 RELATIVE_URLS = True
+
+STATIC_PATHS = ['extra/android-chrome-192x192.png', 'extra/android-chrome-512x512.png',
+                'extra/apple-touch-icon.png', 'extra/browserconfig.xml',
+                'extra/favicon-16x16.png', 'extra/favicon-32x32.png',
+                'extra/favicon.ico', 'extra/manifest.json',
+                'extra/mstile-150x150.png', 'extra/safari-pinned-tab.svg',
+                'images']
+
+EXTRA_PATH_METADATA = {
+    'extra/android-chrome-192x192.png': {'path': 'android-chrome-192x192.png'},
+    'extra/android-chrome-512x512.png': {'path': 'android-chrome-512x512.png'},
+    'extra/apple-touch-icon.png': {'path': 'apple-touch-icon.png'},
+    'extra/browserconfig.xml': {'path': 'browserconfig.xml'},
+    'extra/favicon-16x16.png': {'path': 'favicon-16x16.png'},
+    'extra/favicon-32x32.png': {'path': 'favicon-32x32.png'},
+    'extra/favicon.ico': {'path': 'favicon.ico'},
+    'extra/manifest.json': {'path': 'manifest.json'},
+    'extra/mstile-150x150.png': {'path': 'mstile-150x150.png'},
+    'extra/safari-pinned-tab.svg': {'path': 'safari-pinned-tab.svg'}
+}

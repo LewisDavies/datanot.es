@@ -3,13 +3,24 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Filtering Aggregates with HAVING - Data Analysis Survival Guide - LewisDavi.es</title>
+  <title>Filtering Aggregates with HAVING - LewisDavi.es
+</title>
 
   <!-- Latest compiled and minified Bootstrap CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-  <link rel="stylesheet" type="text/css" href="../theme/css/pygments.css">
   <link rel="stylesheet" type="text/css" href="../theme/css/style.css">
 
+  <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+  <link rel="manifest" href="../manifest.json">
+  <link rel="mask-icon" href="../safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="shortcut icon" href="../favicon.ico">
+  <meta name="msapplication-config" content="../browserconfig.xml">
+  <meta name="theme-color" content="#ffffff">
+
+<link rel="stylesheet" type="text/css" href="../theme/css/pygments.css">
+<link rel="stylesheet" type="text/css" href="../theme/css/notebooks.css">
 </head>
 
 <body>
@@ -44,7 +55,7 @@
       <div class="col-sm-12">
 <h1>Filtering Aggregates with HAVING</h1>
 <label>Posted on 09 August 2017</label>
-<h3>Load ipython-sql extension</h3>
+<h4>Load ipython-sql extension</h4>
 <div class="highlight"><pre><span></span><span class="c1"># The 2 lines below prevent an error message from being displayed when we run %load_ext sql</span>
 <span class="kn">import</span> <span class="nn">warnings</span>
 <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
@@ -54,7 +65,7 @@
 </pre></div>
 
 
-<h3>Connect to the database</h3>
+<h4>Connect to the database</h4>
 <div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
 
 <span class="n">postgresql</span><span class="p">:</span><span class="o">//</span><span class="n">localhost</span><span class="o">/</span><span class="n">dvdrental</span>
@@ -65,7 +76,7 @@
 </pre></div>
 
 
-<h3>Sample from <code>film</code> table</h3>
+<h4>Sample from <code>film</code> table</h4>
 <div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
 
 <span class="n">SELECT</span>
@@ -119,7 +130,7 @@
     </tr>
 </table>
 
-<h3>Using aggregates</h3>
+<h4>Using aggregates</h4>
 <div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
 
 <span class="n">SELECT</span>
@@ -151,7 +162,7 @@
     </tr>
 </table>
 
-<h3>Filtering on returned aggregates</h3>
+<h4>Filtering on returned aggregates</h4>
 <div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
 
 <span class="n">SELECT</span>

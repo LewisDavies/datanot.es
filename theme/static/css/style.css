@@ -24,6 +24,18 @@ body {
 /* --------------------------------------------------
  Custom styles
 -------------------------------------------------- */
+nav {
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.3);
+}
+
+.dropdown-menu {
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.15);
+}
+
+.card {
+box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.15), 0 2px 8px 0 rgba(0, 0, 0, 0.1);
+}
+
 .card-body {
   -webkit-column-count: 1; /* Chrome, Safari, Opera */
   -moz-column-count: 1; /* Firefox */

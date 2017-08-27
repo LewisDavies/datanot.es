@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Select Values Within a Range - LewisDavi.es
+  <title>Subqueries - LewisDavi.es
 </title>
 
   <!-- Latest compiled and minified Bootstrap CSS -->
@@ -53,8 +53,8 @@
     <br>
     <div class="row justify-content-center">
       <div class="col-md-12">
-<h1>Select Values Within a Range</h1>
-<label>Posted on 08 August 2017</label>
+<h1>Subqueries</h1>
+<label>Posted on 27 August 2017</label>
 <h4>Load ipython-sql extension</h4>
 <div class="highlight"><pre><span></span><span class="c1"># The 2 lines below prevent an error message from being displayed when we run %load_ext sql</span>
 <span class="kn">import</span> <span class="nn">warnings</span>
@@ -76,18 +76,22 @@
 </pre></div>
 
 
-<h4>Find values within a range with BETWEEN</h4>
-<p>Note that this is an inclusive search: in the example below, movies that are 110 or 120 minutes long will be returned in the full results.</p>
+<h4>Using a subquery as a condition</h4>
 <div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
 
 <span class="n">SELECT</span>
-    <span class="n">f</span><span class="o">.</span><span class="n">title</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">film_id</span>
+    <span class="p">,</span> <span class="n">f</span><span class="o">.</span><span class="n">title</span>
     <span class="p">,</span> <span class="n">f</span><span class="o">.</span><span class="n">length</span>
 <span class="n">FROM</span>
     <span class="n">film</span> <span class="n">f</span>
 <span class="n">WHERE</span>
-    <span class="n">f</span><span class="o">.</span><span class="n">length</span> <span class="n">BETWEEN</span> <span class="mi">110</span> <span class="n">AND</span> <span class="mi">120</span>
-<span class="o">--</span> <span class="n">For</span> <span class="n">convenience</span><span class="p">,</span> <span class="n">we</span><span class="s1">&#39;ll only show the first 5 results</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">length</span> <span class="o">&gt;</span> <span class="p">(</span>
+        <span class="n">SELECT</span>
+            <span class="n">avg</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">length</span><span class="p">)</span>
+        <span class="n">FROM</span>
+            <span class="n">film</span> <span class="n">f</span>
+    <span class="p">)</span>
 <span class="n">LIMIT</span>
     <span class="mi">5</span>
 </pre></div>
@@ -95,41 +99,48 @@
 
 <table>
     <tr>
+        <th>film_id</th>
         <th>title</th>
         <th>length</th>
     </tr>
     <tr>
+        <td>133</td>
         <td>Chamber Italian</td>
         <td>117</td>
     </tr>
     <tr>
+        <td>4</td>
         <td>Affair Prejudice</td>
         <td>117</td>
     </tr>
     <tr>
-        <td>Alabama Devil</td>
-        <td>114</td>
+        <td>5</td>
+        <td>African Egg</td>
+        <td>130</td>
     </tr>
     <tr>
-        <td>Amadeus Holy</td>
-        <td>113</td>
+        <td>6</td>
+        <td>Agent Truman</td>
+        <td>169</td>
     </tr>
     <tr>
-        <td>Apocalypse Flamingos</td>
-        <td>119</td>
+        <td>11</td>
+        <td>Alamo Videotape</td>
+        <td>126</td>
     </tr>
 </table>
 
-<h4>Find values outside the same range</h4>
+<h4>Selecting a column with a subquery</h4>
+<p>This isn't the most practical example, but you can select individual columns using a subquery.</p>
 <div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
 
 <span class="n">SELECT</span>
-    <span class="n">f</span><span class="o">.</span><span class="n">title</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">film_id</span>
+    <span class="p">,</span> <span class="n">f</span><span class="o">.</span><span class="n">title</span>
     <span class="p">,</span> <span class="n">f</span><span class="o">.</span><span class="n">length</span>
+    <span class="p">,</span> <span class="p">(</span><span class="n">SELECT</span> <span class="n">l</span><span class="o">.</span><span class="n">name</span> <span class="n">FROM</span> <span class="n">language</span> <span class="n">l</span> <span class="n">WHERE</span> <span class="n">l</span><span class="o">.</span><span class="n">language_id</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">language_id</span><span class="p">)</span>
 <span class="n">FROM</span>
     <span class="n">film</span> <span class="n">f</span>
-<span class="n">WHERE</span>
-    <span class="n">f</span><span class="o">.</span><span class="n">length</span> <span class="n">NOT</span> <span class="n">BETWEEN</span> <span class="mi">110</span> <span class="n">AND</span> <span class="mi">120</span>
 <span class="n">LIMIT</span>
     <span class="mi">5</span>
 </pre></div>
@@ -137,117 +148,40 @@
 
 <table>
     <tr>
+        <th>film_id</th>
         <th>title</th>
         <th>length</th>
+        <th>name</th>
     </tr>
     <tr>
+        <td>133</td>
+        <td>Chamber Italian</td>
+        <td>117</td>
+        <td>English             </td>
+    </tr>
+    <tr>
+        <td>384</td>
         <td>Grosse Wonderful</td>
         <td>49</td>
+        <td>English             </td>
     </tr>
     <tr>
+        <td>8</td>
         <td>Airport Pollock</td>
         <td>54</td>
+        <td>English             </td>
     </tr>
     <tr>
+        <td>98</td>
         <td>Bright Encounters</td>
         <td>73</td>
+        <td>English             </td>
     </tr>
     <tr>
+        <td>1</td>
         <td>Academy Dinosaur</td>
         <td>86</td>
-    </tr>
-    <tr>
-        <td>Ace Goldfinger</td>
-        <td>48</td>
-    </tr>
-</table>
-
-<h4>Using BETWEEN with datetimes</h4>
-<p>It is easy to be caught out by datetimes when using between. In the example below <code>'2007-02-15'</code> is interpreted as '<code>2007-02-15 00:00:00</code>', so the latest results are from just before midnight.</p>
-<div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
-
-<span class="n">SELECT</span>
-    <span class="n">p</span><span class="o">.</span><span class="n">payment_id</span>
-    <span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">payment_date</span>
-<span class="n">FROM</span>
-    <span class="n">payment</span> <span class="n">p</span>
-<span class="n">WHERE</span>
-    <span class="n">p</span><span class="o">.</span><span class="n">payment_date</span> <span class="n">BETWEEN</span> <span class="s1">&#39;2007-02-14&#39;</span> <span class="n">AND</span> <span class="s1">&#39;2007-02-15&#39;</span>
-<span class="n">ORDER</span> <span class="n">BY</span>
-    <span class="n">p</span><span class="o">.</span><span class="n">payment_date</span> <span class="n">DESC</span>
-<span class="n">LIMIT</span>
-    <span class="mi">5</span>
-</pre></div>
-
-
-<table>
-    <tr>
-        <th>payment_id</th>
-        <th>payment_date</th>
-    </tr>
-    <tr>
-        <td>17743</td>
-        <td>2007-02-14 23:53:34.996577</td>
-    </tr>
-    <tr>
-        <td>18322</td>
-        <td>2007-02-14 23:52:46.996577</td>
-    </tr>
-    <tr>
-        <td>19212</td>
-        <td>2007-02-14 23:47:05.996577</td>
-    </tr>
-    <tr>
-        <td>17617</td>
-        <td>2007-02-14 23:33:58.996577</td>
-    </tr>
-    <tr>
-        <td>19421</td>
-        <td>2007-02-14 23:32:48.996577</td>
-    </tr>
-</table>
-
-<p>When we cast <code>p.payment_date</code> as a <code>date</code>, the time part is removed. This means that payments from <code>2007-02-15</code> are now included in the results.</p>
-<div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
-
-<span class="n">SELECT</span>
-    <span class="n">p</span><span class="o">.</span><span class="n">payment_id</span>
-    <span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">payment_date</span>
-<span class="n">FROM</span>
-    <span class="n">payment</span> <span class="n">p</span>
-<span class="n">WHERE</span>
-    <span class="n">p</span><span class="o">.</span><span class="n">payment_date</span><span class="p">::</span><span class="n">date</span> <span class="n">BETWEEN</span> <span class="s1">&#39;2007-02-14&#39;</span> <span class="n">AND</span> <span class="s1">&#39;2007-02-15&#39;</span>
-<span class="n">ORDER</span> <span class="n">BY</span>
-    <span class="n">p</span><span class="o">.</span><span class="n">payment_date</span> <span class="n">DESC</span>
-<span class="n">LIMIT</span>
-    <span class="mi">5</span>
-</pre></div>
-
-
-<table>
-    <tr>
-        <th>payment_id</th>
-        <th>payment_date</th>
-    </tr>
-    <tr>
-        <td>18335</td>
-        <td>2007-02-15 23:59:49.996577</td>
-    </tr>
-    <tr>
-        <td>18676</td>
-        <td>2007-02-15 23:56:48.996577</td>
-    </tr>
-    <tr>
-        <td>18610</td>
-        <td>2007-02-15 23:52:34.996577</td>
-    </tr>
-    <tr>
-        <td>19199</td>
-        <td>2007-02-15 23:48:31.996577</td>
-    </tr>
-    <tr>
-        <td>19229</td>
-        <td>2007-02-15 23:44:25.996577</td>
+        <td>English             </td>
     </tr>
 </table>
       </div>

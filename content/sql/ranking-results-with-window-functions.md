@@ -342,4 +342,4 @@ WHERE
 
 
 
-There are lots of other window functions that can also be used here; [check the Postgres docs](https://www.postgresql.org/docs/9.6/static/functions-window.html) for full details.
+There are lots of other window functions that can also be used here. [Check the Postgres docs](https://www.postgresql.org/docs/current/static/functions-window.html) for full details.

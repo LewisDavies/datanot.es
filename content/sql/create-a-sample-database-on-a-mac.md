@@ -9,7 +9,7 @@ Modified: 2017-08-11
 [Postgres.app](https://postgresapp.com/) makes it simple to set up a PostgreSQL database on a Mac. Simply download it, add it to your Applications, then run it.
 
 #### Add command line tools to your PATH
-We need to run a few commands to set up our sample database. (The docs have full details)[https://postgresapp.com/documentation/cli-tools.html], but here's how to add the relevant directory to your `$PATH`.
+We need to run a few commands to set up our sample database. [The docs have full details](https://postgresapp.com/documentation/cli-tools.html), but here's how to add the relevant directory to your `$PATH`.
 
 Open up a new terminal — you should be in your home directory — and type `nano .bash_profile`. Add the following lines at the end of your profile:
 

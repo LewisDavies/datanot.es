@@ -77,7 +77,7 @@
 
 
 <h4>Find values within a range with BETWEEN</h4>
-<p>Note that this is an inclusive search: results matching the specified values are included</p>
+<p>Note that this is an inclusive search: in the example below, movies that are 110 or 120 minutes long will be returned in the full results.</p>
 <div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
 
 <span class="n">SELECT</span>
@@ -159,6 +159,95 @@
     <tr>
         <td>Ace Goldfinger</td>
         <td>48</td>
+    </tr>
+</table>
+
+<h4>Using BETWEEN with datetimes</h4>
+<p>It is easy to be caught out by datetimes when using between. In the example below <code>'2007-02-15'</code> is interpreted as '<code>2007-02-15 00:00:00</code>', so the latest results are from just before midnight.</p>
+<div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+
+<span class="n">SELECT</span>
+    <span class="n">p</span><span class="o">.</span><span class="n">payment_id</span>
+    <span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">payment_date</span>
+<span class="n">FROM</span>
+    <span class="n">payment</span> <span class="n">p</span>
+<span class="n">WHERE</span>
+    <span class="n">p</span><span class="o">.</span><span class="n">payment_date</span> <span class="n">BETWEEN</span> <span class="s1">&#39;2007-02-14&#39;</span> <span class="n">AND</span> <span class="s1">&#39;2007-02-15&#39;</span>
+<span class="n">ORDER</span> <span class="n">BY</span>
+    <span class="n">p</span><span class="o">.</span><span class="n">payment_date</span> <span class="n">DESC</span>
+<span class="n">LIMIT</span>
+    <span class="mi">5</span>
+</pre></div>
+
+
+<table>
+    <tr>
+        <th>payment_id</th>
+        <th>payment_date</th>
+    </tr>
+    <tr>
+        <td>17743</td>
+        <td>2007-02-14 23:53:34.996577</td>
+    </tr>
+    <tr>
+        <td>18322</td>
+        <td>2007-02-14 23:52:46.996577</td>
+    </tr>
+    <tr>
+        <td>19212</td>
+        <td>2007-02-14 23:47:05.996577</td>
+    </tr>
+    <tr>
+        <td>17617</td>
+        <td>2007-02-14 23:33:58.996577</td>
+    </tr>
+    <tr>
+        <td>19421</td>
+        <td>2007-02-14 23:32:48.996577</td>
+    </tr>
+</table>
+
+<p>When we cast <code>p.payment_date</code> as a <code>date</code>, the time part is removed. This means that payments from <code>2007-02-15</code> are now included in the results.</p>
+<div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+
+<span class="n">SELECT</span>
+    <span class="n">p</span><span class="o">.</span><span class="n">payment_id</span>
+    <span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">payment_date</span>
+<span class="n">FROM</span>
+    <span class="n">payment</span> <span class="n">p</span>
+<span class="n">WHERE</span>
+    <span class="n">p</span><span class="o">.</span><span class="n">payment_date</span><span class="p">::</span><span class="n">date</span> <span class="n">BETWEEN</span> <span class="s1">&#39;2007-02-14&#39;</span> <span class="n">AND</span> <span class="s1">&#39;2007-02-15&#39;</span>
+<span class="n">ORDER</span> <span class="n">BY</span>
+    <span class="n">p</span><span class="o">.</span><span class="n">payment_date</span> <span class="n">DESC</span>
+<span class="n">LIMIT</span>
+    <span class="mi">5</span>
+</pre></div>
+
+
+<table>
+    <tr>
+        <th>payment_id</th>
+        <th>payment_date</th>
+    </tr>
+    <tr>
+        <td>18335</td>
+        <td>2007-02-15 23:59:49.996577</td>
+    </tr>
+    <tr>
+        <td>18676</td>
+        <td>2007-02-15 23:56:48.996577</td>
+    </tr>
+    <tr>
+        <td>18610</td>
+        <td>2007-02-15 23:52:34.996577</td>
+    </tr>
+    <tr>
+        <td>19199</td>
+        <td>2007-02-15 23:48:31.996577</td>
+    </tr>
+    <tr>
+        <td>19229</td>
+        <td>2007-02-15 23:44:25.996577</td>
     </tr>
 </table>
       </div>

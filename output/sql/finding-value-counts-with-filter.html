@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Filtering Aggregates with HAVING - LewisDavi.es
+  <title>Finding Value Counts with FILTER - LewisDavi.es
 </title>
 
   <!-- Latest compiled and minified Bootstrap CSS -->
@@ -53,8 +53,8 @@
     <br>
     <div class="row justify-content-center">
       <div class="col-md-12">
-<h1>Filtering Aggregates with HAVING</h1>
-<label>Posted on 09 August 2017</label>
+<h1>Finding Value Counts with FILTER</h1>
+<label>Posted on 03 September 2017</label>
 <h4>Load ipython-sql extension</h4>
 <div class="highlight"><pre><span></span><span class="c1"># The 2 lines below prevent an error message from being displayed when we run %load_ext sql</span>
 <span class="kn">import</span> <span class="nn">warnings</span>
@@ -76,117 +76,135 @@
 </pre></div>
 
 
-<h4>Sample from <code>film</code> table</h4>
+<h4>Basic <code>count</code> method</h4>
 <div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
 
 <span class="n">SELECT</span>
-    <span class="n">f</span><span class="o">.</span><span class="n">film_id</span>
-    <span class="p">,</span> <span class="n">f</span><span class="o">.</span><span class="n">title</span>
-    <span class="p">,</span> <span class="n">f</span><span class="o">.</span><span class="n">rental_rate</span>
-    <span class="p">,</span> <span class="n">f</span><span class="o">.</span><span class="n">length</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">rental_duration</span>
+    <span class="p">,</span> <span class="n">count</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">rental_duration</span><span class="p">)</span>
 <span class="n">FROM</span>
     <span class="n">film</span> <span class="n">f</span>
-<span class="n">LIMIT</span>
-    <span class="mi">5</span>
+<span class="n">GROUP</span> <span class="n">BY</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">rental_duration</span>
+<span class="n">ORDER</span> <span class="n">BY</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">rental_duration</span> <span class="n">ASC</span>
 </pre></div>
 
 
 <table>
     <tr>
-        <th>film_id</th>
-        <th>title</th>
-        <th>rental_rate</th>
-        <th>length</th>
+        <th>rental_duration</th>
+        <th>count</th>
     </tr>
     <tr>
-        <td>133</td>
-        <td>Chamber Italian</td>
-        <td>4.99</td>
-        <td>117</td>
+        <td>3</td>
+        <td>203</td>
     </tr>
     <tr>
-        <td>384</td>
-        <td>Grosse Wonderful</td>
-        <td>4.99</td>
-        <td>49</td>
+        <td>4</td>
+        <td>203</td>
     </tr>
     <tr>
-        <td>8</td>
-        <td>Airport Pollock</td>
-        <td>4.99</td>
-        <td>54</td>
+        <td>5</td>
+        <td>191</td>
     </tr>
     <tr>
-        <td>98</td>
-        <td>Bright Encounters</td>
-        <td>4.99</td>
-        <td>73</td>
+        <td>6</td>
+        <td>212</td>
     </tr>
     <tr>
-        <td>1</td>
-        <td>Academy Dinosaur</td>
-        <td>0.99</td>
-        <td>86</td>
+        <td>7</td>
+        <td>191</td>
     </tr>
 </table>
 
-<h4>Using aggregates</h4>
+<h4>A more flexible way with <code>CASE</code></h4>
+<p>Let's say we want to categorise our values. In older versions of PostgreSQL, we would do something like this:</p>
+<div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+
+<span class="n">SELECT</span>
+    <span class="nb">sum</span><span class="p">(</span><span class="n">CASE</span> <span class="n">WHEN</span> <span class="n">f</span><span class="o">.</span><span class="n">rental_duration</span> <span class="o">&lt;</span> <span class="mi">5</span> <span class="n">THEN</span> <span class="mi">1</span> <span class="n">ELSE</span> <span class="mi">0</span> <span class="n">END</span><span class="p">)</span> <span class="n">AS</span> <span class="n">under_five</span>
+    <span class="p">,</span> <span class="nb">sum</span><span class="p">(</span><span class="n">CASE</span> <span class="n">WHEN</span> <span class="n">f</span><span class="o">.</span><span class="n">rental_duration</span> <span class="o">&gt;=</span> <span class="mi">5</span> <span class="n">THEN</span> <span class="mi">1</span> <span class="n">ELSE</span> <span class="mi">0</span> <span class="n">END</span><span class="p">)</span> <span class="n">AS</span> <span class="n">five_or_over</span>
+<span class="n">FROM</span>
+    <span class="n">film</span> <span class="n">f</span>
+</pre></div>
+
+
+<table>
+    <tr>
+        <th>under_five</th>
+        <th>five_or_over</th>
+    </tr>
+    <tr>
+        <td>406</td>
+        <td>594</td>
+    </tr>
+</table>
+
+<h4>An even better way</h4>
+<p>Version 9.4 introduced <code>FILTER</code>, letting us write a better, more readable version of the above query.</p>
+<div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+
+<span class="n">SELECT</span>
+    <span class="n">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="n">FILTER</span><span class="p">(</span><span class="n">WHERE</span> <span class="n">f</span><span class="o">.</span><span class="n">rental_duration</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">)</span> <span class="n">AS</span> <span class="n">under_five</span>
+    <span class="p">,</span> <span class="n">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="n">FILTER</span><span class="p">(</span><span class="n">WHERE</span> <span class="n">f</span><span class="o">.</span><span class="n">rental_duration</span> <span class="o">&gt;=</span> <span class="mi">5</span><span class="p">)</span> <span class="n">AS</span> <span class="n">five_or_over</span>
+<span class="n">FROM</span>
+    <span class="n">film</span> <span class="n">f</span>
+</pre></div>
+
+
+<table>
+    <tr>
+        <th>under_five</th>
+        <th>five_or_over</th>
+    </tr>
+    <tr>
+        <td>406</td>
+        <td>594</td>
+    </tr>
+</table>
+
+<h4><code>FILTER</code> in practice</h4>
+<p>With this new function, we can essentially create a pivot table with a single query.</p>
 <div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
 
 <span class="n">SELECT</span>
     <span class="n">f</span><span class="o">.</span><span class="n">rental_rate</span>
-    <span class="p">,</span> <span class="n">avg</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">length</span><span class="p">)</span>
+    <span class="p">,</span> <span class="n">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="n">FILTER</span><span class="p">(</span><span class="n">WHERE</span> <span class="n">f</span><span class="o">.</span><span class="n">rental_duration</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">)</span> <span class="n">AS</span> <span class="n">under_five</span>
+    <span class="p">,</span> <span class="n">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="n">FILTER</span><span class="p">(</span><span class="n">WHERE</span> <span class="n">f</span><span class="o">.</span><span class="n">rental_duration</span> <span class="o">&gt;=</span> <span class="mi">5</span><span class="p">)</span> <span class="n">AS</span> <span class="n">five_or_over</span>
 <span class="n">FROM</span>
     <span class="n">film</span> <span class="n">f</span>
 <span class="n">GROUP</span> <span class="n">BY</span>
     <span class="n">f</span><span class="o">.</span><span class="n">rental_rate</span>
+<span class="n">ORDER</span> <span class="n">BY</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">rental_rate</span> <span class="n">ASC</span>
 </pre></div>
 
 
 <table>
     <tr>
         <th>rental_rate</th>
-        <th>avg</th>
-    </tr>
-    <tr>
-        <td>4.99</td>
-        <td>115.8244047619047619</td>
+        <th>under_five</th>
+        <th>five_or_over</th>
     </tr>
     <tr>
         <td>0.99</td>
-        <td>112.9120234604105572</td>
+        <td>150</td>
+        <td>191</td>
     </tr>
     <tr>
         <td>2.99</td>
-        <td>117.1888544891640867</td>
+        <td>124</td>
+        <td>199</td>
+    </tr>
+    <tr>
+        <td>4.99</td>
+        <td>132</td>
+        <td>204</td>
     </tr>
 </table>
 
-<h4>Filtering on returned aggregates</h4>
-<div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
-
-<span class="n">SELECT</span>
-    <span class="n">f</span><span class="o">.</span><span class="n">rental_rate</span>
-    <span class="p">,</span> <span class="n">avg</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">length</span><span class="p">)</span>
-<span class="n">FROM</span>
-    <span class="n">film</span> <span class="n">f</span>
-<span class="n">GROUP</span> <span class="n">BY</span>
-    <span class="n">f</span><span class="o">.</span><span class="n">rental_rate</span>
-<span class="n">HAVING</span>
-    <span class="n">avg</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">length</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">117</span>
-</pre></div>
-
-
-<table>
-    <tr>
-        <th>rental_rate</th>
-        <th>avg</th>
-    </tr>
-    <tr>
-        <td>2.99</td>
-        <td>117.1888544891640867</td>
-    </tr>
-</table>
+<p>These examples are based on information in <a href="https://www.amazon.co.uk/PostgreSQL-Running-Regina-Obe/dp/1449373194/">PostgreSQL: Up and Running</a>.</p>
       </div>
     </div>
   </div>

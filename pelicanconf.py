@@ -54,3 +54,27 @@ EXTRA_PATH_METADATA = {
     'extra/mstile-150x150.png': {'path': 'mstile-150x150.png'},
     'extra/safari-pinned-tab.svg': {'path': 'safari-pinned-tab.svg'}
 }
+
+PLUGIN_PATHS = ['plugins']
+PLUGINS = [
+    'random_article',
+    'render_math',
+    'sitemap',
+    'tipue_search'
+    ]
+
+RANDOM = 'random.html'
+
+SITEMAP = {
+    'format': 'xml',
+    'priorities': {
+        'articles': 0.5,
+        'indexes': 0.5,
+        'pages': 0.5
+    },
+    'changefreqs': {
+        'articles': 'monthly',
+        'indexes': 'daily',
+        'pages': 'monthly'
+    }
+}

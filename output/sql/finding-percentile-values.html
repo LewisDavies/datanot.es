@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Subqueries - LewisDavi.es
+  <title>Finding Percentile Values - LewisDavi.es
 </title>
 
   <!-- Latest compiled and minified Bootstrap CSS -->
@@ -53,8 +53,8 @@
     <br>
     <div class="row justify-content-center">
       <div class="col-md-12">
-<h1>Subqueries</h1>
-<label>Posted on 27 August 2017</label>
+<h1>Finding Percentile Values</h1>
+<label>Posted on 03 September 2017</label>
 <h4>Load ipython-sql extension</h4>
 <div class="highlight"><pre><span></span><span class="c1"># The 2 lines below prevent an error message from being displayed when we run %load_ext sql</span>
 <span class="kn">import</span> <span class="nn">warnings</span>
@@ -76,114 +76,103 @@
 </pre></div>
 
 
-<h4>Using a subquery as a condition</h4>
+<h4>Finding quartile values in older versions of PostgreSQL</h4>
+<p>The number in the <code>ntile</code> function can be replaced as necessary. For example, we would use 5 to find the 20th, 40th, 60th, 80th and 100th percentiles, or 100 to find every percentile.</p>
 <div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
 
+<span class="n">WITH</span> <span class="n">quartiles</span> <span class="n">AS</span> <span class="p">(</span>
+    <span class="n">SELECT</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">length</span><span class="p">,</span>
+        <span class="n">ntile</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="n">OVER</span><span class="p">(</span><span class="n">ORDER</span> <span class="n">BY</span> <span class="n">f</span><span class="o">.</span><span class="n">length</span><span class="p">)</span> <span class="n">AS</span> <span class="n">quartile</span>
+    <span class="n">FROM</span>
+        <span class="n">film</span> <span class="n">f</span>
+  <span class="p">)</span>
+
 <span class="n">SELECT</span>
-    <span class="n">f</span><span class="o">.</span><span class="n">film_id</span>
-    <span class="p">,</span> <span class="n">f</span><span class="o">.</span><span class="n">title</span>
-    <span class="p">,</span> <span class="n">f</span><span class="o">.</span><span class="n">length</span>
+    <span class="nb">max</span><span class="p">(</span><span class="n">q</span><span class="o">.</span><span class="n">length</span><span class="p">)</span> <span class="n">AS</span> <span class="n">quartiles</span>
 <span class="n">FROM</span>
-    <span class="n">film</span> <span class="n">f</span>
-<span class="n">WHERE</span>
-    <span class="n">f</span><span class="o">.</span><span class="n">length</span> <span class="o">&gt;</span> <span class="p">(</span>
-        <span class="n">SELECT</span>
-            <span class="n">avg</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">length</span><span class="p">)</span>
-        <span class="n">FROM</span>
-            <span class="n">film</span> <span class="n">f</span>
-    <span class="p">)</span>
-<span class="n">LIMIT</span>
-    <span class="mi">5</span>
+    <span class="n">quartiles</span> <span class="n">q</span>
+<span class="n">GROUP</span> <span class="n">BY</span>
+    <span class="n">quartile</span>
+<span class="n">ORDER</span> <span class="n">BY</span>
+    <span class="n">quartile</span>
 </pre></div>
 
 
 <table>
     <tr>
-        <th>film_id</th>
-        <th>title</th>
-        <th>length</th>
+        <th>quartiles</th>
     </tr>
     <tr>
-        <td>133</td>
-        <td>Chamber Italian</td>
-        <td>117</td>
+        <td>80</td>
     </tr>
     <tr>
-        <td>4</td>
-        <td>Affair Prejudice</td>
-        <td>117</td>
+        <td>114</td>
     </tr>
     <tr>
-        <td>5</td>
-        <td>African Egg</td>
-        <td>130</td>
+        <td>149</td>
     </tr>
     <tr>
-        <td>6</td>
-        <td>Agent Truman</td>
-        <td>169</td>
-    </tr>
-    <tr>
-        <td>11</td>
-        <td>Alamo Videotape</td>
-        <td>126</td>
+        <td>185</td>
     </tr>
 </table>
 
-<h4>Selecting a column with a subquery</h4>
-<p>This isn't the most practical example, but you can select individual columns using a subquery.</p>
+<h4>Newer, simpler functions</h4>
+<p>Version 9.4 introduced a number of new functions that reduce the need for a CTE or subquery when finding percentiles. We can use <code>percentile_disc</code> to return the first value that matches or exceeds a particular percentile, whereas <code>percentile_cont</code> will interpolate between values if the exact percentile needed isn't found.</p>
 <div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
 
 <span class="n">SELECT</span>
-    <span class="n">f</span><span class="o">.</span><span class="n">film_id</span>
-    <span class="p">,</span> <span class="n">f</span><span class="o">.</span><span class="n">title</span>
-    <span class="p">,</span> <span class="n">f</span><span class="o">.</span><span class="n">length</span>
-    <span class="p">,</span> <span class="p">(</span><span class="n">SELECT</span> <span class="n">l</span><span class="o">.</span><span class="n">name</span> <span class="n">FROM</span> <span class="n">language</span> <span class="n">l</span> <span class="n">WHERE</span> <span class="n">l</span><span class="o">.</span><span class="n">language_id</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">language_id</span><span class="p">)</span>
+    <span class="n">unnest</span><span class="p">(</span><span class="n">percentile_disc</span><span class="p">(</span><span class="n">ARRAY</span><span class="p">[</span><span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span> <span class="n">WITHIN</span> <span class="n">GROUP</span> <span class="p">(</span><span class="n">ORDER</span> <span class="n">BY</span> <span class="n">f</span><span class="o">.</span><span class="n">length</span><span class="p">))</span> <span class="n">AS</span> <span class="n">discrete_quartiles</span>
+    <span class="p">,</span> <span class="n">unnest</span><span class="p">(</span><span class="n">percentile_cont</span><span class="p">(</span><span class="n">ARRAY</span><span class="p">[</span><span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span> <span class="n">WITHIN</span> <span class="n">GROUP</span> <span class="p">(</span><span class="n">ORDER</span> <span class="n">BY</span> <span class="n">f</span><span class="o">.</span><span class="n">length</span><span class="p">))</span> <span class="n">AS</span> <span class="n">continuous_quartiles</span>
 <span class="n">FROM</span>
     <span class="n">film</span> <span class="n">f</span>
-<span class="n">LIMIT</span>
-    <span class="mi">5</span>
 </pre></div>
 
 
 <table>
     <tr>
-        <th>film_id</th>
-        <th>title</th>
-        <th>length</th>
-        <th>name</th>
+        <th>discrete_quartiles</th>
+        <th>continuous_quartiles</th>
     </tr>
     <tr>
-        <td>133</td>
-        <td>Chamber Italian</td>
-        <td>117</td>
-        <td>English             </td>
+        <td>80</td>
+        <td>80.0</td>
     </tr>
     <tr>
-        <td>384</td>
-        <td>Grosse Wonderful</td>
-        <td>49</td>
-        <td>English             </td>
+        <td>114</td>
+        <td>114.0</td>
     </tr>
     <tr>
-        <td>8</td>
-        <td>Airport Pollock</td>
-        <td>54</td>
-        <td>English             </td>
+        <td>149</td>
+        <td>149.25</td>
     </tr>
     <tr>
-        <td>98</td>
-        <td>Bright Encounters</td>
-        <td>73</td>
-        <td>English             </td>
-    </tr>
-    <tr>
-        <td>1</td>
-        <td>Academy Dinosaur</td>
-        <td>86</td>
-        <td>English             </td>
+        <td>185</td>
+        <td>185.0</td>
     </tr>
 </table>
+
+<h4>One final example</h4>
+<p>If only one percentile is required, the <code>unnest</code> function and <code>ARRAY</code> constructor can be removed and your chosen percentile added instead.</p>
+<div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+
+<span class="n">SELECT</span>
+    <span class="n">percentile_disc</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span> <span class="n">WITHIN</span> <span class="n">GROUP</span> <span class="p">(</span><span class="n">ORDER</span> <span class="n">BY</span> <span class="n">f</span><span class="o">.</span><span class="n">length</span><span class="p">)</span> <span class="n">AS</span> <span class="n">median</span>
+<span class="n">FROM</span>
+    <span class="n">film</span> <span class="n">f</span>
+</pre></div>
+
+
+<table>
+    <tr>
+        <th>median</th>
+    </tr>
+    <tr>
+        <td>114</td>
+    </tr>
+</table>
+
+<p>These examples are based on information on the <a href="https://blog.2ndquadrant.com/the-within-group-and-filter-sql-clauses-of-postgresql-9-4/">2ndQuadrant PostgreSQL blog</a>.</p>
       </div>
     </div>
   </div>

@@ -41,6 +41,7 @@
               {% for cat in categories %}
               <a class="dropdown-item" href="{{ SITEURL }}#{{ cat[0]|replace(" ", "-") }}">{{ cat[0]|e }}</a>
               {% endfor %}
+              <a class="dropdown-item" href="{{ SITEURL }}/{{ RANDOM }}">Surprise me!</a>
             </div>
           </li>
         </ul>

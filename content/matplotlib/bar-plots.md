@@ -3,7 +3,7 @@ Slug: matplotlib/bar-plots
 Category: Matplotlib
 Tags: set_index, plot, xlabel, ylabel, xticks, ylim, show
 Date: 2017-09-19
-Modified: 2017-09-19
+Modified: 2017-09-20
 
 #### Import libraries
 
@@ -80,7 +80,7 @@ df
 
 
 ```python
-df.plot(kind='bar')
+df.plot(kind='bar', figsize=(8,5))
 plt.xlabel('Name')
 plt.ylabel('Height (cm)')
 # Labels are displayed vertically without this line

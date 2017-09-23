@@ -1,5 +1,5 @@
-Title: Selecting and Filtering Columns
-Slug: pandas/selecting-and-filtering-columns
+Title: Selecting and Filtering Data
+Slug: pandas/selecting-and-filtering-data
 Category: Pandas
 Tags: loc, iloc
 Date: 2017-08-05

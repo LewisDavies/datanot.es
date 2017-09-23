@@ -1,9 +1,9 @@
 Title: Selecting Rows and Cells
 Slug: pandas/selecting-rows-and-cells
 Category: Pandas
-Tags: loc, iloc
+Tags:
 Date: 2017-08-05
-Modified: 2017-08-05
+Modified: 2017-09-21
 
 #### Import libraries
 
@@ -31,19 +31,6 @@ df
 
 
 <div>
-<style>
-    .dataframe thead tr:only-child th {
-        text-align: right;
-    }
-
-    .dataframe thead th {
-        text-align: left;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -103,7 +90,64 @@ df
 
 
 
-#### Select by label
+#### Select columns
+We can provide a single column name, a list, or a slice.
+
+
+```python
+df[['colour', 'score1']]
+```
+
+
+
+
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>colour</th>
+      <th>score1</th>
+    </tr>
+    <tr>
+      <th>name</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Theresa</th>
+      <td>Blue</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>David</th>
+      <td>Blue</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>Gordon</th>
+      <td>Red</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>Tony</th>
+      <td>Red</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>John</th>
+      <td>Blue</td>
+      <td>5</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+#### Select rows and cells by label
 
 
 ```python
@@ -123,7 +167,7 @@ df.loc['Theresa']
 
 
 ```python
-# Slices can be used to select mupltiple rows
+# Slices can be used to select a range of rows
 df.loc['David':'Tony']
 ```
 
@@ -131,19 +175,6 @@ df.loc['David':'Tony']
 
 
 <div>
-<style>
-    .dataframe thead tr:only-child th {
-        text-align: right;
-    }
-
-    .dataframe thead th {
-        text-align: left;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -191,7 +222,7 @@ df.loc['David':'Tony']
 
 
 ```python
-# We can filter the columns with a second argument
+# We can filter columns with a second argument
 df.loc['David':'Tony', 'score1']
 ```
 
@@ -208,7 +239,7 @@ df.loc['David':'Tony', 'score1']
 
 
 ```python
-# Lists can also be provided
+# Lists can also be used for this
 df.loc[['David', 'John'], ['colour', 'score3']]
 ```
 
@@ -216,19 +247,6 @@ df.loc[['David', 'John'], ['colour', 'score3']]
 
 
 <div>
-<style>
-    .dataframe thead tr:only-child th {
-        text-align: right;
-    }
-
-    .dataframe thead th {
-        text-align: left;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -273,106 +291,7 @@ df.loc['Theresa', 'colour']
 
 
 #### Select by position
-
-
-```python
-# Same selections as above, but based on position instead
-df.iloc[0]
-```
-
-
-
-
-    colour    Blue
-    score1       1
-    score2     NaN
-    score3     NaN
-    Name: Theresa, dtype: object
-
-
-
-
-```python
-df.iloc[1:4]
-```
-
-
-
-
-<div>
-<style>
-    .dataframe thead tr:only-child th {
-        text-align: right;
-    }
-
-    .dataframe thead th {
-        text-align: left;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>colour</th>
-      <th>score1</th>
-      <th>score2</th>
-      <th>score3</th>
-    </tr>
-    <tr>
-      <th>name</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>David</th>
-      <td>Blue</td>
-      <td>5</td>
-      <td>3.0</td>
-      <td>5.0</td>
-    </tr>
-    <tr>
-      <th>Gordon</th>
-      <td>Red</td>
-      <td>5</td>
-      <td>7.0</td>
-      <td>6.0</td>
-    </tr>
-    <tr>
-      <th>Tony</th>
-      <td>Red</td>
-      <td>3</td>
-      <td>5.0</td>
-      <td>9.0</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-
-
-
-```python
-df.iloc[1:4, 1]
-```
-
-
-
-
-    name
-    David     5
-    Gordon    5
-    Tony      3
-    Name: score1, dtype: int64
-
-
+We can use `iloc` to look up data based on integers. For example, here we repeat the two selections directly above.
 
 
 ```python
@@ -383,19 +302,6 @@ df.iloc[[1, 4], [0, 3]]
 
 
 <div>
-<style>
-    .dataframe thead tr:only-child th {
-        text-align: right;
-    }
-
-    .dataframe thead th {
-        text-align: left;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">

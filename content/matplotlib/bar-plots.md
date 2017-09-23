@@ -80,7 +80,7 @@ df
 
 
 ```python
-df.plot(kind='bar', figsize=(8,5))
+fig = df.plot(kind='bar', figsize=(8,5))
 plt.xlabel('Name')
 plt.ylabel('Height (cm)')
 # Labels are displayed vertically without this line

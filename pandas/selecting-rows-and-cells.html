@@ -76,19 +76,6 @@
 
 
 <div>
-<style>
-    .dataframe thead tr:only-child th {
-        text-align: right;
-    }
-
-    .dataframe thead th {
-        text-align: left;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -146,7 +133,57 @@
 </table>
 </div>
 
-<h4>Select by label</h4>
+<h4>Select columns</h4>
+<p>We can provide a single column name, a list, or a slice.</p>
+<div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;colour&#39;</span><span class="p">,</span> <span class="s1">&#39;score1&#39;</span><span class="p">]]</span>
+</pre></div>
+
+
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>colour</th>
+      <th>score1</th>
+    </tr>
+    <tr>
+      <th>name</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Theresa</th>
+      <td>Blue</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>David</th>
+      <td>Blue</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>Gordon</th>
+      <td>Red</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>Tony</th>
+      <td>Red</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>John</th>
+      <td>Blue</td>
+      <td>5</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h4>Select rows and cells by label</h4>
 <div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;Theresa&#39;</span><span class="p">]</span>
 </pre></div>
 
@@ -159,25 +196,12 @@ Name: Theresa, dtype: object
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Slices can be used to select mupltiple rows</span>
+<div class="highlight"><pre><span></span><span class="c1"># Slices can be used to select a range of rows</span>
 <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;David&#39;</span><span class="p">:</span><span class="s1">&#39;Tony&#39;</span><span class="p">]</span>
 </pre></div>
 
 
 <div>
-<style>
-    .dataframe thead tr:only-child th {
-        text-align: right;
-    }
-
-    .dataframe thead th {
-        text-align: left;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -221,7 +245,7 @@ Name: Theresa, dtype: object
 </table>
 </div>
 
-<div class="highlight"><pre><span></span><span class="c1"># We can filter the columns with a second argument</span>
+<div class="highlight"><pre><span></span><span class="c1"># We can filter columns with a second argument</span>
 <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;David&#39;</span><span class="p">:</span><span class="s1">&#39;Tony&#39;</span><span class="p">,</span> <span class="s1">&#39;score1&#39;</span><span class="p">]</span>
 </pre></div>
 
@@ -234,25 +258,12 @@ Name: score1, dtype: int64
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Lists can also be provided</span>
+<div class="highlight"><pre><span></span><span class="c1"># Lists can also be used for this</span>
 <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="s1">&#39;David&#39;</span><span class="p">,</span> <span class="s1">&#39;John&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;colour&#39;</span><span class="p">,</span> <span class="s1">&#39;score3&#39;</span><span class="p">]]</span>
 </pre></div>
 
 
 <div>
-<style>
-    .dataframe thead tr:only-child th {
-        text-align: right;
-    }
-
-    .dataframe thead th {
-        text-align: left;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -291,110 +302,12 @@ Name: score1, dtype: int64
 
 
 <h4>Select by position</h4>
-<div class="highlight"><pre><span></span><span class="c1"># Same selections as above, but based on position instead</span>
-<span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-</pre></div>
-
-
-<div class="highlight"><pre><span></span>colour    Blue
-score1       1
-score2     NaN
-score3     NaN
-Name: Theresa, dtype: object
-</pre></div>
-
-
-<div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span>
-</pre></div>
-
-
-<div>
-<style>
-    .dataframe thead tr:only-child th {
-        text-align: right;
-    }
-
-    .dataframe thead th {
-        text-align: left;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>colour</th>
-      <th>score1</th>
-      <th>score2</th>
-      <th>score3</th>
-    </tr>
-    <tr>
-      <th>name</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>David</th>
-      <td>Blue</td>
-      <td>5</td>
-      <td>3.0</td>
-      <td>5.0</td>
-    </tr>
-    <tr>
-      <th>Gordon</th>
-      <td>Red</td>
-      <td>5</td>
-      <td>7.0</td>
-      <td>6.0</td>
-    </tr>
-    <tr>
-      <th>Tony</th>
-      <td>Red</td>
-      <td>3</td>
-      <td>5.0</td>
-      <td>9.0</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-<div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
-</pre></div>
-
-
-<div class="highlight"><pre><span></span>name
-David     5
-Gordon    5
-Tony      3
-Name: score1, dtype: int64
-</pre></div>
-
-
+<p>We can use <code>iloc</code> to look up data based on integers. For example, here we repeat the two selections directly above.</p>
 <div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">]]</span>
 </pre></div>
 
 
 <div>
-<style>
-    .dataframe thead tr:only-child th {
-        text-align: right;
-    }
-
-    .dataframe thead th {
-        text-align: left;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">

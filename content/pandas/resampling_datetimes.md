@@ -1,9 +1,9 @@
-Title: Working with Datetimes
-Slug: pandas/working-with-datetimes
+Title: Resampling Datetimes
+Slug: pandas/resampling-datetimes
 Category: Pandas
 Tags: date_range, DataFrame, head, set_index, loc, resample, mean, min, count
 Date: 2017-09-21
-Modified: 2017-09-21
+Modified: 2017-09-24
 
 #### Import libraries
 

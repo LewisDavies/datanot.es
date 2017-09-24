@@ -41,14 +41,16 @@ nav {
 box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.15), 0 2px 8px 0 rgba(0, 0, 0, 0.1);
 }
 
-.card-body {
+.card-body > ul {
+  list-style-position: inside;
   -webkit-column-count: 1; /* Chrome, Safari, Opera */
   -moz-column-count: 1; /* Firefox */
   column-count: 1;
 }
 
 @media (min-width: 576px) {
-  .card-body {
+  .card-body > ul {
+    list-style-position: inside;
     -webkit-column-count: 2; /* Chrome, Safari, Opera */
     -moz-column-count: 2; /* Firefox */
     column-count: 2;

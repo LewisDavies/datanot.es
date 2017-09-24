@@ -1,9 +1,9 @@
 Title: Bar Plots
 Slug: matplotlib/bar-plots
 Category: Matplotlib
-Tags: set_index, plot, xlabel, ylabel, xticks, ylim, show
+Tags: random, normal, plot, xlabel, ylabel, xticks, ylim, show
 Date: 2017-09-19
-Modified: 2017-09-20
+Modified: 2017-09-24
 
 #### Import libraries
 
@@ -17,11 +17,10 @@ import matplotlib.pyplot as plt
 
 
 ```python
-data = {'name': ['Gary', 'Philippa', 'Norman', 'Susie'],
-        'height': [183, 175, 160, 155]}
+index = ['Gary', 'Philippa', 'Norman', 'Susie']
+data = {'height': [183, 175, 160, 155]}
 
-df = pd.DataFrame(data)
-df.set_index('name', inplace=True)
+df = pd.DataFrame(data=data, index=index)
 df
 ```
 
@@ -48,10 +47,6 @@ df
       <th></th>
       <th>height</th>
     </tr>
-    <tr>
-      <th>name</th>
-      <th></th>
-    </tr>
   </thead>
   <tbody>
     <tr>
@@ -76,7 +71,7 @@ df
 
 
 
-#### Plot data
+#### Plot the data
 
 
 ```python

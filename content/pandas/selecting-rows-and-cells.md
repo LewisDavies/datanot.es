@@ -1,9 +1,9 @@
 Title: Selecting Rows and Cells
 Slug: pandas/selecting-rows-and-cells
 Category: Pandas
-Tags:
+Tags: DataFrame, loc, iloc
 Date: 2017-08-05
-Modified: 2017-09-21
+Modified: 2017-09-24
 
 #### Import libraries
 
@@ -16,14 +16,15 @@ import pandas as pd
 
 
 ```python
-data = {'name': ['Theresa', 'David', 'Gordon', 'Tony', 'John'],
-        'colour': ['Blue', 'Blue', 'Red', 'Red', 'Blue'],
-        'score1': [1, 5, 5, 3, 5],
-        'score2': [None, 3, 7, 5, 7],
-        'score3': [None, 5, 6, 9, None]}
+index = ['Theresa', 'David', 'Gordon', 'Tony', 'John']
+data = {
+    'colour': ['Blue', 'Blue', 'Red', 'Red', 'Blue'],
+    'score1': [1, 5, 5, 3, 5],
+    'score2': [None, 3, 7, 5, 7],
+    'score3': [None, 5, 6, 9, None]
+}
 
-df = pd.DataFrame(data)
-df.set_index('name', inplace=True)
+df = pd.DataFrame(data=data, index=index)
 df
 ```
 
@@ -31,6 +32,19 @@ df
 
 
 <div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -39,13 +53,6 @@ df
       <th>score1</th>
       <th>score2</th>
       <th>score3</th>
-    </tr>
-    <tr>
-      <th>name</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -102,17 +109,25 @@ df[['colour', 'score1']]
 
 
 <div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th></th>
       <th>colour</th>
       <th>score1</th>
-    </tr>
-    <tr>
-      <th>name</th>
-      <th></th>
-      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -175,6 +190,19 @@ df.loc['David':'Tony']
 
 
 <div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -183,13 +211,6 @@ df.loc['David':'Tony']
       <th>score1</th>
       <th>score2</th>
       <th>score3</th>
-    </tr>
-    <tr>
-      <th>name</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -229,7 +250,6 @@ df.loc['David':'Tony', 'score1']
 
 
 
-    name
     David     5
     Gordon    5
     Tony      3
@@ -247,17 +267,25 @@ df.loc[['David', 'John'], ['colour', 'score3']]
 
 
 <div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th></th>
       <th>colour</th>
       <th>score3</th>
-    </tr>
-    <tr>
-      <th>name</th>
-      <th></th>
-      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -302,17 +330,25 @@ df.iloc[[1, 4], [0, 3]]
 
 
 <div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th></th>
       <th>colour</th>
       <th>score3</th>
-    </tr>
-    <tr>
-      <th>name</th>
-      <th></th>
-      <th></th>
     </tr>
   </thead>
   <tbody>

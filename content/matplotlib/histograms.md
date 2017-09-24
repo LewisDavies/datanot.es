@@ -1,7 +1,7 @@
 Title: Histograms
 Slug: matplotlib/histograms
 Category: Matplotlib
-Tags: random, normal, hist, show
+Tags: random, normal, figure, hist, xlabel, ylabel, show
 Date: 2017-09-24
 Modified: 2017-09-24
 
@@ -25,16 +25,19 @@ data[:5]
 
 
 
-    array([ 173.89148841,  168.20440104,  166.1964813 ,  172.59987584,
-            169.52490202])
+    array([ 162.09113517,  164.99164192,  164.49837619,  177.63418366,
+            167.79991672])
 
 
 
-#### Plot data
+#### Plot the data
 
 
 ```python
-fig = plt.hist(data, bins='auto', normed=True)
+fig = plt.figure(figsize=(8, 5))
+plt.hist(data, bins='auto', normed=True)
+plt.xlabel('Value')
+plt.ylabel('Proportion')
 plt.show()
 ```
 

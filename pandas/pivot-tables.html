@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Pivot Tables - LewisDavi.es
+</title>
+
+  <!-- Latest compiled and minified Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="http://lewisdavi.es/theme/css/style.css">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="http://lewisdavi.es/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="http://lewisdavi.es/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="http://lewisdavi.es/favicon-16x16.png">
+  <link rel="manifest" href="http://lewisdavi.es/manifest.json">
+  <link rel="mask-icon" href="http://lewisdavi.es/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="shortcut icon" href="http://lewisdavi.es/favicon.ico">
+  <meta name="msapplication-config" content="http://lewisdavi.es/browserconfig.xml">
+  <meta name="theme-color" content="#ffffff">
+
+<link rel="stylesheet" type="text/css" href="http://lewisdavi.es/theme/css/pygments.css">
+<link rel="stylesheet" type="text/css" href="http://lewisdavi.es/theme/css/notebooks.css">
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-sm navbar-dark bg-info sticky-top justify-content-between">
+    <div class="container">
+
+      <a class="navbar-brand" href="http://lewisdavi.es">LewisDavi.es</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fa fa-bars" aria-hidden="true"></i>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Categories
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" href="http://lewisdavi.es#Jupyter-Notebooks">Jupyter Notebooks</a>
+              <a class="dropdown-item" href="http://lewisdavi.es#Matplotlib">Matplotlib</a>
+              <a class="dropdown-item" href="http://lewisdavi.es#Pandas">Pandas</a>
+              <a class="dropdown-item" href="http://lewisdavi.es#Seaborn">Seaborn</a>
+              <a class="dropdown-item" href="http://lewisdavi.es#SQL">SQL</a>
+              <a class="dropdown-item" href="http://lewisdavi.es/random.html">Surprise me!</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </nav>
+
+  <div class="container">
+    <br>
+    <div class="row justify-content-center">
+      <div class="col-md-12">
+<h1>Pivot Tables</h1>
+<label>Posted on 25 September 2017</label>
+<h4>Import libraries</h4>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">bokeh.sampledata.iris</span> <span class="kn">import</span> <span class="n">flowers</span>
+</pre></div>
+
+
+<h4>Inspect data</h4>
+<div class="highlight"><pre><span></span><span class="n">flowers</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>sepal_length</th>
+      <th>sepal_width</th>
+      <th>petal_length</th>
+      <th>petal_width</th>
+      <th>species</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>5.1</td>
+      <td>3.5</td>
+      <td>1.4</td>
+      <td>0.2</td>
+      <td>setosa</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>4.9</td>
+      <td>3.0</td>
+      <td>1.4</td>
+      <td>0.2</td>
+      <td>setosa</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>4.7</td>
+      <td>3.2</td>
+      <td>1.3</td>
+      <td>0.2</td>
+      <td>setosa</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4.6</td>
+      <td>3.1</td>
+      <td>1.5</td>
+      <td>0.2</td>
+      <td>setosa</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5.0</td>
+      <td>3.6</td>
+      <td>1.4</td>
+      <td>0.2</td>
+      <td>setosa</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h4>Create pivot table</h4>
+<div class="highlight"><pre><span></span><span class="c1"># By default, the mean of your values is calculated</span>
+<span class="n">flowers</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span>
+    <span class="n">values</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;sepal_length&#39;</span><span class="p">,</span> <span class="s1">&#39;sepal_width&#39;</span><span class="p">,</span> <span class="s1">&#39;petal_length&#39;</span><span class="p">,</span> <span class="s1">&#39;petal_width&#39;</span><span class="p">],</span>
+    <span class="n">index</span><span class="o">=</span><span class="s1">&#39;species&#39;</span>
+<span class="p">)</span>
+</pre></div>
+
+
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>petal_length</th>
+      <th>petal_width</th>
+      <th>sepal_length</th>
+      <th>sepal_width</th>
+    </tr>
+    <tr>
+      <th>species</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>setosa</th>
+      <td>1.462</td>
+      <td>0.246</td>
+      <td>5.006</td>
+      <td>3.428</td>
+    </tr>
+    <tr>
+      <th>versicolor</th>
+      <td>4.260</td>
+      <td>1.326</td>
+      <td>5.936</td>
+      <td>2.770</td>
+    </tr>
+    <tr>
+      <th>virginica</th>
+      <td>5.552</td>
+      <td>2.026</td>
+      <td>6.588</td>
+      <td>2.974</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div class="highlight"><pre><span></span><span class="c1"># Other aggregates can be specified, such as min, mix, count, mean and std</span>
+<span class="n">flowers</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span>
+    <span class="n">values</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;sepal_length&#39;</span><span class="p">,</span> <span class="s1">&#39;sepal_width&#39;</span><span class="p">,</span> <span class="s1">&#39;petal_length&#39;</span><span class="p">,</span> <span class="s1">&#39;petal_width&#39;</span><span class="p">],</span>
+    <span class="n">index</span><span class="o">=</span><span class="s1">&#39;species&#39;</span><span class="p">,</span>
+    <span class="n">aggfunc</span><span class="o">=</span><span class="s1">&#39;std&#39;</span>
+<span class="p">)</span>
+</pre></div>
+
+
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>petal_length</th>
+      <th>petal_width</th>
+      <th>sepal_length</th>
+      <th>sepal_width</th>
+    </tr>
+    <tr>
+      <th>species</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>setosa</th>
+      <td>0.173664</td>
+      <td>0.105386</td>
+      <td>0.352490</td>
+      <td>0.379064</td>
+    </tr>
+    <tr>
+      <th>versicolor</th>
+      <td>0.469911</td>
+      <td>0.197753</td>
+      <td>0.516171</td>
+      <td>0.313798</td>
+    </tr>
+    <tr>
+      <th>virginica</th>
+      <td>0.551895</td>
+      <td>0.274650</td>
+      <td>0.635880</td>
+      <td>0.322497</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div class="highlight"><pre><span></span><span class="c1"># We can add margins=True to apply our chosen aggfunc to the pivot table</span>
+<span class="n">flowers</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span>
+    <span class="n">values</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;sepal_length&#39;</span><span class="p">,</span> <span class="s1">&#39;sepal_width&#39;</span><span class="p">,</span> <span class="s1">&#39;petal_length&#39;</span><span class="p">,</span> <span class="s1">&#39;petal_width&#39;</span><span class="p">],</span>
+    <span class="n">index</span><span class="o">=</span><span class="s1">&#39;species&#39;</span><span class="p">,</span>
+    <span class="n">aggfunc</span><span class="o">=</span><span class="s1">&#39;max&#39;</span><span class="p">,</span>
+    <span class="n">margins</span><span class="o">=</span><span class="bp">True</span>
+<span class="p">)</span>
+</pre></div>
+
+
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>petal_length</th>
+      <th>petal_width</th>
+      <th>sepal_length</th>
+      <th>sepal_width</th>
+    </tr>
+    <tr>
+      <th>species</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>setosa</th>
+      <td>1.9</td>
+      <td>0.6</td>
+      <td>5.8</td>
+      <td>4.4</td>
+    </tr>
+    <tr>
+      <th>versicolor</th>
+      <td>5.1</td>
+      <td>1.8</td>
+      <td>7.0</td>
+      <td>3.4</td>
+    </tr>
+    <tr>
+      <th>virginica</th>
+      <td>6.9</td>
+      <td>2.5</td>
+      <td>7.9</td>
+      <td>3.8</td>
+    </tr>
+    <tr>
+      <th>All</th>
+      <td>6.9</td>
+      <td>2.5</td>
+      <td>7.9</td>
+      <td>4.4</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <span class="text-muted">Copyright <i class="fa fa-copyright" aria-hidden="true"></i> Lewis Davies 2017</span>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+  <script src="https://use.fontawesome.com/379ba8d96c.js"></script>
+  <!-- End Scripts -->
+
+  <!-- Google Analytics -->
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-106077582-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+  <!-- End Google Analytics -->
+
+</body>
+</html

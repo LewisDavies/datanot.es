@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Grouping Data - LewisDavi.es
+  <title>Grouping and Aggregating Data - LewisDavi.es
 </title>
 
   <!-- Latest compiled and minified Bootstrap CSS -->
@@ -39,8 +39,10 @@
               Categories
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" href="..#Jupyter-Notebooks">Jupyter Notebooks</a>
               <a class="dropdown-item" href="..#Matplotlib">Matplotlib</a>
               <a class="dropdown-item" href="..#Pandas">Pandas</a>
+              <a class="dropdown-item" href="..#Seaborn">Seaborn</a>
               <a class="dropdown-item" href="..#SQL">SQL</a>
               <a class="dropdown-item" href="../random.html">Surprise me!</a>
             </div>
@@ -55,7 +57,7 @@
     <br>
     <div class="row justify-content-center">
       <div class="col-md-12">
-<h1>Grouping Data</h1>
+<h1>Grouping and Aggregating Data</h1>
 <label>Posted on 24 September 2017</label>
 <h4>Import libraries</h4>
 <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
@@ -69,19 +71,6 @@
 
 
 <div>
-<style>
-    .dataframe thead tr:only-child th {
-        text-align: right;
-    }
-
-    .dataframe thead th {
-        text-align: left;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -143,19 +132,6 @@
 
 
 <div>
-<style>
-    .dataframe thead tr:only-child th {
-        text-align: right;
-    }
-
-    .dataframe thead th {
-        text-align: left;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -233,7 +209,7 @@
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>&lt;pandas.core.groupby.DataFrameGroupBy object at 0x000001FE17EF3C50&gt;
+<div class="highlight"><pre><span></span>&lt;pandas.core.groupby.DataFrameGroupBy object at 0x10a325400&gt;
 </pre></div>
 
 
@@ -243,19 +219,6 @@
 
 
 <div>
-<style>
-    .dataframe thead tr:only-child th {
-        text-align: right;
-    }
-
-    .dataframe thead th {
-        text-align: left;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -299,37 +262,86 @@
 </table>
 </div>
 
-<div class="highlight"><pre><span></span><span class="c1"># Find the number of unique values in the dataset</span>
-<span class="n">flowers</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;species&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><span class="c1"># Find the 36th percentiles</span>
+<span class="n">flowers</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;species&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.36</span><span class="p">)</span>
 </pre></div>
 
 
 <div>
-<style>
-    .dataframe thead tr:only-child th {
-        text-align: right;
-    }
-
-    .dataframe thead th {
-        text-align: left;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
-      <th></th>
-      <th>sepal_length</th>
-      <th>sepal_width</th>
+      <th>0.36</th>
       <th>petal_length</th>
       <th>petal_width</th>
-      <th>species</th>
+      <th>sepal_length</th>
+      <th>sepal_width</th>
     </tr>
     <tr>
       <th>species</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>setosa</th>
+      <td>1.400</td>
+      <td>0.2</td>
+      <td>4.9</td>
+      <td>3.3</td>
+    </tr>
+    <tr>
+      <th>versicolor</th>
+      <td>4.100</td>
+      <td>1.3</td>
+      <td>5.7</td>
+      <td>2.7</td>
+    </tr>
+    <tr>
+      <th>virginica</th>
+      <td>5.264</td>
+      <td>1.9</td>
+      <td>6.3</td>
+      <td>2.8</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div class="highlight"><pre><span></span><span class="c1"># Use .agg to find multiple aggreagates</span>
+<span class="n">flowers</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;species&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">([</span><span class="s1">&#39;var&#39;</span><span class="p">,</span> <span class="s1">&#39;std&#39;</span><span class="p">])</span>
+</pre></div>
+
+
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr>
+      <th></th>
+      <th colspan="2" halign="left">sepal_length</th>
+      <th colspan="2" halign="left">sepal_width</th>
+      <th colspan="2" halign="left">petal_length</th>
+      <th colspan="2" halign="left">petal_width</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th>var</th>
+      <th>std</th>
+      <th>var</th>
+      <th>std</th>
+      <th>var</th>
+      <th>std</th>
+      <th>var</th>
+      <th>std</th>
+    </tr>
+    <tr>
+      <th>species</th>
+      <th></th>
+      <th></th>
+      <th></th>
       <th></th>
       <th></th>
       <th></th>
@@ -340,27 +352,88 @@
   <tbody>
     <tr>
       <th>setosa</th>
-      <td>15</td>
-      <td>16</td>
-      <td>9</td>
-      <td>6</td>
-      <td>1</td>
+      <td>0.124249</td>
+      <td>0.352490</td>
+      <td>0.143690</td>
+      <td>0.379064</td>
+      <td>0.030159</td>
+      <td>0.173664</td>
+      <td>0.011106</td>
+      <td>0.105386</td>
     </tr>
     <tr>
       <th>versicolor</th>
-      <td>21</td>
-      <td>14</td>
-      <td>19</td>
-      <td>9</td>
-      <td>1</td>
+      <td>0.266433</td>
+      <td>0.516171</td>
+      <td>0.098469</td>
+      <td>0.313798</td>
+      <td>0.220816</td>
+      <td>0.469911</td>
+      <td>0.039106</td>
+      <td>0.197753</td>
     </tr>
     <tr>
       <th>virginica</th>
-      <td>21</td>
-      <td>13</td>
-      <td>20</td>
-      <td>12</td>
-      <td>1</td>
+      <td>0.404343</td>
+      <td>0.635880</td>
+      <td>0.104004</td>
+      <td>0.322497</td>
+      <td>0.304588</td>
+      <td>0.551895</td>
+      <td>0.075433</td>
+      <td>0.274650</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div class="highlight"><pre><span></span><span class="c1"># Find different aggreagates for different columns</span>
+<span class="n">flowers</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;species&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span>
+    <span class="s1">&#39;sepal_length&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;min&#39;</span><span class="p">,</span> <span class="s1">&#39;max&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;sepal_width&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;count&#39;</span><span class="p">]</span>
+<span class="p">})</span>
+</pre></div>
+
+
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr>
+      <th></th>
+      <th colspan="2" halign="left">sepal_length</th>
+      <th>sepal_width</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th>min</th>
+      <th>max</th>
+      <th>count</th>
+    </tr>
+    <tr>
+      <th>species</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>setosa</th>
+      <td>4.3</td>
+      <td>5.8</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <th>versicolor</th>
+      <td>4.9</td>
+      <td>7.0</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <th>virginica</th>
+      <td>4.9</td>
+      <td>7.9</td>
+      <td>50</td>
     </tr>
   </tbody>
 </table>

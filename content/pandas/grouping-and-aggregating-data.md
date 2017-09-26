@@ -1,9 +1,9 @@
-Title: Grouping Data
-Slug: pandas/grouping-data
+Title: Grouping and Aggregating Data
+Slug: pandas/grouping-and-aggregating-data
 Category: Pandas
-Tags: head, describe, groupby, mean, nunique
+Tags: head, describe, groupby, mean, nunique, agg
 Date: 2017-09-24
-Modified: 2017-09-24
+Modified: 2017-09-25
 
 #### Import libraries
 
@@ -24,19 +24,6 @@ flowers.head()
 
 
 <div>
-<style>
-    .dataframe thead tr:only-child th {
-        text-align: right;
-    }
-
-    .dataframe thead th {
-        text-align: left;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -104,19 +91,6 @@ flowers.describe()
 
 
 <div>
-<style>
-    .dataframe thead tr:only-child th {
-        text-align: right;
-    }
-
-    .dataframe thead th {
-        text-align: left;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -201,7 +175,7 @@ flowers.groupby('species')
 
 
 
-    <pandas.core.groupby.DataFrameGroupBy object at 0x000001FE17EF3C50>
+    <pandas.core.groupby.DataFrameGroupBy object at 0x10a325400>
 
 
 
@@ -216,19 +190,6 @@ flowers.groupby('species').mean()
 
 
 <div>
-<style>
-    .dataframe thead tr:only-child th {
-        text-align: right;
-    }
-
-    .dataframe thead th {
-        text-align: left;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -276,39 +237,94 @@ flowers.groupby('species').mean()
 
 
 ```python
-# Find the number of unique values in the dataset
-flowers.groupby('species').nunique()
+# Find the 36th percentiles
+flowers.groupby('species').quantile(0.36)
 ```
 
 
 
 
 <div>
-<style>
-    .dataframe thead tr:only-child th {
-        text-align: right;
-    }
-
-    .dataframe thead th {
-        text-align: left;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
-      <th></th>
-      <th>sepal_length</th>
-      <th>sepal_width</th>
+      <th>0.36</th>
       <th>petal_length</th>
       <th>petal_width</th>
-      <th>species</th>
+      <th>sepal_length</th>
+      <th>sepal_width</th>
     </tr>
     <tr>
       <th>species</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>setosa</th>
+      <td>1.400</td>
+      <td>0.2</td>
+      <td>4.9</td>
+      <td>3.3</td>
+    </tr>
+    <tr>
+      <th>versicolor</th>
+      <td>4.100</td>
+      <td>1.3</td>
+      <td>5.7</td>
+      <td>2.7</td>
+    </tr>
+    <tr>
+      <th>virginica</th>
+      <td>5.264</td>
+      <td>1.9</td>
+      <td>6.3</td>
+      <td>2.8</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+```python
+# Use .agg to find multiple aggreagates
+flowers.groupby('species').agg(['var', 'std'])
+```
+
+
+
+
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr>
+      <th></th>
+      <th colspan="2" halign="left">sepal_length</th>
+      <th colspan="2" halign="left">sepal_width</th>
+      <th colspan="2" halign="left">petal_length</th>
+      <th colspan="2" halign="left">petal_width</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th>var</th>
+      <th>std</th>
+      <th>var</th>
+      <th>std</th>
+      <th>var</th>
+      <th>std</th>
+      <th>var</th>
+      <th>std</th>
+    </tr>
+    <tr>
+      <th>species</th>
+      <th></th>
+      <th></th>
+      <th></th>
       <th></th>
       <th></th>
       <th></th>
@@ -319,27 +335,95 @@ flowers.groupby('species').nunique()
   <tbody>
     <tr>
       <th>setosa</th>
-      <td>15</td>
-      <td>16</td>
-      <td>9</td>
-      <td>6</td>
-      <td>1</td>
+      <td>0.124249</td>
+      <td>0.352490</td>
+      <td>0.143690</td>
+      <td>0.379064</td>
+      <td>0.030159</td>
+      <td>0.173664</td>
+      <td>0.011106</td>
+      <td>0.105386</td>
     </tr>
     <tr>
       <th>versicolor</th>
-      <td>21</td>
-      <td>14</td>
-      <td>19</td>
-      <td>9</td>
-      <td>1</td>
+      <td>0.266433</td>
+      <td>0.516171</td>
+      <td>0.098469</td>
+      <td>0.313798</td>
+      <td>0.220816</td>
+      <td>0.469911</td>
+      <td>0.039106</td>
+      <td>0.197753</td>
     </tr>
     <tr>
       <th>virginica</th>
-      <td>21</td>
-      <td>13</td>
-      <td>20</td>
-      <td>12</td>
-      <td>1</td>
+      <td>0.404343</td>
+      <td>0.635880</td>
+      <td>0.104004</td>
+      <td>0.322497</td>
+      <td>0.304588</td>
+      <td>0.551895</td>
+      <td>0.075433</td>
+      <td>0.274650</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+```python
+# Find different aggreagates for different columns
+flowers.groupby('species').agg({
+    'sepal_length': ['min', 'max'],
+    'sepal_width': ['count']
+})
+
+```
+
+
+
+
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr>
+      <th></th>
+      <th colspan="2" halign="left">sepal_length</th>
+      <th>sepal_width</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th>min</th>
+      <th>max</th>
+      <th>count</th>
+    </tr>
+    <tr>
+      <th>species</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>setosa</th>
+      <td>4.3</td>
+      <td>5.8</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <th>versicolor</th>
+      <td>4.9</td>
+      <td>7.0</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <th>virginica</th>
+      <td>4.9</td>
+      <td>7.9</td>
+      <td>50</td>
     </tr>
   </tbody>
 </table>

@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Selecting and Filtering Data - LewisDavi.es
+  <title>Filtering Data - LewisDavi.es
 </title>
 
   <!-- Latest compiled and minified Bootstrap CSS -->
@@ -57,7 +57,7 @@
     <br>
     <div class="row justify-content-center">
       <div class="col-md-12">
-<h1>Selecting and Filtering Data</h1>
+<h1>Filtering Data</h1>
 <label>Posted on 05 August 2017</label>
 <h4>Import libraries</h4>
 <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
@@ -65,11 +65,13 @@
 
 
 <h4>Create DataFrame</h4>
-<div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Theresa&#39;</span><span class="p">,</span> <span class="s1">&#39;David&#39;</span><span class="p">,</span> <span class="s1">&#39;Gordon&#39;</span><span class="p">,</span> <span class="s1">&#39;Tony&#39;</span><span class="p">,</span> <span class="s1">&#39;John&#39;</span><span class="p">],</span>
-        <span class="s1">&#39;colour&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Blue&#39;</span><span class="p">,</span> <span class="s1">&#39;Blue&#39;</span><span class="p">,</span> <span class="s1">&#39;Red&#39;</span><span class="p">,</span> <span class="s1">&#39;Red&#39;</span><span class="p">,</span> <span class="s1">&#39;Blue&#39;</span><span class="p">],</span>
-        <span class="s1">&#39;score1&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span>
-        <span class="s1">&#39;score2&#39;</span><span class="p">:</span> <span class="p">[</span><span class="bp">None</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">],</span>
-        <span class="s1">&#39;score3&#39;</span><span class="p">:</span> <span class="p">[</span><span class="bp">None</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="bp">None</span><span class="p">]}</span>
+<div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Theresa&#39;</span><span class="p">,</span> <span class="s1">&#39;David&#39;</span><span class="p">,</span> <span class="s1">&#39;Gordon&#39;</span><span class="p">,</span> <span class="s1">&#39;Tony&#39;</span><span class="p">,</span> <span class="s1">&#39;John&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;colour&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Blue&#39;</span><span class="p">,</span> <span class="s1">&#39;Blue&#39;</span><span class="p">,</span> <span class="s1">&#39;Red&#39;</span><span class="p">,</span> <span class="s1">&#39;Red&#39;</span><span class="p">,</span> <span class="s1">&#39;Blue&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;score1&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span>
+    <span class="s1">&#39;score2&#39;</span><span class="p">:</span> <span class="p">[</span><span class="bp">None</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">],</span>
+    <span class="s1">&#39;score3&#39;</span><span class="p">:</span> <span class="p">[</span><span class="bp">None</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="bp">None</span><span class="p">]</span>
+<span class="p">}</span>
 
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 <span class="n">df</span>
@@ -77,19 +79,6 @@
 
 
 <div>
-<style>
-    .dataframe thead tr:only-child th {
-        text-align: right;
-    }
-
-    .dataframe thead th {
-        text-align: left;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -147,24 +136,13 @@
 </div>
 
 <h4>Limit column selection</h4>
+<p>We can select columns with simple square brackets if we don't want to filter our data, as in the first example. However, the <code>.loc</code> accessor allows filtering at the same time.</p>
+<p>After this example, we'll use <code>.loc</code> for the sake of consistency and flexibility.</p>
 <div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;colour&#39;</span><span class="p">]]</span>
 </pre></div>
 
 
 <div>
-<style>
-    .dataframe thead tr:only-child th {
-        text-align: right;
-    }
-
-    .dataframe thead th {
-        text-align: left;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -203,25 +181,56 @@
 </table>
 </div>
 
-<h4>Filter on values in a column</h4>
-<div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;score1&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">3</span><span class="p">]</span>
+<div class="highlight"><pre><span></span><span class="c1"># We don&#39;t want to filter any rows so we select them all with a colon</span>
+<span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;colour&#39;</span><span class="p">]]</span>
 </pre></div>
 
 
 <div>
-<style>
-    .dataframe thead tr:only-child th {
-        text-align: right;
-    }
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>name</th>
+      <th>colour</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Theresa</td>
+      <td>Blue</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>David</td>
+      <td>Blue</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Gordon</td>
+      <td>Red</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Tony</td>
+      <td>Red</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>John</td>
+      <td>Blue</td>
+    </tr>
+  </tbody>
+</table>
+</div>
 
-    .dataframe thead th {
-        text-align: left;
-    }
+<h4>Filter rows on values in a column</h4>
+<div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;score1&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">3</span><span class="p">]</span>
+</pre></div>
 
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-</style>
+
+<div>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -270,83 +279,106 @@
 </table>
 </div>
 
-<h4>Filter column and limit selection</h4>
-<div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;score1&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">1</span><span class="p">][[</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;colour&#39;</span><span class="p">]]</span>
+<h4>Two ways of filtering on multiple columns</h4>
+<div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;score1&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">3</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;score2&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">5</span><span class="p">)]</span>
 </pre></div>
 
 
 <div>
-<style>
-    .dataframe thead tr:only-child th {
-        text-align: right;
-    }
-
-    .dataframe thead th {
-        text-align: left;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>name</th>
       <th>colour</th>
+      <th>name</th>
+      <th>score1</th>
+      <th>score2</th>
+      <th>score3</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>0</th>
-      <td>Theresa</td>
-      <td>Blue</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>David</td>
-      <td>Blue</td>
-    </tr>
-    <tr>
       <th>2</th>
-      <td>Gordon</td>
       <td>Red</td>
+      <td>Gordon</td>
+      <td>5</td>
+      <td>7.0</td>
+      <td>6.0</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>Tony</td>
       <td>Red</td>
+      <td>Tony</td>
+      <td>3</td>
+      <td>5.0</td>
+      <td>9.0</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>John</td>
       <td>Blue</td>
+      <td>John</td>
+      <td>5</td>
+      <td>7.0</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div class="highlight"><pre><span></span><span class="c1"># With .query, variables can be referenced with @variable_name</span>
+<span class="n">minimum</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;score1 &gt;= 3 and score2 &gt;= @minimum&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>colour</th>
+      <th>name</th>
+      <th>score1</th>
+      <th>score2</th>
+      <th>score3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2</th>
+      <td>Red</td>
+      <td>Gordon</td>
+      <td>5</td>
+      <td>7.0</td>
+      <td>6.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Red</td>
+      <td>Tony</td>
+      <td>3</td>
+      <td>5.0</td>
+      <td>9.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Blue</td>
+      <td>John</td>
+      <td>5</td>
+      <td>7.0</td>
+      <td>NaN</td>
     </tr>
   </tbody>
 </table>
 </div>
 
 <h4>Return a Series as a DataFrame</h4>
-<div class="highlight"><pre><span></span><span class="c1"># We can return a single column (a Series) using double square brackets</span>
-<span class="n">df</span><span class="p">[[</span><span class="s1">&#39;name&#39;</span><span class="p">]]</span>
+<p>If your result is a Pandas Series, it can look a bit naff when it is returned. Wrap your columns in a list to return a DataFrame instead and it'll be nicely formatted.</p>
+<div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]]</span>
 </pre></div>
 
 
 <div>
-<style>
-    .dataframe thead tr:only-child th {
-        text-align: right;
-    }
-
-    .dataframe thead th {
-        text-align: left;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -378,6 +410,9 @@
   </tbody>
 </table>
 </div>
+
+<div class="highlight"><pre><span></span>
+</pre></div>
       </div>
     </div>
   </div>

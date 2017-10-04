@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>DataFrame Indexes - LewisDavi.es
+</title>
+
+  <!-- Latest compiled and minified Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="http://lewisdavi.es/theme/css/style.css">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="http://lewisdavi.es/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="http://lewisdavi.es/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="http://lewisdavi.es/favicon-16x16.png">
+  <link rel="manifest" href="http://lewisdavi.es/manifest.json">
+  <link rel="mask-icon" href="http://lewisdavi.es/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="shortcut icon" href="http://lewisdavi.es/favicon.ico">
+  <meta name="msapplication-config" content="http://lewisdavi.es/browserconfig.xml">
+  <meta name="theme-color" content="#ffffff">
+
+<link rel="stylesheet" type="text/css" href="http://lewisdavi.es/theme/css/pygments.css">
+<link rel="stylesheet" type="text/css" href="http://lewisdavi.es/theme/css/notebooks.css">
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-sm navbar-dark bg-info sticky-top justify-content-between">
+    <div class="container">
+
+      <a class="navbar-brand" href="http://lewisdavi.es">LewisDavi.es</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fa fa-bars" aria-hidden="true"></i>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Categories
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" href="http://lewisdavi.es#Jupyter-Notebooks">Jupyter Notebooks</a>
+              <a class="dropdown-item" href="http://lewisdavi.es#Matplotlib">Matplotlib</a>
+              <a class="dropdown-item" href="http://lewisdavi.es#Pandas">Pandas</a>
+              <a class="dropdown-item" href="http://lewisdavi.es#Seaborn">Seaborn</a>
+              <a class="dropdown-item" href="http://lewisdavi.es#SQL">SQL</a>
+              <a class="dropdown-item" href="http://lewisdavi.es/random.html">Surprise me!</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </nav>
+
+  <div class="container">
+    <br>
+    <div class="row justify-content-center">
+      <div class="col-md-12">
+<h1>DataFrame Indexes</h1>
+<label>Posted on 04 October 2017</label>
+<h4>Import libraries</h4>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+</pre></div>
+
+
+<h4>Generate data</h4>
+<div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;country&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;UK&#39;</span><span class="p">,</span> <span class="s1">&#39;Canada&#39;</span><span class="p">,</span> <span class="s1">&#39;UK&#39;</span><span class="p">,</span> <span class="s1">&#39;USA&#39;</span><span class="p">,</span> <span class="s1">&#39;France&#39;</span><span class="p">,</span> <span class="s1">&#39;USA&#39;</span><span class="p">,</span> <span class="s1">&#39;Canada&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;city&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;London&#39;</span><span class="p">,</span> <span class="s1">&#39;London&#39;</span><span class="p">,</span> <span class="s1">&#39;Birmingham&#39;</span><span class="p">,</span> <span class="s1">&#39;Birmingham&#39;</span><span class="p">,</span> <span class="s1">&#39;Paris&#39;</span><span class="p">,</span> <span class="s1">&#39;Paris&#39;</span><span class="p">,</span> <span class="s1">&#39;Paris&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;population&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">8788000</span><span class="p">,</span> <span class="mi">389000</span><span class="p">,</span> <span class="mi">1101000</span><span class="p">,</span> <span class="mi">212000</span><span class="p">,</span> <span class="mi">2244000</span><span class="p">,</span> <span class="mi">25000</span><span class="p">,</span> <span class="mi">12000</span><span class="p">]</span>
+<span class="p">}</span>
+
+<span class="n">df0</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="n">df0</span>
+</pre></div>
+
+
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>city</th>
+      <th>country</th>
+      <th>population</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>London</td>
+      <td>UK</td>
+      <td>8788000</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>London</td>
+      <td>Canada</td>
+      <td>389000</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Birmingham</td>
+      <td>UK</td>
+      <td>1101000</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Birmingham</td>
+      <td>USA</td>
+      <td>212000</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Paris</td>
+      <td>France</td>
+      <td>2244000</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Paris</td>
+      <td>USA</td>
+      <td>25000</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Paris</td>
+      <td>Canada</td>
+      <td>12000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h4>Set a new index</h4>
+<p>If an index is not specified, Pandas will give each row an integer label starting from 0. We can set <code>city</code> as the index, but ideally our indexes should be unique.</p>
+<div class="highlight"><pre><span></span><span class="n">df1</span> <span class="o">=</span> <span class="n">df0</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;city&#39;</span><span class="p">)</span>
+<span class="n">df1</span>
+</pre></div>
+
+
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>country</th>
+      <th>population</th>
+    </tr>
+    <tr>
+      <th>city</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>London</th>
+      <td>UK</td>
+      <td>8788000</td>
+    </tr>
+    <tr>
+      <th>London</th>
+      <td>Canada</td>
+      <td>389000</td>
+    </tr>
+    <tr>
+      <th>Birmingham</th>
+      <td>UK</td>
+      <td>1101000</td>
+    </tr>
+    <tr>
+      <th>Birmingham</th>
+      <td>USA</td>
+      <td>212000</td>
+    </tr>
+    <tr>
+      <th>Paris</th>
+      <td>France</td>
+      <td>2244000</td>
+    </tr>
+    <tr>
+      <th>Paris</th>
+      <td>USA</td>
+      <td>25000</td>
+    </tr>
+    <tr>
+      <th>Paris</th>
+      <td>Canada</td>
+      <td>12000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div class="highlight"><pre><span></span><span class="c1"># Returns two results - not ideal!</span>
+<span class="n">df1</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;London&#39;</span><span class="p">]</span>
+</pre></div>
+
+
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>country</th>
+      <th>population</th>
+    </tr>
+    <tr>
+      <th>city</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>London</th>
+      <td>UK</td>
+      <td>8788000</td>
+    </tr>
+    <tr>
+      <th>London</th>
+      <td>Canada</td>
+      <td>389000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div class="highlight"><pre><span></span><span class="n">df2</span> <span class="o">=</span> <span class="n">df0</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="n">df0</span><span class="p">[</span><span class="s1">&#39;city&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;, &#39;</span> <span class="o">+</span> <span class="n">df0</span><span class="p">[</span><span class="s1">&#39;country&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;city&#39;</span><span class="p">,</span> <span class="s1">&#39;country&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">df2</span>
+</pre></div>
+
+
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>population</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>London, UK</th>
+      <td>8788000</td>
+    </tr>
+    <tr>
+      <th>London, Canada</th>
+      <td>389000</td>
+    </tr>
+    <tr>
+      <th>Birmingham, UK</th>
+      <td>1101000</td>
+    </tr>
+    <tr>
+      <th>Birmingham, USA</th>
+      <td>212000</td>
+    </tr>
+    <tr>
+      <th>Paris, France</th>
+      <td>2244000</td>
+    </tr>
+    <tr>
+      <th>Paris, USA</th>
+      <td>25000</td>
+    </tr>
+    <tr>
+      <th>Paris, Canada</th>
+      <td>12000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h4>Multilevel indexes</h4>
+<p>Since each country-city combination is unique in our dataset, this pairing makes a good mulitlevel index. First we reset the index to it's original state, then set our new index.</p>
+<div class="highlight"><pre><span></span><span class="n">df3</span> <span class="o">=</span> <span class="n">df0</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s1">&#39;country&#39;</span><span class="p">,</span> <span class="s1">&#39;city&#39;</span><span class="p">])</span>
+<span class="n">df3</span>
+</pre></div>
+
+
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th>population</th>
+    </tr>
+    <tr>
+      <th>country</th>
+      <th>city</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>UK</th>
+      <th>London</th>
+      <td>8788000</td>
+    </tr>
+    <tr>
+      <th>Canada</th>
+      <th>London</th>
+      <td>389000</td>
+    </tr>
+    <tr>
+      <th>UK</th>
+      <th>Birmingham</th>
+      <td>1101000</td>
+    </tr>
+    <tr>
+      <th>USA</th>
+      <th>Birmingham</th>
+      <td>212000</td>
+    </tr>
+    <tr>
+      <th>France</th>
+      <th>Paris</th>
+      <td>2244000</td>
+    </tr>
+    <tr>
+      <th>USA</th>
+      <th>Paris</th>
+      <td>25000</td>
+    </tr>
+    <tr>
+      <th>Canada</th>
+      <th>Paris</th>
+      <td>12000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div class="highlight"><pre><span></span><span class="c1"># Slicing at the top level of the index</span>
+<span class="n">df3</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;UK&#39;</span><span class="p">]</span>
+</pre></div>
+
+
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>population</th>
+    </tr>
+    <tr>
+      <th>city</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>London</th>
+      <td>8788000</td>
+    </tr>
+    <tr>
+      <th>Birmingham</th>
+      <td>1101000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div class="highlight"><pre><span></span><span class="c1"># Slicing at both levels of the index</span>
+<span class="n">df3</span><span class="o">.</span><span class="n">loc</span><span class="p">[[(</span><span class="s1">&#39;USA&#39;</span><span class="p">,</span> <span class="s1">&#39;Birmingham&#39;</span><span class="p">)]]</span>
+</pre></div>
+
+
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th>population</th>
+    </tr>
+    <tr>
+      <th>country</th>
+      <th>city</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>USA</th>
+      <th>Birmingham</th>
+      <td>212000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div class="highlight"><pre><span></span><span class="c1"># Slicing at a lower index level</span>
+<span class="n">df3</span><span class="o">.</span><span class="n">xs</span><span class="p">(</span><span class="s1">&#39;Paris&#39;</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+
+
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>population</th>
+    </tr>
+    <tr>
+      <th>country</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>France</th>
+      <td>2244000</td>
+    </tr>
+    <tr>
+      <th>USA</th>
+      <td>25000</td>
+    </tr>
+    <tr>
+      <th>Canada</th>
+      <td>12000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <span class="text-muted">Copyright <i class="fa fa-copyright" aria-hidden="true"></i> Lewis Davies 2017</span>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+  <script src="https://use.fontawesome.com/379ba8d96c.js"></script>
+  <!-- End Scripts -->
+
+  <!-- Google Analytics -->
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-106077582-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+  <!-- End Google Analytics -->
+
+</body>
+</html

@@ -3,7 +3,7 @@ Slug: sql/ranking-results-with-window-functions
 Category: SQL
 Tags: SELECT, FROM, LIMIT, WHERE, OVER, PARTITION BY, ORDER BY, DESC, rank
 Date: 2017-08-15
-Modified: 2017-08-16
+Modified: 2017-10-23
 
 #### Load ipython-sql extension
 
@@ -105,7 +105,7 @@ LIMIT
 Note that since 3 films are tied for first place, the rank given to the next longest films is 4. If we wanted the next rank to be 2 instead, we could use `dense_rank` in place of `rank`.
 
 #### Working with our rankings
-Once you've made the query above, we can use it as a [Common Table Expression]({{ SITEURL }}/sql/common-table-expressions.html) to filter it. For example, let's try to find the 3 longest films at each price point.
+Once you've made the query above, we can use it as a [Common Table Expression](../sql/common-table-expressions.html) to filter it. For example, let's try to find the 3 longest films at each price point.
 
 
 ```python

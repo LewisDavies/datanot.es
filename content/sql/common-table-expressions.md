@@ -123,7 +123,7 @@ FROM
 
 
 #### A common use for CTEs — ranking your results
-As explained in the page on [Window Functions]({{ SITEURL }}/sql/using-temporary-tables-in-queries-common-table-expressions.html), CTEs are useful when ranking our results.
+As explained in the page on [Window Functions](../sql/ranking-results-with-window-functions.html), CTEs are useful when ranking our results.
 
 Here we will find the last 3 films returned by a sample of customers.
 

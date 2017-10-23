@@ -5,28 +5,28 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://lewisdavi.es/</loc>
-<lastmod>2017-10-23T16:41:27-00:00</lastmod>
+<lastmod>2017-10-23T17:45:53-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://lewisdavi.es/archives.html</loc>
-<lastmod>2017-10-23T16:41:27-00:00</lastmod>
+<lastmod>2017-10-23T17:45:53-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://lewisdavi.es/tags.html</loc>
-<lastmod>2017-10-23T16:41:27-00:00</lastmod>
+<lastmod>2017-10-23T17:45:53-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://lewisdavi.es/categories.html</loc>
-<lastmod>2017-10-23T16:41:27-00:00</lastmod>
+<lastmod>2017-10-23T17:45:53-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -215,7 +215,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://lewisdavi.es/sql/ranking-results-with-window-functions.html</loc>
-<lastmod>2017-08-16T00:00:00+01:00</lastmod>
+<lastmod>2017-10-23T00:00:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
@@ -362,7 +362,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://lewisdavi.es/category/sql.html</loc>
-<lastmod>2017-09-03T00:00:00-00:01</lastmod>
+<lastmod>2017-10-23T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -733,21 +733,21 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://lewisdavi.es/tag/select.html</loc>
-<lastmod>2017-09-03T00:00:00-00:01</lastmod>
+<lastmod>2017-10-23T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://lewisdavi.es/tag/from.html</loc>
-<lastmod>2017-09-03T00:00:00-00:01</lastmod>
+<lastmod>2017-10-23T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://lewisdavi.es/tag/where.html</loc>
-<lastmod>2017-09-03T00:00:00-00:01</lastmod>
+<lastmod>2017-10-23T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -775,14 +775,14 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://lewisdavi.es/tag/order-by.html</loc>
-<lastmod>2017-09-03T00:00:00-00:01</lastmod>
+<lastmod>2017-10-23T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://lewisdavi.es/tag/over.html</loc>
-<lastmod>2017-09-03T00:00:00-00:01</lastmod>
+<lastmod>2017-10-23T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -866,7 +866,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://lewisdavi.es/tag/limit.html</loc>
-<lastmod>2017-08-28T00:00:00-00:01</lastmod>
+<lastmod>2017-10-23T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -1013,21 +1013,21 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://lewisdavi.es/tag/partition-by.html</loc>
-<lastmod>2017-08-16T00:00:00-00:01</lastmod>
+<lastmod>2017-10-23T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://lewisdavi.es/tag/desc.html</loc>
-<lastmod>2017-08-16T00:00:00-00:01</lastmod>
+<lastmod>2017-10-23T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://lewisdavi.es/tag/rank.html</loc>
-<lastmod>2017-08-16T00:00:00-00:01</lastmod>
+<lastmod>2017-10-23T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -1209,7 +1209,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://lewisdavi.es/author/lewis-davies.html</loc>
-<lastmod>2017-10-04T00:00:00-00:01</lastmod>
+<lastmod>2017-10-23T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>

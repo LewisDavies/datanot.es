@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
+      <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
@@ -16,7 +16,7 @@
     <link rel="shortcut icon" href="http://lewisdavi.es/favicon.ico">
     <meta name="msapplication-config" content="http://lewisdavi.es/browserconfig.xml">
 
-    <title>LewisDavi.es - Articles by Lewis Davies</title>
+    <title>Visual Exploratory Data Analysis - LewisDavi.es</title>
 
     <!-- JQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -39,6 +39,15 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
         
+
+
+  <!--     <meta name="tags" content="describe" />
+    <meta name="tags" content="scatter_matrix" />
+    <meta name="tags" content="show" />
+    <meta name="tags" content="figure" />
+    <meta name="tags" content="radviz" />
+ -->
+
     <meta name="google-site-verification" content="JkHy5fcdfsQv4jcaMIGyyJpVrckuorX9DMf3o0jBpFE" />
 </head>
 
@@ -105,145 +114,211 @@
     <!-- end of header section -->
 
     <div class="container">
-<div class="page-header">
-  <h1 class="index-page-title">The Data Analysis Survival Guide</h1>
+<section id="content" class="body">
+    <header>
+    <h1>
+      Visual Exploratory Data Analysis
+    </h1>
+<ol class="breadcrumb">
+    <li>
+        <time class="published" datetime="2017-09-25T00:00:00+01:00">
+            25 September 2017
+        </time>
+    </li>
+    <li>Pandas</li>
+    <li>describe</li>
+    <li>scatter_matrix</li>
+    <li>show</li>
+    <li>figure</li>
+    <li>radviz</li>
+</ol>
+</header>
+<div class='article_content'>
+<h4>Import libraries</h4>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">bokeh.sampledata.iris</span> <span class="kn">import</span> <span class="n">flowers</span>
+<span class="kn">from</span> <span class="nn">pandas.tools.plotting</span> <span class="kn">import</span> <span class="n">radviz</span><span class="p">,</span> <span class="n">scatter_matrix</span>
+</pre></div>
+
+
+<h4>Inspect data</h4>
+<p>It's always a good idea to start with basic EDA before visualizing your data, just to get a feel for it.</p>
+<div class="highlight"><pre><span></span><span class="n">flowers</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+
+
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>sepal_length</th>
+      <th>sepal_width</th>
+      <th>petal_length</th>
+      <th>petal_width</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>150.000000</td>
+      <td>150.000000</td>
+      <td>150.000000</td>
+      <td>150.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>5.843333</td>
+      <td>3.057333</td>
+      <td>3.758000</td>
+      <td>1.199333</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>0.828066</td>
+      <td>0.435866</td>
+      <td>1.765298</td>
+      <td>0.762238</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>4.300000</td>
+      <td>2.000000</td>
+      <td>1.000000</td>
+      <td>0.100000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>5.100000</td>
+      <td>2.800000</td>
+      <td>1.600000</td>
+      <td>0.300000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>5.800000</td>
+      <td>3.000000</td>
+      <td>4.350000</td>
+      <td>1.300000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>6.400000</td>
+      <td>3.300000</td>
+      <td>5.100000</td>
+      <td>1.800000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>7.900000</td>
+      <td>4.400000</td>
+      <td>6.900000</td>
+      <td>2.500000</td>
+    </tr>
+  </tbody>
+</table>
 </div>
 
-<div class="homepage-blurb row">
-    <div class="col-sm-12">
-        <p>This site is my personal notebook on accessing, wrangling and analysing data, with reusable code snippets available as a reference. It was inspired by (i.e. stolen from) <a href="http://chrisalbon.com" target="_blank">ChrisAlbon.com</a>, which has been a huge help with everything data-related.</p>
-    </div>
+<h4>Scatter matrix</h4>
+<p>This gives a good overview of the relationships between the variables in your data.</p>
+<p><code>scatter_matrix</code> plots the correlation of all variables against one another, with histograms of all variables running diagonally. Look closely and you'll notice that the plot on either side of the diagonal are exactly the same, but transposed.</p>
+<div class="highlight"><pre><span></span><span class="n">scatter_matrix</span><span class="p">(</span><span class="n">flowers</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+
+<p><img alt="png" src="../images/visual-exploratory-data-analysis_6_0.png"></p>
+<h4>RadViz</h4>
+<p>This is a pretty cool way of visualizing the relative size of our measurements. First, a point is added for each variable: in our case, <code>sepal_length'</code>, <code>sepal_width</code>, <code>petal_length</code>, and <code>petal_width</code>.</p>
+<p>Now imagine that each observation is attached to these points with a spring and the greater the value is, the tighter the spring. Each observation is plotted where the springs 'settle'.</p>
+<p>We can see that the sepal width of setosas is bigger than petal width, although petal length and sepal length are fairly balanced. Versicolors and virginicas are relatively even apart from a slight skew towards larger petal widths.</p>
+<div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">radviz</span><span class="p">(</span><span class="n">flowers</span><span class="p">,</span> <span class="s1">&#39;species&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+
+<p><img alt="png" src="../images/visual-exploratory-data-analysis_8_0.png"></p>
+<p>Take a look at the summary statistics for setosas to see how we get the plot above.</p>
+<div class="highlight"><pre><span></span><span class="n">flowers</span><span class="p">[</span><span class="n">flowers</span><span class="p">[</span><span class="s1">&#39;species&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;setosa&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+
+
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>sepal_length</th>
+      <th>sepal_width</th>
+      <th>petal_length</th>
+      <th>petal_width</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>50.00000</td>
+      <td>50.000000</td>
+      <td>50.000000</td>
+      <td>50.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>5.00600</td>
+      <td>3.428000</td>
+      <td>1.462000</td>
+      <td>0.246000</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>0.35249</td>
+      <td>0.379064</td>
+      <td>0.173664</td>
+      <td>0.105386</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>4.30000</td>
+      <td>2.300000</td>
+      <td>1.000000</td>
+      <td>0.100000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>4.80000</td>
+      <td>3.200000</td>
+      <td>1.400000</td>
+      <td>0.200000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>5.00000</td>
+      <td>3.400000</td>
+      <td>1.500000</td>
+      <td>0.200000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>5.20000</td>
+      <td>3.675000</td>
+      <td>1.575000</td>
+      <td>0.300000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>5.80000</td>
+      <td>4.400000</td>
+      <td>1.900000</td>
+      <td>0.600000</td>
+    </tr>
+  </tbody>
+</table>
 </div>
 
-<div class="row" id="Jupyter-Notebooks">
-  <div class="col-sm-12">
-    <h2 class="homepage_category_title">Jupyter Notebooks</h2>
-  </div>
-
-  <div class="col-sm-12">
-    <div class="panel panel-default">
-      <!-- <div class="panel-heading">
-        <h3 class="panel-title">Basics</h3>
-      </div> -->
-      <div class="panel-body">
-        <ul>
-            <li><a href="http://lewisdavi.es/jupyter-notebooks/jupyter-notebooks/adding-a-toggle-code-button.html">Adding a Toggle Code Button</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
+<p>These are just two examples to start off with. For more plots than you'll ever need in your life, see the <a href="https://pandas.pydata.org/pandas-docs/stable/visualization.html">Pandas visualization guide</a>.</p>
 </div>
-<div class="row" id="Matplotlib">
-  <div class="col-sm-12">
-    <h2 class="homepage_category_title">Matplotlib</h2>
-  </div>
-
-  <div class="col-sm-12">
-    <div class="panel panel-default">
-      <!-- <div class="panel-heading">
-        <h3 class="panel-title">Basics</h3>
-      </div> -->
-      <div class="panel-body">
-        <ul>
-            <li><a href="http://lewisdavi.es/matplotlib/matplotlib/bar-plots.html">Bar Plots</a></li>
-            <li><a href="http://lewisdavi.es/matplotlib/matplotlib/histograms.html">Histograms</a></li>
-            <li><a href="http://lewisdavi.es/matplotlib/matplotlib/line-plots.html">Line Plots</a></li>
-            <li><a href="http://lewisdavi.es/matplotlib/matplotlib/scatter-plots.html">Scatter Plots</a></li>
-            <li><a href="http://lewisdavi.es/matplotlib/matplotlib/making-subplots.html">Making Subplots</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="row" id="Pandas">
-  <div class="col-sm-12">
-    <h2 class="homepage_category_title">Pandas</h2>
-  </div>
-
-  <div class="col-sm-12">
-    <div class="panel panel-default">
-      <!-- <div class="panel-heading">
-        <h3 class="panel-title">Basics</h3>
-      </div> -->
-      <div class="panel-body">
-        <ul>
-            <li><a href="http://lewisdavi.es/pandas/pandas/importing-data.html">Importing Data</a></li>
-            <li><a href="http://lewisdavi.es/pandas/pandas/describing-your-data.html">Describing Your Data</a></li>
-            <li><a href="http://lewisdavi.es/pandas/pandas/filtering-data.html">Filtering Data</a></li>
-            <li><a href="http://lewisdavi.es/pandas/pandas/selecting-rows-and-cells.html">Selecting Rows and Cells</a></li>
-            <li><a href="http://lewisdavi.es/pandas/pandas/parsing-datetimes.html">Parsing Datetimes</a></li>
-            <li><a href="http://lewisdavi.es/pandas/pandas/resampling-datetimes.html">Resampling Datetimes</a></li>
-            <li><a href="http://lewisdavi.es/pandas/pandas/applying-categories-to-continuous-data.html">Applying Categories to Continuous Data</a></li>
-            <li><a href="http://lewisdavi.es/pandas/pandas/grouping-and-aggregating-data.html">Grouping and Aggregating Data</a></li>
-            <li><a href="http://lewisdavi.es/pandas/pandas/calculating-a-rolling-value.html">Calculating a Rolling Value</a></li>
-            <li><a href="http://lewisdavi.es/pandas/pandas/pivot-tables.html">Pivot Tables</a></li>
-            <li><a href="http://lewisdavi.es/pandas/pandas/sorting-data.html">Sorting Data</a></li>
-            <li><a href="http://lewisdavi.es/pandas/pandas/visual-exploratory-data-analysis.html">Visual Exploratory Data Analysis</a></li>
-            <li><a href="http://lewisdavi.es/pandas/pandas/dataframe-index.html">DataFrame Indexes</a></li>
-            <li><a href="http://lewisdavi.es/pandas/pandas/working-with-missing-values.html">Working with Missing Values</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="row" id="Seaborn">
-  <div class="col-sm-12">
-    <h2 class="homepage_category_title">Seaborn</h2>
-  </div>
-
-  <div class="col-sm-12">
-    <div class="panel panel-default">
-      <!-- <div class="panel-heading">
-        <h3 class="panel-title">Basics</h3>
-      </div> -->
-      <div class="panel-body">
-        <ul>
-            <li><a href="http://lewisdavi.es/seaborn/seaborn/pairplots.html">Pairplots</a></li>
-            <li><a href="http://lewisdavi.es/seaborn/seaborn/scatter-plots-with-regression.html">Scatter Plots with Regression</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="row" id="SQL">
-  <div class="col-sm-12">
-    <h2 class="homepage_category_title">SQL</h2>
-  </div>
-
-  <div class="col-sm-12">
-    <div class="panel panel-default">
-      <!-- <div class="panel-heading">
-        <h3 class="panel-title">Basics</h3>
-      </div> -->
-      <div class="panel-body">
-        <ul>
-            <li><a href="http://lewisdavi.es/sql/sql/basic-filtering-with-where.html">Basic Filtering with WHERE</a></li>
-            <li><a href="http://lewisdavi.es/sql/sql/simple-select-queries.html">Simple SELECT Queries</a></li>
-            <li><a href="http://lewisdavi.es/sql/sql/select-values-appearing-in-a-list.html">Select Values Appearing in a List</a></li>
-            <li><a href="http://lewisdavi.es/sql/sql/select-values-within-a-range.html">Select Values Within a Range</a></li>
-            <li><a href="http://lewisdavi.es/sql/sql/string-pattern-matching-with-like.html">String Pattern Matching with LIKE</a></li>
-            <li><a href="http://lewisdavi.es/sql/sql/filtering-aggregates-with-having.html">Filtering Aggregates with HAVING</a></li>
-            <li><a href="http://lewisdavi.es/sql/sql/joining-tables.html">Joining Tables</a></li>
-            <li><a href="http://lewisdavi.es/sql/sql/aggregates-and-group-by.html">Aggregates and GROUP BY</a></li>
-            <li><a href="http://lewisdavi.es/sql/sql/create-a-sample-database-on-a-mac.html">Create A Sample Database On A Mac</a></li>
-            <li><a href="http://lewisdavi.es/sql/sql/limiting-the-number-of-returned-results.html">Limiting the Number of Returned Results</a></li>
-            <li><a href="http://lewisdavi.es/sql/sql/removing-duplicate-rows.html">Removing Duplicate Rows</a></li>
-            <li><a href="http://lewisdavi.es/sql/sql/sorting-results.html">Sorting Results</a></li>
-            <li><a href="http://lewisdavi.es/sql/sql/conditional-expressions-with-case.html">Conditional Expressions with CASE</a></li>
-            <li><a href="http://lewisdavi.es/sql/sql/ranking-results-with-window-functions.html">Ranking Results with Window Functions</a></li>
-            <li><a href="http://lewisdavi.es/sql/sql/common-table-expressions.html">Common Table Expressions</a></li>
-            <li><a href="http://lewisdavi.es/sql/sql/changing-data-types.html">Changing Data Types</a></li>
-            <li><a href="http://lewisdavi.es/sql/sql/subqueries.html">Subqueries</a></li>
-            <li><a href="http://lewisdavi.es/sql/sql/working-with-datetimes.html">Working with Datetimes</a></li>
-            <li><a href="http://lewisdavi.es/sql/sql/working-with-strings.html">Working with Strings</a></li>
-            <li><a href="http://lewisdavi.es/sql/sql/the-logic-of-null-values.html">The Logic of NULL Values</a></li>
-            <li><a href="http://lewisdavi.es/sql/sql/finding-percentile-values.html">Finding Percentile Values</a></li>
-            <li><a href="http://lewisdavi.es/sql/sql/finding-value-counts-with-filter.html">Finding Value Counts with FILTER</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
+</section>
 
     </div>
 

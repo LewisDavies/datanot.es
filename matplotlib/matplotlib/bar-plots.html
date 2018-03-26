@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
+      <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
@@ -16,7 +16,7 @@
     <link rel="shortcut icon" href="http://lewisdavi.es/favicon.ico">
     <meta name="msapplication-config" content="http://lewisdavi.es/browserconfig.xml">
 
-    <title>LewisDavi.es - Articles by Lewis Davies</title>
+    <title>Bar Plots - LewisDavi.es</title>
 
     <!-- JQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -39,6 +39,18 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
         
+
+
+  <!--     <meta name="tags" content="random" />
+    <meta name="tags" content="normal" />
+    <meta name="tags" content="plot" />
+    <meta name="tags" content="xlabel" />
+    <meta name="tags" content="ylabel" />
+    <meta name="tags" content="xticks" />
+    <meta name="tags" content="ylim" />
+    <meta name="tags" content="show" />
+ -->
+
     <meta name="google-site-verification" content="JkHy5fcdfsQv4jcaMIGyyJpVrckuorX9DMf3o0jBpFE" />
 </head>
 
@@ -105,145 +117,101 @@
     <!-- end of header section -->
 
     <div class="container">
-<div class="page-header">
-  <h1 class="index-page-title">The Data Analysis Survival Guide</h1>
+<section id="content" class="body">
+    <header>
+    <h1>
+      Bar Plots
+    </h1>
+<ol class="breadcrumb">
+    <li>
+        <time class="published" datetime="2017-09-19T00:00:00+01:00">
+            19 September 2017
+        </time>
+    </li>
+    <li>Matplotlib</li>
+    <li>random</li>
+    <li>normal</li>
+    <li>plot</li>
+    <li>xlabel</li>
+    <li>ylabel</li>
+    <li>xticks</li>
+    <li>ylim</li>
+    <li>show</li>
+</ol>
+</header>
+<div class='article_content'>
+<h4>Import libraries</h4>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+</pre></div>
+
+
+<h4>Generate some data</h4>
+<div class="highlight"><pre><span></span><span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Gary&#39;</span><span class="p">,</span> <span class="s1">&#39;Philippa&#39;</span><span class="p">,</span> <span class="s1">&#39;Norman&#39;</span><span class="p">,</span> <span class="s1">&#39;Susie&#39;</span><span class="p">]</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;height&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">183</span><span class="p">,</span> <span class="mi">175</span><span class="p">,</span> <span class="mi">160</span><span class="p">,</span> <span class="mi">155</span><span class="p">]}</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">index</span><span class="p">)</span>
+<span class="n">df</span>
+</pre></div>
+
+
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>height</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Gary</th>
+      <td>183</td>
+    </tr>
+    <tr>
+      <th>Philippa</th>
+      <td>175</td>
+    </tr>
+    <tr>
+      <th>Norman</th>
+      <td>160</td>
+    </tr>
+    <tr>
+      <th>Susie</th>
+      <td>155</td>
+    </tr>
+  </tbody>
+</table>
 </div>
 
-<div class="homepage-blurb row">
-    <div class="col-sm-12">
-        <p>This site is my personal notebook on accessing, wrangling and analysing data, with reusable code snippets available as a reference. It was inspired by (i.e. stolen from) <a href="http://chrisalbon.com" target="_blank">ChrisAlbon.com</a>, which has been a huge help with everything data-related.</p>
-    </div>
-</div>
+<h4>Plot the data</h4>
+<div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Name&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Height (cm)&#39;</span><span class="p">)</span>
+<span class="c1"># Labels are displayed vertically without this line</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="c1"># Trim the y-axis for greater detail</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">100</span><span class="p">,)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
 
-<div class="row" id="Jupyter-Notebooks">
-  <div class="col-sm-12">
-    <h2 class="homepage_category_title">Jupyter Notebooks</h2>
-  </div>
 
-  <div class="col-sm-12">
-    <div class="panel panel-default">
-      <!-- <div class="panel-heading">
-        <h3 class="panel-title">Basics</h3>
-      </div> -->
-      <div class="panel-body">
-        <ul>
-            <li><a href="http://lewisdavi.es/jupyter-notebooks/jupyter-notebooks/adding-a-toggle-code-button.html">Adding a Toggle Code Button</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
+<p><img alt="png" src="../images/bar-plots_6_0.png"></p>
 </div>
-<div class="row" id="Matplotlib">
-  <div class="col-sm-12">
-    <h2 class="homepage_category_title">Matplotlib</h2>
-  </div>
-
-  <div class="col-sm-12">
-    <div class="panel panel-default">
-      <!-- <div class="panel-heading">
-        <h3 class="panel-title">Basics</h3>
-      </div> -->
-      <div class="panel-body">
-        <ul>
-            <li><a href="http://lewisdavi.es/matplotlib/matplotlib/bar-plots.html">Bar Plots</a></li>
-            <li><a href="http://lewisdavi.es/matplotlib/matplotlib/histograms.html">Histograms</a></li>
-            <li><a href="http://lewisdavi.es/matplotlib/matplotlib/line-plots.html">Line Plots</a></li>
-            <li><a href="http://lewisdavi.es/matplotlib/matplotlib/scatter-plots.html">Scatter Plots</a></li>
-            <li><a href="http://lewisdavi.es/matplotlib/matplotlib/making-subplots.html">Making Subplots</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="row" id="Pandas">
-  <div class="col-sm-12">
-    <h2 class="homepage_category_title">Pandas</h2>
-  </div>
-
-  <div class="col-sm-12">
-    <div class="panel panel-default">
-      <!-- <div class="panel-heading">
-        <h3 class="panel-title">Basics</h3>
-      </div> -->
-      <div class="panel-body">
-        <ul>
-            <li><a href="http://lewisdavi.es/pandas/pandas/importing-data.html">Importing Data</a></li>
-            <li><a href="http://lewisdavi.es/pandas/pandas/describing-your-data.html">Describing Your Data</a></li>
-            <li><a href="http://lewisdavi.es/pandas/pandas/filtering-data.html">Filtering Data</a></li>
-            <li><a href="http://lewisdavi.es/pandas/pandas/selecting-rows-and-cells.html">Selecting Rows and Cells</a></li>
-            <li><a href="http://lewisdavi.es/pandas/pandas/parsing-datetimes.html">Parsing Datetimes</a></li>
-            <li><a href="http://lewisdavi.es/pandas/pandas/resampling-datetimes.html">Resampling Datetimes</a></li>
-            <li><a href="http://lewisdavi.es/pandas/pandas/applying-categories-to-continuous-data.html">Applying Categories to Continuous Data</a></li>
-            <li><a href="http://lewisdavi.es/pandas/pandas/grouping-and-aggregating-data.html">Grouping and Aggregating Data</a></li>
-            <li><a href="http://lewisdavi.es/pandas/pandas/calculating-a-rolling-value.html">Calculating a Rolling Value</a></li>
-            <li><a href="http://lewisdavi.es/pandas/pandas/pivot-tables.html">Pivot Tables</a></li>
-            <li><a href="http://lewisdavi.es/pandas/pandas/sorting-data.html">Sorting Data</a></li>
-            <li><a href="http://lewisdavi.es/pandas/pandas/visual-exploratory-data-analysis.html">Visual Exploratory Data Analysis</a></li>
-            <li><a href="http://lewisdavi.es/pandas/pandas/dataframe-index.html">DataFrame Indexes</a></li>
-            <li><a href="http://lewisdavi.es/pandas/pandas/working-with-missing-values.html">Working with Missing Values</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="row" id="Seaborn">
-  <div class="col-sm-12">
-    <h2 class="homepage_category_title">Seaborn</h2>
-  </div>
-
-  <div class="col-sm-12">
-    <div class="panel panel-default">
-      <!-- <div class="panel-heading">
-        <h3 class="panel-title">Basics</h3>
-      </div> -->
-      <div class="panel-body">
-        <ul>
-            <li><a href="http://lewisdavi.es/seaborn/seaborn/pairplots.html">Pairplots</a></li>
-            <li><a href="http://lewisdavi.es/seaborn/seaborn/scatter-plots-with-regression.html">Scatter Plots with Regression</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="row" id="SQL">
-  <div class="col-sm-12">
-    <h2 class="homepage_category_title">SQL</h2>
-  </div>
-
-  <div class="col-sm-12">
-    <div class="panel panel-default">
-      <!-- <div class="panel-heading">
-        <h3 class="panel-title">Basics</h3>
-      </div> -->
-      <div class="panel-body">
-        <ul>
-            <li><a href="http://lewisdavi.es/sql/sql/basic-filtering-with-where.html">Basic Filtering with WHERE</a></li>
-            <li><a href="http://lewisdavi.es/sql/sql/simple-select-queries.html">Simple SELECT Queries</a></li>
-            <li><a href="http://lewisdavi.es/sql/sql/select-values-appearing-in-a-list.html">Select Values Appearing in a List</a></li>
-            <li><a href="http://lewisdavi.es/sql/sql/select-values-within-a-range.html">Select Values Within a Range</a></li>
-            <li><a href="http://lewisdavi.es/sql/sql/string-pattern-matching-with-like.html">String Pattern Matching with LIKE</a></li>
-            <li><a href="http://lewisdavi.es/sql/sql/filtering-aggregates-with-having.html">Filtering Aggregates with HAVING</a></li>
-            <li><a href="http://lewisdavi.es/sql/sql/joining-tables.html">Joining Tables</a></li>
-            <li><a href="http://lewisdavi.es/sql/sql/aggregates-and-group-by.html">Aggregates and GROUP BY</a></li>
-            <li><a href="http://lewisdavi.es/sql/sql/create-a-sample-database-on-a-mac.html">Create A Sample Database On A Mac</a></li>
-            <li><a href="http://lewisdavi.es/sql/sql/limiting-the-number-of-returned-results.html">Limiting the Number of Returned Results</a></li>
-            <li><a href="http://lewisdavi.es/sql/sql/removing-duplicate-rows.html">Removing Duplicate Rows</a></li>
-            <li><a href="http://lewisdavi.es/sql/sql/sorting-results.html">Sorting Results</a></li>
-            <li><a href="http://lewisdavi.es/sql/sql/conditional-expressions-with-case.html">Conditional Expressions with CASE</a></li>
-            <li><a href="http://lewisdavi.es/sql/sql/ranking-results-with-window-functions.html">Ranking Results with Window Functions</a></li>
-            <li><a href="http://lewisdavi.es/sql/sql/common-table-expressions.html">Common Table Expressions</a></li>
-            <li><a href="http://lewisdavi.es/sql/sql/changing-data-types.html">Changing Data Types</a></li>
-            <li><a href="http://lewisdavi.es/sql/sql/subqueries.html">Subqueries</a></li>
-            <li><a href="http://lewisdavi.es/sql/sql/working-with-datetimes.html">Working with Datetimes</a></li>
-            <li><a href="http://lewisdavi.es/sql/sql/working-with-strings.html">Working with Strings</a></li>
-            <li><a href="http://lewisdavi.es/sql/sql/the-logic-of-null-values.html">The Logic of NULL Values</a></li>
-            <li><a href="http://lewisdavi.es/sql/sql/finding-percentile-values.html">Finding Percentile Values</a></li>
-            <li><a href="http://lewisdavi.es/sql/sql/finding-value-counts-with-filter.html">Finding Value Counts with FILTER</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
+</section>
 
     </div>
 

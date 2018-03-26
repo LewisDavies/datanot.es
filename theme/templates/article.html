@@ -1,17 +1,39 @@
 {% extends "base.html" %}
+{% block title %}{{ article.title }} - {{ SITENAME }}{% endblock %}
 
 {% block head %}
-{{ super() }}
-<link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/pygments.css">
-<link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/notebooks.css">
-{% endblock %}
+  {{ super() }}
+  {% if article.description %}
+    <meta name="description" content="{{article.description}}" />
+  {% endif %}
 
-{% block title %}
-{{ article.title }} - {{ SITENAME }}
+  <!-- {% for tag in article.tags %}
+    <meta name="tags" content="{{tag}}" />
+  {% endfor %} -->
+
 {% endblock %}
 
 {% block content %}
-<h1>{{ article.title }}</h1>
-<label>Posted on {{ article.date.strftime("%d %B %Y") }}</label>
+<section id="content" class="body">
+    <header>
+    <h1>
+      {{ article.title }}
+    </h1>
+<ol class="breadcrumb">
+    <li>
+        <time class="published" datetime="{{ article.date.isoformat() }}">
+            {{ article.date.strftime("%d %B %Y") }}
+        </time>
+    </li>
+    <li>{{ article.category }}</li>
+    <!-- {% for tag in article.tags %}
+    <li>{{tag}}</li>
+    {% endfor %} -->
+</ol>
+</header>
+<div class='article_content'>
 {{ article.content }}
+</div>
+</section>
+
 {% endblock %}

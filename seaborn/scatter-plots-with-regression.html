@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
+      <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
@@ -16,7 +16,7 @@
     <link rel="shortcut icon" href="../favicon.ico">
     <meta name="msapplication-config" content="../browserconfig.xml">
 
-    <title>LewisDavi.es - Articles by Lewis Davies</title>
+    <title>Scatter Plots with Regression - LewisDavi.es</title>
 
     <!-- JQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -39,6 +39,16 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
         
+
+
+  <!--     <meta name="tags" content="load_dataset" />
+    <meta name="tags" content="head" />
+    <meta name="tags" content="lmplot" />
+    <meta name="tags" content="xlabel" />
+    <meta name="tags" content="ylabel" />
+    <meta name="tags" content="show" />
+ -->
+
     <meta name="google-site-verification" content="JkHy5fcdfsQv4jcaMIGyyJpVrckuorX9DMf3o0jBpFE" />
 </head>
 
@@ -105,145 +115,145 @@
     <!-- end of header section -->
 
     <div class="container">
-<div class="page-header">
-  <h1 class="index-page-title">The Data Analysis Survival Guide</h1>
+<section id="content" class="body">
+    <header>
+    <h1>
+      Scatter Plots with Regression
+    </h1>
+<ol class="breadcrumb">
+    <li>
+        <time class="published" datetime="2017-09-26T00:00:00+01:00">
+            26 September 2017
+        </time>
+    </li>
+    <li>Seaborn</li>
+    <li>load_dataset</li>
+    <li>head</li>
+    <li>lmplot</li>
+    <li>xlabel</li>
+    <li>ylabel</li>
+    <li>show</li>
+</ol>
+</header>
+<div class='article_content'>
+<h4>Import libraries</h4>
+<div class="highlight"><pre><span></span><span class="c1"># Although not strictly required, importing pyplot allows for</span>
+<span class="c1"># greater customization as Seaborn is built upon it</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="kn">as</span> <span class="nn">sns</span>
+</pre></div>
+
+
+<h4>Load and inspect data</h4>
+<div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s1">&#39;tips&#39;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>total_bill</th>
+      <th>tip</th>
+      <th>sex</th>
+      <th>smoker</th>
+      <th>day</th>
+      <th>time</th>
+      <th>size</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>16.99</td>
+      <td>1.01</td>
+      <td>Female</td>
+      <td>No</td>
+      <td>Sun</td>
+      <td>Dinner</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>10.34</td>
+      <td>1.66</td>
+      <td>Male</td>
+      <td>No</td>
+      <td>Sun</td>
+      <td>Dinner</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>21.01</td>
+      <td>3.50</td>
+      <td>Male</td>
+      <td>No</td>
+      <td>Sun</td>
+      <td>Dinner</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>23.68</td>
+      <td>3.31</td>
+      <td>Male</td>
+      <td>No</td>
+      <td>Sun</td>
+      <td>Dinner</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>24.59</td>
+      <td>3.61</td>
+      <td>Female</td>
+      <td>No</td>
+      <td>Sun</td>
+      <td>Dinner</td>
+      <td>4</td>
+    </tr>
+  </tbody>
+</table>
 </div>
 
-<div class="homepage-blurb row">
-    <div class="col-sm-12">
-        <p>This site is my personal notebook on accessing, wrangling and analysing data, with reusable code snippets available as a reference. It was inspired by (i.e. stolen from) <a href="http://chrisalbon.com" target="_blank">ChrisAlbon.com</a>, which has been a huge help with everything data-related.</p>
-    </div>
-</div>
+<h4>Basic scatter plot</h4>
+<p>We use <code>lmplot</code> to plt two continuous variables against each other. The shaded area represents the 95% condfidence interval.</p>
+<div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">lmplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;total_bill&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;tip&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Total Bill&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Tip&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
 
-<div class="row" id="Jupyter-Notebooks">
-  <div class="col-sm-12">
-    <h2 class="homepage_category_title">Jupyter Notebooks</h2>
-  </div>
 
-  <div class="col-sm-12">
-    <div class="panel panel-default">
-      <!-- <div class="panel-heading">
-        <h3 class="panel-title">Basics</h3>
-      </div> -->
-      <div class="panel-body">
-        <ul>
-            <li><a href="../jupyter-notebooks/adding-a-toggle-code-button.html">Adding a Toggle Code Button</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="row" id="Matplotlib">
-  <div class="col-sm-12">
-    <h2 class="homepage_category_title">Matplotlib</h2>
-  </div>
+<p><img alt="png" src="../images/scatter-plots-with-regression_6_0.png"></p>
+<h4>Separating our variables</h4>
+<p>Adding a <code>hue</code> argument lets us distinguish between different groups. Here we can see that tips from non-smokers were generally higher than from smokers.</p>
+<div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">lmplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;total_bill&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;tip&#39;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;smoker&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Total Bill&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Tip&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
 
-  <div class="col-sm-12">
-    <div class="panel panel-default">
-      <!-- <div class="panel-heading">
-        <h3 class="panel-title">Basics</h3>
-      </div> -->
-      <div class="panel-body">
-        <ul>
-            <li><a href="../matplotlib/bar-plots.html">Bar Plots</a></li>
-            <li><a href="../matplotlib/histograms.html">Histograms</a></li>
-            <li><a href="../matplotlib/line-plots.html">Line Plots</a></li>
-            <li><a href="../matplotlib/scatter-plots.html">Scatter Plots</a></li>
-            <li><a href="../matplotlib/making-subplots.html">Making Subplots</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="row" id="Pandas">
-  <div class="col-sm-12">
-    <h2 class="homepage_category_title">Pandas</h2>
-  </div>
 
-  <div class="col-sm-12">
-    <div class="panel panel-default">
-      <!-- <div class="panel-heading">
-        <h3 class="panel-title">Basics</h3>
-      </div> -->
-      <div class="panel-body">
-        <ul>
-            <li><a href="../pandas/importing-data.html">Importing Data</a></li>
-            <li><a href="../pandas/describing-your-data.html">Describing Your Data</a></li>
-            <li><a href="../pandas/filtering-data.html">Filtering Data</a></li>
-            <li><a href="../pandas/selecting-rows-and-cells.html">Selecting Rows and Cells</a></li>
-            <li><a href="../pandas/parsing-datetimes.html">Parsing Datetimes</a></li>
-            <li><a href="../pandas/resampling-datetimes.html">Resampling Datetimes</a></li>
-            <li><a href="../pandas/applying-categories-to-continuous-data.html">Applying Categories to Continuous Data</a></li>
-            <li><a href="../pandas/grouping-and-aggregating-data.html">Grouping and Aggregating Data</a></li>
-            <li><a href="../pandas/calculating-a-rolling-value.html">Calculating a Rolling Value</a></li>
-            <li><a href="../pandas/pivot-tables.html">Pivot Tables</a></li>
-            <li><a href="../pandas/sorting-data.html">Sorting Data</a></li>
-            <li><a href="../pandas/visual-exploratory-data-analysis.html">Visual Exploratory Data Analysis</a></li>
-            <li><a href="../pandas/dataframe-index.html">DataFrame Indexes</a></li>
-            <li><a href="../pandas/working-with-missing-values.html">Working with Missing Values</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="row" id="Seaborn">
-  <div class="col-sm-12">
-    <h2 class="homepage_category_title">Seaborn</h2>
-  </div>
+<p><img alt="png" src="../images/scatter-plots-with-regression_8_0.png"></p>
+<h4>Adjusting the confidence interval</h4>
+<p>By default, Seaborn takes 1000 bootstrap samples of your data and uses a 95% confidence interval. Our regression line can also be changed to a polynomial.</p>
+<p>Be careful when tweaking these parameters if your dataset is large — you might have to wait a while!</p>
+<div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">lmplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;total_bill&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;tip&#39;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;smoker&#39;</span><span class="p">,</span>
+           <span class="n">ci</span><span class="o">=</span><span class="mi">99</span><span class="p">,</span> <span class="n">n_boot</span><span class="o">=</span><span class="mi">1500</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Total Bill&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Tip&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
 
-  <div class="col-sm-12">
-    <div class="panel panel-default">
-      <!-- <div class="panel-heading">
-        <h3 class="panel-title">Basics</h3>
-      </div> -->
-      <div class="panel-body">
-        <ul>
-            <li><a href="../seaborn/pairplots.html">Pairplots</a></li>
-            <li><a href="../seaborn/scatter-plots-with-regression.html">Scatter Plots with Regression</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="row" id="SQL">
-  <div class="col-sm-12">
-    <h2 class="homepage_category_title">SQL</h2>
-  </div>
 
-  <div class="col-sm-12">
-    <div class="panel panel-default">
-      <!-- <div class="panel-heading">
-        <h3 class="panel-title">Basics</h3>
-      </div> -->
-      <div class="panel-body">
-        <ul>
-            <li><a href="../sql/basic-filtering-with-where.html">Basic Filtering with WHERE</a></li>
-            <li><a href="../sql/simple-select-queries.html">Simple SELECT Queries</a></li>
-            <li><a href="../sql/select-values-appearing-in-a-list.html">Select Values Appearing in a List</a></li>
-            <li><a href="../sql/select-values-within-a-range.html">Select Values Within a Range</a></li>
-            <li><a href="../sql/string-pattern-matching-with-like.html">String Pattern Matching with LIKE</a></li>
-            <li><a href="../sql/filtering-aggregates-with-having.html">Filtering Aggregates with HAVING</a></li>
-            <li><a href="../sql/joining-tables.html">Joining Tables</a></li>
-            <li><a href="../sql/aggregates-and-group-by.html">Aggregates and GROUP BY</a></li>
-            <li><a href="../sql/create-a-sample-database-on-a-mac.html">Create A Sample Database On A Mac</a></li>
-            <li><a href="../sql/limiting-the-number-of-returned-results.html">Limiting the Number of Returned Results</a></li>
-            <li><a href="../sql/removing-duplicate-rows.html">Removing Duplicate Rows</a></li>
-            <li><a href="../sql/sorting-results.html">Sorting Results</a></li>
-            <li><a href="../sql/conditional-expressions-with-case.html">Conditional Expressions with CASE</a></li>
-            <li><a href="../sql/ranking-results-with-window-functions.html">Ranking Results with Window Functions</a></li>
-            <li><a href="../sql/common-table-expressions.html">Common Table Expressions</a></li>
-            <li><a href="../sql/changing-data-types.html">Changing Data Types</a></li>
-            <li><a href="../sql/subqueries.html">Subqueries</a></li>
-            <li><a href="../sql/working-with-datetimes.html">Working with Datetimes</a></li>
-            <li><a href="../sql/working-with-strings.html">Working with Strings</a></li>
-            <li><a href="../sql/the-logic-of-null-values.html">The Logic of NULL Values</a></li>
-            <li><a href="../sql/finding-percentile-values.html">Finding Percentile Values</a></li>
-            <li><a href="../sql/finding-value-counts-with-filter.html">Finding Value Counts with FILTER</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
+<p><img alt="png" src="../images/scatter-plots-with-regression_10_0.png"></p>
+<p>As always, <a href="https://seaborn.pydata.org/generated/seaborn.lmplot.html#seaborn.lmplot">check the docs</a> for loads more options.</p>
 </div>
+</section>
 
     </div>
 

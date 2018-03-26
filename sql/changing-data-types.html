@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
+      <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
@@ -16,7 +16,7 @@
     <link rel="shortcut icon" href="../favicon.ico">
     <meta name="msapplication-config" content="../browserconfig.xml">
 
-    <title>The Data Analysis Survival Guide - LewisDavi.es</title>
+    <title>Changing Data Types - LewisDavi.es</title>
 
     <!-- JQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -39,6 +39,19 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
         
+
+
+  <!--     <meta name="tags" content="SELECT" />
+    <meta name="tags" content="CAST" />
+    <meta name="tags" content="FROM" />
+    <meta name="tags" content="LIMIT" />
+    <meta name="tags" content="::" />
+    <meta name="tags" content="float" />
+    <meta name="tags" content="int" />
+    <meta name="tags" content="date" />
+    <meta name="tags" content="time" />
+ -->
+
     <meta name="google-site-verification" content="JkHy5fcdfsQv4jcaMIGyyJpVrckuorX9DMf3o0jBpFE" />
 </head>
 
@@ -105,145 +118,128 @@
     <!-- end of header section -->
 
     <div class="container">
-<div class="page-header">
-  <h1 class="index-page-title">The Data Analysis Survival Guide</h1>
-</div>
+<section id="content" class="body">
+    <header>
+    <h1>
+      Changing Data Types
+    </h1>
+<ol class="breadcrumb">
+    <li>
+        <time class="published" datetime="2017-08-27T00:00:00+01:00">
+            27 August 2017
+        </time>
+    </li>
+    <li>SQL</li>
+    <li>SELECT</li>
+    <li>CAST</li>
+    <li>FROM</li>
+    <li>LIMIT</li>
+    <li>::</li>
+    <li>float</li>
+    <li>int</li>
+    <li>date</li>
+    <li>time</li>
+</ol>
+</header>
+<div class='article_content'>
+<h4>Load ipython-sql extension</h4>
+<div class="highlight"><pre><span></span><span class="c1"># The 2 lines below prevent an error message from being displayed when we run %load_ext sql</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
 
-<div class="homepage-blurb row">
-    <div class="col-sm-12">
-        <p>This site is my personal notebook on accessing, wrangling and analysing data, with reusable code snippets available as a reference. It was inspired by (i.e. stolen from) <a href="http://chrisalbon.com" target="_blank">ChrisAlbon.com</a>, which has been a huge help with everything data-related.</p>
-    </div>
-</div>
+<span class="o">%</span><span class="n">load_ext</span> <span class="n">sql</span>
+<span class="o">%</span><span class="n">config</span> <span class="n">SqlMagic</span><span class="o">.</span><span class="n">feedback</span> <span class="o">=</span> <span class="bp">False</span>
+</pre></div>
 
-<div class="row" id="Jupyter-Notebooks">
-  <div class="col-sm-12">
-    <h2 class="homepage_category_title">Jupyter Notebooks</h2>
-  </div>
 
-  <div class="col-sm-12">
-    <div class="panel panel-default">
-      <!-- <div class="panel-heading">
-        <h3 class="panel-title">Basics</h3>
-      </div> -->
-      <div class="panel-body">
-        <ul>
-            <li><a href="../jupyter-notebooks/adding-a-toggle-code-button.html">Adding a Toggle Code Button</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="row" id="Matplotlib">
-  <div class="col-sm-12">
-    <h2 class="homepage_category_title">Matplotlib</h2>
-  </div>
+<h4>Connect to the database</h4>
+<div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
 
-  <div class="col-sm-12">
-    <div class="panel panel-default">
-      <!-- <div class="panel-heading">
-        <h3 class="panel-title">Basics</h3>
-      </div> -->
-      <div class="panel-body">
-        <ul>
-            <li><a href="../matplotlib/bar-plots.html">Bar Plots</a></li>
-            <li><a href="../matplotlib/histograms.html">Histograms</a></li>
-            <li><a href="../matplotlib/line-plots.html">Line Plots</a></li>
-            <li><a href="../matplotlib/scatter-plots.html">Scatter Plots</a></li>
-            <li><a href="../matplotlib/making-subplots.html">Making Subplots</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="row" id="Pandas">
-  <div class="col-sm-12">
-    <h2 class="homepage_category_title">Pandas</h2>
-  </div>
+<span class="n">postgresql</span><span class="p">:</span><span class="o">//</span><span class="n">localhost</span><span class="o">/</span><span class="n">dvdrental</span>
+</pre></div>
 
-  <div class="col-sm-12">
-    <div class="panel panel-default">
-      <!-- <div class="panel-heading">
-        <h3 class="panel-title">Basics</h3>
-      </div> -->
-      <div class="panel-body">
-        <ul>
-            <li><a href="../pandas/importing-data.html">Importing Data</a></li>
-            <li><a href="../pandas/describing-your-data.html">Describing Your Data</a></li>
-            <li><a href="../pandas/filtering-data.html">Filtering Data</a></li>
-            <li><a href="../pandas/selecting-rows-and-cells.html">Selecting Rows and Cells</a></li>
-            <li><a href="../pandas/parsing-datetimes.html">Parsing Datetimes</a></li>
-            <li><a href="../pandas/resampling-datetimes.html">Resampling Datetimes</a></li>
-            <li><a href="../pandas/applying-categories-to-continuous-data.html">Applying Categories to Continuous Data</a></li>
-            <li><a href="../pandas/grouping-and-aggregating-data.html">Grouping and Aggregating Data</a></li>
-            <li><a href="../pandas/calculating-a-rolling-value.html">Calculating a Rolling Value</a></li>
-            <li><a href="../pandas/pivot-tables.html">Pivot Tables</a></li>
-            <li><a href="../pandas/sorting-data.html">Sorting Data</a></li>
-            <li><a href="../pandas/visual-exploratory-data-analysis.html">Visual Exploratory Data Analysis</a></li>
-            <li><a href="../pandas/dataframe-index.html">DataFrame Indexes</a></li>
-            <li><a href="../pandas/working-with-missing-values.html">Working with Missing Values</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="row" id="Seaborn">
-  <div class="col-sm-12">
-    <h2 class="homepage_category_title">Seaborn</h2>
-  </div>
 
-  <div class="col-sm-12">
-    <div class="panel panel-default">
-      <!-- <div class="panel-heading">
-        <h3 class="panel-title">Basics</h3>
-      </div> -->
-      <div class="panel-body">
-        <ul>
-            <li><a href="../seaborn/pairplots.html">Pairplots</a></li>
-            <li><a href="../seaborn/scatter-plots-with-regression.html">Scatter Plots with Regression</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="row" id="SQL">
-  <div class="col-sm-12">
-    <h2 class="homepage_category_title">SQL</h2>
-  </div>
+<div class="highlight"><pre><span></span>&#39;Connected: None@dvdrental&#39;
+</pre></div>
 
-  <div class="col-sm-12">
-    <div class="panel panel-default">
-      <!-- <div class="panel-heading">
-        <h3 class="panel-title">Basics</h3>
-      </div> -->
-      <div class="panel-body">
-        <ul>
-            <li><a href="../sql/basic-filtering-with-where.html">Basic Filtering with WHERE</a></li>
-            <li><a href="../sql/simple-select-queries.html">Simple SELECT Queries</a></li>
-            <li><a href="../sql/select-values-appearing-in-a-list.html">Select Values Appearing in a List</a></li>
-            <li><a href="../sql/select-values-within-a-range.html">Select Values Within a Range</a></li>
-            <li><a href="../sql/string-pattern-matching-with-like.html">String Pattern Matching with LIKE</a></li>
-            <li><a href="../sql/filtering-aggregates-with-having.html">Filtering Aggregates with HAVING</a></li>
-            <li><a href="../sql/joining-tables.html">Joining Tables</a></li>
-            <li><a href="../sql/aggregates-and-group-by.html">Aggregates and GROUP BY</a></li>
-            <li><a href="../sql/create-a-sample-database-on-a-mac.html">Create A Sample Database On A Mac</a></li>
-            <li><a href="../sql/limiting-the-number-of-returned-results.html">Limiting the Number of Returned Results</a></li>
-            <li><a href="../sql/removing-duplicate-rows.html">Removing Duplicate Rows</a></li>
-            <li><a href="../sql/sorting-results.html">Sorting Results</a></li>
-            <li><a href="../sql/conditional-expressions-with-case.html">Conditional Expressions with CASE</a></li>
-            <li><a href="../sql/ranking-results-with-window-functions.html">Ranking Results with Window Functions</a></li>
-            <li><a href="../sql/common-table-expressions.html">Common Table Expressions</a></li>
-            <li><a href="../sql/changing-data-types.html">Changing Data Types</a></li>
-            <li><a href="../sql/subqueries.html">Subqueries</a></li>
-            <li><a href="../sql/working-with-datetimes.html">Working with Datetimes</a></li>
-            <li><a href="../sql/working-with-strings.html">Working with Strings</a></li>
-            <li><a href="../sql/the-logic-of-null-values.html">The Logic of NULL Values</a></li>
-            <li><a href="../sql/finding-percentile-values.html">Finding Percentile Values</a></li>
-            <li><a href="../sql/finding-value-counts-with-filter.html">Finding Value Counts with FILTER</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
+
+<h4>Two ways to cast</h4>
+<p>Data types can be changed with the <code>CAST</code> function, but the <code>::</code> shorthand can also be used. Here are a few examples.</p>
+<div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+
+<span class="n">SELECT</span>
+    <span class="n">p</span><span class="o">.</span><span class="n">payment_id</span>
+    <span class="p">,</span> <span class="n">CAST</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">payment_id</span> <span class="n">AS</span> <span class="nb">float</span><span class="p">)</span> <span class="n">AS</span> <span class="n">payment_id_casted</span>
+    <span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">amount</span>
+    <span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">amount</span><span class="p">::</span><span class="nb">int</span> <span class="k">as</span> <span class="n">amount_casted</span>
+    <span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">payment_date</span>
+    <span class="p">,</span> <span class="n">CAST</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">payment_date</span> <span class="n">AS</span> <span class="n">date</span><span class="p">)</span> <span class="k">as</span> <span class="n">payment_date_casted</span>
+    <span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">payment_date</span><span class="p">::</span><span class="n">time</span> <span class="k">as</span> <span class="n">payment_time_casted</span>
+<span class="n">FROM</span>
+    <span class="n">payment</span> <span class="n">p</span>
+<span class="n">LIMIT</span>
+    <span class="mi">5</span>
+</pre></div>
+
+
+<table>
+    <tr>
+        <th>payment_id</th>
+        <th>payment_id_casted</th>
+        <th>amount</th>
+        <th>amount_casted</th>
+        <th>payment_date</th>
+        <th>payment_date_casted</th>
+        <th>payment_time_casted</th>
+    </tr>
+    <tr>
+        <td>17503</td>
+        <td>17503.0</td>
+        <td>7.99</td>
+        <td>8</td>
+        <td>2007-02-15 22:25:46.996577</td>
+        <td>2007-02-15</td>
+        <td>22:25:46.996577</td>
+    </tr>
+    <tr>
+        <td>17504</td>
+        <td>17504.0</td>
+        <td>1.99</td>
+        <td>2</td>
+        <td>2007-02-16 17:23:14.996577</td>
+        <td>2007-02-16</td>
+        <td>17:23:14.996577</td>
+    </tr>
+    <tr>
+        <td>17505</td>
+        <td>17505.0</td>
+        <td>7.99</td>
+        <td>8</td>
+        <td>2007-02-16 22:41:45.996577</td>
+        <td>2007-02-16</td>
+        <td>22:41:45.996577</td>
+    </tr>
+    <tr>
+        <td>17506</td>
+        <td>17506.0</td>
+        <td>2.99</td>
+        <td>3</td>
+        <td>2007-02-19 19:39:56.996577</td>
+        <td>2007-02-19</td>
+        <td>19:39:56.996577</td>
+    </tr>
+    <tr>
+        <td>17507</td>
+        <td>17507.0</td>
+        <td>7.99</td>
+        <td>8</td>
+        <td>2007-02-20 17:31:48.996577</td>
+        <td>2007-02-20</td>
+        <td>17:31:48.996577</td>
+    </tr>
+</table>
 </div>
+</section>
 
     </div>
 
@@ -251,7 +247,7 @@
     <footer class="footer">
         <div class="container">
             <p class="text-muted">
-                <center>This project contains 1 pages and is available on <a href="https://github.com/LewisDavies/lewisdavi.es">GitHub</a>.
+                <center>This project contains 44 pages and is available on <a href="https://github.com/LewisDavies/lewisdavi.es">GitHub</a>.
                 <br/>
                 Copyright &copy; Lewis Davies,
                     <time datetime="2018">2018</time>.

@@ -1,30 +1,36 @@
 {% extends "base.html" %}
-
 {% block content %}
-
-<h1>The Data Analysis Survival Guide</h1>
-<p>This site is my personal notebook on accessing, wrangling and analysing data, with reusable code snippets available as a reference. It was inspired by <a href="http://chrisalbon.com" target="_blank">ChrisAlbon.com</a>, which has been a huge help as I've learned to analyse data.</p>
-<p>Fancy making your own version? Everything is open source and available on <a href="https://github.com/LewisDavies/lewisdavi.es" target="_blank">Github</a>.</p>
-<hr>
-<br>
-
-{% for cat in categories %}
-<div class="card">
-
-  <h3 class="card-header" id="{{ cat[0].name|replace(" ", "-") }}">{{ cat[0].name }}</h3>
-
-  <div class="card-body">
-
-    <ul>
-    {% for article in cat[1]|sort(attribute='date') %}
-      <a href="{{ article.url }}"><li>{{ article.title|e }}</li></a>
-    {% endfor %}
-    </ul>
-
-  </div>
+<div class="page-header">
+  <h1 class="index-page-title">The Data Analysis Survival Guide</h1>
 </div>
 
-<br>
+<div class="homepage-blurb row">
+    <div class="col-sm-12">
+        <p>This site is my personal notebook on accessing, wrangling and analysing data, with reusable code snippets available as a reference. It was inspired by (i.e. stolen from) <a href="http://chrisalbon.com" target="_blank">ChrisAlbon.com</a>, which has been a huge help with everything data-related.</p>
+    </div>
+</div>
+
+{% for cat in categories %}
+<div class="row" id="{{ cat[0].name|replace(" ", "-") }}">
+  <div class="col-sm-12">
+    <h2 class="homepage_category_title">{{ cat[0].name }}</h2>
+  </div>
+
+  <div class="col-sm-12">
+    <div class="panel panel-default">
+      <!-- <div class="panel-heading">
+        <h3 class="panel-title">Basics</h3>
+      </div> -->
+      <div class="panel-body">
+        <ul>
+          {% for article in cat[1]|sort(attribute='date') %}
+            <li><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title|e }}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
 {% endfor %}
 
-{% endblock %}
+{% endblock content %}

@@ -1,17 +1,19 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*- #
 from __future__ import unicode_literals
+from datetime import date
 
 AUTHOR = 'Lewis Davies'
 SITENAME = 'LewisDavi.es'
 SITEURL = 'http://lewisdavi.es'
-THEME = 'theme'
+THEME = 'theme/'
 
 PATH = 'content'
 
 TIMEZONE = 'Europe/London'
 
-DEFAULT_LANG = 'English'
+DEFAULT_LANG = 'en'
+DEFAULT_DATE = 'fs'
 
 # Feed generation is usually not desired when developing
 FEED_ALL_ATOM = None
@@ -78,3 +80,12 @@ SITEMAP = {
         'pages': 'monthly'
     }
 }
+
+CURRENTYEAR = date.today().year
+
+ARTICLE_URL = '{slug}.html'
+ARTICLE_SAVE_AS = '{slug}.html'
+
+ARTICLE_EXCLUDES = ['in_progress']
+
+DIRECT_TEMPLATES = ['index', 'search']

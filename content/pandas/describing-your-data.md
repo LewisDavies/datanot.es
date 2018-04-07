@@ -118,7 +118,7 @@ df.info()
     score3    3 non-null float64
     dtypes: float64(2), int64(1), object(2)
     memory usage: 280.0+ bytes
-
+    
 
 #### Basic DataFrame statistics
 
@@ -390,3 +390,5 @@ df.corr()
   </tbody>
 </table>
 </div>
+
+

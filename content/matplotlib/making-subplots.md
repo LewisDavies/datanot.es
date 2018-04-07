@@ -43,4 +43,5 @@ plt.show()
 ```
 
 
-![png](../images/making-subplots_6_0.png)
+![png](making-subplots_files/making-subplots_6_0.png)
+

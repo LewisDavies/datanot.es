@@ -109,7 +109,7 @@ plt.show()
 ```
 
 
-![png](../images/scatter-plots-with-regression_6_0.png)
+![png](scatter-plots-with-regression_files/scatter-plots-with-regression_6_0.png)
 
 
 #### Separating our variables
@@ -124,7 +124,7 @@ plt.show()
 ```
 
 
-![png](../images/scatter-plots-with-regression_8_0.png)
+![png](scatter-plots-with-regression_files/scatter-plots-with-regression_8_0.png)
 
 
 #### Adjusting the confidence interval
@@ -142,7 +142,7 @@ plt.show()
 ```
 
 
-![png](../images/scatter-plots-with-regression_10_0.png)
+![png](scatter-plots-with-regression_files/scatter-plots-with-regression_10_0.png)
 
 
 As always, [check the docs](https://seaborn.pydata.org/generated/seaborn.lmplot.html#seaborn.lmplot) for loads more options.

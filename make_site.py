@@ -47,7 +47,6 @@ if generate_site == 0:
 #     # Publish site to github
     os.system('ghp-import -m "Generate Pelican site" -b gh-pages output -c lewisdavi.es')
     os.system('git push origin gh-pages')
-    os.system('git push origin master')
 else:
     # Print error
     print('Error found during site generation, halting deployment')

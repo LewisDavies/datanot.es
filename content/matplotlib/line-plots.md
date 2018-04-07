@@ -110,4 +110,5 @@ plt.show()
 ```
 
 
-![png](../images/line-plots_6_0.png)
+![png](line-plots_files/line-plots_6_0.png)
+

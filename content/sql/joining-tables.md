@@ -406,7 +406,7 @@ FROM
     actor a
 WHERE
     a.actor_id < 4
-
+    
 UNION
 
 SELECT

@@ -42,4 +42,5 @@ plt.show()
 ```
 
 
-![png](../images/histograms_6_0.png)
+![png](histograms_files/histograms_6_0.png)
+

@@ -22,6 +22,7 @@ warnings.filterwarnings('ignore')
 
 ```python
 %%sql
+
 postgresql://localhost/dvdrental
 ```
 
@@ -98,6 +99,7 @@ LIMIT
 
 ```python
 %%sql
+
 SELECT
     f.film_id
     , f.title
@@ -173,3 +175,5 @@ LIMIT
         <td>Way too long</td>
     </tr>
 </table>
+
+

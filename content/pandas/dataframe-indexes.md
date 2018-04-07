@@ -528,3 +528,5 @@ df3.xs('Paris', level=1)
   </tbody>
 </table>
 </div>
+
+

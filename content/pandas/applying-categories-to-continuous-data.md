@@ -1,7 +1,7 @@
 Title: Applying Categories to Continuous Data
 Slug: pandas/applying-categories-to-continuous-data
 Category: Pandas
-Tags: describe, nunique, cut, value_counts, sort_index, floor, ceil, max, min,
+Tags: describe, nunique, cut, value_counts, sort_index, floor, ceil, max, min, 
 Date: 2017-09-24
 Modified: 2017-09-24
 

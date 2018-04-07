@@ -1,11 +1,11 @@
 Title: Adding a Toggle Code Button
 Slug: jupyter-notebooks/adding-a-toggle-code-button
 Category: Jupyter Notebooks
-Tags: display_html, print
+Tags: display_html, print 
 Date: 2017-09-25
 Modified: 2017-09-25
 
-#### Import libraries and Add Toggle
+#### Import libraries and Add Toggle 
 
 
 ```python

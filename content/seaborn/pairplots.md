@@ -97,7 +97,7 @@ plt.show()
 ```
 
 
-![png](../images/pairplots_6_0.png)
+![png](pairplots_files/pairplots_6_0.png)
 
 
 #### Adding some variation
@@ -110,7 +110,7 @@ plt.show()
 ```
 
 
-![png](../images/pairplots_8_0.png)
+![png](pairplots_files/pairplots_8_0.png)
 
 
 There are lots of tweaks you can make to your pairplots. The Seaborn API is really clean and [so are the docs](https://seaborn.pydata.org/generated/seaborn.pairplot.html), so dive in and have a muck around.

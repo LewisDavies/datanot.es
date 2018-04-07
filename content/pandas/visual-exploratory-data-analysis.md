@@ -111,11 +111,11 @@ plt.show()
 ```
 
 
-![png](../images/visual-exploratory-data-analysis_6_0.png)
+![png](visual-exploratory-data-analysis_files/visual-exploratory-data-analysis_6_0.png)
 
 
 #### RadViz
-This is a pretty cool way of visualizing the relative size of our measurements. First, a point is added for each variable: in our case, `sepal_length'`, `sepal_width`, `petal_length`, and `petal_width`.
+This is a pretty cool way of visualizing the relative size of our measurements. First, a point is added for each variable: in our case, `sepal_length'`, `sepal_width`, `petal_length`, and `petal_width`. 
 
 Now imagine that each observation is attached to these points with a spring and the greater the value is, the tighter the spring. Each observation is plotted where the springs 'settle'.
 
@@ -129,7 +129,7 @@ plt.show()
 ```
 
 
-![png](../images/visual-exploratory-data-analysis_8_0.png)
+![png](visual-exploratory-data-analysis_files/visual-exploratory-data-analysis_8_0.png)
 
 
 Take a look at the summary statistics for setosas to see how we get the plot above.

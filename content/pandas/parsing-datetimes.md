@@ -20,7 +20,7 @@ Let's make some wildly inaccurate data. Note that the datatype of `dates` column
 ```python
 dates = ['2017-09-04', '2017-09-05', '2017-09-06', '2017-09-07',
          '2017-09-08', '2017-09-09', '2017-09-10', '2017-09-11',
-         '2017-09-12', '2017-09-13', '2017-09-14', '2017-09-15',
+         '2017-09-12', '2017-09-13', '2017-09-14', '2017-09-15', 
          '2017-09-16', '2017-09-17']
 rainfall = np.random.randint(60, 90, len(dates))
 
@@ -86,7 +86,7 @@ df.info()
     rainfall    14 non-null int64
     dtypes: int64(1), object(1)
     memory usage: 304.0+ bytes
-
+    
 
 #### Converting a column to datetime
 
@@ -107,7 +107,7 @@ df.info()
     rainfall    14 non-null int64
     dtypes: datetime64[ns](1), int64(1)
     memory usage: 304.0 bytes
-
+    
 
 #### Converting on import
 If using a function like `pd.read_csv` or `pd.read_sql`, you can make use of the `parse_dates` parameter.

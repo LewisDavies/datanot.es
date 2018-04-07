@@ -86,4 +86,5 @@ plt.show()
 ```
 
 
-![png](../images/bar-plots_6_0.png)
+![png](bar-plots_files/bar-plots_6_0.png)
+

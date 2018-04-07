@@ -33,7 +33,7 @@ postgresql://localhost/dvdrental
 
 
 
-#### Find values matching a list with IN
+#### Find values matching a list with IN 
 
 
 ```python
@@ -187,3 +187,5 @@ LIMIT
         <td>2006-02-15 09:45:30</td>
     </tr>
 </table>
+
+

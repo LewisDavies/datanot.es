@@ -40,4 +40,5 @@ plt.show()
 ```
 
 
-![png](../images/scatter-plots_6_0.png)
+![png](scatter-plots_files/scatter-plots_6_0.png)
+

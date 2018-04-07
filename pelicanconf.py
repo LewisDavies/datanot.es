@@ -1,19 +1,17 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*- #
 from __future__ import unicode_literals
-from datetime import date
 
 AUTHOR = 'Lewis Davies'
 SITENAME = 'LewisDavi.es'
 SITEURL = 'http://lewisdavi.es'
-THEME = 'theme/'
+THEME = 'theme'
 
 PATH = 'content'
 
 TIMEZONE = 'Europe/London'
 
-DEFAULT_LANG = 'en'
-DEFAULT_DATE = 'fs'
+DEFAULT_LANG = 'English'
 
 # Feed generation is usually not desired when developing
 FEED_ALL_ATOM = None
@@ -37,27 +35,8 @@ DEFAULT_PAGINATION = False
 # Uncomment following line if you want document-relative URLs when developing
 RELATIVE_URLS = True
 
-STATIC_PATHS = ['extra/android-chrome-192x192.png', 'extra/android-chrome-512x512.png',
-                'extra/apple-touch-icon.png', 'extra/browserconfig.xml',
-                'extra/favicon-16x16.png', 'extra/favicon-32x32.png',
-                'extra/favicon.ico', 'extra/manifest.json',
-                'extra/mstile-150x150.png', 'extra/safari-pinned-tab.svg',
-                'images']
-
-EXTRA_PATH_METADATA = {
-    'extra/android-chrome-192x192.png': {'path': 'android-chrome-192x192.png'},
-    'extra/android-chrome-512x512.png': {'path': 'android-chrome-512x512.png'},
-    'extra/apple-touch-icon.png': {'path': 'apple-touch-icon.png'},
-    'extra/browserconfig.xml': {'path': 'browserconfig.xml'},
-    'extra/favicon-16x16.png': {'path': 'favicon-16x16.png'},
-    'extra/favicon-32x32.png': {'path': 'favicon-32x32.png'},
-    'extra/favicon.ico': {'path': 'favicon.ico'},
-    'extra/manifest.json': {'path': 'manifest.json'},
-    'extra/mstile-150x150.png': {'path': 'mstile-150x150.png'},
-    'extra/safari-pinned-tab.svg': {'path': 'safari-pinned-tab.svg'}
-}
-
 PLUGIN_PATHS = ['plugins']
+
 PLUGINS = [
     'random_article',
     'render_math',
@@ -81,11 +60,37 @@ SITEMAP = {
     }
 }
 
-CURRENTYEAR = date.today().year
+EXTRA_PATH_METADATA = {
+    'extra/android-chrome-192x192.png': {'path': 'android-chrome-192x192.png'},
+    'extra/android-chrome-512x512.png': {'path': 'android-chrome-512x512.png'},
+    'extra/apple-touch-icon.png': {'path': 'apple-touch-icon.png'},
+    'extra/browserconfig.xml': {'path': 'browserconfig.xml'},
+    'extra/favicon-16x16.png': {'path': 'favicon-16x16.png'},
+    'extra/favicon-32x32.png': {'path': 'favicon-32x32.png'},
+    'extra/favicon.ico': {'path': 'favicon.ico'},
+    'extra/manifest.json': {'path': 'manifest.json'},
+    'extra/mstile-150x150.png': {'path': 'mstile-150x150.png'},
+    'extra/safari-pinned-tab.svg': {'path': 'safari-pinned-tab.svg'}
+}
 
-ARTICLE_URL = '{slug}.html'
-ARTICLE_SAVE_AS = '{slug}.html'
+STATIC_PATHS = [
+    'extra/android-chrome-192x192.png',
+    'extra/android-chrome-512x512.png',
+    'extra/apple-touch-icon.png',
+    'extra/browserconfig.xml',
+    'extra/favicon-16x16.png',
+    'extra/favicon-32x32.png',
+    'extra/favicon.ico',
+    'extra/manifest.json',
+    'extra/mstile-150x150.png',
+    'extra/safari-pinned-tab.svg',
+    'matplotlib\bar-plots_files',
+    'matplotlib\histograms_files',
+    'matplotlib\line-plots_files',
+    'matplotlib\making-subplots_files',
+    'matplotlib\scatter-plots_files',
+    'pandas\visual-exploratory-data-analysis_files',
+    'seaborn\pairplots_files',
+    'seaborn\scatter-plots-with-regression_files'
+]
 
-ARTICLE_EXCLUDES = ['in_progress']
-
-DIRECT_TEMPLATES = ['index', 'search']

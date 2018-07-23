@@ -2,7 +2,7 @@
 <html lang="english">
 
 <head>
-    <meta charset="utf-8">
+      <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
@@ -16,7 +16,7 @@
     <link rel="shortcut icon" href="../favicon.ico">
     <meta name="msapplication-config" content="../browserconfig.xml">
 
-    <title>The Data Analysis Survival Guide - LewisDavi.es</title>
+    <title>Plotting Two Continuous Variables - LewisDavi.es</title>
 
     <!-- JQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -39,6 +39,13 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
         
+
+
+  <!--     <meta name="tags" content="load_dataset" />
+    <meta name="tags" content="set_style" />
+    <meta name="tags" content="jointplot" />
+ -->
+
     <meta name="google-site-verification" content="JkHy5fcdfsQv4jcaMIGyyJpVrckuorX9DMf3o0jBpFE" />
 </head>
 
@@ -105,147 +112,152 @@
     <!-- end of header section -->
 
     <div class="container">
-<div class="page-header">
-  <h1 class="index-page-title">The Data Analysis Survival Guide</h1>
+<section id="content" class="body">
+    <header>
+    <h1>
+      Plotting Two Continuous Variables
+    </h1>
+<ol class="breadcrumb">
+    <li>
+        <time class="published" datetime="2018-07-23T00:00:00+01:00">
+            23 July 2018
+        </time>
+    </li>
+    <li>Seaborn</li>
+    <!--     <li>load_dataset</li>
+    <li>set_style</li>
+    <li>jointplot</li>
+ -->
+</ol>
+</header>
+<div class='article_content'>
+<h4>Import libraries</h4>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="kn">as</span> <span class="nn">sns</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set_style</span><span class="p">(</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<h4>Load and inspect data</h4>
+<div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s1">&#39;mpg&#39;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>mpg</th>
+      <th>cylinders</th>
+      <th>displacement</th>
+      <th>horsepower</th>
+      <th>weight</th>
+      <th>acceleration</th>
+      <th>model_year</th>
+      <th>origin</th>
+      <th>name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>18.0</td>
+      <td>8</td>
+      <td>307.0</td>
+      <td>130.0</td>
+      <td>3504</td>
+      <td>12.0</td>
+      <td>70</td>
+      <td>usa</td>
+      <td>chevrolet chevelle malibu</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>15.0</td>
+      <td>8</td>
+      <td>350.0</td>
+      <td>165.0</td>
+      <td>3693</td>
+      <td>11.5</td>
+      <td>70</td>
+      <td>usa</td>
+      <td>buick skylark 320</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>18.0</td>
+      <td>8</td>
+      <td>318.0</td>
+      <td>150.0</td>
+      <td>3436</td>
+      <td>11.0</td>
+      <td>70</td>
+      <td>usa</td>
+      <td>plymouth satellite</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>16.0</td>
+      <td>8</td>
+      <td>304.0</td>
+      <td>150.0</td>
+      <td>3433</td>
+      <td>12.0</td>
+      <td>70</td>
+      <td>usa</td>
+      <td>amc rebel sst</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>17.0</td>
+      <td>8</td>
+      <td>302.0</td>
+      <td>140.0</td>
+      <td>3449</td>
+      <td>10.5</td>
+      <td>70</td>
+      <td>usa</td>
+      <td>ford torino</td>
+    </tr>
+  </tbody>
+</table>
 </div>
 
-<div class="homepage-blurb row">
-    <div class="col-sm-12">
-        <p>This site is my personal notebook on accessing, wrangling and analysing data, with reusable code snippets available as a reference. It was inspired by (i.e. stolen from) <a href="http://chrisalbon.com" target="_blank">ChrisAlbon.com</a>, which has been a huge help with everything data-related.</p>
-    </div>
-</div>
+<h4>Joint plots</h4>
+<p>This is a combination of three plots in one: the scatter plot shows the relationship between the two variables and the accompanying histograms show the distribution of each.</p>
+<div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">jointplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;horsepower&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;mpg&#39;</span><span class="p">);</span>
+</pre></div>
 
-<div class="row" id="Jupyter-Notebooks">
-  <div class="col-sm-12">
-    <h2 class="homepage_category_title">Jupyter Notebooks</h2>
-  </div>
 
-  <div class="col-sm-12">
-    <div class="panel panel-default">
-      <!-- <div class="panel-heading">
-        <h3 class="panel-title">Basics</h3>
-      </div> -->
-      <div class="panel-body">
-        <ul>
-            <li><a href="../jupyter-notebooks/adding-a-toggle-code-button.html">Adding a Toggle Code Button</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="row" id="Matplotlib">
-  <div class="col-sm-12">
-    <h2 class="homepage_category_title">Matplotlib</h2>
-  </div>
+<p><img alt="png" src="plotting-two-continuous-variables_files/plotting-two-continuous-variables_6_0.png"></p>
+<p>The default plot can be changed and jazzed up in a few ways.</p>
+<div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">jointplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;horsepower&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;mpg&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;kde&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">);</span>
+</pre></div>
 
-  <div class="col-sm-12">
-    <div class="panel panel-default">
-      <!-- <div class="panel-heading">
-        <h3 class="panel-title">Basics</h3>
-      </div> -->
-      <div class="panel-body">
-        <ul>
-            <li><a href="../matplotlib/bar-plots.html">Bar Plots</a></li>
-            <li><a href="../matplotlib/histograms.html">Histograms</a></li>
-            <li><a href="../matplotlib/line-plots.html">Line Plots</a></li>
-            <li><a href="../matplotlib/scatter-plots.html">Scatter Plots</a></li>
-            <li><a href="../matplotlib/making-subplots.html">Making Subplots</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="row" id="Pandas">
-  <div class="col-sm-12">
-    <h2 class="homepage_category_title">Pandas</h2>
-  </div>
 
-  <div class="col-sm-12">
-    <div class="panel panel-default">
-      <!-- <div class="panel-heading">
-        <h3 class="panel-title">Basics</h3>
-      </div> -->
-      <div class="panel-body">
-        <ul>
-            <li><a href="../pandas/importing-data.html">Importing Data</a></li>
-            <li><a href="../pandas/describing-your-data.html">Describing Your Data</a></li>
-            <li><a href="../pandas/filtering-data.html">Filtering Data</a></li>
-            <li><a href="../pandas/selecting-rows-and-cells.html">Selecting Rows and Cells</a></li>
-            <li><a href="../pandas/parsing-datetimes.html">Parsing Datetimes</a></li>
-            <li><a href="../pandas/resampling-datetimes.html">Resampling Datetimes</a></li>
-            <li><a href="../pandas/applying-categories-to-continuous-data.html">Applying Categories to Continuous Data</a></li>
-            <li><a href="../pandas/grouping-and-aggregating-data.html">Grouping and Aggregating Data</a></li>
-            <li><a href="../pandas/calculating-a-rolling-value.html">Calculating a Rolling Value</a></li>
-            <li><a href="../pandas/pivot-tables.html">Pivot Tables</a></li>
-            <li><a href="../pandas/sorting-data.html">Sorting Data</a></li>
-            <li><a href="../pandas/visual-exploratory-data-analysis.html">Visual Exploratory Data Analysis</a></li>
-            <li><a href="../pandas/dataframe-index.html">DataFrame Indexes</a></li>
-            <li><a href="../pandas/working-with-missing-values.html">Working with Missing Values</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="row" id="Seaborn">
-  <div class="col-sm-12">
-    <h2 class="homepage_category_title">Seaborn</h2>
-  </div>
+<p><img alt="png" src="plotting-two-continuous-variables_files/plotting-two-continuous-variables_8_0.png"></p>
+<div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">jointplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;horsepower&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;mpg&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;hex&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;#a37720&#39;</span><span class="p">,</span> <span class="n">ratio</span><span class="o">=</span><span class="mi">2</span><span class="p">);</span>
+</pre></div>
 
-  <div class="col-sm-12">
-    <div class="panel panel-default">
-      <!-- <div class="panel-heading">
-        <h3 class="panel-title">Basics</h3>
-      </div> -->
-      <div class="panel-body">
-        <ul>
-            <li><a href="../seaborn/pairplots.html">Pairplots</a></li>
-            <li><a href="../seaborn/scatter-plots-with-regression.html">Scatter Plots with Regression</a></li>
-            <li><a href="../seaborn/box-and-whisker-plots-with-alternatives.html">Box and Whisker Plots with Alternatives</a></li>
-            <li><a href="../seaborn/plotting-two-continuous-variables.html">Plotting Two Continuous Variables</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="row" id="SQL">
-  <div class="col-sm-12">
-    <h2 class="homepage_category_title">SQL</h2>
-  </div>
 
-  <div class="col-sm-12">
-    <div class="panel panel-default">
-      <!-- <div class="panel-heading">
-        <h3 class="panel-title">Basics</h3>
-      </div> -->
-      <div class="panel-body">
-        <ul>
-            <li><a href="../sql/basic-filtering-with-where.html">Basic Filtering with WHERE</a></li>
-            <li><a href="../sql/simple-select-queries.html">Simple SELECT Queries</a></li>
-            <li><a href="../sql/select-values-appearing-in-a-list.html">Select Values Appearing in a List</a></li>
-            <li><a href="../sql/select-values-within-a-range.html">Select Values Within a Range</a></li>
-            <li><a href="../sql/string-pattern-matching-with-like.html">String Pattern Matching with LIKE</a></li>
-            <li><a href="../sql/filtering-aggregates-with-having.html">Filtering Aggregates with HAVING</a></li>
-            <li><a href="../sql/joining-tables.html">Joining Tables</a></li>
-            <li><a href="../sql/aggregates-and-group-by.html">Aggregates and GROUP BY</a></li>
-            <li><a href="../sql/create-a-sample-database-on-a-mac.html">Create A Sample Database On A Mac</a></li>
-            <li><a href="../sql/limiting-the-number-of-returned-results.html">Limiting the Number of Returned Results</a></li>
-            <li><a href="../sql/removing-duplicate-rows.html">Removing Duplicate Rows</a></li>
-            <li><a href="../sql/sorting-results.html">Sorting Results</a></li>
-            <li><a href="../sql/conditional-expressions-with-case.html">Conditional Expressions with CASE</a></li>
-            <li><a href="../sql/ranking-results-with-window-functions.html">Ranking Results with Window Functions</a></li>
-            <li><a href="../sql/common-table-expressions.html">Common Table Expressions</a></li>
-            <li><a href="../sql/changing-data-types.html">Changing Data Types</a></li>
-            <li><a href="../sql/subqueries.html">Subqueries</a></li>
-            <li><a href="../sql/working-with-datetimes.html">Working with Datetimes</a></li>
-            <li><a href="../sql/working-with-strings.html">Working with Strings</a></li>
-            <li><a href="../sql/the-logic-of-null-values.html">The Logic of NULL Values</a></li>
-            <li><a href="../sql/finding-percentile-values.html">Finding Percentile Values</a></li>
-            <li><a href="../sql/finding-value-counts-with-filter.html">Finding Value Counts with FILTER</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
+<p><img alt="png" src="plotting-two-continuous-variables_files/plotting-two-continuous-variables_9_0.png"></p>
+<p>Here are <a href="https://seaborn.pydata.org/generated/seaborn.jointplot.html">more examples</a> of joint plots. For even more control over the output, use the <a href="https://seaborn.pydata.org/generated/seaborn.JointGrid.html">JointPlot class</a>.</p>
 </div>
+</section>
 
     </div>
 
@@ -253,7 +265,7 @@
     <footer class="footer">
         <div class="container">
             <p class="text-muted">
-                <center>This project contains 4 pages and is available on <a href="https://github.com/LewisDavies/lewisdavi.es">GitHub</a>.
+                <center>This project contains 46 pages and is available on <a href="https://github.com/LewisDavies/lewisdavi.es">GitHub</a>.
                 <br/>
                 Copyright &copy; Lewis Davies,
                     <time datetime=""></time>.

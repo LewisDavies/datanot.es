@@ -16,7 +16,7 @@
     <link rel="shortcut icon" href="../favicon.ico">
     <meta name="msapplication-config" content="../browserconfig.xml">
 
-    <title>Pairplots - LewisDavi.es</title>
+    <title>Box and Whisker Plots with Alternatives - LewisDavi.es</title>
 
     <!-- JQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -43,8 +43,10 @@
 
   <!--     <meta name="tags" content="load_dataset" />
     <meta name="tags" content="head" />
-    <meta name="tags" content="pairplot" />
-    <meta name="tags" content="show" />
+    <meta name="tags" content="boxplot" />
+    <meta name="tags" content="violinplot" />
+    <meta name="tags" content="stripplot" />
+    <meta name="tags" content="swarmplot" />
  -->
 
     <meta name="google-site-verification" content="JkHy5fcdfsQv4jcaMIGyyJpVrckuorX9DMf3o0jBpFE" />
@@ -116,112 +118,165 @@
 <section id="content" class="body">
     <header>
     <h1>
-      Pairplots
+      Box and Whisker Plots with Alternatives
     </h1>
 <ol class="breadcrumb">
     <li>
-        <time class="published" datetime="2017-09-25T00:00:00+01:00">
-            25 September 2017
+        <time class="published" datetime="2018-07-23T00:00:00+01:00">
+            23 July 2018
         </time>
     </li>
     <li>Seaborn</li>
     <!--     <li>load_dataset</li>
     <li>head</li>
-    <li>pairplot</li>
-    <li>show</li>
+    <li>boxplot</li>
+    <li>violinplot</li>
+    <li>stripplot</li>
+    <li>swarmplot</li>
  -->
 </ol>
 </header>
 <div class='article_content'>
 <h4>Import libraries</h4>
-<div class="highlight"><pre><span></span><span class="c1"># Although not strictly required, importing pyplot allows for</span>
-<span class="c1"># greater customization as Seaborn is built upon it</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">seaborn</span> <span class="kn">as</span> <span class="nn">sns</span>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="kn">as</span> <span class="nn">sns</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set_style</span><span class="p">(</span><span class="s1">&#39;darkgrid&#39;</span><span class="p">)</span>
 </pre></div>
 
 
 <h4>Load and inspect data</h4>
-<div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s1">&#39;iris&#39;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s1">&#39;mpg&#39;</span><span class="p">)</span>
 <span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 
 
 <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>sepal_length</th>
-      <th>sepal_width</th>
-      <th>petal_length</th>
-      <th>petal_width</th>
-      <th>species</th>
+      <th>mpg</th>
+      <th>cylinders</th>
+      <th>displacement</th>
+      <th>horsepower</th>
+      <th>weight</th>
+      <th>acceleration</th>
+      <th>model_year</th>
+      <th>origin</th>
+      <th>name</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
-      <td>5.1</td>
-      <td>3.5</td>
-      <td>1.4</td>
-      <td>0.2</td>
-      <td>setosa</td>
+      <td>18.0</td>
+      <td>8</td>
+      <td>307.0</td>
+      <td>130.0</td>
+      <td>3504</td>
+      <td>12.0</td>
+      <td>70</td>
+      <td>usa</td>
+      <td>chevrolet chevelle malibu</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>4.9</td>
-      <td>3.0</td>
-      <td>1.4</td>
-      <td>0.2</td>
-      <td>setosa</td>
+      <td>15.0</td>
+      <td>8</td>
+      <td>350.0</td>
+      <td>165.0</td>
+      <td>3693</td>
+      <td>11.5</td>
+      <td>70</td>
+      <td>usa</td>
+      <td>buick skylark 320</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>4.7</td>
-      <td>3.2</td>
-      <td>1.3</td>
-      <td>0.2</td>
-      <td>setosa</td>
+      <td>18.0</td>
+      <td>8</td>
+      <td>318.0</td>
+      <td>150.0</td>
+      <td>3436</td>
+      <td>11.0</td>
+      <td>70</td>
+      <td>usa</td>
+      <td>plymouth satellite</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>4.6</td>
-      <td>3.1</td>
-      <td>1.5</td>
-      <td>0.2</td>
-      <td>setosa</td>
+      <td>16.0</td>
+      <td>8</td>
+      <td>304.0</td>
+      <td>150.0</td>
+      <td>3433</td>
+      <td>12.0</td>
+      <td>70</td>
+      <td>usa</td>
+      <td>amc rebel sst</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>5.0</td>
-      <td>3.6</td>
-      <td>1.4</td>
-      <td>0.2</td>
-      <td>setosa</td>
+      <td>17.0</td>
+      <td>8</td>
+      <td>302.0</td>
+      <td>140.0</td>
+      <td>3449</td>
+      <td>10.5</td>
+      <td>70</td>
+      <td>usa</td>
+      <td>ford torino</td>
     </tr>
   </tbody>
 </table>
 </div>
 
-<h4>Basic pairplot</h4>
-<p>This gives a good overview of the relationships between the variables in your data.</p>
-<p><code>pairplot</code> is similar to <code>scatter_matrix</code> in Pandas except, like most Seaborn plots, it looks snazzier.</p>
-<div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<h4>A simple box and whiskers plot</h4>
+<p>Box and whisker plots let us plot a continuous variable against a categorical variable. The box itself shows the upper and lower quartiles alongside the median, with the whiskers extending to 1.5 times the inter-quartile range by default. Any points outside this range are outliers.</p>
+<p>First we plot the miles per gallon of various cars according to where they were designed. Next, a new column showing whether the car was made after 1975 is made and the data is split according to this.</p>
+<div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;origin&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;mpg&#39;</span><span class="p">);</span>
 </pre></div>
 
 
-<p><img alt="png" src="pairplots_files/pairplots_6_0.png"></p>
-<h4>Adding some variation</h4>
-<p>There's a decent chance you've seen the Iris dataset before. If you have, you'll know the three species are setosa, versicolor, and virginica. Let's add some colour to distinguish them.</p>
-<div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;species&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<p><img alt="png" src="box-and-whisker-plots-with-alternatives_files/box-and-whisker-plots-with-alternatives_6_0.png"></p>
+<div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;year &gt; 1975&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;model_year&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">75</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;origin&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;mpg&#39;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;year &gt; 1975&#39;</span><span class="p">);</span>
 </pre></div>
 
 
-<p><img alt="png" src="pairplots_files/pairplots_8_0.png"></p>
-<p>There are lots of tweaks you can make to your pairplots. The Seaborn API is really clean and <a href="https://seaborn.pydata.org/generated/seaborn.pairplot.html">so are the docs</a>, so dive in and have a muck around.</p>
+<p><img alt="png" src="box-and-whisker-plots-with-alternatives_files/box-and-whisker-plots-with-alternatives_7_0.png"></p>
+<h4>Alternatives</h4>
+<p>The main alternative to the box and whisker plot is the violin plot. This combines a box plot with a kernel density estimate, giving us an idea of the underlying distribution of the data. It also present different ways to visualize our dataset.</p>
+<div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">violinplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;origin&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;mpg&#39;</span><span class="p">);</span>
+</pre></div>
+
+
+<p><img alt="png" src="box-and-whisker-plots-with-alternatives_files/box-and-whisker-plots-with-alternatives_9_0.png"></p>
+<div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">violinplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;origin&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;mpg&#39;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;year &gt; 1975&#39;</span><span class="p">,</span> <span class="n">split</span><span class="o">=</span><span class="bp">True</span><span class="p">);</span>
+</pre></div>
+
+
+<p><img alt="png" src="box-and-whisker-plots-with-alternatives_files/box-and-whisker-plots-with-alternatives_10_0.png"></p>
+<p>These can be combined with swarm or strip plots to make interesting visualizations.</p>
+<div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">violinplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;origin&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;mpg&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;lightgray&#39;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">stripplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;origin&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;mpg&#39;</span><span class="p">,</span> <span class="n">jitter</span><span class="o">=</span><span class="bp">True</span><span class="p">);</span>
+</pre></div>
+
+
+<p><img alt="png" src="box-and-whisker-plots-with-alternatives_files/box-and-whisker-plots-with-alternatives_12_0.png"></p>
+<p>The Seaborn docs are pretty great and have loads of practical examples. Here are the links for <a href="https://seaborn.pydata.org/generated/seaborn.boxplot.html">box plots</a>, <a href="https://seaborn.pydata.org/generated/seaborn.violinplot.html">violin plots</a>, <a href="https://seaborn.pydata.org/generated/seaborn.stripplot.html">strip plots</a>, and <a href="https://seaborn.pydata.org/generated/seaborn.swarmplot.html">swarm plots</a>.</p>
 </div>
 </section>
 

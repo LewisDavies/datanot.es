@@ -4,7 +4,7 @@ from pelicanconf_static_paths import STATIC_PATHS
 
 # Find all notebooks
 p = Path('content')
-notebooks = list(p.glob('**/*.ipynb'))
+notebooks = [f for f in p.glob('**/*.ipynb') if '-checkpoint' not in f.name]
 
 # Convert notebooks to Markdown
 for file in notebooks:
@@ -17,7 +17,9 @@ for file in notebooks:
         fout.writelines(data[1:])
 
 # Find directories containing generated images
-img_dirs = [str(d)[8:] for d in list(p.glob('**')) if d.name.endswith('_files')]
+img_dirs = [
+    str(d)[8:] for d in list(p.glob('**')) if d.name.endswith('_files') and '.ipynb_checkpoints' not in str(d)
+]
 STATIC_PATHS.extend(img_dirs)
 for i in range(len(STATIC_PATHS) - 1):
     STATIC_PATHS[i] = "    '" + STATIC_PATHS[i] + "',\n"

@@ -53,17 +53,29 @@ body > .container {
 }
 
 .panel-body {
-  -webkit-columns: 384px 1;
-   -moz-columns: 384px 1;
-        columns: 384px 1;
+    -webkit-columns: 384px 1;
+    -moz-columns: 384px 1;
+    columns: 384px 1;
 }
 
 @media (min-width: 480px) {
   .panel-body {
     -webkit-columns: 384px 2;
-     -moz-columns: 384px 2;
-          columns: 384px 2;
+    -moz-columns: 384px 2;
+    columns: 384px 2;
   }
+}
+
+@media (min-width: 480px) {
+    .left-list {
+        margin-bottom: 0px;
+    }
+}
+
+@media (min-width: 480px) {
+    .right-list {
+        margin-top: 0px;
+    }
 }
 
 .navbar {

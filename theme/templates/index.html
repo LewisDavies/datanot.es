@@ -22,9 +22,18 @@
         <h3 class="panel-title">Basics</h3>
       </div> -->
       <div class="panel-body">
-        <ul>
+        <ul class="left-list">
           {% for article in cat[1]|sort(attribute='date') %}
+            {% if loop.index is not divisibleby 2 %}
             <li><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title|e }}</a></li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+        <ul class="right-list">
+          {% for article in cat[1]|sort(attribute='date') %}
+            {% if loop.index is divisibleby 2 %}
+            <li><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title|e }}</a></li>
+            {% endif %}
           {% endfor %}
         </ul>
       </div>

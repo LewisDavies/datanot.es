@@ -1,5 +1,5 @@
 import os
-from pathlib import Path
+from pathlib import Path, PurePosixPath
 from pelicanconf_static_paths import STATIC_PATHS
 
 # Find all notebooks
@@ -18,7 +18,7 @@ for file in notebooks:
 
 # Find directories containing generated images
 img_dirs = [
-    str(d)[8:] for d in list(p.glob('**')) if d.name.endswith('_files') and '.ipynb_checkpoints' not in str(d)
+    str(PurePosixPath(d))[8:] for d in list(p.glob('**')) if d.name.endswith('_files') and '.ipynb_checkpoints' not in str(d)
 ]
 STATIC_PATHS.extend(img_dirs)
 for i in range(len(STATIC_PATHS) - 1):

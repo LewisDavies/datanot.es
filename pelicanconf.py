@@ -84,15 +84,15 @@ STATIC_PATHS = [
     'extra/manifest.json',
     'extra/mstile-150x150.png',
     'extra/safari-pinned-tab.svg',
-    'matplotlib\bar-plots_files',
-    'matplotlib\histograms_files',
-    'matplotlib\line-plots_files',
-    'matplotlib\making-subplots_files',
-    'matplotlib\scatter-plots_files',
-    'pandas\visual-exploratory-data-analysis_files',
-    'seaborn\box-and-whisker-plots-with-alternatives_files',
-    'seaborn\pairplots_files',
-    'seaborn\plotting-two-continuous-variables_files',
-    'seaborn\scatter-plots-with-regression_files'
+    'matplotlib/bar-plots_files',
+    'matplotlib/histograms_files',
+    'matplotlib/line-plots_files',
+    'matplotlib/making-subplots_files',
+    'matplotlib/scatter-plots_files',
+    'pandas/visual-exploratory-data-analysis_files',
+    'seaborn/box-and-whisker-plots-with-alternatives_files',
+    'seaborn/pairplots_files',
+    'seaborn/plotting-two-continuous-variables_files',
+    'seaborn/scatter-plots-with-regression_files'
 ]
 

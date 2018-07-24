@@ -66,16 +66,8 @@ body > .container {
   }
 }
 
-@media (min-width: 480px) {
-    .left-list {
-        margin-bottom: 0px;
-    }
-}
-
-@media (min-width: 480px) {
-    .right-list {
-        margin-top: 0px;
-    }
+.panel-body > ul {
+    margin-bottom: 0;
 }
 
 .navbar {
@@ -214,7 +206,7 @@ pre {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0);
 }
 
-@media (max-width: 767px) {}
+@media (max-width: 767px) {
     .navbar-nav .open .dropdown-menu {
         background: #fff;
     }
@@ -299,7 +291,7 @@ h6,
 -------------------------------------------------- */
 
 .bug-reporting__panel{
-        padding: 1em;
+    padding: 1em;
     border: solid 1px #dddddd;
     margin-top: 3em;
 

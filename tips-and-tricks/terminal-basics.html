@@ -16,7 +16,7 @@
     <link rel="shortcut icon" href="../favicon.ico">
     <meta name="msapplication-config" content="../browserconfig.xml">
 
-    <title>Plotting Two Continuous Variables - LewisDavi.es</title>
+    <title>Terminal Basics - LewisDavi.es</title>
 
     <!-- JQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -41,9 +41,8 @@
         
 
 
-  <!--     <meta name="tags" content="load_dataset" />
-    <meta name="tags" content="set_style" />
-    <meta name="tags" content="jointplot" />
+  <!--     <meta name="tags" content="bash" />
+    <meta name="tags" content="terminal" />
  -->
 
     <meta name="google-site-verification" content="JkHy5fcdfsQv4jcaMIGyyJpVrckuorX9DMf3o0jBpFE" />
@@ -115,147 +114,101 @@
 <section id="content" class="body">
     <header>
     <h1>
-      Plotting Two Continuous Variables
+      Terminal Basics
     </h1>
 <ol class="breadcrumb">
     <li>
-        <time class="published" datetime="2018-07-23T00:00:00+01:00">
-            23 July 2018
+        <time class="published" datetime="2018-10-13T00:00:00+01:00">
+            13 October 2018
         </time>
     </li>
-    <li>Seaborn</li>
-    <!--     <li>load_dataset</li>
-    <li>set_style</li>
-    <li>jointplot</li>
+    <li>Tips & Tricks</li>
+    <!--     <li>bash</li>
+    <li>terminal</li>
  -->
 </ol>
 </header>
 <div class='article_content'>
-<h4>Import libraries</h4>
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="kn">as</span> <span class="nn">sns</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">set_style</span><span class="p">(</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+<h4>Things to install (optional)</h4>
+<p>If you're on a Mac, installing <a href="https://www.iterm2.com/">iTerm2</a> will make your life easier with improved search and autocomplete. Using <a href="https://ohmyz.sh/">oh-my-zsh</a> on top of this is enough to make you weep tears of joy; <a href="https://hackernoon.com/oh-my-zsh-made-for-cli-lovers-bea538d42ec1">this guide</a> shows the range of cool stuff it can do.</p>
+<h4>What about Windows?</h4>
+<p>Save yourself some pain and just don't bother with the Command Prompt or Powershell. Windows commands are awkward and unintuitive and much harder to find support for.</p>
+<p>You could try using the <a href="https://docs.microsoft.com/en-us/windows/wsl/install-win10">Windows Subsystem for Linux</a> to get used to the terminal, but you'll probably want to install Linux for a native experience eventually.</p>
+<h4>Show the current directory</h4>
+<p><em>Note: You can run terminal commands from a notebook by prefixing them with an exclamation mark (!). This isn't required when running them directly in the terminal.</em></p>
+<div class="highlight"><pre><span></span><span class="err">!</span><span class="n">pwd</span>
 </pre></div>
 
 
-<h4>Load and inspect data</h4>
-<div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s1">&#39;mpg&#39;</span><span class="p">)</span>
-<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<h4>Show files in the current directory</h4>
+<div class="highlight"><pre><span></span><span class="err">!</span><span class="n">ls</span>
 </pre></div>
 
 
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>mpg</th>
-      <th>cylinders</th>
-      <th>displacement</th>
-      <th>horsepower</th>
-      <th>weight</th>
-      <th>acceleration</th>
-      <th>model_year</th>
-      <th>origin</th>
-      <th>name</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>18.0</td>
-      <td>8</td>
-      <td>307.0</td>
-      <td>130.0</td>
-      <td>3504</td>
-      <td>12.0</td>
-      <td>70</td>
-      <td>usa</td>
-      <td>chevrolet chevelle malibu</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>15.0</td>
-      <td>8</td>
-      <td>350.0</td>
-      <td>165.0</td>
-      <td>3693</td>
-      <td>11.5</td>
-      <td>70</td>
-      <td>usa</td>
-      <td>buick skylark 320</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>18.0</td>
-      <td>8</td>
-      <td>318.0</td>
-      <td>150.0</td>
-      <td>3436</td>
-      <td>11.0</td>
-      <td>70</td>
-      <td>usa</td>
-      <td>plymouth satellite</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>16.0</td>
-      <td>8</td>
-      <td>304.0</td>
-      <td>150.0</td>
-      <td>3433</td>
-      <td>12.0</td>
-      <td>70</td>
-      <td>usa</td>
-      <td>amc rebel sst</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>17.0</td>
-      <td>8</td>
-      <td>302.0</td>
-      <td>140.0</td>
-      <td>3449</td>
-      <td>10.5</td>
-      <td>70</td>
-      <td>usa</td>
-      <td>ford torino</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-<h4>Joint plots</h4>
-<p>This is a combination of three plots in one: the scatter plot shows the relationship between the two variables and the accompanying histograms show the distribution of each.</p>
-<div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">jointplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;horsepower&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;mpg&#39;</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><span class="c1">#Include hidden files in output</span>
+<span class="err">!</span><span class="n">ls</span> <span class="o">-</span><span class="n">a</span>
 </pre></div>
 
 
-<p><img alt="png" src="plotting-two-continuous-variables_files/plotting-two-continuous-variables_6_0.png"></p>
-<p>The default plot can be changed and jazzed up in a few ways.</p>
-<div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">jointplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;horsepower&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;mpg&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;kde&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><span class="c1"># Include hidden files with extra information</span>
+<span class="err">!</span><span class="n">ls</span> <span class="o">-</span><span class="n">al</span>
 </pre></div>
 
 
-<p><img alt="png" src="plotting-two-continuous-variables_files/plotting-two-continuous-variables_8_0.png"></p>
-<div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">jointplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;horsepower&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;mpg&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;hex&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;#a37720&#39;</span><span class="p">,</span> <span class="n">ratio</span><span class="o">=</span><span class="mi">2</span><span class="p">);</span>
+<h4>Change directory</h4>
+<div class="highlight"><pre><span></span><span class="err">!</span><span class="n">cd</span> <span class="n">subdirectory</span>
 </pre></div>
 
 
-<p><img alt="png" src="plotting-two-continuous-variables_files/plotting-two-continuous-variables_9_0.png"></p>
-<p>Here are <a href="https://seaborn.pydata.org/generated/seaborn.jointplot.html">more examples</a> of joint plots. For even more control over the output, use the <a href="https://seaborn.pydata.org/generated/seaborn.JointGrid.html">JointPlot class</a>.</p>
+<div class="highlight"><pre><span></span><span class="c1"># Go up a level</span>
+<span class="err">!</span><span class="n">cd</span> <span class="o">../</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="c1"># Go to home directory</span>
+<span class="err">!</span><span class="n">cd</span> <span class="o">~</span>
+</pre></div>
+
+
+<h4>Moving and renaming</h4>
+<div class="highlight"><pre><span></span><span class="err">!</span><span class="n">mv</span> <span class="n">my_file</span><span class="o">.</span><span class="n">txt</span> <span class="n">subdirectory</span><span class="o">/</span><span class="n">my_file</span><span class="o">.</span><span class="n">txt</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="c1"># Rename a file</span>
+<span class="err">!</span><span class="n">mv</span> <span class="n">my_file</span><span class="o">.</span><span class="n">txt</span> <span class="n">new_name</span><span class="o">.</span><span class="n">txt</span>
+</pre></div>
+
+
+<h4>Creating and editing a new file</h4>
+<div class="highlight"><pre><span></span><span class="err">!</span><span class="n">touch</span> <span class="n">new_file</span><span class="o">.</span><span class="n">txt</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="c1"># Nano is a terminal-based text editor</span>
+<span class="err">!</span><span class="n">nano</span> <span class="n">new_file</span><span class="o">.</span><span class="n">txt</span>
+</pre></div>
+
+
+<h4>Creating a new directory</h4>
+<div class="highlight"><pre><span></span><span class="err">!</span><span class="n">mkdir</span> <span class="n">my_new_directory</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="c1"># Add a new subdirectory</span>
+<span class="err">!</span><span class="n">mkdir</span> <span class="n">my_new_directory</span><span class="o">/</span><span class="n">subdirectory</span>
+</pre></div>
+
+
+<h4>Deleting files</h4>
+<p><strong>Warning</strong>: Use these commands with caution as deleted files are unrecoverable.</p>
+<div class="highlight"><pre><span></span><span class="err">!</span><span class="n">rm</span> <span class="n">new_file</span><span class="o">.</span><span class="n">txt</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="c1"># Remove all directories and subdirectories - DON&#39;T RUN THIS IN YOUR ROOT DIRECTORY</span>
+<span class="err">!</span><span class="n">rm</span> <span class="o">-</span><span class="n">r</span> <span class="n">my_new_directory</span>
+</pre></div>
 </div>
 </section>
 

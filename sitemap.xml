@@ -5,29 +5,36 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://lewisdavi.es/</loc>
-<lastmod>2018-07-25T00:15:24-00:00</lastmod>
+<lastmod>2018-10-13T12:09:19-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://lewisdavi.es/archives.html</loc>
-<lastmod>2018-07-25T00:15:24-00:00</lastmod>
+<lastmod>2018-10-13T12:09:19-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://lewisdavi.es/tags.html</loc>
-<lastmod>2018-07-25T00:15:24-00:00</lastmod>
+<lastmod>2018-10-13T12:09:19-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://lewisdavi.es/categories.html</loc>
-<lastmod>2018-07-25T00:15:24-00:00</lastmod>
+<lastmod>2018-10-13T12:09:19-00:00</lastmod>
 <changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://lewisdavi.es/tips-and-tricks/terminal-basics.html</loc>
+<lastmod>2018-10-13T00:00:00+01:00</lastmod>
+<changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
@@ -74,13 +81,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>http://lewisdavi.es/jupyter-notebooks/adding-a-toggle-code-button.html</loc>
-<lastmod>2017-09-25T00:00:00+01:00</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
 <loc>http://lewisdavi.es/pandas/calculating-a-rolling-value.html</loc>
 <lastmod>2017-09-25T00:00:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
@@ -111,6 +111,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>http://lewisdavi.es/seaborn/pairplots.html</loc>
 <lastmod>2017-09-25T00:00:00+01:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://lewisdavi.es/tips-and-tricks/toggle-code-in-jupyter-notebooks.html</loc>
+<lastmod>2018-10-13T00:00:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
@@ -354,13 +361,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>http://lewisdavi.es/category/jupyter-notebooks.html</loc>
-<lastmod>2017-09-25T00:00:00-00:01</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
 <loc>http://lewisdavi.es/category/matplotlib.html</loc>
 <lastmod>2017-10-04T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
@@ -384,6 +384,27 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>http://lewisdavi.es/category/sql.html</loc>
 <lastmod>2017-10-23T00:00:00-00:01</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://lewisdavi.es/category/tips-tricks.html</loc>
+<lastmod>2018-10-13T00:00:00-00:01</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://lewisdavi.es/tag/bash.html</loc>
+<lastmod>2018-10-13T00:00:00-00:01</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://lewisdavi.es/tag/terminal.html</loc>
+<lastmod>2018-10-13T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -557,20 +578,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/display_html.html</loc>
-<lastmod>2017-09-25T00:00:00-00:01</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<loc>http://lewisdavi.es/tag/print.html</loc>
-<lastmod>2017-09-25T00:00:00-00:01</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
 <loc>http://lewisdavi.es/tag/date_range.html</loc>
 <lastmod>2017-09-25T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
@@ -664,6 +671,20 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>http://lewisdavi.es/tag/pairplot.html</loc>
 <lastmod>2017-09-25T00:00:00-00:01</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://lewisdavi.es/tag/display_html.html</loc>
+<lastmod>2018-10-13T00:00:00-00:01</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://lewisdavi.es/tag/print.html</loc>
+<lastmod>2018-10-13T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -1279,7 +1300,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://lewisdavi.es/author/lewis-davies.html</loc>
-<lastmod>2018-07-23T00:00:00-00:01</lastmod>
+<lastmod>2018-10-13T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>

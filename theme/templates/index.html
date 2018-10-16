@@ -24,14 +24,14 @@
       <div class="panel-body">
         <ul class="left-list">
           {% for article in cat[1]|sort(attribute='date') %}
-            {% if loop.index is not divisibleby 2 %}
+            {% if loop.index < loop.length / 2 %}
             <li><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title|e }}</a></li>
             {% endif %}
           {% endfor %}
         </ul>
         <ul class="right-list">
           {% for article in cat[1]|sort(attribute='date') %}
-            {% if loop.index is divisibleby 2 %}
+            {% if loop.index >= loop.length / 2 %}
             <li><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title|e }}</a></li>
             {% endif %}
           {% endfor %}

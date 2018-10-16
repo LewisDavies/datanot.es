@@ -16,7 +16,7 @@
     <link rel="shortcut icon" href="../favicon.ico">
     <meta name="msapplication-config" content="../browserconfig.xml">
 
-    <title>Grouping and Aggregating Data - LewisDavi.es</title>
+    <title>Adding, Removing & Changing Columns - LewisDavi.es</title>
 
     <!-- JQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -41,12 +41,8 @@
         
 
 
-  <!--     <meta name="tags" content="head" />
-    <meta name="tags" content="describe" />
-    <meta name="tags" content="groupby" />
-    <meta name="tags" content="mean" />
-    <meta name="tags" content="nunique" />
-    <meta name="tags" content="agg" />
+  <!--     <meta name="tags" content="DataFrame" />
+    <meta name="tags" content="dropna" />
  -->
 
     <meta name="google-site-verification" content="JkHy5fcdfsQv4jcaMIGyyJpVrckuorX9DMf3o0jBpFE" />
@@ -118,400 +114,332 @@
 <section id="content" class="body">
     <header>
     <h1>
-      Grouping and Aggregating Data
+      Adding, Removing & Changing Columns
     </h1>
 <ol class="breadcrumb">
     <li>
-        <time class="published" datetime="2017-09-24T00:00:00+01:00">
-            24 September 2017
+        <time class="published" datetime="2018-10-16T00:00:00+01:00">
+            16 October 2018
         </time>
     </li>
     <li>Pandas</li>
-    <!--     <li>head</li>
-    <li>describe</li>
-    <li>groupby</li>
-    <li>mean</li>
-    <li>nunique</li>
-    <li>agg</li>
+    <!--     <li>DataFrame</li>
+    <li>dropna</li>
  -->
 </ol>
 </header>
 <div class='article_content'>
 <h4>Import libraries</h4>
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
-<span class="kn">from</span> <span class="nn">bokeh.sampledata.iris</span> <span class="kn">import</span> <span class="n">flowers</span>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
 </pre></div>
 
 
-<h4>Inspect data</h4>
-<div class="highlight"><pre><span></span><span class="n">flowers</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<h4>Create data</h4>
+<div class="highlight"><pre><span></span><span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Norman&#39;</span><span class="p">,</span> <span class="s1">&#39;Phyllis&#39;</span><span class="p">,</span> <span class="s1">&#39;Esteban&#39;</span><span class="p">,</span> <span class="s1">&#39;Maureen&#39;</span><span class="p">,</span> <span class="s1">&#39;Chiquitita&#39;</span><span class="p">]</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;Favourite Colour&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Purple&#39;</span><span class="p">,</span> <span class="s1">&#39;Blue&#39;</span><span class="p">,</span> <span class="s1">&#39;Red&#39;</span><span class="p">,</span> <span class="s1">&#39;Mauve&#39;</span><span class="p">,</span> <span class="s1">&#39;Orange&#39;</span><span class="p">]</span>
+<span class="p">}</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">index</span><span class="p">)</span>
+<span class="n">df</span>
 </pre></div>
 
 
 <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>sepal_length</th>
-      <th>sepal_width</th>
-      <th>petal_length</th>
-      <th>petal_width</th>
-      <th>species</th>
+      <th>Favourite Colour</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>0</th>
-      <td>5.1</td>
-      <td>3.5</td>
-      <td>1.4</td>
-      <td>0.2</td>
-      <td>setosa</td>
+      <th>Norman</th>
+      <td>Purple</td>
     </tr>
     <tr>
-      <th>1</th>
-      <td>4.9</td>
-      <td>3.0</td>
-      <td>1.4</td>
-      <td>0.2</td>
-      <td>setosa</td>
+      <th>Phyllis</th>
+      <td>Blue</td>
     </tr>
     <tr>
-      <th>2</th>
-      <td>4.7</td>
-      <td>3.2</td>
-      <td>1.3</td>
-      <td>0.2</td>
-      <td>setosa</td>
+      <th>Esteban</th>
+      <td>Red</td>
     </tr>
     <tr>
-      <th>3</th>
-      <td>4.6</td>
-      <td>3.1</td>
-      <td>1.5</td>
-      <td>0.2</td>
-      <td>setosa</td>
+      <th>Maureen</th>
+      <td>Mauve</td>
     </tr>
     <tr>
-      <th>4</th>
-      <td>5.0</td>
-      <td>3.6</td>
-      <td>1.4</td>
-      <td>0.2</td>
-      <td>setosa</td>
+      <th>Chiquitita</th>
+      <td>Orange</td>
     </tr>
   </tbody>
 </table>
 </div>
 
-<div class="highlight"><pre><span></span><span class="n">flowers</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+<h4>Adding new columns</h4>
+<div class="highlight"><pre><span></span><span class="c1"># Different column per row</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;City&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;London&#39;</span><span class="p">,</span> <span class="s1">&#39;Vancouver&#39;</span><span class="p">,</span> <span class="s1">&#39;Buenos Aires&#39;</span><span class="p">,</span> <span class="s1">&#39;Cape Town&#39;</span><span class="p">,</span> <span class="s1">&#39;Beijing&#39;</span><span class="p">]</span>
+<span class="c1"># The same value for all columns</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;Favourite Number&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">df</span>
 </pre></div>
 
 
 <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>sepal_length</th>
-      <th>sepal_width</th>
-      <th>petal_length</th>
-      <th>petal_width</th>
+      <th>Favourite Colour</th>
+      <th>City</th>
+      <th>Favourite Number</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>count</th>
-      <td>150.000000</td>
-      <td>150.000000</td>
-      <td>150.000000</td>
-      <td>150.000000</td>
+      <th>Norman</th>
+      <td>Purple</td>
+      <td>London</td>
+      <td>1</td>
     </tr>
     <tr>
-      <th>mean</th>
-      <td>5.843333</td>
-      <td>3.057333</td>
-      <td>3.758000</td>
-      <td>1.199333</td>
+      <th>Phyllis</th>
+      <td>Blue</td>
+      <td>Vancouver</td>
+      <td>1</td>
     </tr>
     <tr>
-      <th>std</th>
-      <td>0.828066</td>
-      <td>0.435866</td>
-      <td>1.765298</td>
-      <td>0.762238</td>
+      <th>Esteban</th>
+      <td>Red</td>
+      <td>Buenos Aires</td>
+      <td>1</td>
     </tr>
     <tr>
-      <th>min</th>
-      <td>4.300000</td>
-      <td>2.000000</td>
-      <td>1.000000</td>
-      <td>0.100000</td>
+      <th>Maureen</th>
+      <td>Mauve</td>
+      <td>Cape Town</td>
+      <td>1</td>
     </tr>
     <tr>
-      <th>25%</th>
-      <td>5.100000</td>
-      <td>2.800000</td>
-      <td>1.600000</td>
-      <td>0.300000</td>
-    </tr>
-    <tr>
-      <th>50%</th>
-      <td>5.800000</td>
-      <td>3.000000</td>
-      <td>4.350000</td>
-      <td>1.300000</td>
-    </tr>
-    <tr>
-      <th>75%</th>
-      <td>6.400000</td>
-      <td>3.300000</td>
-      <td>5.100000</td>
-      <td>1.800000</td>
-    </tr>
-    <tr>
-      <th>max</th>
-      <td>7.900000</td>
-      <td>4.400000</td>
-      <td>6.900000</td>
-      <td>2.500000</td>
+      <th>Chiquitita</th>
+      <td>Orange</td>
+      <td>Beijing</td>
+      <td>1</td>
     </tr>
   </tbody>
 </table>
 </div>
 
-<h4>Grouping data</h4>
-<p>We use the <code>groupby()</code> method with a column name to, you guessed it, group our data. This returns a <code>DataFrameGroupBy</code> object.</p>
-<div class="highlight"><pre><span></span><span class="n">flowers</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;species&#39;</span><span class="p">)</span>
-</pre></div>
-
-
-<div class="highlight"><pre><span></span>&lt;pandas.core.groupby.DataFrameGroupBy object at 0x10a325400&gt;
-</pre></div>
-
-
-<p>To use this object, we need to chain another method afterwards. This usually an aggregate of some kind.</p>
-<div class="highlight"><pre><span></span><span class="n">flowers</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;species&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<h4>Reordering columns</h4>
+<div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s1">&#39;Favourite Number&#39;</span><span class="p">,</span> <span class="s1">&#39;City&#39;</span><span class="p">,</span> <span class="s1">&#39;Favourite Colour&#39;</span><span class="p">]]</span>
+<span class="n">df</span>
 </pre></div>
 
 
 <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>sepal_length</th>
-      <th>sepal_width</th>
-      <th>petal_length</th>
-      <th>petal_width</th>
-    </tr>
-    <tr>
-      <th>species</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th>Favourite Number</th>
+      <th>City</th>
+      <th>Favourite Colour</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>setosa</th>
-      <td>5.006</td>
-      <td>3.428</td>
-      <td>1.462</td>
-      <td>0.246</td>
+      <th>Norman</th>
+      <td>1</td>
+      <td>London</td>
+      <td>Purple</td>
     </tr>
     <tr>
-      <th>versicolor</th>
-      <td>5.936</td>
-      <td>2.770</td>
-      <td>4.260</td>
-      <td>1.326</td>
+      <th>Phyllis</th>
+      <td>1</td>
+      <td>Vancouver</td>
+      <td>Blue</td>
     </tr>
     <tr>
-      <th>virginica</th>
-      <td>6.588</td>
-      <td>2.974</td>
-      <td>5.552</td>
-      <td>2.026</td>
+      <th>Esteban</th>
+      <td>1</td>
+      <td>Buenos Aires</td>
+      <td>Red</td>
+    </tr>
+    <tr>
+      <th>Maureen</th>
+      <td>1</td>
+      <td>Cape Town</td>
+      <td>Mauve</td>
+    </tr>
+    <tr>
+      <th>Chiquitita</th>
+      <td>1</td>
+      <td>Beijing</td>
+      <td>Orange</td>
     </tr>
   </tbody>
 </table>
 </div>
 
-<div class="highlight"><pre><span></span><span class="c1"># Find the 36th percentiles</span>
-<span class="n">flowers</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;species&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.36</span><span class="p">)</span>
+<h4>Changing a column</h4>
+<div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Favourite Number&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">df</span>
 </pre></div>
 
 
 <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
-      <th>0.36</th>
-      <th>petal_length</th>
-      <th>petal_width</th>
-      <th>sepal_length</th>
-      <th>sepal_width</th>
-    </tr>
-    <tr>
-      <th>species</th>
       <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th>Favourite Number</th>
+      <th>City</th>
+      <th>Favourite Colour</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>setosa</th>
-      <td>1.400</td>
-      <td>0.2</td>
-      <td>4.9</td>
-      <td>3.3</td>
+      <th>Norman</th>
+      <td>78</td>
+      <td>London</td>
+      <td>Purple</td>
     </tr>
     <tr>
-      <th>versicolor</th>
-      <td>4.100</td>
-      <td>1.3</td>
-      <td>5.7</td>
-      <td>2.7</td>
+      <th>Phyllis</th>
+      <td>51</td>
+      <td>Vancouver</td>
+      <td>Blue</td>
     </tr>
     <tr>
-      <th>virginica</th>
-      <td>5.264</td>
-      <td>1.9</td>
-      <td>6.3</td>
-      <td>2.8</td>
+      <th>Esteban</th>
+      <td>10</td>
+      <td>Buenos Aires</td>
+      <td>Red</td>
+    </tr>
+    <tr>
+      <th>Maureen</th>
+      <td>75</td>
+      <td>Cape Town</td>
+      <td>Mauve</td>
+    </tr>
+    <tr>
+      <th>Chiquitita</th>
+      <td>75</td>
+      <td>Beijing</td>
+      <td>Orange</td>
     </tr>
   </tbody>
 </table>
 </div>
 
-<div class="highlight"><pre><span></span><span class="c1"># Use .agg to find multiple aggreagates</span>
-<span class="n">flowers</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;species&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">([</span><span class="s1">&#39;var&#39;</span><span class="p">,</span> <span class="s1">&#39;std&#39;</span><span class="p">])</span>
+<h4>Removing columns</h4>
+<div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;Favourite Number&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">df</span>
 </pre></div>
 
 
 <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
 <table border="1" class="dataframe">
   <thead>
-    <tr>
+    <tr style="text-align: right;">
       <th></th>
-      <th colspan="2" halign="left">sepal_length</th>
-      <th colspan="2" halign="left">sepal_width</th>
-      <th colspan="2" halign="left">petal_length</th>
-      <th colspan="2" halign="left">petal_width</th>
-    </tr>
-    <tr>
-      <th></th>
-      <th>var</th>
-      <th>std</th>
-      <th>var</th>
-      <th>std</th>
-      <th>var</th>
-      <th>std</th>
-      <th>var</th>
-      <th>std</th>
-    </tr>
-    <tr>
-      <th>species</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th>City</th>
+      <th>Favourite Colour</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>setosa</th>
-      <td>0.124249</td>
-      <td>0.352490</td>
-      <td>0.143690</td>
-      <td>0.379064</td>
-      <td>0.030159</td>
-      <td>0.173664</td>
-      <td>0.011106</td>
-      <td>0.105386</td>
+      <th>Norman</th>
+      <td>London</td>
+      <td>Purple</td>
     </tr>
     <tr>
-      <th>versicolor</th>
-      <td>0.266433</td>
-      <td>0.516171</td>
-      <td>0.098469</td>
-      <td>0.313798</td>
-      <td>0.220816</td>
-      <td>0.469911</td>
-      <td>0.039106</td>
-      <td>0.197753</td>
+      <th>Phyllis</th>
+      <td>Vancouver</td>
+      <td>Blue</td>
     </tr>
     <tr>
-      <th>virginica</th>
-      <td>0.404343</td>
-      <td>0.635880</td>
-      <td>0.104004</td>
-      <td>0.322497</td>
-      <td>0.304588</td>
-      <td>0.551895</td>
-      <td>0.075433</td>
-      <td>0.274650</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-<div class="highlight"><pre><span></span><span class="c1"># Find different aggreagates for different columns</span>
-<span class="n">flowers</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;species&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span>
-    <span class="s1">&#39;sepal_length&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;min&#39;</span><span class="p">,</span> <span class="s1">&#39;max&#39;</span><span class="p">],</span>
-    <span class="s1">&#39;sepal_width&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;count&#39;</span><span class="p">]</span>
-<span class="p">})</span>
-</pre></div>
-
-
-<div>
-<table border="1" class="dataframe">
-  <thead>
-    <tr>
-      <th></th>
-      <th colspan="2" halign="left">sepal_length</th>
-      <th>sepal_width</th>
+      <th>Esteban</th>
+      <td>Buenos Aires</td>
+      <td>Red</td>
     </tr>
     <tr>
-      <th></th>
-      <th>min</th>
-      <th>max</th>
-      <th>count</th>
+      <th>Maureen</th>
+      <td>Cape Town</td>
+      <td>Mauve</td>
     </tr>
     <tr>
-      <th>species</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>setosa</th>
-      <td>4.3</td>
-      <td>5.8</td>
-      <td>50</td>
-    </tr>
-    <tr>
-      <th>versicolor</th>
-      <td>4.9</td>
-      <td>7.0</td>
-      <td>50</td>
-    </tr>
-    <tr>
-      <th>virginica</th>
-      <td>4.9</td>
-      <td>7.9</td>
-      <td>50</td>
+      <th>Chiquitita</th>
+      <td>Beijing</td>
+      <td>Orange</td>
     </tr>
   </tbody>
 </table>

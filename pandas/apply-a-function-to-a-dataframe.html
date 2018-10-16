@@ -16,7 +16,7 @@
     <link rel="shortcut icon" href="../favicon.ico">
     <meta name="msapplication-config" content="../browserconfig.xml">
 
-    <title>Scatter Plots with Regression - LewisDavi.es</title>
+    <title>Apply a Function to a DataFrame - LewisDavi.es</title>
 
     <!-- JQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -41,12 +41,8 @@
         
 
 
-  <!--     <meta name="tags" content="load_dataset" />
-    <meta name="tags" content="head" />
-    <meta name="tags" content="lmplot" />
-    <meta name="tags" content="xlabel" />
-    <meta name="tags" content="ylabel" />
-    <meta name="tags" content="show" />
+  <!--     <meta name="tags" content="DataFrame" />
+    <meta name="tags" content="apply" />
  -->
 
     <meta name="google-site-verification" content="JkHy5fcdfsQv4jcaMIGyyJpVrckuorX9DMf3o0jBpFE" />
@@ -118,141 +114,218 @@
 <section id="content" class="body">
     <header>
     <h1>
-      Scatter Plots with Regression
+      Apply a Function to a DataFrame
     </h1>
 <ol class="breadcrumb">
     <li>
-        <time class="published" datetime="2017-09-26T00:00:00+01:00">
-            26 September 2017
+        <time class="published" datetime="2018-10-16T00:00:00+01:00">
+            16 October 2018
         </time>
     </li>
-    <li>Seaborn</li>
-    <!--     <li>load_dataset</li>
-    <li>head</li>
-    <li>lmplot</li>
-    <li>xlabel</li>
-    <li>ylabel</li>
-    <li>show</li>
+    <li>Pandas</li>
+    <!--     <li>DataFrame</li>
+    <li>apply</li>
  -->
 </ol>
 </header>
 <div class='article_content'>
 <h4>Import libraries</h4>
-<div class="highlight"><pre><span></span><span class="c1"># Although not strictly required, importing pyplot allows for</span>
-<span class="c1"># greater customization as Seaborn is built upon it</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">seaborn</span> <span class="kn">as</span> <span class="nn">sns</span>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
 </pre></div>
 
 
-<h4>Load and inspect data</h4>
-<div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s1">&#39;tips&#39;</span><span class="p">)</span>
-<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<h4>Create data</h4>
+<div class="highlight"><pre><span></span>df = pd.DataFrame({&#39;First&#39;: np.random.randint(1, 6, 5), &#39;Second&#39;: np.random.randint(4, 10, 5)})
+df
 </pre></div>
 
 
 <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>total_bill</th>
-      <th>tip</th>
-      <th>sex</th>
-      <th>smoker</th>
-      <th>day</th>
-      <th>time</th>
-      <th>size</th>
+      <th>First</th>
+      <th>Second</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
-      <td>16.99</td>
-      <td>1.01</td>
-      <td>Female</td>
-      <td>No</td>
-      <td>Sun</td>
-      <td>Dinner</td>
       <td>2</td>
+      <td>8</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>10.34</td>
-      <td>1.66</td>
-      <td>Male</td>
-      <td>No</td>
-      <td>Sun</td>
-      <td>Dinner</td>
-      <td>3</td>
+      <td>2</td>
+      <td>8</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>21.01</td>
-      <td>3.50</td>
-      <td>Male</td>
-      <td>No</td>
-      <td>Sun</td>
-      <td>Dinner</td>
-      <td>3</td>
+      <td>5</td>
+      <td>8</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>23.68</td>
-      <td>3.31</td>
-      <td>Male</td>
-      <td>No</td>
-      <td>Sun</td>
-      <td>Dinner</td>
-      <td>2</td>
+      <td>1</td>
+      <td>9</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>24.59</td>
-      <td>3.61</td>
-      <td>Female</td>
-      <td>No</td>
-      <td>Sun</td>
-      <td>Dinner</td>
+      <td>2</td>
       <td>4</td>
     </tr>
   </tbody>
 </table>
 </div>
 
-<h4>Basic scatter plot</h4>
-<p>We use <code>lmplot</code> to plt two continuous variables against each other. The shaded area represents the 95% condfidence interval.</p>
-<div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">lmplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;total_bill&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;tip&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Total Bill&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Tip&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<h4>Apply a function across each row</h4>
+<div class="highlight"><pre><span></span>df[&#39;Added&#39;] = df.apply(lambda row: row[&#39;First&#39;] + row[&#39;Second&#39;], axis=1)
+df
 </pre></div>
 
 
-<p><img alt="png" src="scatter-plots-with-regression_files/scatter-plots-with-regression_6_0.png"></p>
-<h4>Separating our variables</h4>
-<p>Adding a <code>hue</code> argument lets us distinguish between different groups. Here we can see that tips from non-smokers were generally higher than from smokers.</p>
-<div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">lmplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;total_bill&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;tip&#39;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;smoker&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Total Bill&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Tip&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>First</th>
+      <th>Second</th>
+      <th>Added</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2</td>
+      <td>8</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>8</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>5</td>
+      <td>8</td>
+      <td>13</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1</td>
+      <td>9</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2</td>
+      <td>4</td>
+      <td>6</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h4>Apply based on one column</h4>
+<div class="highlight"><pre><span></span>df[&#39;Squared&#39;] = df[&#39;Added&#39;].apply(np.square)
+df
 </pre></div>
 
 
-<p><img alt="png" src="scatter-plots-with-regression_files/scatter-plots-with-regression_8_0.png"></p>
-<h4>Adjusting the confidence interval</h4>
-<p>By default, Seaborn takes 1000 bootstrap samples of your data and uses a 95% confidence interval. Our regression line can also be changed to a polynomial.</p>
-<p>Be careful when tweaking these parameters if your dataset is large — you might have to wait a while!</p>
-<div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">lmplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;total_bill&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;tip&#39;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;smoker&#39;</span><span class="p">,</span>
-           <span class="n">ci</span><span class="o">=</span><span class="mi">99</span><span class="p">,</span> <span class="n">n_boot</span><span class="o">=</span><span class="mi">1500</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Total Bill&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Tip&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
 
-<p><img alt="png" src="scatter-plots-with-regression_files/scatter-plots-with-regression_10_0.png"></p>
-<p>As always, <a href="https://seaborn.pydata.org/generated/seaborn.lmplot.html#seaborn.lmplot">check the docs</a> for loads more options.</p>
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>First</th>
+      <th>Second</th>
+      <th>Added</th>
+      <th>Squared</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2</td>
+      <td>8</td>
+      <td>10</td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>8</td>
+      <td>10</td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>5</td>
+      <td>8</td>
+      <td>13</td>
+      <td>169</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1</td>
+      <td>9</td>
+      <td>10</td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2</td>
+      <td>4</td>
+      <td>6</td>
+      <td>36</td>
+    </tr>
+  </tbody>
+</table>
+</div>
 </div>
 </section>
 

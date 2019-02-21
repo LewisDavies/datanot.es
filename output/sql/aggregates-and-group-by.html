@@ -142,7 +142,7 @@
 </ol>
 </header>
 <div class='article_content'>
-<h4>Load ipython-sql extension</h4>
+<h3>Load ipython-sql extension</h3>
 <div class="highlight"><pre><span></span><span class="c1"># The 2 lines below prevent an error message from being displayed when we run %load_ext sql</span>
 <span class="kn">import</span> <span class="nn">warnings</span>
 <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
@@ -152,7 +152,7 @@
 </pre></div>
 
 
-<h4>Connect to the database</h4>
+<h3>Connect to the database</h3>
 <div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
 
 <span class="n">postgresql</span><span class="p">:</span><span class="o">//</span><span class="n">localhost</span><span class="o">/</span><span class="n">dvdrental</span>
@@ -163,7 +163,7 @@
 </pre></div>
 
 
-<h4>Sample from <code>film</code> table</h4>
+<h3>Sample from <code>film</code> table</h3>
 <div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
 
 <span class="n">SELECT</span>
@@ -217,7 +217,7 @@
     </tr>
 </table>
 
-<h4>Syntax example — <code>sum</code></h4>
+<h3>Syntax example — <code>sum</code></h3>
 <div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
 
 <span class="n">SELECT</span>
@@ -236,13 +236,13 @@
     </tr>
 </table>
 
-<h4>Other aggregate functions</h4>
+<h3>Other aggregate functions</h3>
 <p><strong><code>avg</code></strong>: Mean of all column values</p>
 <p><strong><code>max</code></strong>: Highest value in the column</p>
 <p><strong><code>min</code></strong>: Lowest value in the column</p>
 <p><strong><code>count</code></strong>: Total number of non-null values</p>
 <p>*Some aggregates, including <code>max</code>, <code>min</code> and <code>count</code>, can also be applied to strings.</p>
-<h4><code>GROUP BY</code></h4>
+<h3>Grouping data</h3>
 <p>Let's say we want to find the mean film length at each price point, and all films cost £0.99, £2.99 or £4.99.</p>
 <div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
 

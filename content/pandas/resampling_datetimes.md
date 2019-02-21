@@ -5,7 +5,7 @@ Tags: date_range, DataFrame, head, set_index, loc, resample, mean, min, count
 Date: 2017-09-21
 Modified: 2017-09-24
 
-#### Import libraries
+### Import libraries
 
 
 ```python
@@ -13,7 +13,7 @@ import numpy as np
 import pandas as pd
 ```
 
-#### Create DataFrame
+### Create DataFrame
 
 
 ```python
@@ -70,7 +70,7 @@ df.head()
 
 
 
-#### Selecting rows and cells
+### Selecting rows and cells
 We use the `loc` function which takes a range of inputs. Here are a few examples.
 
 
@@ -174,7 +174,7 @@ df.loc['August 2017']
 
 
 
-#### Changing the observation period
+### Changing the observation period
 Our (made up) date has been sampled daily, but we can investigate other intervals with `resample`. We then chain an aggregate method to return a DataFrame.
 
 

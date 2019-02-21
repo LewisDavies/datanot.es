@@ -130,12 +130,12 @@
 </ol>
 </header>
 <div class='article_content'>
-<h4>Import libraries</h4>
+<h3>Import libraries</h3>
 <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
 </pre></div>
 
 
-<h4>Create DataFrame</h4>
+<h3>Create DataFrame</h3>
 <div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Theresa&#39;</span><span class="p">,</span> <span class="s1">&#39;David&#39;</span><span class="p">,</span> <span class="s1">&#39;Gordon&#39;</span><span class="p">,</span> <span class="s1">&#39;Tony&#39;</span><span class="p">,</span> <span class="s1">&#39;John&#39;</span><span class="p">],</span>
     <span class="s1">&#39;colour&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Blue&#39;</span><span class="p">,</span> <span class="s1">&#39;Blue&#39;</span><span class="p">,</span> <span class="s1">&#39;Red&#39;</span><span class="p">,</span> <span class="s1">&#39;Red&#39;</span><span class="p">,</span> <span class="s1">&#39;Blue&#39;</span><span class="p">],</span>
@@ -206,7 +206,7 @@
 </table>
 </div>
 
-<h4>Limit column selection</h4>
+<h3>Limit column selection</h3>
 <p>We can select columns with simple square brackets if we don't want to filter our data, as in the first example. However, the <code>.loc</code> accessor allows filtering at the same time.</p>
 <p>After this example, we'll use <code>.loc</code> for the sake of consistency and flexibility.</p>
 <div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;colour&#39;</span><span class="p">]]</span>
@@ -296,7 +296,7 @@
 </table>
 </div>
 
-<h4>Filter rows on values in a column</h4>
+<h3>Filter rows on values in a column</h3>
 <div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;score1&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">3</span><span class="p">]</span>
 </pre></div>
 
@@ -350,7 +350,7 @@
 </table>
 </div>
 
-<h4>Two ways of filtering on multiple columns</h4>
+<h3>Two ways of filtering on multiple columns</h3>
 <div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;score1&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">3</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;score2&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">5</span><span class="p">)]</span>
 </pre></div>
 
@@ -443,7 +443,7 @@
 </table>
 </div>
 
-<h4>Return a Series as a DataFrame</h4>
+<h3>Return a Series as a DataFrame</h3>
 <p>If your result is a Pandas Series, it can look a bit naff when it is returned. Wrap your columns in a list to return a DataFrame instead and it'll be nicely formatted.</p>
 <div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]]</span>
 </pre></div>

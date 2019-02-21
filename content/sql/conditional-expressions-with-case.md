@@ -5,7 +5,7 @@ Tags: SELECT, FROM, LIMIT, CASE
 Date: 2017-08-15
 Modified: 2017-08-15
 
-#### Load ipython-sql extension
+### Load ipython-sql extension
 
 
 ```python
@@ -17,7 +17,7 @@ warnings.filterwarnings('ignore')
 %config SqlMagic.feedback = False
 ```
 
-#### Connect to the database
+### Connect to the database
 
 
 ```python
@@ -33,7 +33,7 @@ postgresql://localhost/dvdrental
 
 
 
-#### Sample from `film` table
+### Sample from `film` table
 
 
 ```python
@@ -94,7 +94,7 @@ LIMIT
 
 
 
-#### Using aggregates
+### Using aggregates
 
 
 ```python

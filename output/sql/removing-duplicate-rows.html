@@ -134,7 +134,7 @@
 </ol>
 </header>
 <div class='article_content'>
-<h4>Load ipython-sql extension</h4>
+<h3>Load ipython-sql extension</h3>
 <div class="highlight"><pre><span></span><span class="c1"># The 2 lines below prevent an error message from being displayed when we run %load_ext sql</span>
 <span class="kn">import</span> <span class="nn">warnings</span>
 <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
@@ -144,7 +144,7 @@
 </pre></div>
 
 
-<h4>Connect to the database</h4>
+<h3>Connect to the database</h3>
 <div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
 
 <span class="n">postgresql</span><span class="p">:</span><span class="o">//</span><span class="n">localhost</span><span class="o">/</span><span class="n">dvdrental</span>
@@ -155,7 +155,7 @@
 </pre></div>
 
 
-<h4>Sample data</h4>
+<h3>Sample data</h3>
 <div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
 
 <span class="n">SELECT</span>
@@ -182,7 +182,7 @@
     </tr>
 </table>
 
-<h4>Remove duplicates with <code>DISTINCT</code></h4>
+<h3>Remove duplicates with <code>DISTINCT</code></h3>
 <div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
 
 <span class="n">SELECT</span> <span class="n">DISTINCT</span>
@@ -203,7 +203,7 @@
     </tr>
 </table>
 
-<h4>Using <code>DISTINCT ON</code></h4>
+<h3>Using <code>DISTINCT ON</code></h3>
 <p>The above example was pretty unrealistic, I'll admit. However, you can include more columns and remove duplicates based on just one with <code>DISTINCT ON</code>.</p>
 <div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
 

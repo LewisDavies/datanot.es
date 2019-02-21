@@ -5,7 +5,7 @@ Tags: random, normal, figure, hist, xlabel, ylabel, show
 Date: 2017-09-24
 Modified: 2017-09-24
 
-#### Import libraries
+### Import libraries
 
 
 ```python
@@ -14,7 +14,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 ```
 
-#### Generate some data
+### Generate some data
 
 
 ```python
@@ -30,7 +30,7 @@ data[:5]
 
 
 
-#### Plot the data
+### Plot the data
 
 
 ```python

@@ -3,40 +3,43 @@ Slug: pandas/applying-categories-to-continuous-data
 Category: Pandas
 Tags: describe, nunique, cut, value_counts, sort_index, floor, ceil, max, min, 
 Date: 2017-09-24
-Modified: 2017-09-24
+Modified: 2019-02-20
 
-#### Import libraries
+### Import libraries
 
 
 ```python
 import numpy as np
-import matplotlib.pyplot as plt
 import pandas as pd
-from bokeh.sampledata.iris import flowers
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Mac users who get an error: go to Python in your applications folder and click Install Certificates
+iris_df = sns.load_dataset("iris")
 ```
 
-#### Inspect data
+### Inspect data
 
 
 ```python
-flowers.describe()
+iris_df.describe()
 ```
 
 
 
 
 <div>
-<style>
-    .dataframe thead tr:only-child th {
-        text-align: right;
-    }
-
-    .dataframe thead th {
-        text-align: left;
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
     }
 
     .dataframe tbody tr th {
         vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
     }
 </style>
 <table border="1" class="dataframe">
@@ -114,7 +117,7 @@ flowers.describe()
 
 
 ```python
-flowers['petal_length'].nunique()
+iris_df['petal_length'].nunique()
 ```
 
 
@@ -130,7 +133,7 @@ Let's start by using 3 evenly-sized bins.
 
 
 ```python
-pd.cut(flowers['petal_length'], bins=3).value_counts().sort_index()
+pd.cut(iris_df['petal_length'], bins=3).value_counts().sort_index()
 ```
 
 
@@ -147,8 +150,8 @@ That's good and all, but our bins are a bit... ugly. If we want nice and neat bi
 
 
 ```python
-bins_left = np.floor(flowers['petal_length'].min())
-bins_right = np.ceil(flowers['petal_length'].max())
+bins_left = np.floor(iris_df['petal_length'].min())
+bins_right = np.ceil(iris_df['petal_length'].max())
 
 bins = [i for i in range(int(bins_left), int(bins_right)+1, 2)]
 bins
@@ -164,20 +167,20 @@ bins
 
 ```python
 labels = ['Short', 'Medium', 'Long']
-pd.cut(flowers['petal_length'], bins=bins, labels=labels).value_counts().sort_index(ascending=False)
+pd.cut(iris_df['petal_length'], bins=bins, labels=labels).value_counts().sort_index(ascending=False)
 ```
 
 
 
 
-    Short     50
-    Medium    57
     Long      42
+    Medium    57
+    Short     50
     Name: petal_length, dtype: int64
 
 
 
-#### Life on the edge
+### Life on the edge
 The eagle-eyed amongst you might have noticed a slight problem with the example above: our initial cut returns 150 results, but the second only 149.
 
 This is because we passed a list to our second cut and, by default, `pd.cut` doesn't include the lowest value of lists. Here's how to get around this.
@@ -185,7 +188,7 @@ This is because we passed a list to our second cut and, by default, `pd.cut` doe
 
 ```python
 # Our example from above without labels
-pd.cut(flowers['petal_length'], bins=bins).value_counts().sort_index()
+pd.cut(iris_df['petal_length'], bins=bins).value_counts().sort_index()
 ```
 
 
@@ -201,7 +204,7 @@ pd.cut(flowers['petal_length'], bins=bins).value_counts().sort_index()
 
 ```python
 # With include_lowest=True, the lowest edge is expanded by 0.1% to capture all values
-pd.cut(flowers['petal_length'], bins=bins, include_lowest=True).value_counts().sort_index()
+pd.cut(iris_df['petal_length'], bins=bins, include_lowest=True).value_counts().sort_index()
 ```
 
 

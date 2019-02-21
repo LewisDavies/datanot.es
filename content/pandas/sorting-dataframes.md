@@ -5,7 +5,7 @@ Tags: DataFrame, head, sort_values, set_index, sort_index
 Date: 2017-09-25
 Modified: 2017-09-25
 
-#### Import libraries
+### Import libraries
 
 
 ```python
@@ -13,7 +13,7 @@ import numpy as np
 import pandas as pd
 ```
 
-#### Create DataFrame
+### Create DataFrame
 
 
 ```python
@@ -70,7 +70,7 @@ df.head()
 
 
 
-#### Sorting our values
+### Sorting our values
 
 
 ```python
@@ -172,7 +172,7 @@ df.sort_values('number', ascending=False)
 
 
 
-#### Sorting our index
+### Sorting our index
 
 
 ```python

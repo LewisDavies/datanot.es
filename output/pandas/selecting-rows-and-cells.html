@@ -130,12 +130,12 @@
 </ol>
 </header>
 <div class='article_content'>
-<h4>Import libraries</h4>
+<h3>Import libraries</h3>
 <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
 </pre></div>
 
 
-<h4>Create DataFrame</h4>
+<h3>Create DataFrame</h3>
 <div class="highlight"><pre><span></span><span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Theresa&#39;</span><span class="p">,</span> <span class="s1">&#39;David&#39;</span><span class="p">,</span> <span class="s1">&#39;Gordon&#39;</span><span class="p">,</span> <span class="s1">&#39;Tony&#39;</span><span class="p">,</span> <span class="s1">&#39;John&#39;</span><span class="p">]</span>
 <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s1">&#39;colour&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Blue&#39;</span><span class="p">,</span> <span class="s1">&#39;Blue&#39;</span><span class="p">,</span> <span class="s1">&#39;Red&#39;</span><span class="p">,</span> <span class="s1">&#39;Red&#39;</span><span class="p">,</span> <span class="s1">&#39;Blue&#39;</span><span class="p">],</span>
@@ -213,7 +213,7 @@
 </table>
 </div>
 
-<h4>Select columns</h4>
+<h3>Select columns</h3>
 <p>We can provide a single column name, a list, or a slice.</p>
 <div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;colour&#39;</span><span class="p">,</span> <span class="s1">&#39;score1&#39;</span><span class="p">]]</span>
 </pre></div>
@@ -271,7 +271,7 @@
 </table>
 </div>
 
-<h4>Select rows and cells by label</h4>
+<h3>Select rows and cells by label</h3>
 <div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;Theresa&#39;</span><span class="p">]</span>
 </pre></div>
 
@@ -402,7 +402,7 @@ Name: score1, dtype: int64
 </pre></div>
 
 
-<h4>Select by position</h4>
+<h3>Select by position</h3>
 <p>We can use <code>iloc</code> to look up data based on integers. For example, here we repeat the two selections directly above.</p>
 <div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">]]</span>
 </pre></div>

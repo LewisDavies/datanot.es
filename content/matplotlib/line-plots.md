@@ -5,7 +5,7 @@ Tags: date_range, DataFrame, figure, plot, xlabel, ylabel, xticks, legend, show
 Date: 2017-09-24
 Modified: 2017-09-24
 
-#### Import libraries
+### Import libraries
 
 
 ```python
@@ -14,7 +14,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 ```
 
-#### Generate some data
+### Generate some data
 
 
 ```python
@@ -91,7 +91,7 @@ df
 
 
 
-#### Plot the data
+### Plot the data
 
 
 ```python

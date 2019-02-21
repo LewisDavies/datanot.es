@@ -128,13 +128,13 @@
 </ol>
 </header>
 <div class='article_content'>
-<h4>Import libraries</h4>
+<h3>Import libraries</h3>
 <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
 </pre></div>
 
 
-<h4>Create data</h4>
+<h3>Create data</h3>
 <div class="highlight"><pre><span></span><span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Theresa&#39;</span><span class="p">,</span> <span class="s1">&#39;David&#39;</span><span class="p">,</span> <span class="s1">&#39;Gordon&#39;</span><span class="p">,</span> <span class="s1">&#39;Tony&#39;</span><span class="p">,</span> <span class="s1">&#39;John&#39;</span><span class="p">]</span>
 <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s1">&#39;colour&#39;</span><span class="p">:</span> <span class="p">[</span><span class="bp">None</span><span class="p">,</span> <span class="s1">&#39;Blue&#39;</span><span class="p">,</span> <span class="s1">&#39;Red&#39;</span><span class="p">,</span> <span class="s1">&#39;Red&#39;</span><span class="p">,</span> <span class="s1">&#39;Blue&#39;</span><span class="p">],</span>
@@ -212,7 +212,7 @@
 </table>
 </div>
 
-<h4>Finding missing data and filtering</h4>
+<h3>Finding missing data and filtering</h3>
 <div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span>
 </pre></div>
 
@@ -342,7 +342,7 @@
 </table>
 </div>
 
-<h4>Filling missing data</h4>
+<h3>Filling missing data</h3>
 <div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="s2">&quot;missing&quot;</span><span class="p">)</span>
 </pre></div>
 
@@ -548,7 +548,7 @@
 </table>
 </div>
 
-<h4>Dropping missing data</h4>
+<h3>Dropping missing data</h3>
 <div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">how</span><span class="o">=</span><span class="s2">&quot;any&quot;</span><span class="p">)</span>
 </pre></div>
 
@@ -657,7 +657,7 @@
 </table>
 </div>
 
-<h4>Including missing data when counting values</h4>
+<h3>Including missing data when counting values</h3>
 <div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;score1&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="n">dropna</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
 </pre></div>
 
@@ -668,7 +668,7 @@ Name: score1, dtype: int64
 </pre></div>
 
 
-<h4>Equality of missing data</h4>
+<h3>Equality of missing data</h3>
 <p>When working with missing data, you'll probably see <code>NaN</code> fairly often. It's important to know that this value, which comes from the Numpy library, is not the same as <code>None</code> as found in vanilla Python.</p>
 <div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="bp">None</span><span class="p">)</span>
 </pre></div>

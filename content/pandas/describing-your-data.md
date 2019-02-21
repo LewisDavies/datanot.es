@@ -5,14 +5,14 @@ Tags: info, describe, max, min, sum, count, mean, median, std, corr
 Date: 2017-08-05
 Modified: 2017-08-05
 
-#### Import libraries
+### Import libraries
 
 
 ```python
 import pandas as pd
 ```
 
-#### Create DataFrame
+### Create DataFrame
 
 
 ```python
@@ -101,7 +101,7 @@ df
 
 
 
-#### DataFrame information
+### DataFrame information
 
 
 ```python
@@ -118,9 +118,9 @@ df.info()
     score3    3 non-null float64
     dtypes: float64(2), int64(1), object(2)
     memory usage: 280.0+ bytes
-    
 
-#### Basic DataFrame statistics
+
+### Basic DataFrame statistics
 
 
 ```python
@@ -208,7 +208,7 @@ df.describe()
 
 
 
-#### Maximum values
+### Maximum values
 
 
 ```python
@@ -227,7 +227,7 @@ df.max()
 
 
 
-#### Minimum values
+### Minimum values
 
 
 ```python
@@ -246,7 +246,7 @@ df.min()
 
 
 
-#### Sum of values
+### Sum of values
 
 
 ```python
@@ -265,7 +265,7 @@ df.sum()
 
 
 
-#### Count non-null values
+### Count non-null values
 
 
 ```python
@@ -284,7 +284,7 @@ df.count()
 
 
 
-#### Mean values
+### Mean values
 
 
 ```python
@@ -301,7 +301,7 @@ df.mean()
 
 
 
-#### Median values
+### Median values
 
 
 ```python
@@ -318,7 +318,7 @@ df.median()
 
 
 
-#### Standard deviation of values
+### Standard deviation of values
 
 
 ```python
@@ -335,7 +335,7 @@ df.std()
 
 
 
-#### Correlation matrix
+### Correlation matrix
 
 
 ```python

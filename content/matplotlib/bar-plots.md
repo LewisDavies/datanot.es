@@ -5,7 +5,7 @@ Tags: random, normal, plot, xlabel, ylabel, xticks, ylim, show
 Date: 2017-09-19
 Modified: 2017-09-24
 
-#### Import libraries
+### Import libraries
 
 
 ```python
@@ -13,7 +13,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 ```
 
-#### Generate some data
+### Generate some data
 
 
 ```python
@@ -71,7 +71,7 @@ df
 
 
 
-#### Plot the data
+### Plot the data
 
 
 ```python

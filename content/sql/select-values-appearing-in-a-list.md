@@ -5,7 +5,7 @@ Tags: SELECT, FROM, WHERE, IN, NOT, LIMIT
 Date: 2017-08-08
 Modified: 2017-08-09
 
-#### Load ipython-sql extension
+### Load ipython-sql extension
 
 
 ```python
@@ -17,7 +17,7 @@ warnings.filterwarnings('ignore')
 %config SqlMagic.feedback = False
 ```
 
-#### Connect to the database
+### Connect to the database
 
 
 ```python
@@ -33,7 +33,7 @@ postgresql://localhost/dvdrental
 
 
 
-#### Find values matching a list with IN 
+### Find values matching a list with `IN `
 
 
 ```python
@@ -105,7 +105,7 @@ WHERE
 
 
 
-#### Find values not appearing in a list
+### Find values not appearing in a list
 
 
 ```python

@@ -5,7 +5,7 @@ Tags: SELECT, FROM, LIMIT, GROUP BY, sum, avg, max, min, count
 Date: 2017-08-10
 Modified: 2017-08-15
 
-#### Load ipython-sql extension
+### Load ipython-sql extension
 
 
 ```python
@@ -17,7 +17,7 @@ warnings.filterwarnings('ignore')
 %config SqlMagic.feedback = False
 ```
 
-#### Connect to the database
+### Connect to the database
 
 
 ```python
@@ -33,7 +33,7 @@ postgresql://localhost/dvdrental
 
 
 
-#### Sample from `film` table
+### Sample from `film` table
 
 
 ```python
@@ -94,7 +94,7 @@ LIMIT
 
 
 
-#### Syntax example — `sum`
+### Syntax example — `sum`
 
 
 ```python
@@ -120,7 +120,7 @@ FROM
 
 
 
-#### Other aggregate functions
+### Other aggregate functions
 **`avg`**: Mean of all column values
 
 **`max`**: Highest value in the column
@@ -131,7 +131,7 @@ FROM
 
 \*Some aggregates, including `max`, `min` and `count`, can also be applied to strings.
 
-#### `GROUP BY`
+### Grouping data
 Let's say we want to find the mean film length at each price point, and all films cost £0.99, £2.99 or £4.99.
 
 

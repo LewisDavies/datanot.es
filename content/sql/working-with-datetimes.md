@@ -5,7 +5,7 @@ Tags: SELECT, FROM, LIMIT, to_char
 Date: 2017-08-27
 Modified: 2017-08-27
 
-#### Load ipython-sql extension
+### Load ipython-sql extension
 
 
 ```python
@@ -17,7 +17,7 @@ warnings.filterwarnings('ignore')
 %config SqlMagic.feedback = False
 ```
 
-#### Connect to the database
+### Connect to the database
 
 
 ```python
@@ -33,7 +33,7 @@ postgresql://localhost/dvdrental
 
 
 
-#### Convert datetimes to other formats
+### Convert datetimes to other formats
 Below are examples of different date formats followed by time formats. They can all be mixed and matched to get the format you need.
 
 

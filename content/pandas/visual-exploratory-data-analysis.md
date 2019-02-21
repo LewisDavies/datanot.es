@@ -3,29 +3,125 @@ Slug: pandas/visual-exploratory-data-analysis
 Category: Pandas
 Tags: describe, scatter_matrix, show, figure, radviz
 Date: 2017-09-25
-Modified: 2017-09-25
+Modified: 2019-02-20
 
-#### Import libraries
+### Import libraries
 
 
 ```python
 import matplotlib.pyplot as plt
-from bokeh.sampledata.iris import flowers
-from pandas.tools.plotting import radviz, scatter_matrix
+import seaborn as sns
+from pandas.plotting import radviz, scatter_matrix
+
+# Mac users who get an error: go to Python in your applications folder and click Install Certificates
+iris_df = sns.load_dataset("iris")
 ```
 
-#### Inspect data
+### Inspect data
 It's always a good idea to start with basic EDA before visualizing your data, just to get a feel for it.
 
 
 ```python
-flowers.describe()
+iris_df.head()
 ```
 
 
 
 
 <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>sepal_length</th>
+      <th>sepal_width</th>
+      <th>petal_length</th>
+      <th>petal_width</th>
+      <th>species</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>5.1</td>
+      <td>3.5</td>
+      <td>1.4</td>
+      <td>0.2</td>
+      <td>setosa</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>4.9</td>
+      <td>3.0</td>
+      <td>1.4</td>
+      <td>0.2</td>
+      <td>setosa</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>4.7</td>
+      <td>3.2</td>
+      <td>1.3</td>
+      <td>0.2</td>
+      <td>setosa</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4.6</td>
+      <td>3.1</td>
+      <td>1.5</td>
+      <td>0.2</td>
+      <td>setosa</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5.0</td>
+      <td>3.6</td>
+      <td>1.4</td>
+      <td>0.2</td>
+      <td>setosa</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+```python
+iris_df.describe()
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -99,22 +195,22 @@ flowers.describe()
 
 
 
-#### Scatter matrix
+### Scatter matrix
 This gives a good overview of the relationships between the variables in your data.
 
 `scatter_matrix` plots the correlation of all variables against one another, with histograms of all variables running diagonally. Look closely and you'll notice that the plot on either side of the diagonal are exactly the same, but transposed.
 
 
 ```python
-scatter_matrix(flowers, figsize=(10, 10))
+scatter_matrix(iris_df, figsize=(10, 10))
 plt.show()
 ```
 
 
-![png](visual-exploratory-data-analysis_files/visual-exploratory-data-analysis_6_0.png)
+![png](visual-exploratory-data-analysis_files/visual-exploratory-data-analysis_7_0.png)
 
 
-#### RadViz
+### RadViz
 This is a pretty cool way of visualizing the relative size of our measurements. First, a point is added for each variable: in our case, `sepal_length'`, `sepal_width`, `petal_length`, and `petal_width`. 
 
 Now imagine that each observation is attached to these points with a spring and the greater the value is, the tighter the spring. Each observation is plotted where the springs 'settle'.
@@ -124,25 +220,38 @@ We can see that the sepal width of setosas is bigger than petal width, although 
 
 ```python
 fig = plt.figure(figsize=(8, 6))
-ax = radviz(flowers, 'species')
+ax = radviz(iris_df, 'species')
 plt.show()
 ```
 
 
-![png](visual-exploratory-data-analysis_files/visual-exploratory-data-analysis_8_0.png)
+![png](visual-exploratory-data-analysis_files/visual-exploratory-data-analysis_9_0.png)
 
 
 Take a look at the summary statistics for setosas to see how we get the plot above.
 
 
 ```python
-flowers[flowers['species'] == 'setosa'].describe()
+iris_df[iris_df['species'] == 'setosa'].describe()
 ```
 
 
 
 
 <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">

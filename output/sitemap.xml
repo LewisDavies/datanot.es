@@ -5,28 +5,28 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://lewisdavi.es/</loc>
-<lastmod>2019-02-20T22:21:08-00:00</lastmod>
+<lastmod>2019-02-21T00:02:33-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://lewisdavi.es/archives.html</loc>
-<lastmod>2019-02-20T22:21:08-00:00</lastmod>
+<lastmod>2019-02-21T00:02:33-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://lewisdavi.es/tags.html</loc>
-<lastmod>2019-02-20T22:21:08-00:00</lastmod>
+<lastmod>2019-02-21T00:02:33-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://lewisdavi.es/categories.html</loc>
-<lastmod>2019-02-20T22:21:08-00:00</lastmod>
+<lastmod>2019-02-21T00:02:33-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -110,7 +110,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://lewisdavi.es/pandas/pivot-tables.html</loc>
-<lastmod>2017-09-25T00:00:00+01:00</lastmod>
+<lastmod>2019-02-20T00:00:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
@@ -124,7 +124,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://lewisdavi.es/pandas/visual-exploratory-data-analysis.html</loc>
-<lastmod>2017-09-25T00:00:00+01:00</lastmod>
+<lastmod>2019-02-20T00:00:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
@@ -166,14 +166,14 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://lewisdavi.es/pandas/applying-categories-to-continuous-data.html</loc>
-<lastmod>2017-09-24T00:00:00+01:00</lastmod>
+<lastmod>2019-02-20T00:00:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://lewisdavi.es/pandas/grouping-and-aggregating-data.html</loc>
-<lastmod>2017-09-25T00:00:00+01:00</lastmod>
+<lastmod>2019-02-20T00:00:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
@@ -376,7 +376,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://lewisdavi.es/pandas/importing-data.html</loc>
-<lastmod>2017-08-01T00:00:00+01:00</lastmod>
+<lastmod>2019-02-20T00:00:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
@@ -390,7 +390,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://lewisdavi.es/category/pandas.html</loc>
-<lastmod>2018-10-16T00:00:00-00:01</lastmod>
+<lastmod>2019-02-20T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -474,7 +474,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://lewisdavi.es/tag/head.html</loc>
-<lastmod>2018-07-23T00:00:00-00:01</lastmod>
+<lastmod>2019-02-20T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -572,7 +572,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://lewisdavi.es/tag/show.html</loc>
-<lastmod>2017-10-04T00:00:00-00:01</lastmod>
+<lastmod>2019-02-20T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -642,14 +642,14 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://lewisdavi.es/tag/mean.html</loc>
-<lastmod>2017-09-25T00:00:00-00:01</lastmod>
+<lastmod>2019-02-20T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://lewisdavi.es/tag/max.html</loc>
-<lastmod>2017-09-25T00:00:00-00:01</lastmod>
+<lastmod>2019-02-20T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -663,7 +663,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://lewisdavi.es/tag/pivot_table.html</loc>
-<lastmod>2017-09-25T00:00:00-00:01</lastmod>
+<lastmod>2019-02-20T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -677,35 +677,35 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://lewisdavi.es/tag/sort_index.html</loc>
-<lastmod>2017-09-25T00:00:00-00:01</lastmod>
+<lastmod>2019-02-20T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://lewisdavi.es/tag/describe.html</loc>
-<lastmod>2017-09-25T00:00:00-00:01</lastmod>
+<lastmod>2019-02-20T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://lewisdavi.es/tag/scatter_matrix.html</loc>
-<lastmod>2017-09-25T00:00:00-00:01</lastmod>
+<lastmod>2019-02-20T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://lewisdavi.es/tag/figure.html</loc>
-<lastmod>2017-09-25T00:00:00-00:01</lastmod>
+<lastmod>2019-02-20T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://lewisdavi.es/tag/radviz.html</loc>
-<lastmod>2017-09-25T00:00:00-00:01</lastmod>
+<lastmod>2019-02-20T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -761,56 +761,56 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://lewisdavi.es/tag/nunique.html</loc>
-<lastmod>2017-09-25T00:00:00-00:01</lastmod>
+<lastmod>2019-02-20T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://lewisdavi.es/tag/cut.html</loc>
-<lastmod>2017-09-24T00:00:00-00:01</lastmod>
+<lastmod>2019-02-20T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://lewisdavi.es/tag/value_counts.html</loc>
-<lastmod>2017-09-24T00:00:00-00:01</lastmod>
+<lastmod>2019-02-20T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://lewisdavi.es/tag/floor.html</loc>
-<lastmod>2017-09-24T00:00:00-00:01</lastmod>
+<lastmod>2019-02-20T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://lewisdavi.es/tag/ceil.html</loc>
-<lastmod>2017-09-24T00:00:00-00:01</lastmod>
+<lastmod>2019-02-20T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://lewisdavi.es/tag/min.html</loc>
-<lastmod>2017-09-24T00:00:00-00:01</lastmod>
+<lastmod>2019-02-20T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://lewisdavi.es/tag/groupby.html</loc>
-<lastmod>2017-09-25T00:00:00-00:01</lastmod>
+<lastmod>2019-02-20T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://lewisdavi.es/tag/agg.html</loc>
-<lastmod>2017-09-25T00:00:00-00:01</lastmod>
+<lastmod>2019-02-20T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -831,7 +831,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://lewisdavi.es/tag/read_csv.html</loc>
-<lastmod>2017-09-21T00:00:00-00:01</lastmod>
+<lastmod>2019-02-20T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -1328,21 +1328,21 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://lewisdavi.es/tag/read_excel.html</loc>
-<lastmod>2017-08-01T00:00:00-00:01</lastmod>
+<lastmod>2019-02-20T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://lewisdavi.es/tag/psycopg2.html</loc>
-<lastmod>2017-08-01T00:00:00-00:01</lastmod>
+<lastmod>2019-02-20T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://lewisdavi.es/author/lewis-davies.html</loc>
-<lastmod>2018-10-16T00:00:00-00:01</lastmod>
+<lastmod>2019-02-20T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>

@@ -5,7 +5,7 @@ Tags: SELECT, FROM, WHERE, WITH, AS, GROUP BY, ORDER BY, AS, OVER, ARRAY, WITHIN
 Date: 2017-09-03
 Modified: 2017-09-03
 
-#### Load ipython-sql extension
+### Load ipython-sql extension
 
 
 ```python
@@ -17,7 +17,7 @@ warnings.filterwarnings('ignore')
 %config SqlMagic.feedback = False
 ```
 
-#### Connect to the database
+### Connect to the database
 
 
 ```python
@@ -33,7 +33,7 @@ postgresql://localhost/dvdrental
 
 
 
-#### Finding quartile values in older versions of PostgreSQL
+### Finding quartile values in older versions of PostgreSQL
 The number in the `ntile` function can be replaced as necessary. For example, we would use 5 to find the 20th, 40th, 60th, 80th and 100th percentiles, or 100 to find every percentile.
 
 
@@ -81,7 +81,7 @@ ORDER BY
 
 
 
-#### Newer, simpler functions
+### Newer, simpler functions
 Version 9.4 introduced a number of new functions that reduce the need for a CTE or subquery when finding percentiles. We can use `percentile_disc` to return the first value that matches or exceeds a particular percentile, whereas `percentile_cont` will interpolate between values if the exact percentile needed isn't found.
 
 
@@ -123,7 +123,7 @@ FROM
 
 
 
-#### One final example
+### One final example
 If only one percentile is required, the `unnest` function and `ARRAY` constructor can be removed and your chosen percentile added instead.
 
 

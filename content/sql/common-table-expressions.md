@@ -5,7 +5,7 @@ Tags: WITH, SELECT, FROM, LIMIT, OVER, PARTITION BY, ORDER BY, DESC, rank
 Date: 2017-08-16
 Modified: 2017-08-16
 
-#### Load ipython-sql extension
+### Load ipython-sql extension
 
 
 ```python
@@ -17,7 +17,7 @@ warnings.filterwarnings('ignore')
 %config SqlMagic.feedback = False
 ```
 
-#### Connect to the database
+### Connect to the database
 
 
 ```python
@@ -33,7 +33,7 @@ postgresql://localhost/dvdrental
 
 
 
-#### Using the `WITH` clause
+### Using the `WITH` clause
 We use the `WITH` keyword to create temporary tables just for the query we're currently working on. These are called Common Table Expressions (CTEs).
 
 In the simple example below, we execute the query in the `WITH` clause and then return all rows from it.
@@ -122,7 +122,7 @@ FROM
 
 
 
-#### A common use for CTEs — ranking your results
+### A common use for CTEs — ranking your results
 As explained in the page on [Window Functions](../sql/ranking-results-with-window-functions.html), CTEs are useful when ranking our results.
 
 Here we will find the last 3 films returned by a sample of customers.

@@ -5,7 +5,7 @@ Tags: SELECT, FROM, GROUP BY, ORDER BY, CASE, WHEN, THEN, AS, FILTER, count, sum
 Date: 2017-09-03
 Modified: 2017-09-03
 
-#### Load ipython-sql extension
+### Load ipython-sql extension
 
 
 ```python
@@ -17,7 +17,7 @@ warnings.filterwarnings('ignore')
 %config SqlMagic.feedback = False
 ```
 
-#### Connect to the database
+### Connect to the database
 
 
 ```python
@@ -33,7 +33,7 @@ postgresql://localhost/dvdrental
 
 
 
-#### Basic `count` method
+### Basic `count` method
 
 
 ```python
@@ -82,7 +82,7 @@ ORDER BY
 
 
 
-#### A more flexible way with `CASE`
+### A more flexible way with `CASE`
 Let's say we want to categorise our values. In older versions of PostgreSQL, we would do something like this:
 
 
@@ -112,7 +112,7 @@ FROM
 
 
 
-#### An even better way
+### An even better way
 Version 9.4 introduced `FILTER`, letting us write a better, more readable version of the above query.
 
 
@@ -142,7 +142,7 @@ FROM
 
 
 
-#### `FILTER` in practice
+### `FILTER` in practice
 With this new function, we can essentially create a pivot table with a single query.
 
 

@@ -5,7 +5,7 @@ Tags: DataFrame, dropna,
 Date: 2018-10-16
 Modified: 2018-10-16
 
-#### Import libraries
+### Import libraries
 
 
 ```python
@@ -13,7 +13,7 @@ import numpy as np
 import pandas as pd
 ```
 
-#### Create data
+### Create data
 
 
 ```python
@@ -77,7 +77,7 @@ df
 
 
 
-#### Adding new columns
+### Adding new columns
 
 
 ```python
@@ -151,7 +151,7 @@ df
 
 
 
-#### Reordering columns
+### Reordering columns
 
 
 ```python
@@ -222,7 +222,7 @@ df
 
 
 
-#### Changing a column
+### Changing a column
 
 
 ```python
@@ -293,7 +293,7 @@ df
 
 
 
-#### Removing columns
+### Removing columns
 
 
 ```python

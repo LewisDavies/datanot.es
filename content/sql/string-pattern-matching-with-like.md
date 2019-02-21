@@ -5,7 +5,7 @@ Tags: SELECT, FROM, WHERE, LIKE
 Date: 2017-08-08
 Modified: 2017-08-09
 
-#### Load ipython-sql extension
+### Load ipython-sql extension
 
 
 ```python
@@ -17,7 +17,7 @@ warnings.filterwarnings('ignore')
 %config SqlMagic.feedback = False
 ```
 
-#### Connect to the database
+### Connect to the database
 
 
 ```python
@@ -33,7 +33,7 @@ postgresql://localhost/dvdrental
 
 
 
-#### Find matches to a single character
+### Find matches to a single character
 Use an underscore to find values that match a single character
 
 
@@ -117,7 +117,7 @@ WHERE
 
 
 
-#### Find matches to a sequence of characters
+### Find matches to a sequence of characters
 A percent sign will match any number of characters
 
 

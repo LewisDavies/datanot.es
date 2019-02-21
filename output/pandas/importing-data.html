@@ -130,12 +130,12 @@
 </ol>
 </header>
 <div class='article_content'>
-<h4>Import libraries</h4>
+<h3>Import libraries</h3>
 <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
 </pre></div>
 
 
-<h4>CSV</h4>
+<h3>CSV</h3>
 <div class="highlight"><pre><span></span><span class="c1"># If the file is in your current working directory, you can use the filename as an arguement</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data.csv&#39;</span><span class="p">)</span>
 
@@ -148,7 +148,7 @@
 </pre></div>
 
 
-<h4>Excel</h4>
+<h3>Excel</h3>
 <div class="highlight"><pre><span></span><span class="c1"># By default, a DataFrame will be created from the first sheet of your Excel file</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;data.xlsx&#39;</span><span class="p">)</span>
 
@@ -160,8 +160,9 @@
 </pre></div>
 
 
-<h4>SQL</h4>
-<p>It's best if the credentials are stored in a separate file so you can share your notebook without sharing your credentials. Simply save them in a separate Python file and load them with the code below. Your <code>db.py</code> file should look like this:</p>
+<h3>SQL</h3>
+<p>Your credentials should always be stored in a separate location so you can share your notebook without sharing your login details. Ideally this would be in environment variables or your keychain, but a simple solution is to save them in a separate Python file and load them with the code below. <strong>Make sure you don't commit these to git.</strong></p>
+<p>Your <code>db.py</code> file should look like this:</p>
 <div class="highlight"><pre><span></span><span class="c1"># Example db.py file</span>
 <span class="n">user</span> <span class="o">=</span> <span class="s1">&#39;your_username&#39;</span>
 <span class="n">password</span> <span class="o">=</span> <span class="s1">&#39;your_super_tricky_password&#39;</span>
@@ -201,7 +202,7 @@
 </pre></div>
 
 
-<h4>Some useful arguments</h4>
+<h3>Some useful arguments</h3>
 <div class="highlight"><pre><span></span><span class="c1"># Specify a column to use as the index</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data.csv&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 

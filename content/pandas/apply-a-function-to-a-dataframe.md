@@ -5,18 +5,18 @@ Tags: DataFrame, apply
 Date: 2018-10-16
 Modified: 2018-10-16
 
-#### Import libraries
+### Import libraries
 
 
-```
+```python
 import numpy as np
 import pandas as pd
 ```
 
-#### Create data
+### Create data
 
 
-```
+```python
 df = pd.DataFrame({'First': np.random.randint(1, 6, 5), 'Second': np.random.randint(4, 10, 5)})
 df
 ```
@@ -78,10 +78,10 @@ df
 
 
 
-#### Apply a function across each row
+### Apply a function across each row
 
 
-```
+```python
 df['Added'] = df.apply(lambda row: row['First'] + row['Second'], axis=1)
 df
 ```
@@ -149,10 +149,10 @@ df
 
 
 
-#### Apply based on one column
+### Apply based on one column
 
 
-```
+```python
 df['Squared'] = df['Added'].apply(np.square)
 df
 ```

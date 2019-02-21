@@ -5,7 +5,7 @@ Tags: DataFrame, dropna,
 Date: 2017-12-05
 Modified: 2017-12-05
 
-#### Import libraries
+### Import libraries
 
 
 ```python
@@ -13,7 +13,7 @@ import numpy as np
 import pandas as pd
 ```
 
-#### Create data
+### Create data
 
 
 ```python
@@ -98,7 +98,7 @@ df
 
 
 
-#### Finding missing data and filtering
+### Finding missing data and filtering
 
 
 ```python
@@ -241,7 +241,7 @@ df.loc[df["colour"].notnull()]
 
 
 
-#### Filling missing data
+### Filling missing data
 
 
 ```python
@@ -466,7 +466,7 @@ df.fillna(filler)
 
 
 
-#### Dropping missing data
+### Dropping missing data
 
 
 ```python
@@ -588,7 +588,7 @@ df.dropna(how="all")
 
 
 
-#### Including missing data when counting values
+### Including missing data when counting values
 
 
 ```python
@@ -604,7 +604,7 @@ df["score1"].value_counts(dropna=False)
 
 
 
-#### Equality of missing data
+### Equality of missing data
 When working with missing data, you'll probably see `NaN` fairly often. It's important to know that this value, which comes from the Numpy library, is not the same as `None` as found in vanilla Python.
 
 

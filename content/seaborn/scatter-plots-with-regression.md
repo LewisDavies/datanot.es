@@ -5,7 +5,7 @@ Tags: load_dataset, head, lmplot, xlabel, ylabel, show
 Date: 2017-09-26
 Modified: 2017-09-26
 
-#### Import libraries
+### Import libraries
 
 
 ```python
@@ -15,7 +15,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 ```
 
-#### Load and inspect data
+### Load and inspect data
 
 
 ```python
@@ -97,7 +97,7 @@ df.head()
 
 
 
-#### Basic scatter plot
+### Basic scatter plot
 We use `lmplot` to plt two continuous variables against each other. The shaded area represents the 95% condfidence interval.
 
 
@@ -112,7 +112,7 @@ plt.show()
 ![png](scatter-plots-with-regression_files/scatter-plots-with-regression_6_0.png)
 
 
-#### Separating our variables
+### Separating our variables
 Adding a `hue` argument lets us distinguish between different groups. Here we can see that tips from non-smokers were generally higher than from smokers.
 
 
@@ -127,7 +127,7 @@ plt.show()
 ![png](scatter-plots-with-regression_files/scatter-plots-with-regression_8_0.png)
 
 
-#### Adjusting the confidence interval
+### Adjusting the confidence interval
 By default, Seaborn takes 1000 bootstrap samples of your data and uses a 95% confidence interval. Our regression line can also be changed to a polynomial.
 
 Be careful when tweaking these parameters if your dataset is large — you might have to wait a while!

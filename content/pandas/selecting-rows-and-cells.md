@@ -5,14 +5,14 @@ Tags: DataFrame, loc, iloc
 Date: 2017-08-05
 Modified: 2017-09-24
 
-#### Import libraries
+### Import libraries
 
 
 ```python
 import pandas as pd
 ```
 
-#### Create DataFrame
+### Create DataFrame
 
 
 ```python
@@ -97,7 +97,7 @@ df
 
 
 
-#### Select columns
+### Select columns
 We can provide a single column name, a list, or a slice.
 
 
@@ -162,7 +162,7 @@ df[['colour', 'score1']]
 
 
 
-#### Select rows and cells by label
+### Select rows and cells by label
 
 
 ```python
@@ -318,7 +318,7 @@ df.loc['Theresa', 'colour']
 
 
 
-#### Select by position
+### Select by position
 We can use `iloc` to look up data based on integers. For example, here we repeat the two selections directly above.
 
 

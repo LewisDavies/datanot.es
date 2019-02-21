@@ -3,16 +3,16 @@ Slug: pandas/importing-data
 Category: Pandas
 Tags: read_csv, read_excel, psycopg2
 Date: 2017-08-01
-Modified: 2017-08-01
+Modified: 2019-02-20
 
-#### Import libraries
+### Import libraries
 
 
 ```python
 import pandas as pd
 ```
 
-#### CSV
+### CSV
 
 
 ```python
@@ -27,7 +27,7 @@ df = pd.read_csv(file)
 df = pd.read_csv(file, sep=';')
 ```
 
-#### Excel 
+### Excel 
 
 
 ```python
@@ -41,8 +41,10 @@ df = pd.read_excel('data.xlsx', sheetname=1) # returns second sheet
 df_dict = pd.read_excel('data.xlsx', sheetname=[0, 2, 'Sheet4', 'Sales 2016'])
 ```
 
-#### SQL
-It's best if the credentials are stored in a separate file so you can share your notebook without sharing your credentials. Simply save them in a separate Python file and load them with the code below. Your ```db.py``` file should look like this:
+### SQL
+Your credentials should always be stored in a separate location so you can share your notebook without sharing your login details. Ideally this would be in environment variables or your keychain, but a simple solution is to save them in a separate Python file and load them with the code below. **Make sure you don't commit these to git.**
+
+Your ```db.py``` file should look like this:
 
 
 ```python
@@ -86,7 +88,7 @@ df = pd.read_sql(query, con)
 con.close()
 ```
 
-#### Some useful arguments
+### Some useful arguments
 
 
 ```python

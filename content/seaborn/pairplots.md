@@ -5,7 +5,7 @@ Tags: load_dataset, head, pairplot, show
 Date: 2017-09-25
 Modified: 2017-09-25
 
-#### Import libraries
+### Import libraries
 
 
 ```python
@@ -15,7 +15,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 ```
 
-#### Load and inspect data
+### Load and inspect data
 
 
 ```python
@@ -85,7 +85,7 @@ df.head()
 
 
 
-#### Basic pairplot
+### Basic pairplot
 This gives a good overview of the relationships between the variables in your data.
 
 `pairplot` is similar to `scatter_matrix` in Pandas except, like most Seaborn plots, it looks snazzier.
@@ -100,7 +100,7 @@ plt.show()
 ![png](pairplots_files/pairplots_6_0.png)
 
 
-#### Adding some variation
+### Adding some variation
 There's a decent chance you've seen the Iris dataset before. If you have, you'll know the three species are setosa, versicolor, and virginica. Let's add some colour to distinguish them.
 
 

@@ -38,13 +38,10 @@ RELATIVE_URLS = True
 PLUGIN_PATHS = ['plugins']
 
 PLUGINS = [
-    'random_article',
     'render_math',
     'sitemap',
     'tipue_search'
     ]
-
-RANDOM = 'random.html'
 
 SITEMAP = {
     'format': 'xml',

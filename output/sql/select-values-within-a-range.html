@@ -134,7 +134,7 @@
 </ol>
 </header>
 <div class='article_content'>
-<h4>Load ipython-sql extension</h4>
+<h3>Load ipython-sql extension</h3>
 <div class="highlight"><pre><span></span><span class="c1"># The 2 lines below prevent an error message from being displayed when we run %load_ext sql</span>
 <span class="kn">import</span> <span class="nn">warnings</span>
 <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
@@ -144,7 +144,7 @@
 </pre></div>
 
 
-<h4>Connect to the database</h4>
+<h3>Connect to the database</h3>
 <div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
 
 <span class="n">postgresql</span><span class="p">:</span><span class="o">//</span><span class="n">localhost</span><span class="o">/</span><span class="n">dvdrental</span>
@@ -155,7 +155,7 @@
 </pre></div>
 
 
-<h4>Find values within a range with BETWEEN</h4>
+<h3>Find values within a range</h3>
 <p>Note that this is an inclusive search: in the example below, movies that are 110 or 120 minutes long will be returned in the full results.</p>
 <div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
 
@@ -199,7 +199,7 @@
     </tr>
 </table>
 
-<h4>Find values outside the same range</h4>
+<h3>Find values outside the same range</h3>
 <div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
 
 <span class="n">SELECT</span>
@@ -241,7 +241,7 @@
     </tr>
 </table>
 
-<h4>Using BETWEEN with datetimes</h4>
+<h3>Using <code>BETWEEN</code> with datetimes</h3>
 <p>It is easy to be caught out by datetimes when using between. In the example below <code>'2007-02-15'</code> is interpreted as '<code>2007-02-15 00:00:00</code>', so the latest results are from just before midnight.</p>
 <div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
 

@@ -136,7 +136,7 @@
 </ol>
 </header>
 <div class='article_content'>
-<h4>Import libraries</h4>
+<h3>Import libraries</h3>
 <div class="highlight"><pre><span></span><span class="c1"># Although not strictly required, importing pyplot allows for</span>
 <span class="c1"># greater customization as Seaborn is built upon it</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
@@ -144,7 +144,7 @@
 </pre></div>
 
 
-<h4>Load and inspect data</h4>
+<h3>Load and inspect data</h3>
 <div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s1">&#39;tips&#39;</span><span class="p">)</span>
 <span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
@@ -219,7 +219,7 @@
 </table>
 </div>
 
-<h4>Basic scatter plot</h4>
+<h3>Basic scatter plot</h3>
 <p>We use <code>lmplot</code> to plt two continuous variables against each other. The shaded area represents the 95% condfidence interval.</p>
 <div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">lmplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;total_bill&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;tip&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Total Bill&#39;</span><span class="p">)</span>
@@ -229,7 +229,7 @@
 
 
 <p><img alt="png" src="scatter-plots-with-regression_files/scatter-plots-with-regression_6_0.png"></p>
-<h4>Separating our variables</h4>
+<h3>Separating our variables</h3>
 <p>Adding a <code>hue</code> argument lets us distinguish between different groups. Here we can see that tips from non-smokers were generally higher than from smokers.</p>
 <div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">lmplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;total_bill&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;tip&#39;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;smoker&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Total Bill&#39;</span><span class="p">)</span>
@@ -239,7 +239,7 @@
 
 
 <p><img alt="png" src="scatter-plots-with-regression_files/scatter-plots-with-regression_8_0.png"></p>
-<h4>Adjusting the confidence interval</h4>
+<h3>Adjusting the confidence interval</h3>
 <p>By default, Seaborn takes 1000 bootstrap samples of your data and uses a 95% confidence interval. Our regression line can also be changed to a polynomial.</p>
 <p>Be careful when tweaking these parameters if your dataset is large — you might have to wait a while!</p>
 <div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">lmplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;total_bill&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;tip&#39;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;smoker&#39;</span><span class="p">,</span>

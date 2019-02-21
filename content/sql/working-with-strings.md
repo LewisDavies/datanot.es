@@ -5,7 +5,7 @@ Tags: SELECT, FROM, JOIN, LIMIT, ||, upper, lower, substring, left, right
 Date: 2017-08-27
 Modified: 2017-08-27
 
-#### Load ipython-sql extension
+### Load ipython-sql extension
 
 
 ```python
@@ -17,7 +17,7 @@ warnings.filterwarnings('ignore')
 %config SqlMagic.feedback = False
 ```
 
-#### Connect to the database
+### Connect to the database
 
 
 ```python
@@ -33,7 +33,7 @@ postgresql://localhost/dvdrental
 
 
 
-#### Manipulating strings
+### Manipulating strings
 **`||`**: Concatenate two or more strings together
 
 **`upper`**: Convert to uppercase
@@ -100,7 +100,7 @@ LIMIT
 
 
 
-#### Substrings
+### Substrings
 **`substring`**: Return a substring based on an index (starting from 1) or a regular expression
 
 **`left`**: Return first $n$ characters

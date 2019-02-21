@@ -136,13 +136,13 @@
 </ol>
 </header>
 <div class='article_content'>
-<h4>Import libraries</h4>
+<h3>Import libraries</h3>
 <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="kn">as</span> <span class="nn">sns</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">set_style</span><span class="p">(</span><span class="s1">&#39;darkgrid&#39;</span><span class="p">)</span>
 </pre></div>
 
 
-<h4>Load and inspect data</h4>
+<h3>Load and inspect data</h3>
 <div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s1">&#39;mpg&#39;</span><span class="p">)</span>
 <span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
@@ -242,7 +242,7 @@
 </table>
 </div>
 
-<h4>A simple box and whiskers plot</h4>
+<h3>A simple box and whiskers plot</h3>
 <p>Box and whisker plots let us plot a continuous variable against a categorical variable. The box itself shows the upper and lower quartiles alongside the median, with the whiskers extending to 1.5 times the inter-quartile range by default. Any points outside this range are outliers.</p>
 <p>First we plot the miles per gallon of various cars according to where they were designed. Next, a new column showing whether the car was made after 1975 is made and the data is split according to this.</p>
 <div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;origin&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;mpg&#39;</span><span class="p">);</span>
@@ -256,7 +256,7 @@
 
 
 <p><img alt="png" src="box-and-whisker-plots-with-alternatives_files/box-and-whisker-plots-with-alternatives_7_0.png"></p>
-<h4>Alternatives</h4>
+<h3>Alternatives</h3>
 <p>The main alternative to the box and whisker plot is the violin plot. This combines a box plot with a kernel density estimate, giving us an idea of the underlying distribution of the data. It also present different ways to visualize our dataset.</p>
 <div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">violinplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;origin&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;mpg&#39;</span><span class="p">);</span>
 </pre></div>

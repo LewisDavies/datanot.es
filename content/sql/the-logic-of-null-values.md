@@ -7,7 +7,7 @@ Modified: 2017-08-28
 
 This is a fairly simple overview of three-value logic and null values in SQL. This guide is based on the information in [this article](https://www.red-gate.com/simple-talk/sql/learn-sql-server/sql-and-the-snare-of-three-valued-logic/), which offers much more depth and other examples.
 
-#### Load ipython-sql extension
+### Load ipython-sql extension
 
 
 ```python
@@ -19,7 +19,7 @@ warnings.filterwarnings('ignore')
 %config SqlMagic.feedback = False
 ```
 
-#### Connect to the database
+### Connect to the database
 
 
 ```python
@@ -35,7 +35,7 @@ postgresql://localhost/dvdrental
 
 
 
-#### `TRUE` and `FALSE` values
+### True and false
 These work as you might expect if you have programming experience or an understanding of Boolean values.
 
 
@@ -72,7 +72,7 @@ SELECT
 
 
 
-#### `NULL`, the third logical value
+### Null, the third logical value
 In SQL, `TRUE`, `FALSE` and `NULL` are fully separate and distinct. This means that `NULL` equals neither `TRUE` nor `FALSE`. In fact, even `NULL` doesn't equal `NULL`.
 
 
@@ -103,7 +103,7 @@ SELECT
 
 
 
-#### Testing for `NULL` values
+### Testing for null values
 If even `NULL` doesn't equal `NULL`, how do we test for it? It's simple: we use `IS NULL` or `IS NOT NULL`.
 
 
@@ -143,7 +143,7 @@ SELECT
 
 
 
-#### `NULL` values in practice
+### Null values in practice
 We can use our video rental database to see the effects of this. The last day on which the store had videos returned was 2nd September 2005.
 
 

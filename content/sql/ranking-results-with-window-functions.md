@@ -5,7 +5,7 @@ Tags: SELECT, FROM, LIMIT, WHERE, OVER, PARTITION BY, ORDER BY, DESC, rank
 Date: 2017-08-15
 Modified: 2017-10-23
 
-#### Load ipython-sql extension
+### Load ipython-sql extension
 
 
 ```python
@@ -17,7 +17,7 @@ warnings.filterwarnings('ignore')
 %config SqlMagic.feedback = False
 ```
 
-#### Connect to the database
+### Connect to the database
 
 
 ```python
@@ -33,7 +33,7 @@ postgresql://localhost/dvdrental
 
 
 
-#### Ranking results
+### Ranking results
 Using the `OVER` clause allows us to run a function on the results returned from the database. In this example we rank films from longest to shortest at each rental rate.
 
 
@@ -104,7 +104,7 @@ LIMIT
 
 Note that since 3 films are tied for first place, the rank given to the next longest films is 4. If we wanted the next rank to be 2 instead, we could use `dense_rank` in place of `rank`.
 
-#### Working with our rankings
+### Working with our rankings
 Once you've made the query above, we can use it as a [Common Table Expression](../sql/common-table-expressions.html) to filter it. For example, let's try to find the 3 longest films at each price point.
 
 
@@ -236,7 +236,7 @@ WHERE
 
 
 
-#### Tailoring our results
+### Tailoring our results
 Hmm, it looks like more than three films are tied in the £2.99 and £4.99 price bands. If we want to avoid this, one option is to use `row_number`, specifying how to sort the results.
 
 Now we'll return the 3 longest films at each rental rate in alphabetical order.

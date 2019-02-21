@@ -5,7 +5,7 @@ Tags: load_dataset, set_style, load_dataset, jointplot
 Date: 2018-07-23
 Modified: 2018-07-23
 
-#### Import libraries
+### Import libraries
 
 
 ```python
@@ -13,7 +13,7 @@ import seaborn as sns
 sns.set_style('white')
 ```
 
-#### Load and inspect data
+### Load and inspect data
 
 
 ```python
@@ -120,7 +120,7 @@ df.head()
 
 
 
-#### Joint plots
+### Joint plots
 This is a combination of three plots in one: the scatter plot shows the relationship between the two variables and the accompanying histograms show the distribution of each.
 
 

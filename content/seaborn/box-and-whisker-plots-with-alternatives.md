@@ -5,7 +5,7 @@ Tags: load_dataset, head, boxplot, violinplot, stripplot, swarmplot
 Date: 2018-07-23
 Modified: 2018-07-23
 
-#### Import libraries
+### Import libraries
 
 
 ```python
@@ -13,7 +13,7 @@ import seaborn as sns
 sns.set_style('darkgrid')
 ```
 
-#### Load and inspect data
+### Load and inspect data
 
 
 ```python
@@ -120,7 +120,7 @@ df.head()
 
 
 
-#### A simple box and whiskers plot
+### A simple box and whiskers plot
 Box and whisker plots let us plot a continuous variable against a categorical variable. The box itself shows the upper and lower quartiles alongside the median, with the whiskers extending to 1.5 times the inter-quartile range by default. Any points outside this range are outliers.
 
 First we plot the miles per gallon of various cars according to where they were designed. Next, a new column showing whether the car was made after 1975 is made and the data is split according to this.
@@ -144,7 +144,7 @@ sns.boxplot(data=df, x='origin', y='mpg', hue='year > 1975');
 ![png](box-and-whisker-plots-with-alternatives_files/box-and-whisker-plots-with-alternatives_7_0.png)
 
 
-#### Alternatives
+### Alternatives
 The main alternative to the box and whisker plot is the violin plot. This combines a box plot with a kernel density estimate, giving us an idea of the underlying distribution of the data. It also present different ways to visualize our dataset.
 
 

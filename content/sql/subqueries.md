@@ -5,7 +5,7 @@ Tags: SELECT, CAST, FROM, WHERE, LIMIT, avg
 Date: 2017-08-27
 Modified: 2017-08-27
 
-#### Load ipython-sql extension
+### Load ipython-sql extension
 
 
 ```python
@@ -17,7 +17,7 @@ warnings.filterwarnings('ignore')
 %config SqlMagic.feedback = False
 ```
 
-#### Connect to the database
+### Connect to the database
 
 
 ```python
@@ -33,7 +33,7 @@ postgresql://localhost/dvdrental
 
 
 
-#### Using a subquery as a condition
+### Using a subquery as a condition
 
 
 ```python
@@ -94,7 +94,7 @@ LIMIT
 
 
 
-#### Selecting a column with a subquery
+### Selecting a column with a subquery
 This isn't the most practical example, but you can select individual columns using a subquery.
 
 

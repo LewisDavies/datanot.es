@@ -3,27 +3,43 @@ Slug: pandas/pivot-tables
 Category: Pandas
 Tags: head, pivot_table
 Date: 2017-09-25
-Modified: 2017-09-25
+Modified: 2019-02-20
 
-#### Import libraries
+### Import libraries
 
 
 ```python
 import pandas as pd
-from bokeh.sampledata.iris import flowers
+import seaborn as sns
+
+# Mac users who get an error: go to Python in your applications folder and click Install Certificates
+iris_df = sns.load_dataset("iris")
 ```
 
-#### Inspect data
+### Inspect data
 
 
 ```python
-flowers.head()
+iris_df.head()
 ```
 
 
 
 
 <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -82,12 +98,12 @@ flowers.head()
 
 
 
-#### Create pivot table
+### Create pivot table
 
 
 ```python
 # By default, the mean of your values is calculated
-flowers.pivot_table(
+iris_df.pivot_table(
     values=['sepal_length', 'sepal_width', 'petal_length', 'petal_width'],
     index='species'
 )
@@ -97,6 +113,19 @@ flowers.pivot_table(
 
 
 <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -145,7 +174,7 @@ flowers.pivot_table(
 
 ```python
 # Other aggregates can be specified, such as min, mix, count, mean and std
-flowers.pivot_table(
+iris_df.pivot_table(
     values=['sepal_length', 'sepal_width', 'petal_length', 'petal_width'],
     index='species',
     aggfunc='std'
@@ -156,6 +185,19 @@ flowers.pivot_table(
 
 
 <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -204,7 +246,7 @@ flowers.pivot_table(
 
 ```python
 # We can add margins=True to apply our chosen aggfunc to the pivot table
-flowers.pivot_table(
+iris_df.pivot_table(
     values=['sepal_length', 'sepal_width', 'petal_length', 'petal_width'],
     index='species',
     aggfunc='max',
@@ -216,6 +258,19 @@ flowers.pivot_table(
 
 
 <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">

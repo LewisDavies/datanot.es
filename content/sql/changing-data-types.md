@@ -5,7 +5,7 @@ Tags: SELECT, CAST, FROM, LIMIT, ::, float, int, date, time
 Date: 2017-08-27
 Modified: 2017-08-27
 
-#### Load ipython-sql extension
+### Load ipython-sql extension
 
 
 ```python
@@ -17,7 +17,7 @@ warnings.filterwarnings('ignore')
 %config SqlMagic.feedback = False
 ```
 
-#### Connect to the database
+### Connect to the database
 
 
 ```python
@@ -33,7 +33,7 @@ postgresql://localhost/dvdrental
 
 
 
-#### Two ways to cast
+### Two ways to cast
 Data types can be changed with the `CAST` function, but the `::` shorthand can also be used. Here are a few examples.
 
 

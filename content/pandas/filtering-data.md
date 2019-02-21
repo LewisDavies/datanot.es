@@ -5,14 +5,14 @@ Tags: DataFrame, loc, query
 Date: 2017-08-05
 Modified: 2017-10-04
 
-#### Import libraries
+### Import libraries
 
 
 ```python
 import pandas as pd
 ```
 
-#### Create DataFrame
+### Create DataFrame
 
 
 ```python
@@ -90,7 +90,8 @@ df
 
 
 
-#### Limit column selection
+### Limit column selection
+
 We can select columns with simple square brackets if we don't want to filter our data, as in the first example. However, the `.loc` accessor allows filtering at the same time.
 
 After this example, we'll use `.loc` for the sake of consistency and flexibility.
@@ -194,7 +195,7 @@ df.loc[:, ['name', 'colour']]
 
 
 
-#### Filter rows on values in a column
+### Filter rows on values in a column
 
 
 ```python
@@ -255,7 +256,7 @@ df.loc[df['score1'] >= 3]
 
 
 
-#### Two ways of filtering on multiple columns
+### Two ways of filtering on multiple columns
 
 
 ```python
@@ -361,7 +362,7 @@ df.query('score1 >= 3 and score2 >= @minimum')
 
 
 
-#### Return a Series as a DataFrame
+### Return a Series as a DataFrame
 If your result is a Pandas Series, it can look a bit naff when it is returned. Wrap your columns in a list to return a DataFrame instead and it'll be nicely formatted.
 
 

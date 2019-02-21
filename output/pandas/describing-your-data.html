@@ -144,12 +144,12 @@
 </ol>
 </header>
 <div class='article_content'>
-<h4>Import libraries</h4>
+<h3>Import libraries</h3>
 <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
 </pre></div>
 
 
-<h4>Create DataFrame</h4>
+<h3>Create DataFrame</h3>
 <div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Theresa&#39;</span><span class="p">,</span> <span class="s1">&#39;David&#39;</span><span class="p">,</span> <span class="s1">&#39;Gordon&#39;</span><span class="p">,</span> <span class="s1">&#39;Tony&#39;</span><span class="p">,</span> <span class="s1">&#39;John&#39;</span><span class="p">],</span>
         <span class="s1">&#39;colour&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Blue&#39;</span><span class="p">,</span> <span class="s1">&#39;Blue&#39;</span><span class="p">,</span> <span class="s1">&#39;Red&#39;</span><span class="p">,</span> <span class="s1">&#39;Red&#39;</span><span class="p">,</span> <span class="s1">&#39;Blue&#39;</span><span class="p">],</span>
         <span class="s1">&#39;score1&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span>
@@ -231,7 +231,7 @@
 </table>
 </div>
 
-<h4>DataFrame information</h4>
+<h3>DataFrame information</h3>
 <div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
 </pre></div>
 
@@ -249,7 +249,7 @@ memory usage: 280.0+ bytes
 </pre></div>
 
 
-<h4>Basic DataFrame statistics</h4>
+<h3>Basic DataFrame statistics</h3>
 <div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
 </pre></div>
 
@@ -330,7 +330,7 @@ memory usage: 280.0+ bytes
 </table>
 </div>
 
-<h4>Maximum values</h4>
+<h3>Maximum values</h3>
 <div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
 </pre></div>
 
@@ -344,7 +344,7 @@ dtype: object
 </pre></div>
 
 
-<h4>Minimum values</h4>
+<h3>Minimum values</h3>
 <div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
 </pre></div>
 
@@ -358,7 +358,7 @@ dtype: object
 </pre></div>
 
 
-<h4>Sum of values</h4>
+<h3>Sum of values</h3>
 <div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 </pre></div>
 
@@ -372,7 +372,7 @@ dtype: object
 </pre></div>
 
 
-<h4>Count non-null values</h4>
+<h3>Count non-null values</h3>
 <div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
 </pre></div>
 
@@ -386,7 +386,7 @@ dtype: int64
 </pre></div>
 
 
-<h4>Mean values</h4>
+<h3>Mean values</h3>
 <div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 </pre></div>
 
@@ -398,7 +398,7 @@ dtype: float64
 </pre></div>
 
 
-<h4>Median values</h4>
+<h3>Median values</h3>
 <div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">median</span><span class="p">()</span>
 </pre></div>
 
@@ -410,7 +410,7 @@ dtype: float64
 </pre></div>
 
 
-<h4>Standard deviation of values</h4>
+<h3>Standard deviation of values</h3>
 <div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
 </pre></div>
 
@@ -422,7 +422,7 @@ dtype: float64
 </pre></div>
 
 
-<h4>Correlation matrix</h4>
+<h3>Correlation matrix</h3>
 <div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
 </pre></div>
 

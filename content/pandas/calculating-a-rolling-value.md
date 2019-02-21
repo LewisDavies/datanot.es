@@ -5,7 +5,7 @@ Tags: date_range, random, randint, DataFrame, head, rolling, mean, max, head, re
 Date: 2017-09-25
 Modified: 2017-09-25
 
-#### Import libraries
+### Import libraries
 
 
 ```python
@@ -13,7 +13,7 @@ import numpy as np
 import pandas as pd
 ```
 
-#### Create DataFrame
+### Create DataFrame
 
 
 ```python
@@ -62,7 +62,7 @@ df.head()
 
 
 
-#### Create the `Rolling` object
+### Create a rolling value
 When calling `rolling`, we need to say how many periods we're working over. Our data was measured daily, so passing the argument `3` means we calculate rolling values over three days.
 
 
@@ -164,7 +164,7 @@ df_roll.max().head()
 
 
 
-#### Combining with `resample`
+### Combining with `resample`
 If you want to resample your data first, the [Pandas docs](https://pandas.pydata.org/pandas-docs/stable/computation.html#window-functions) recommend the pattern below. Firstly we call `resample('M').mean()` and get a monthly mean, then create a rolling object, then chain `mean()` once again to get the rolling average.
 
 

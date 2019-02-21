@@ -5,14 +5,14 @@ Tags: DataFrame, set_index, loc, drop, xs
 Date: 2017-10-04
 Modified: 2017-10-04
 
-#### Import libraries
+### Import libraries
 
 
 ```python
 import pandas as pd
 ```
 
-#### Generate data
+### Generate data
 
 
 ```python
@@ -101,7 +101,7 @@ df0
 
 
 
-#### Set a new index
+### Set a new index
 If an index is not specified, Pandas will give each row an integer label starting from 0. We can set `city` as the index, but ideally our indexes should be unique.
 
 
@@ -300,7 +300,7 @@ df2
 
 
 
-#### Multilevel indexes
+### Multilevel indexes
 Since each country-city combination is unique in our dataset, this pairing makes a good mulitlevel index. First we reset the index to it's original state, then set our new index.
 
 

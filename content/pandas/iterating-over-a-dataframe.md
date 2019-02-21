@@ -5,18 +5,18 @@ Tags: DataFrame, iterrows, iteritems
 Date: 2018-10-16
 Modified: 2018-10-16
 
-#### Import libraries
+### Import libraries
 
 
-```
+```python
 import numpy as np
 import pandas as pd
 ```
 
-#### Create data
+### Create data
 
 
-```
+```python
 df = pd.DataFrame({
     'First': np.random.randint(1, 6, 5), 
     'Second': np.random.randint(4, 10, 5),
@@ -88,10 +88,10 @@ df
 
 
 
-#### Iterate over rows
+### Iterate over rows
 
 
-```
+```python
 for index, row in df.iterrows(): # The index and row are returned as a tuple 
     print('Index: {}'.format(index)) 
     print('Row Values: {}'.format(row.values), end='\n\n')
@@ -112,12 +112,12 @@ for index, row in df.iterrows(): # The index and row are returned as a tuple
     Index: 4
     Row Values: [ 5  9 12]
     
-    
-
-#### Iterate over columns
 
 
-```
+### Iterate over columns
+
+
+```python
 for name, col in df.iteritems(): # As above, these are returned as a tuple
     print('Name: {}'.format(name))
     print('Column Values: {}'.format(col.values), end='\n\n')
@@ -132,4 +132,4 @@ for name, col in df.iteritems(): # As above, these are returned as a tuple
     Name: Third
     Column Values: [14 18 12 12 12]
     
-    
+

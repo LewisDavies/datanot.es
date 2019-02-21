@@ -5,7 +5,7 @@ Tags: SELECT, FROM, LIMIT, GROUP BY, avg
 Date: 2017-08-09
 Modified: 2017-08-09
 
-#### Load ipython-sql extension
+### Load ipython-sql extension
 
 
 ```python
@@ -17,7 +17,7 @@ warnings.filterwarnings('ignore')
 %config SqlMagic.feedback = False
 ```
 
-#### Connect to the database
+### Connect to the database
 
 
 ```python
@@ -33,7 +33,7 @@ postgresql://localhost/dvdrental
 
 
 
-#### Sample from `film` table
+### Sample from `film` table
 
 
 ```python
@@ -94,7 +94,7 @@ LIMIT
 
 
 
-#### Using aggregates
+### Using aggregates
 
 
 ```python
@@ -133,7 +133,7 @@ GROUP BY
 
 
 
-#### Filtering on returned aggregates
+### Filtering on returned aggregates
 
 
 ```python

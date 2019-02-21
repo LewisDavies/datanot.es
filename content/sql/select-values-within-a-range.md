@@ -5,7 +5,7 @@ Tags: SELECT, FROM, WHERE, BETWEEN, LIMIT
 Date: 2017-08-08
 Modified: 2017-08-27
 
-#### Load ipython-sql extension
+### Load ipython-sql extension
 
 
 ```python
@@ -17,7 +17,7 @@ warnings.filterwarnings('ignore')
 %config SqlMagic.feedback = False
 ```
 
-#### Connect to the database
+### Connect to the database
 
 
 ```python
@@ -33,7 +33,7 @@ postgresql://localhost/dvdrental
 
 
 
-#### Find values within a range with BETWEEN
+### Find values within a range
 Note that this is an inclusive search: in the example below, movies that are 110 or 120 minutes long will be returned in the full results.
 
 
@@ -84,7 +84,7 @@ LIMIT
 
 
 
-#### Find values outside the same range
+### Find values outside the same range
 
 
 ```python
@@ -133,7 +133,7 @@ LIMIT
 
 
 
-#### Using BETWEEN with datetimes
+### Using `BETWEEN` with datetimes
 It is easy to be caught out by datetimes when using between. In the example below `'2007-02-15'` is interpreted as '`2007-02-15 00:00:00`', so the latest results are from just before midnight.
 
 

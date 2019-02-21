@@ -5,7 +5,7 @@ Tags: DataFrame, info, to_datetime, read_csv, read_sql, parse_dates
 Date: 2017-09-21
 Modified: 2017-09-21
 
-#### Import libraries
+### Import libraries
 
 
 ```python
@@ -13,7 +13,7 @@ import numpy as np
 import pandas as pd
 ```
 
-#### Create DataFrame
+### Create DataFrame
 Let's make some wildly inaccurate data. Note that the datatype of `dates` column is `object` because it contains text.
 
 
@@ -86,9 +86,9 @@ df.info()
     rainfall    14 non-null int64
     dtypes: int64(1), object(1)
     memory usage: 304.0+ bytes
-    
 
-#### Converting a column to datetime
+
+### Converting a column to datetime
 
 
 ```python
@@ -107,9 +107,9 @@ df.info()
     rainfall    14 non-null int64
     dtypes: datetime64[ns](1), int64(1)
     memory usage: 304.0 bytes
-    
 
-#### Converting on import
+
+### Converting on import
 If using a function like `pd.read_csv` or `pd.read_sql`, you can make use of the `parse_dates` parameter.
 
 

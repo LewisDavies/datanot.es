@@ -74,7 +74,6 @@
                             <li><a class="dropdown-item" href="..#Seaborn">Seaborn</a></li>
                             <li><a class="dropdown-item" href="..#SQL">SQL</a></li>
                             <li><a class="dropdown-item" href="..#Tips-&-Tricks">Tips &amp; Tricks</a></li>
-                            <li><a class="dropdown-item" href="../random.html">Surprise me!</a></li>
                       </ul>
                   </li>
                     <!-- <li class="dropdown">
@@ -99,7 +98,7 @@
                     <div class="form-group" style="display:inline;">
                         <div class="input-group" style="display:table;">
                             <span class="input-group-addon" style="width:1%;"><span class="glyphicon glyphicon-search"></span></span>
-                            <input class="form-control search-query" name="q" id="tipue_search_input" placeholder="e.g. scikit KNN, pandas merge" required autocomplete="off" type="text">
+                            <input class="form-control search-query" name="q" id="tipue_search_input" placeholder="Search" required autocomplete="off" type="text">
                         </div>
                     </div>
                 </form>
@@ -135,7 +134,7 @@
 </ol>
 </header>
 <div class='article_content'>
-<h4>Load ipython-sql extension</h4>
+<h3>Load ipython-sql extension</h3>
 <div class="highlight"><pre><span></span><span class="c1"># The 2 lines below prevent an error message from being displayed when we run %load_ext sql</span>
 <span class="kn">import</span> <span class="nn">warnings</span>
 <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
@@ -145,7 +144,7 @@
 </pre></div>
 
 
-<h4>Connect to the database</h4>
+<h3>Connect to the database</h3>
 <div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
 
 <span class="n">postgresql</span><span class="p">:</span><span class="o">//</span><span class="n">localhost</span><span class="o">/</span><span class="n">dvdrental</span>
@@ -156,7 +155,7 @@
 </pre></div>
 
 
-<h4>A simple example</h4>
+<h3>A simple example</h3>
 <div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
 
 <span class="n">SELECT</span>
@@ -238,7 +237,7 @@
     </tr>
 </table>
 
-<h4>Filter on multiple conditions with AND</h4>
+<h3>Filter on multiple conditions with AND</h3>
 <div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
 
 <span class="n">SELECT</span>
@@ -298,7 +297,7 @@
     </tr>
 </table>
 
-<h4>The OR operator</h4>
+<h3>The OR operator</h3>
 <div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
 
 <span class="n">SELECT</span>
@@ -391,7 +390,7 @@
     </tr>
 </table>
 
-<h4>Combining operators</h4>
+<h3>Combining operators</h3>
 <p>This query will return all details of people matching ONE of the following conditions:
 - They live in London
 - They are named Clive and don't live in Berlin</p>

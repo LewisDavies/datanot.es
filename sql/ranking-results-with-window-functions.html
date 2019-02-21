@@ -78,7 +78,6 @@
                             <li><a class="dropdown-item" href="..#Seaborn">Seaborn</a></li>
                             <li><a class="dropdown-item" href="..#SQL">SQL</a></li>
                             <li><a class="dropdown-item" href="..#Tips-&-Tricks">Tips &amp; Tricks</a></li>
-                            <li><a class="dropdown-item" href="../random.html">Surprise me!</a></li>
                       </ul>
                   </li>
                     <!-- <li class="dropdown">
@@ -103,7 +102,7 @@
                     <div class="form-group" style="display:inline;">
                         <div class="input-group" style="display:table;">
                             <span class="input-group-addon" style="width:1%;"><span class="glyphicon glyphicon-search"></span></span>
-                            <input class="form-control search-query" name="q" id="tipue_search_input" placeholder="e.g. scikit KNN, pandas merge" required autocomplete="off" type="text">
+                            <input class="form-control search-query" name="q" id="tipue_search_input" placeholder="Search" required autocomplete="off" type="text">
                         </div>
                     </div>
                 </form>
@@ -143,7 +142,7 @@
 </ol>
 </header>
 <div class='article_content'>
-<h4>Load ipython-sql extension</h4>
+<h3>Load ipython-sql extension</h3>
 <div class="highlight"><pre><span></span><span class="c1"># The 2 lines below prevent an error message from being displayed when we run %load_ext sql</span>
 <span class="kn">import</span> <span class="nn">warnings</span>
 <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
@@ -153,7 +152,7 @@
 </pre></div>
 
 
-<h4>Connect to the database</h4>
+<h3>Connect to the database</h3>
 <div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
 
 <span class="n">postgresql</span><span class="p">:</span><span class="o">//</span><span class="n">localhost</span><span class="o">/</span><span class="n">dvdrental</span>
@@ -164,7 +163,7 @@
 </pre></div>
 
 
-<h4>Ranking results</h4>
+<h3>Ranking results</h3>
 <p>Using the <code>OVER</code> clause allows us to run a function on the results returned from the database. In this example we rank films from longest to shortest at each rental rate.</p>
 <div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
 
@@ -227,7 +226,7 @@
 </table>
 
 <p>Note that since 3 films are tied for first place, the rank given to the next longest films is 4. If we wanted the next rank to be 2 instead, we could use <code>dense_rank</code> in place of <code>rank</code>.</p>
-<h4>Working with our rankings</h4>
+<h3>Working with our rankings</h3>
 <p>Once you've made the query above, we can use it as a <a href="../sql/common-table-expressions.html">Common Table Expression</a> to filter it. For example, let's try to find the 3 longest films at each price point.</p>
 <div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
 
@@ -352,7 +351,7 @@
     </tr>
 </table>
 
-<h4>Tailoring our results</h4>
+<h3>Tailoring our results</h3>
 <p>Hmm, it looks like more than three films are tied in the £2.99 and £4.99 price bands. If we want to avoid this, one option is to use <code>row_number</code>, specifying how to sort the results.</p>
 <p>Now we'll return the 3 longest films at each rental rate in alphabetical order.</p>
 <div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>

@@ -71,7 +71,6 @@
                             <li><a class="dropdown-item" href="..#Seaborn">Seaborn</a></li>
                             <li><a class="dropdown-item" href="..#SQL">SQL</a></li>
                             <li><a class="dropdown-item" href="..#Tips-&-Tricks">Tips &amp; Tricks</a></li>
-                            <li><a class="dropdown-item" href="../random.html">Surprise me!</a></li>
                       </ul>
                   </li>
                     <!-- <li class="dropdown">
@@ -96,7 +95,7 @@
                     <div class="form-group" style="display:inline;">
                         <div class="input-group" style="display:table;">
                             <span class="input-group-addon" style="width:1%;"><span class="glyphicon glyphicon-search"></span></span>
-                            <input class="form-control search-query" name="q" id="tipue_search_input" placeholder="e.g. scikit KNN, pandas merge" required autocomplete="off" type="text">
+                            <input class="form-control search-query" name="q" id="tipue_search_input" placeholder="Search" required autocomplete="off" type="text">
                         </div>
                     </div>
                 </form>
@@ -129,18 +128,34 @@
 </ol>
 </header>
 <div class='article_content'>
-<h4>Import libraries</h4>
+<h3>Import libraries</h3>
 <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
-<span class="kn">from</span> <span class="nn">bokeh.sampledata.iris</span> <span class="kn">import</span> <span class="n">flowers</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="kn">as</span> <span class="nn">sns</span>
+
+<span class="c1"># Mac users who get an error: go to Python in your applications folder and click Install Certificates</span>
+<span class="n">iris_df</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;iris&quot;</span><span class="p">)</span>
 </pre></div>
 
 
-<h4>Inspect data</h4>
-<div class="highlight"><pre><span></span><span class="n">flowers</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<h3>Inspect data</h3>
+<div class="highlight"><pre><span></span><span class="n">iris_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 
 
 <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -197,9 +212,9 @@
 </table>
 </div>
 
-<h4>Create pivot table</h4>
+<h3>Create pivot table</h3>
 <div class="highlight"><pre><span></span><span class="c1"># By default, the mean of your values is calculated</span>
-<span class="n">flowers</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span>
+<span class="n">iris_df</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span>
     <span class="n">values</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;sepal_length&#39;</span><span class="p">,</span> <span class="s1">&#39;sepal_width&#39;</span><span class="p">,</span> <span class="s1">&#39;petal_length&#39;</span><span class="p">,</span> <span class="s1">&#39;petal_width&#39;</span><span class="p">],</span>
     <span class="n">index</span><span class="o">=</span><span class="s1">&#39;species&#39;</span>
 <span class="p">)</span>
@@ -207,6 +222,19 @@
 
 
 <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -251,7 +279,7 @@
 </div>
 
 <div class="highlight"><pre><span></span><span class="c1"># Other aggregates can be specified, such as min, mix, count, mean and std</span>
-<span class="n">flowers</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span>
+<span class="n">iris_df</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span>
     <span class="n">values</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;sepal_length&#39;</span><span class="p">,</span> <span class="s1">&#39;sepal_width&#39;</span><span class="p">,</span> <span class="s1">&#39;petal_length&#39;</span><span class="p">,</span> <span class="s1">&#39;petal_width&#39;</span><span class="p">],</span>
     <span class="n">index</span><span class="o">=</span><span class="s1">&#39;species&#39;</span><span class="p">,</span>
     <span class="n">aggfunc</span><span class="o">=</span><span class="s1">&#39;std&#39;</span>
@@ -260,6 +288,19 @@
 
 
 <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -304,7 +345,7 @@
 </div>
 
 <div class="highlight"><pre><span></span><span class="c1"># We can add margins=True to apply our chosen aggfunc to the pivot table</span>
-<span class="n">flowers</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span>
+<span class="n">iris_df</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span>
     <span class="n">values</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;sepal_length&#39;</span><span class="p">,</span> <span class="s1">&#39;sepal_width&#39;</span><span class="p">,</span> <span class="s1">&#39;petal_length&#39;</span><span class="p">,</span> <span class="s1">&#39;petal_width&#39;</span><span class="p">],</span>
     <span class="n">index</span><span class="o">=</span><span class="s1">&#39;species&#39;</span><span class="p">,</span>
     <span class="n">aggfunc</span><span class="o">=</span><span class="s1">&#39;max&#39;</span><span class="p">,</span>
@@ -314,6 +355,19 @@
 
 
 <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">

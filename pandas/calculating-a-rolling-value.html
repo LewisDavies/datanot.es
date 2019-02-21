@@ -78,7 +78,6 @@
                             <li><a class="dropdown-item" href="..#Seaborn">Seaborn</a></li>
                             <li><a class="dropdown-item" href="..#SQL">SQL</a></li>
                             <li><a class="dropdown-item" href="..#Tips-&-Tricks">Tips &amp; Tricks</a></li>
-                            <li><a class="dropdown-item" href="../random.html">Surprise me!</a></li>
                       </ul>
                   </li>
                     <!-- <li class="dropdown">
@@ -103,7 +102,7 @@
                     <div class="form-group" style="display:inline;">
                         <div class="input-group" style="display:table;">
                             <span class="input-group-addon" style="width:1%;"><span class="glyphicon glyphicon-search"></span></span>
-                            <input class="form-control search-query" name="q" id="tipue_search_input" placeholder="e.g. scikit KNN, pandas merge" required autocomplete="off" type="text">
+                            <input class="form-control search-query" name="q" id="tipue_search_input" placeholder="Search" required autocomplete="off" type="text">
                         </div>
                     </div>
                 </form>
@@ -143,13 +142,13 @@
 </ol>
 </header>
 <div class='article_content'>
-<h4>Import libraries</h4>
+<h3>Import libraries</h3>
 <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
 </pre></div>
 
 
-<h4>Create DataFrame</h4>
+<h3>Create DataFrame</h3>
 <div class="highlight"><pre><span></span><span class="n">dates</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s1">&#39;2017-01-01&#39;</span><span class="p">,</span> <span class="s1">&#39;2017-06-30&#39;</span><span class="p">)</span>
 <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">dates</span><span class="p">))}</span>
 
@@ -191,7 +190,7 @@
 </table>
 </div>
 
-<h4>Create the <code>Rolling</code> object</h4>
+<h3>Create a rolling value</h3>
 <p>When calling <code>rolling</code>, we need to say how many periods we're working over. Our data was measured daily, so passing the argument <code>3</code> means we calculate rolling values over three days.</p>
 <div class="highlight"><pre><span></span><span class="n">df_roll</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 <span class="n">df_roll</span>
@@ -276,7 +275,7 @@
 </table>
 </div>
 
-<h4>Combining with <code>resample</code></h4>
+<h3>Combining with <code>resample</code></h3>
 <p>If you want to resample your data first, the <a href="https://pandas.pydata.org/pandas-docs/stable/computation.html#window-functions">Pandas docs</a> recommend the pattern below. Firstly we call <code>resample('M').mean()</code> and get a monthly mean, then create a rolling object, then chain <code>mean()</code> once again to get the rolling average.</p>
 <div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;M&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 </pre></div>

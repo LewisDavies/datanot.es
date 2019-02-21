@@ -73,7 +73,6 @@
                             <li><a class="dropdown-item" href="..#Seaborn">Seaborn</a></li>
                             <li><a class="dropdown-item" href="..#SQL">SQL</a></li>
                             <li><a class="dropdown-item" href="..#Tips-&-Tricks">Tips &amp; Tricks</a></li>
-                            <li><a class="dropdown-item" href="../random.html">Surprise me!</a></li>
                       </ul>
                   </li>
                     <!-- <li class="dropdown">
@@ -98,7 +97,7 @@
                     <div class="form-group" style="display:inline;">
                         <div class="input-group" style="display:table;">
                             <span class="input-group-addon" style="width:1%;"><span class="glyphicon glyphicon-search"></span></span>
-                            <input class="form-control search-query" name="q" id="tipue_search_input" placeholder="e.g. scikit KNN, pandas merge" required autocomplete="off" type="text">
+                            <input class="form-control search-query" name="q" id="tipue_search_input" placeholder="Search" required autocomplete="off" type="text">
                         </div>
                     </div>
                 </form>
@@ -133,19 +132,19 @@
 </ol>
 </header>
 <div class='article_content'>
-<h4>Download Postgres.app</h4>
+<h3>Download Postgres.app</h3>
 <p><a href="https://postgresapp.com/">Postgres.app</a> makes it simple to set up a PostgreSQL database on a Mac. Simply download it, add it to your Applications, then run it.</p>
-<h4>Add command line tools to your PATH</h4>
+<h3>Add command line tools to your PATH</h3>
 <p>We need to run a few commands to set up our sample database. <a href="https://postgresapp.com/documentation/cli-tools.html">The docs have full details</a>, but here's how to add the relevant directory to your <code>$PATH</code>.</p>
 <p>Open up a new terminal — you should be in your home directory — and type <code>nano .bash_profile</code>. Add the following lines at the end of your profile:</p>
 <p><code>PATH="$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin"
 export PATH</code></p>
 <p>Save and exit (Ctrl-O and Ctrl-X), then run <code>source .bash_profile</code>.</p>
-<h4>Download the sample database files</h4>
+<h3>Download the sample database files</h3>
 <p>For the next couple of steps, I used the guide from <a href="http://www.postgresqltutorial.com/postgresql-sample-database/">postgresqltutorial.com</a>. Download the sample database from the linked page. Extract the data and <code>dvdrental.tar</code> should apppear in the same directory.</p>
-<h4>Create a new database and load sample data</h4>
+<h3>Create a new database and load sample data</h3>
 <p>Head back to your terminal and run <code>psql</code>. To create our sample database, run <code>CREATE DATABASE dvdrental;</code> in this window. Next, load the sample data with <code>pg_restore -U postgres -d dvdrental /path/to/your/files/dvdrental.tar</code>.</p>
-<h4>Connect to the database</h4>
+<h3>Connect to the database</h3>
 <p>This part is optional, but you'll probably want to take a peek at your data once it's loaded and a client program will make this easy. I'd recommend trying <a href="https://eggerapps.at/postico/">Postico</a>, which is made by the same people who make Postgres.app. It's got a great, minimal interface and is easy to use. You're now ready to make your own tutorials!</p>
 </div>
 </section>

@@ -78,7 +78,6 @@
                             <li><a class="dropdown-item" href="..#Seaborn">Seaborn</a></li>
                             <li><a class="dropdown-item" href="..#SQL">SQL</a></li>
                             <li><a class="dropdown-item" href="..#Tips-&-Tricks">Tips &amp; Tricks</a></li>
-                            <li><a class="dropdown-item" href="../random.html">Surprise me!</a></li>
                       </ul>
                   </li>
                     <!-- <li class="dropdown">
@@ -103,7 +102,7 @@
                     <div class="form-group" style="display:inline;">
                         <div class="input-group" style="display:table;">
                             <span class="input-group-addon" style="width:1%;"><span class="glyphicon glyphicon-search"></span></span>
-                            <input class="form-control search-query" name="q" id="tipue_search_input" placeholder="e.g. scikit KNN, pandas merge" required autocomplete="off" type="text">
+                            <input class="form-control search-query" name="q" id="tipue_search_input" placeholder="Search" required autocomplete="off" type="text">
                         </div>
                     </div>
                 </form>
@@ -143,13 +142,13 @@
 </ol>
 </header>
 <div class='article_content'>
-<h4>Import libraries</h4>
+<h3>Import libraries</h3>
 <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
 </pre></div>
 
 
-<h4>Create DataFrame</h4>
+<h3>Create DataFrame</h3>
 <div class="highlight"><pre><span></span><span class="n">dates</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s1">&#39;2017-08-28&#39;</span><span class="p">,</span> <span class="s1">&#39;2017-09-10&#39;</span><span class="p">)</span>
 <span class="n">rainfall</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">60</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">dates</span><span class="p">))</span>
 
@@ -199,7 +198,7 @@
 </table>
 </div>
 
-<h4>Selecting rows and cells</h4>
+<h3>Selecting rows and cells</h3>
 <p>We use the <code>loc</code> function which takes a range of inputs. Here are a few examples.</p>
 <div class="highlight"><pre><span></span><span class="c1"># We set the date column as index to make things easier</span>
 <span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
@@ -285,7 +284,7 @@ Name: 2017-08-28 00:00:00, dtype: int64
 </table>
 </div>
 
-<h4>Changing the observation period</h4>
+<h3>Changing the observation period</h3>
 <p>Our (made up) date has been sampled daily, but we can investigate other intervals with <code>resample</code>. We then chain an aggregate method to return a DataFrame.</p>
 <div class="highlight"><pre><span></span><span class="c1"># Average by month</span>
 <span class="n">df</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;M&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>

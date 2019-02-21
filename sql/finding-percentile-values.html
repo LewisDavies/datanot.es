@@ -84,7 +84,6 @@
                             <li><a class="dropdown-item" href="..#Seaborn">Seaborn</a></li>
                             <li><a class="dropdown-item" href="..#SQL">SQL</a></li>
                             <li><a class="dropdown-item" href="..#Tips-&-Tricks">Tips &amp; Tricks</a></li>
-                            <li><a class="dropdown-item" href="../random.html">Surprise me!</a></li>
                       </ul>
                   </li>
                     <!-- <li class="dropdown">
@@ -109,7 +108,7 @@
                     <div class="form-group" style="display:inline;">
                         <div class="input-group" style="display:table;">
                             <span class="input-group-addon" style="width:1%;"><span class="glyphicon glyphicon-search"></span></span>
-                            <input class="form-control search-query" name="q" id="tipue_search_input" placeholder="e.g. scikit KNN, pandas merge" required autocomplete="off" type="text">
+                            <input class="form-control search-query" name="q" id="tipue_search_input" placeholder="Search" required autocomplete="off" type="text">
                         </div>
                     </div>
                 </form>
@@ -155,7 +154,7 @@
 </ol>
 </header>
 <div class='article_content'>
-<h4>Load ipython-sql extension</h4>
+<h3>Load ipython-sql extension</h3>
 <div class="highlight"><pre><span></span><span class="c1"># The 2 lines below prevent an error message from being displayed when we run %load_ext sql</span>
 <span class="kn">import</span> <span class="nn">warnings</span>
 <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
@@ -165,7 +164,7 @@
 </pre></div>
 
 
-<h4>Connect to the database</h4>
+<h3>Connect to the database</h3>
 <div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
 
 <span class="n">postgresql</span><span class="p">:</span><span class="o">//</span><span class="n">localhost</span><span class="o">/</span><span class="n">dvdrental</span>
@@ -176,7 +175,7 @@
 </pre></div>
 
 
-<h4>Finding quartile values in older versions of PostgreSQL</h4>
+<h3>Finding quartile values in older versions of PostgreSQL</h3>
 <p>The number in the <code>ntile</code> function can be replaced as necessary. For example, we would use 5 to find the 20th, 40th, 60th, 80th and 100th percentiles, or 100 to find every percentile.</p>
 <div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
 
@@ -217,7 +216,7 @@
     </tr>
 </table>
 
-<h4>Newer, simpler functions</h4>
+<h3>Newer, simpler functions</h3>
 <p>Version 9.4 introduced a number of new functions that reduce the need for a CTE or subquery when finding percentiles. We can use <code>percentile_disc</code> to return the first value that matches or exceeds a particular percentile, whereas <code>percentile_cont</code> will interpolate between values if the exact percentile needed isn't found.</p>
 <div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
 
@@ -252,7 +251,7 @@
     </tr>
 </table>
 
-<h4>One final example</h4>
+<h3>One final example</h3>
 <p>If only one percentile is required, the <code>unnest</code> function and <code>ARRAY</code> constructor can be removed and your chosen percentile added instead.</p>
 <div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
 

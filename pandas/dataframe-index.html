@@ -74,7 +74,6 @@
                             <li><a class="dropdown-item" href="..#Seaborn">Seaborn</a></li>
                             <li><a class="dropdown-item" href="..#SQL">SQL</a></li>
                             <li><a class="dropdown-item" href="..#Tips-&-Tricks">Tips &amp; Tricks</a></li>
-                            <li><a class="dropdown-item" href="../random.html">Surprise me!</a></li>
                       </ul>
                   </li>
                     <!-- <li class="dropdown">
@@ -99,7 +98,7 @@
                     <div class="form-group" style="display:inline;">
                         <div class="input-group" style="display:table;">
                             <span class="input-group-addon" style="width:1%;"><span class="glyphicon glyphicon-search"></span></span>
-                            <input class="form-control search-query" name="q" id="tipue_search_input" placeholder="e.g. scikit KNN, pandas merge" required autocomplete="off" type="text">
+                            <input class="form-control search-query" name="q" id="tipue_search_input" placeholder="Search" required autocomplete="off" type="text">
                         </div>
                     </div>
                 </form>
@@ -135,12 +134,12 @@
 </ol>
 </header>
 <div class='article_content'>
-<h4>Import libraries</h4>
+<h3>Import libraries</h3>
 <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
 </pre></div>
 
 
-<h4>Generate data</h4>
+<h3>Generate data</h3>
 <div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s1">&#39;country&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;UK&#39;</span><span class="p">,</span> <span class="s1">&#39;Canada&#39;</span><span class="p">,</span> <span class="s1">&#39;UK&#39;</span><span class="p">,</span> <span class="s1">&#39;USA&#39;</span><span class="p">,</span> <span class="s1">&#39;France&#39;</span><span class="p">,</span> <span class="s1">&#39;USA&#39;</span><span class="p">,</span> <span class="s1">&#39;Canada&#39;</span><span class="p">],</span>
     <span class="s1">&#39;city&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;London&#39;</span><span class="p">,</span> <span class="s1">&#39;London&#39;</span><span class="p">,</span> <span class="s1">&#39;Birmingham&#39;</span><span class="p">,</span> <span class="s1">&#39;Birmingham&#39;</span><span class="p">,</span> <span class="s1">&#39;Paris&#39;</span><span class="p">,</span> <span class="s1">&#39;Paris&#39;</span><span class="p">,</span> <span class="s1">&#39;Paris&#39;</span><span class="p">],</span>
@@ -222,7 +221,7 @@
 </table>
 </div>
 
-<h4>Set a new index</h4>
+<h3>Set a new index</h3>
 <p>If an index is not specified, Pandas will give each row an integer label starting from 0. We can set <code>city</code> as the index, but ideally our indexes should be unique.</p>
 <div class="highlight"><pre><span></span><span class="n">df1</span> <span class="o">=</span> <span class="n">df0</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;city&#39;</span><span class="p">)</span>
 <span class="n">df1</span>
@@ -402,7 +401,7 @@
 </table>
 </div>
 
-<h4>Multilevel indexes</h4>
+<h3>Multilevel indexes</h3>
 <p>Since each country-city combination is unique in our dataset, this pairing makes a good mulitlevel index. First we reset the index to it's original state, then set our new index.</p>
 <div class="highlight"><pre><span></span><span class="n">df3</span> <span class="o">=</span> <span class="n">df0</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s1">&#39;country&#39;</span><span class="p">,</span> <span class="s1">&#39;city&#39;</span><span class="p">])</span>
 <span class="n">df3</span>

@@ -81,7 +81,6 @@
                             <li><a class="dropdown-item" href="..#Seaborn">Seaborn</a></li>
                             <li><a class="dropdown-item" href="..#SQL">SQL</a></li>
                             <li><a class="dropdown-item" href="..#Tips-&-Tricks">Tips &amp; Tricks</a></li>
-                            <li><a class="dropdown-item" href="../random.html">Surprise me!</a></li>
                       </ul>
                   </li>
                     <!-- <li class="dropdown">
@@ -106,7 +105,7 @@
                     <div class="form-group" style="display:inline;">
                         <div class="input-group" style="display:table;">
                             <span class="input-group-addon" style="width:1%;"><span class="glyphicon glyphicon-search"></span></span>
-                            <input class="form-control search-query" name="q" id="tipue_search_input" placeholder="e.g. scikit KNN, pandas merge" required autocomplete="off" type="text">
+                            <input class="form-control search-query" name="q" id="tipue_search_input" placeholder="Search" required autocomplete="off" type="text">
                         </div>
                     </div>
                 </form>
@@ -150,7 +149,7 @@
 </header>
 <div class='article_content'>
 <p>This is a fairly simple overview of three-value logic and null values in SQL. This guide is based on the information in <a href="https://www.red-gate.com/simple-talk/sql/learn-sql-server/sql-and-the-snare-of-three-valued-logic/">this article</a>, which offers much more depth and other examples.</p>
-<h4>Load ipython-sql extension</h4>
+<h3>Load ipython-sql extension</h3>
 <div class="highlight"><pre><span></span><span class="c1"># The 2 lines below prevent an error message from being displayed when we run %load_ext sql</span>
 <span class="kn">import</span> <span class="nn">warnings</span>
 <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
@@ -160,7 +159,7 @@
 </pre></div>
 
 
-<h4>Connect to the database</h4>
+<h3>Connect to the database</h3>
 <div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
 
 <span class="n">postgresql</span><span class="p">:</span><span class="o">//</span><span class="n">localhost</span><span class="o">/</span><span class="n">dvdrental</span>
@@ -171,7 +170,7 @@
 </pre></div>
 
 
-<h4><code>TRUE</code> and <code>FALSE</code> values</h4>
+<h3>True and false</h3>
 <p>These work as you might expect if you have programming experience or an understanding of Boolean values.</p>
 <div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
 
@@ -201,7 +200,7 @@
     </tr>
 </table>
 
-<h4><code>NULL</code>, the third logical value</h4>
+<h3>Null, the third logical value</h3>
 <p>In SQL, <code>TRUE</code>, <code>FALSE</code> and <code>NULL</code> are fully separate and distinct. This means that <code>NULL</code> equals neither <code>TRUE</code> nor <code>FALSE</code>. In fact, even <code>NULL</code> doesn't equal <code>NULL</code>.</p>
 <div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
 
@@ -225,7 +224,7 @@
     </tr>
 </table>
 
-<h4>Testing for <code>NULL</code> values</h4>
+<h3>Testing for null values</h3>
 <p>If even <code>NULL</code> doesn't equal <code>NULL</code>, how do we test for it? It's simple: we use <code>IS NULL</code> or <code>IS NOT NULL</code>.</p>
 <div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
 
@@ -258,7 +257,7 @@
     </tr>
 </table>
 
-<h4><code>NULL</code> values in practice</h4>
+<h3>Null values in practice</h3>
 <p>We can use our video rental database to see the effects of this. The last day on which the store had videos returned was 2nd September 2005.</p>
 <div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
 

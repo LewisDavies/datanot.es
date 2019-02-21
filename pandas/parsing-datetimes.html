@@ -75,7 +75,6 @@
                             <li><a class="dropdown-item" href="..#Seaborn">Seaborn</a></li>
                             <li><a class="dropdown-item" href="..#SQL">SQL</a></li>
                             <li><a class="dropdown-item" href="..#Tips-&-Tricks">Tips &amp; Tricks</a></li>
-                            <li><a class="dropdown-item" href="../random.html">Surprise me!</a></li>
                       </ul>
                   </li>
                     <!-- <li class="dropdown">
@@ -100,7 +99,7 @@
                     <div class="form-group" style="display:inline;">
                         <div class="input-group" style="display:table;">
                             <span class="input-group-addon" style="width:1%;"><span class="glyphicon glyphicon-search"></span></span>
-                            <input class="form-control search-query" name="q" id="tipue_search_input" placeholder="e.g. scikit KNN, pandas merge" required autocomplete="off" type="text">
+                            <input class="form-control search-query" name="q" id="tipue_search_input" placeholder="Search" required autocomplete="off" type="text">
                         </div>
                     </div>
                 </form>
@@ -137,13 +136,13 @@
 </ol>
 </header>
 <div class='article_content'>
-<h4>Import libraries</h4>
+<h3>Import libraries</h3>
 <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
 </pre></div>
 
 
-<h4>Create DataFrame</h4>
+<h3>Create DataFrame</h3>
 <p>Let's make some wildly inaccurate data. Note that the datatype of <code>dates</code> column is <code>object</code> because it contains text.</p>
 <div class="highlight"><pre><span></span><span class="n">dates</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;2017-09-04&#39;</span><span class="p">,</span> <span class="s1">&#39;2017-09-05&#39;</span><span class="p">,</span> <span class="s1">&#39;2017-09-06&#39;</span><span class="p">,</span> <span class="s1">&#39;2017-09-07&#39;</span><span class="p">,</span>
          <span class="s1">&#39;2017-09-08&#39;</span><span class="p">,</span> <span class="s1">&#39;2017-09-09&#39;</span><span class="p">,</span> <span class="s1">&#39;2017-09-10&#39;</span><span class="p">,</span> <span class="s1">&#39;2017-09-11&#39;</span><span class="p">,</span>
@@ -211,7 +210,7 @@ memory usage: 304.0+ bytes
 </pre></div>
 
 
-<h4>Converting a column to datetime</h4>
+<h3>Converting a column to datetime</h3>
 <div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">])</span>
 </pre></div>
 
@@ -230,7 +229,7 @@ memory usage: 304.0 bytes
 </pre></div>
 
 
-<h4>Converting on import</h4>
+<h3>Converting on import</h3>
 <p>If using a function like <code>pd.read_csv</code> or <code>pd.read_sql</code>, you can make use of the <code>parse_dates</code> parameter.</p>
 <div class="highlight"><pre><span></span><span class="c1"># If the index contains datetimes</span>
 <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;your_data.csv&#39;</span><span class="p">,</span> <span class="n">parse_dates</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>

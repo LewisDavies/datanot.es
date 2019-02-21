@@ -71,7 +71,6 @@
                             <li><a class="dropdown-item" href="..#Seaborn">Seaborn</a></li>
                             <li><a class="dropdown-item" href="..#SQL">SQL</a></li>
                             <li><a class="dropdown-item" href="..#Tips-&-Tricks">Tips &amp; Tricks</a></li>
-                            <li><a class="dropdown-item" href="../random.html">Surprise me!</a></li>
                       </ul>
                   </li>
                     <!-- <li class="dropdown">
@@ -96,7 +95,7 @@
                     <div class="form-group" style="display:inline;">
                         <div class="input-group" style="display:table;">
                             <span class="input-group-addon" style="width:1%;"><span class="glyphicon glyphicon-search"></span></span>
-                            <input class="form-control search-query" name="q" id="tipue_search_input" placeholder="e.g. scikit KNN, pandas merge" required autocomplete="off" type="text">
+                            <input class="form-control search-query" name="q" id="tipue_search_input" placeholder="Search" required autocomplete="off" type="text">
                         </div>
                     </div>
                 </form>
@@ -129,13 +128,13 @@
 </ol>
 </header>
 <div class='article_content'>
-<h4>Import libraries</h4>
+<h3>Import libraries</h3>
 <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
 </pre></div>
 
 
-<h4>Create data</h4>
+<h3>Create data</h3>
 <div class="highlight"><pre><span></span><span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Norman&#39;</span><span class="p">,</span> <span class="s1">&#39;Phyllis&#39;</span><span class="p">,</span> <span class="s1">&#39;Esteban&#39;</span><span class="p">,</span> <span class="s1">&#39;Maureen&#39;</span><span class="p">,</span> <span class="s1">&#39;Chiquitita&#39;</span><span class="p">]</span>
 <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s1">&#39;Favourite Colour&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Purple&#39;</span><span class="p">,</span> <span class="s1">&#39;Blue&#39;</span><span class="p">,</span> <span class="s1">&#39;Red&#39;</span><span class="p">,</span> <span class="s1">&#39;Mauve&#39;</span><span class="p">,</span> <span class="s1">&#39;Orange&#39;</span><span class="p">]</span>
@@ -192,7 +191,7 @@
 </table>
 </div>
 
-<h4>Adding new columns</h4>
+<h3>Adding new columns</h3>
 <div class="highlight"><pre><span></span><span class="c1"># Different column per row</span>
 <span class="n">df</span><span class="p">[</span><span class="s1">&#39;City&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;London&#39;</span><span class="p">,</span> <span class="s1">&#39;Vancouver&#39;</span><span class="p">,</span> <span class="s1">&#39;Buenos Aires&#39;</span><span class="p">,</span> <span class="s1">&#39;Cape Town&#39;</span><span class="p">,</span> <span class="s1">&#39;Beijing&#39;</span><span class="p">]</span>
 <span class="c1"># The same value for all columns</span>
@@ -259,7 +258,7 @@
 </table>
 </div>
 
-<h4>Reordering columns</h4>
+<h3>Reordering columns</h3>
 <div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s1">&#39;Favourite Number&#39;</span><span class="p">,</span> <span class="s1">&#39;City&#39;</span><span class="p">,</span> <span class="s1">&#39;Favourite Colour&#39;</span><span class="p">]]</span>
 <span class="n">df</span>
 </pre></div>
@@ -323,7 +322,7 @@
 </table>
 </div>
 
-<h4>Changing a column</h4>
+<h3>Changing a column</h3>
 <div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Favourite Number&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
 <span class="n">df</span>
 </pre></div>
@@ -387,7 +386,7 @@
 </table>
 </div>
 
-<h4>Removing columns</h4>
+<h3>Removing columns</h3>
 <div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;Favourite Number&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 <span class="n">df</span>
 </pre></div>

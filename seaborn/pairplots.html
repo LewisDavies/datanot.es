@@ -73,7 +73,6 @@
                             <li><a class="dropdown-item" href="..#Seaborn">Seaborn</a></li>
                             <li><a class="dropdown-item" href="..#SQL">SQL</a></li>
                             <li><a class="dropdown-item" href="..#Tips-&-Tricks">Tips &amp; Tricks</a></li>
-                            <li><a class="dropdown-item" href="../random.html">Surprise me!</a></li>
                       </ul>
                   </li>
                     <!-- <li class="dropdown">
@@ -98,7 +97,7 @@
                     <div class="form-group" style="display:inline;">
                         <div class="input-group" style="display:table;">
                             <span class="input-group-addon" style="width:1%;"><span class="glyphicon glyphicon-search"></span></span>
-                            <input class="form-control search-query" name="q" id="tipue_search_input" placeholder="e.g. scikit KNN, pandas merge" required autocomplete="off" type="text">
+                            <input class="form-control search-query" name="q" id="tipue_search_input" placeholder="Search" required autocomplete="off" type="text">
                         </div>
                     </div>
                 </form>
@@ -133,7 +132,7 @@
 </ol>
 </header>
 <div class='article_content'>
-<h4>Import libraries</h4>
+<h3>Import libraries</h3>
 <div class="highlight"><pre><span></span><span class="c1"># Although not strictly required, importing pyplot allows for</span>
 <span class="c1"># greater customization as Seaborn is built upon it</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
@@ -141,7 +140,7 @@
 </pre></div>
 
 
-<h4>Load and inspect data</h4>
+<h3>Load and inspect data</h3>
 <div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s1">&#39;iris&#39;</span><span class="p">)</span>
 <span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
@@ -204,7 +203,7 @@
 </table>
 </div>
 
-<h4>Basic pairplot</h4>
+<h3>Basic pairplot</h3>
 <p>This gives a good overview of the relationships between the variables in your data.</p>
 <p><code>pairplot</code> is similar to <code>scatter_matrix</code> in Pandas except, like most Seaborn plots, it looks snazzier.</p>
 <div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
@@ -213,7 +212,7 @@
 
 
 <p><img alt="png" src="pairplots_files/pairplots_6_0.png"></p>
-<h4>Adding some variation</h4>
+<h3>Adding some variation</h3>
 <p>There's a decent chance you've seen the Iris dataset before. If you have, you'll know the three species are setosa, versicolor, and virginica. Let's add some colour to distinguish them.</p>
 <div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;species&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>

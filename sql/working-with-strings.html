@@ -79,7 +79,6 @@
                             <li><a class="dropdown-item" href="..#Seaborn">Seaborn</a></li>
                             <li><a class="dropdown-item" href="..#SQL">SQL</a></li>
                             <li><a class="dropdown-item" href="..#Tips-&-Tricks">Tips &amp; Tricks</a></li>
-                            <li><a class="dropdown-item" href="../random.html">Surprise me!</a></li>
                       </ul>
                   </li>
                     <!-- <li class="dropdown">
@@ -104,7 +103,7 @@
                     <div class="form-group" style="display:inline;">
                         <div class="input-group" style="display:table;">
                             <span class="input-group-addon" style="width:1%;"><span class="glyphicon glyphicon-search"></span></span>
-                            <input class="form-control search-query" name="q" id="tipue_search_input" placeholder="e.g. scikit KNN, pandas merge" required autocomplete="off" type="text">
+                            <input class="form-control search-query" name="q" id="tipue_search_input" placeholder="Search" required autocomplete="off" type="text">
                         </div>
                     </div>
                 </form>
@@ -145,7 +144,7 @@
 </ol>
 </header>
 <div class='article_content'>
-<h4>Load ipython-sql extension</h4>
+<h3>Load ipython-sql extension</h3>
 <div class="highlight"><pre><span></span><span class="c1"># The 2 lines below prevent an error message from being displayed when we run %load_ext sql</span>
 <span class="kn">import</span> <span class="nn">warnings</span>
 <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
@@ -155,7 +154,7 @@
 </pre></div>
 
 
-<h4>Connect to the database</h4>
+<h3>Connect to the database</h3>
 <div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
 
 <span class="n">postgresql</span><span class="p">:</span><span class="o">//</span><span class="n">localhost</span><span class="o">/</span><span class="n">dvdrental</span>
@@ -166,7 +165,7 @@
 </pre></div>
 
 
-<h4>Manipulating strings</h4>
+<h3>Manipulating strings</h3>
 <p><strong><code>||</code></strong>: Concatenate two or more strings together</p>
 <p><strong><code>upper</code></strong>: Convert to uppercase</p>
 <p><strong><code>lower</code></strong>: Convert to lowercase</p>
@@ -224,7 +223,7 @@
     </tr>
 </table>
 
-<h4>Substrings</h4>
+<h3>Substrings</h3>
 <p><strong><code>substring</code></strong>: Return a substring based on an index (starting from 1) or a regular expression</p>
 <p><strong><code>left</code></strong>: Return first <span class="math">\(n\)</span> characters</p>
 <p><strong><code>right</code></strong>: Return last <span class="math">\(n\)</span> characters</p>

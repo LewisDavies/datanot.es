@@ -37,11 +37,9 @@ RELATIVE_URLS = True
 
 PLUGIN_PATHS = ['plugins']
 
-PLUGINS = [
-    'render_math',
-    'sitemap',
-    'tipue_search'
-    ]
+PLUGINS = ['render_math', 'sitemap', 'tipue_search']
+
+DIRECT_TEMPLATES = ['index', 'tags', 'categories', 'authors', 'archives', 'search']
 
 SITEMAP = {
     'format': 'xml',

@@ -54,7 +54,8 @@ class Tipue_Search_JSON_Generator(object):
         node = {'title': page_title,
                 'text': page_text,
                 'tags': page_category,
-                'url': page_url}
+                'url': page_url,
+                'loc': page_url}
 
         self.json_nodes.append(node)
 

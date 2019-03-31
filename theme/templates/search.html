@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block title %}
-  Seach {{ super() }}
+  Search Results: {{ super() }}
 {% endblock title %}
 
 {% block head_description %}
@@ -16,6 +16,7 @@
   <script type="text/javascript" src="{{ SITEURL }}/theme/tipuesearch/tipuesearch_content.js"></script>
   <script type="text/javascript" src="{{ SITEURL }}/theme/tipuesearch/tipuesearch_set.js"></script>
   <script type="text/javascript" src="{{ SITEURL }}/theme/tipuesearch/tipuesearch.js"></script>
+  <script type="text/javascript" src="{{ SITEURL }}/theme/tipuesearch/tipuesearch.min.js"></script>
 
   <script>
     $(document).ready(function() {

@@ -2,36 +2,38 @@
 <html lang="english">
 
 <head>
-      <meta charset="utf-8">
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="The Data Analysis Survival Guide">
+    <meta name="description" content="Data Notes">
     <meta name="author" content="Lewis Davies">
-    <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
-    <link rel="manifest" href="../manifest.json">
-    <link rel="mask-icon" href="../safari-pinned-tab.svg" color="#5bbad5">
-    <link rel="shortcut icon" href="../favicon.ico">
-    <meta name="msapplication-config" content="../browserconfig.xml">
+    <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
+    <link rel="manifest" href="./manifest.json">
+    <link rel="mask-icon" href="./safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="./favicon.ico">
+    <meta name="msapplication-config" content="./browserconfig.xml">
 
-    <title>Adding a Toggle Code Button - LewisDavi.es</title>
+    <title>  Search Results: Data Notes - LewisDavi.es
+</title>
 
     <!-- JQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script>
-        window.jQuery || document.write('<script src="../theme/js/jquery.min.js"><\/script>')
+        window.jQuery || document.write('<script src="./theme/js/jquery.min.js"><\/script>')
     </script>
 
     <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="../theme/css/bootstrap.css" />
+    <link rel="stylesheet" href="./theme/css/bootstrap.css" />
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <link rel="stylesheet" type="text/css" href="../theme/css/ie10-viewport-bug-workaround.css" />
+    <link rel="stylesheet" type="text/css" href="./theme/css/ie10-viewport-bug-workaround.css" />
     <!-- Custom styles for this template -->
-    <link rel="stylesheet" type="text/css" href="../theme/css/style.css" />
-    <link rel="stylesheet" type="text/css" href="../theme/css/notebooks.css" />
+    <link rel="stylesheet" type="text/css" href="./theme/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="./theme/css/notebooks.css" />
     <link href='https://fonts.googleapis.com/css?family=PT+Serif:400,700|Roboto:400,500,700' rel='stylesheet' type='text/css'>
+  <link href="./theme/tipuesearch/tipuesearch.css" rel='stylesheet' type='text/css'>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -39,12 +41,6 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
         
-
-
-  <!--     <meta name="tags" content="display_html" />
-    <meta name="tags" content="print" />
- -->
-
     <meta name="google-site-verification" content="JkHy5fcdfsQv4jcaMIGyyJpVrckuorX9DMf3o0jBpFE" />
 </head>
 
@@ -58,7 +54,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="..">LewisDavi.es</a>
+                <a class="navbar-brand" href=".">LewisDavi.es</a>
             </div>
             <div class="navbar-collapse collapse" id="searchbar">
 
@@ -66,18 +62,17 @@
                   <li class="dropdown">
                       <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories<span class="caret"></span></a>
                       <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="..#Jupyter-Notebooks">Jupyter Notebooks</a></li>
-                            <li><a class="dropdown-item" href="..#Matplotlib">Matplotlib</a></li>
-                            <li><a class="dropdown-item" href="..#Pandas">Pandas</a></li>
-                            <li><a class="dropdown-item" href="..#Seaborn">Seaborn</a></li>
-                            <li><a class="dropdown-item" href="..#SQL">SQL</a></li>
-                            <li><a class="dropdown-item" href="../random.html">Surprise me!</a></li>
+                            <li><a class="dropdown-item" href=".#Matplotlib">Matplotlib</a></li>
+                            <li><a class="dropdown-item" href=".#Pandas">Pandas</a></li>
+                            <li><a class="dropdown-item" href=".#Seaborn">Seaborn</a></li>
+                            <li><a class="dropdown-item" href=".#SQL">SQL</a></li>
+                            <li><a class="dropdown-item" href=".#Tips-&-Tricks">Tips &amp; Tricks</a></li>
                       </ul>
                   </li>
                     <!-- <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">About<span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="../pages/about.html">About Lewis</a></li>
+                            <li><a href="./pages/about.html">About Lewis</a></li>
                             <li><a href="https://github.com/LewisDavies">GitHub</a></li>
                             <li><a href="https://twitter.com/">Twitter</a></li>
                             <li><a href="https://www.linkedin.com/in/lewis-davies">LinkedIn</a></li>
@@ -86,17 +81,17 @@
 
 
                     <!--<li class="dropdown">
-                        <a href="../feeds/blog.rss.xml">Blog RSS</a>
+                        <a href="./feeds/blog.rss.xml">Blog RSS</a>
                     </li>-->
 
 
                 </ul>
 
-                <form class="navbar-form" action="../search.html" onsubmit="return validateForm(this.elements['q'].value);">
+                <form class="navbar-form" action="./search.html" onsubmit="return validateForm(this.elements['q'].value);">
                     <div class="form-group" style="display:inline;">
                         <div class="input-group" style="display:table;">
                             <span class="input-group-addon" style="width:1%;"><span class="glyphicon glyphicon-search"></span></span>
-                            <input class="form-control search-query" name="q" id="tipue_search_input" placeholder="e.g. scikit KNN, pandas merge" required autocomplete="off" type="text">
+                            <input class="form-control search-query" name="q" id="tipue_search_input" placeholder="Search" required autocomplete="off" type="text">
                         </div>
                     </div>
                 </form>
@@ -112,45 +107,15 @@
 
     <div class="container">
 <section id="content" class="body">
-    <header>
-    <h1>
-      Adding a Toggle Code Button
-    </h1>
-<ol class="breadcrumb">
-    <li>
-        <time class="published" datetime="2017-09-25T00:00:00+01:00">
-            25 September 2017
-        </time>
-    </li>
-    <li>Jupyter Notebooks</li>
-    <!--     <li>display_html</li>
-    <li>print</li>
- -->
-</ol>
-</header>
-<div class='article_content'>
-<h4>Import libraries and Add Toggle</h4>
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">IPython.core.display</span> <span class="kn">as</span> <span class="nn">di</span>
-<span class="n">di</span><span class="o">.</span><span class="n">display_html</span><span class="p">(</span><span class="s1">&#39;&lt;script&gt;jQuery(function() {if (jQuery(&quot;body.notebook_app&quot;).length == 0) { jQuery(&quot;.input_area&quot;).toggle(); jQuery(&quot;.prompt&quot;).toggle();}});&lt;/script&gt;&#39;</span><span class="p">,</span> <span class="n">raw</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
-<span class="n">di</span><span class="o">.</span><span class="n">display_html</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;&lt;button onclick=&quot;jQuery(&#39;.input_area&#39;).toggle(); jQuery(&#39;.prompt&#39;).toggle();&quot;&gt;Toggle code&lt;/button&gt;&#39;&#39;&#39;</span><span class="p">,</span> <span class="n">raw</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
-</pre></div>
-
-
-<script>jQuery(function() {if (jQuery("body.notebook_app").length == 0) { jQuery(".input_area").toggle(); jQuery(".prompt").toggle();}});</script>
-
-<p><button onclick="jQuery('.input_area').toggle(); jQuery('.prompt').toggle();">Toggle code</button></p>
-<p>Although the button doesn't work in this window, add it to an Jupyter notebook and you can show or hide your code.</p>
-<p>This is great when you export your notebook as an HTML file with the results front and centre, but still want to give people the option to peek under the hood!</p>
-</div>
+    <div id="tipue_search_content"></div>
 </section>
-
     </div>
 
     <!-- start of footer section -->
     <footer class="footer">
         <div class="container">
             <p class="text-muted">
-                <center>This project contains 46 pages and is available on <a href="https://github.com/LewisDavies/lewisdavi.es">GitHub</a>.
+                <center>This project contains 50 pages and is available on <a href="https://github.com/LewisDavies/lewisdavi.es">GitHub</a>.
                 <br/>
                 Copyright &copy; Lewis Davies,
                     <time datetime=""></time>.
@@ -179,9 +144,24 @@
     <!-- Bootstrap core JavaScript
       ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="../theme/js/bootstrap.min.js"></script>
+    <script src="./theme/js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="../theme/js/ie10-viewport-bug-workaround.js"></script>
+    <script src="./theme/js/ie10-viewport-bug-workaround.js"></script>
+  <script type="text/javascript" src="./theme/tipuesearch/tipuesearch_content.js"></script>
+  <script type="text/javascript" src="./theme/tipuesearch/tipuesearch_set.js"></script>
+  <script type="text/javascript" src="./theme/tipuesearch/tipuesearch.js"></script>
+  <script type="text/javascript" src="./theme/tipuesearch/tipuesearch.min.js"></script>
+
+  <script>
+    $(document).ready(function() {
+      $('#tipue_search_input').tipuesearch({
+          'mode' : 'json',
+          'show': 1000,
+          'newWindow': false,
+          'contentLocation': './tipuesearch_content.json'
+      });
+    });
+  </script>
 
 </body>
 

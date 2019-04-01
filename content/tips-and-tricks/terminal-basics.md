@@ -5,15 +5,15 @@ Tags: bash, terminal
 Date: 2018-10-13
 Modified: 2018-10-13
 
-#### Things to install (optional)
+### Things to install (optional)
 If you're on a Mac, installing [iTerm2](https://www.iterm2.com/) will make your life easier with improved search and autocomplete. Using [oh-my-zsh](https://ohmyz.sh/) on top of this is enough to make you weep tears of joy; [this guide](https://hackernoon.com/oh-my-zsh-made-for-cli-lovers-bea538d42ec1) shows the range of cool stuff it can do.
 
-#### What about Windows?
+### What about Windows?
 Save yourself some pain and just don't bother with the Command Prompt or Powershell. Windows commands are awkward and unintuitive and much harder to find support for.
 
 You could try using the [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10) to get used to the terminal, but you'll probably want to install Linux for a native experience eventually.
 
-#### Show the current directory
+### Show the current directory
 *Note: You can run terminal commands from a notebook by prefixing them with an exclamation mark (!). This isn't required when running them directly in the terminal.*
 
 
@@ -21,7 +21,7 @@ You could try using the [Windows Subsystem for Linux](https://docs.microsoft.com
 !pwd
 ```
 
-#### Show files in the current directory
+### Show files in the current directory
 
 
 ```python
@@ -40,7 +40,7 @@ You could try using the [Windows Subsystem for Linux](https://docs.microsoft.com
 !ls -al
 ```
 
-#### Change directory
+### Change directory
 
 
 ```python
@@ -59,7 +59,7 @@ You could try using the [Windows Subsystem for Linux](https://docs.microsoft.com
 !cd ~
 ```
 
-#### Moving and renaming
+### Moving and renaming
 
 
 ```python
@@ -72,7 +72,7 @@ You could try using the [Windows Subsystem for Linux](https://docs.microsoft.com
 !mv my_file.txt new_name.txt
 ```
 
-#### Creating and editing a new file
+### Creating and editing a new file
 
 
 ```python
@@ -85,7 +85,7 @@ You could try using the [Windows Subsystem for Linux](https://docs.microsoft.com
 !nano new_file.txt
 ```
 
-#### Creating a new directory
+### Creating a new directory
 
 
 ```python
@@ -98,7 +98,7 @@ You could try using the [Windows Subsystem for Linux](https://docs.microsoft.com
 !mkdir my_new_directory/subdirectory
 ```
 
-#### Deleting files
+### Deleting files
 **Warning**: Use these commands with caution as deleted files are unrecoverable.
 
 

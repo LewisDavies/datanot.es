@@ -4,1337 +4,1337 @@ xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitem
 xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
-<loc>http://lewisdavi.es/</loc>
-<lastmod>2019-03-31T23:02:30-00:00</lastmod>
+<loc>http://datenot.es/</loc>
+<lastmod>2019-04-01T20:52:23-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/archives.html</loc>
-<lastmod>2019-03-31T23:02:30-00:00</lastmod>
+<loc>http://datenot.es/archives.html</loc>
+<lastmod>2019-04-01T20:52:23-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tags.html</loc>
-<lastmod>2019-03-31T23:02:30-00:00</lastmod>
+<loc>http://datenot.es/tags.html</loc>
+<lastmod>2019-04-01T20:52:23-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/categories.html</loc>
-<lastmod>2019-03-31T23:02:30-00:00</lastmod>
+<loc>http://datenot.es/categories.html</loc>
+<lastmod>2019-04-01T20:52:23-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tips-and-tricks/recommended-learning-resources.html</loc>
+<loc>http://datenot.es/tips-and-tricks/recommended-learning-resources.html</loc>
 <lastmod>2019-03-31T00:00:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/pandas/adding-removing-and-changing-columns.html</loc>
+<loc>http://datenot.es/pandas/adding-removing-and-changing-columns.html</loc>
 <lastmod>2018-10-16T00:00:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/pandas/apply-a-function-to-a-dataframe.html</loc>
+<loc>http://datenot.es/pandas/apply-a-function-to-a-dataframe.html</loc>
 <lastmod>2018-10-16T00:00:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/pandas/iterating-over-a-dataframe.html</loc>
+<loc>http://datenot.es/pandas/iterating-over-a-dataframe.html</loc>
 <lastmod>2018-10-16T00:00:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tips-and-tricks/terminal-basics.html</loc>
+<loc>http://datenot.es/tips-and-tricks/terminal-basics.html</loc>
 <lastmod>2018-10-13T00:00:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/seaborn/box-and-whisker-plots-with-alternatives.html</loc>
+<loc>http://datenot.es/seaborn/box-and-whisker-plots-with-alternatives.html</loc>
 <lastmod>2018-07-23T00:00:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/seaborn/plotting-two-continuous-variables.html</loc>
+<loc>http://datenot.es/seaborn/plotting-two-continuous-variables.html</loc>
 <lastmod>2018-07-23T00:00:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/pandas/working-with-missing-values.html</loc>
+<loc>http://datenot.es/pandas/working-with-missing-values.html</loc>
 <lastmod>2017-12-05T00:00:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/matplotlib/making-subplots.html</loc>
+<loc>http://datenot.es/matplotlib/making-subplots.html</loc>
 <lastmod>2017-10-04T00:00:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/pandas/dataframe-index.html</loc>
+<loc>http://datenot.es/pandas/dataframe-index.html</loc>
 <lastmod>2017-10-04T00:00:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/seaborn/scatter-plots-with-regression.html</loc>
+<loc>http://datenot.es/seaborn/scatter-plots-with-regression.html</loc>
 <lastmod>2017-09-26T00:00:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/pandas/calculating-a-rolling-value.html</loc>
+<loc>http://datenot.es/pandas/calculating-a-rolling-value.html</loc>
 <lastmod>2017-09-25T00:00:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/pandas/pivot-tables.html</loc>
+<loc>http://datenot.es/pandas/pivot-tables.html</loc>
 <lastmod>2019-02-20T00:00:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/pandas/sorting-data.html</loc>
+<loc>http://datenot.es/pandas/sorting-data.html</loc>
 <lastmod>2017-09-25T00:00:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/pandas/visual-exploratory-data-analysis.html</loc>
+<loc>http://datenot.es/pandas/visual-exploratory-data-analysis.html</loc>
 <lastmod>2019-02-20T00:00:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/seaborn/pairplots.html</loc>
+<loc>http://datenot.es/seaborn/pairplots.html</loc>
 <lastmod>2017-09-25T00:00:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/matplotlib/histograms.html</loc>
+<loc>http://datenot.es/matplotlib/histograms.html</loc>
 <lastmod>2017-09-24T00:00:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/matplotlib/line-plots.html</loc>
+<loc>http://datenot.es/matplotlib/line-plots.html</loc>
 <lastmod>2017-09-24T00:00:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/matplotlib/scatter-plots.html</loc>
+<loc>http://datenot.es/matplotlib/scatter-plots.html</loc>
 <lastmod>2017-09-24T00:00:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/pandas/applying-categories-to-continuous-data.html</loc>
+<loc>http://datenot.es/pandas/applying-categories-to-continuous-data.html</loc>
 <lastmod>2019-02-20T00:00:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/pandas/grouping-and-aggregating-data.html</loc>
+<loc>http://datenot.es/pandas/grouping-and-aggregating-data.html</loc>
 <lastmod>2019-02-20T00:00:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/pandas/parsing-datetimes.html</loc>
+<loc>http://datenot.es/pandas/parsing-datetimes.html</loc>
 <lastmod>2017-09-21T00:00:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/pandas/resampling-datetimes.html</loc>
+<loc>http://datenot.es/pandas/resampling-datetimes.html</loc>
 <lastmod>2017-09-24T00:00:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/matplotlib/bar-plots.html</loc>
+<loc>http://datenot.es/matplotlib/bar-plots.html</loc>
 <lastmod>2017-09-24T00:00:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/sql/finding-percentile-values.html</loc>
+<loc>http://datenot.es/sql/finding-percentile-values.html</loc>
 <lastmod>2017-09-03T00:00:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/sql/finding-value-counts-with-filter.html</loc>
+<loc>http://datenot.es/sql/finding-value-counts-with-filter.html</loc>
 <lastmod>2017-09-03T00:00:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/sql/the-logic-of-null-values.html</loc>
+<loc>http://datenot.es/sql/the-logic-of-null-values.html</loc>
 <lastmod>2017-08-28T00:00:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/sql/changing-data-types.html</loc>
+<loc>http://datenot.es/sql/changing-data-types.html</loc>
 <lastmod>2017-08-27T00:00:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/sql/subqueries.html</loc>
+<loc>http://datenot.es/sql/subqueries.html</loc>
 <lastmod>2017-08-27T00:00:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/sql/working-with-datetimes.html</loc>
+<loc>http://datenot.es/sql/working-with-datetimes.html</loc>
 <lastmod>2017-08-27T00:00:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/sql/working-with-strings.html</loc>
+<loc>http://datenot.es/sql/working-with-strings.html</loc>
 <lastmod>2017-08-27T00:00:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/sql/common-table-expressions.html</loc>
+<loc>http://datenot.es/sql/common-table-expressions.html</loc>
 <lastmod>2017-08-16T00:00:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/sql/conditional-expressions-with-case.html</loc>
+<loc>http://datenot.es/sql/conditional-expressions-with-case.html</loc>
 <lastmod>2017-08-15T00:00:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/sql/ranking-results-with-window-functions.html</loc>
+<loc>http://datenot.es/sql/ranking-results-with-window-functions.html</loc>
 <lastmod>2017-10-23T00:00:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/sql/create-a-sample-database-on-a-mac.html</loc>
+<loc>http://datenot.es/sql/create-a-sample-database-on-a-mac.html</loc>
 <lastmod>2017-08-11T00:00:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/sql/limiting-the-number-of-returned-results.html</loc>
+<loc>http://datenot.es/sql/limiting-the-number-of-returned-results.html</loc>
 <lastmod>2017-08-11T00:00:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/sql/removing-duplicate-rows.html</loc>
+<loc>http://datenot.es/sql/removing-duplicate-rows.html</loc>
 <lastmod>2017-08-11T00:00:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/sql/sorting-results.html</loc>
+<loc>http://datenot.es/sql/sorting-results.html</loc>
 <lastmod>2017-08-11T00:00:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/sql/aggregates-and-group-by.html</loc>
+<loc>http://datenot.es/sql/aggregates-and-group-by.html</loc>
 <lastmod>2017-08-15T00:00:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/sql/filtering-aggregates-with-having.html</loc>
+<loc>http://datenot.es/sql/filtering-aggregates-with-having.html</loc>
 <lastmod>2017-08-09T00:00:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/sql/joining-tables.html</loc>
+<loc>http://datenot.es/sql/joining-tables.html</loc>
 <lastmod>2017-08-09T00:00:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/sql/select-values-appearing-in-a-list.html</loc>
+<loc>http://datenot.es/sql/select-values-appearing-in-a-list.html</loc>
 <lastmod>2017-08-09T00:00:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/sql/select-values-within-a-range.html</loc>
+<loc>http://datenot.es/sql/select-values-within-a-range.html</loc>
 <lastmod>2017-08-27T00:00:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/sql/string-pattern-matching-with-like.html</loc>
+<loc>http://datenot.es/sql/string-pattern-matching-with-like.html</loc>
 <lastmod>2017-08-09T00:00:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/sql/basic-filtering-with-where.html</loc>
+<loc>http://datenot.es/sql/basic-filtering-with-where.html</loc>
 <lastmod>2017-08-09T00:00:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/sql/simple-select-queries.html</loc>
+<loc>http://datenot.es/sql/simple-select-queries.html</loc>
 <lastmod>2017-08-09T00:00:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/pandas/describing-your-data.html</loc>
+<loc>http://datenot.es/pandas/describing-your-data.html</loc>
 <lastmod>2017-08-05T00:00:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/pandas/filtering-data.html</loc>
+<loc>http://datenot.es/pandas/filtering-data.html</loc>
 <lastmod>2017-10-04T00:00:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/pandas/selecting-rows-and-cells.html</loc>
+<loc>http://datenot.es/pandas/selecting-rows-and-cells.html</loc>
 <lastmod>2017-09-24T00:00:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/pandas/importing-data.html</loc>
+<loc>http://datenot.es/pandas/importing-data.html</loc>
 <lastmod>2019-02-20T00:00:00+00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/category/matplotlib.html</loc>
+<loc>http://datenot.es/category/matplotlib.html</loc>
 <lastmod>2017-10-04T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/category/pandas.html</loc>
+<loc>http://datenot.es/category/pandas.html</loc>
 <lastmod>2019-02-20T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/category/seaborn.html</loc>
+<loc>http://datenot.es/category/seaborn.html</loc>
 <lastmod>2018-07-23T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/category/sql.html</loc>
+<loc>http://datenot.es/category/sql.html</loc>
 <lastmod>2017-10-23T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/category/tips-tricks.html</loc>
+<loc>http://datenot.es/category/tips-tricks.html</loc>
 <lastmod>2019-03-31T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/resources.html</loc>
+<loc>http://datenot.es/tag/resources.html</loc>
 <lastmod>2019-03-31T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/dataframe.html</loc>
+<loc>http://datenot.es/tag/dataframe.html</loc>
 <lastmod>2018-10-16T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/dropna.html</loc>
+<loc>http://datenot.es/tag/dropna.html</loc>
 <lastmod>2018-10-16T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/apply.html</loc>
+<loc>http://datenot.es/tag/apply.html</loc>
 <lastmod>2018-10-16T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/iterrows.html</loc>
+<loc>http://datenot.es/tag/iterrows.html</loc>
 <lastmod>2018-10-16T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/iteritems.html</loc>
+<loc>http://datenot.es/tag/iteritems.html</loc>
 <lastmod>2018-10-16T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/bash.html</loc>
+<loc>http://datenot.es/tag/bash.html</loc>
 <lastmod>2018-10-13T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/terminal.html</loc>
+<loc>http://datenot.es/tag/terminal.html</loc>
 <lastmod>2018-10-13T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/load_dataset.html</loc>
+<loc>http://datenot.es/tag/load_dataset.html</loc>
 <lastmod>2018-07-23T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/head.html</loc>
+<loc>http://datenot.es/tag/head.html</loc>
 <lastmod>2019-02-20T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/boxplot.html</loc>
+<loc>http://datenot.es/tag/boxplot.html</loc>
 <lastmod>2018-07-23T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/violinplot.html</loc>
+<loc>http://datenot.es/tag/violinplot.html</loc>
 <lastmod>2018-07-23T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/stripplot.html</loc>
+<loc>http://datenot.es/tag/stripplot.html</loc>
 <lastmod>2018-07-23T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/swarmplot.html</loc>
+<loc>http://datenot.es/tag/swarmplot.html</loc>
 <lastmod>2018-07-23T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/set_style.html</loc>
+<loc>http://datenot.es/tag/set_style.html</loc>
 <lastmod>2018-07-23T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/jointplot.html</loc>
+<loc>http://datenot.es/tag/jointplot.html</loc>
 <lastmod>2018-07-23T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/random.html</loc>
+<loc>http://datenot.es/tag/random.html</loc>
 <lastmod>2017-10-04T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/normal.html</loc>
+<loc>http://datenot.es/tag/normal.html</loc>
 <lastmod>2017-10-04T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/subplots.html</loc>
+<loc>http://datenot.es/tag/subplots.html</loc>
 <lastmod>2017-10-04T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/hist.html</loc>
+<loc>http://datenot.es/tag/hist.html</loc>
 <lastmod>2017-10-04T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/set_title.html</loc>
+<loc>http://datenot.es/tag/set_title.html</loc>
 <lastmod>2017-10-04T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/set_ylabel.html</loc>
+<loc>http://datenot.es/tag/set_ylabel.html</loc>
 <lastmod>2017-10-04T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/xlabel.html</loc>
+<loc>http://datenot.es/tag/xlabel.html</loc>
 <lastmod>2017-10-04T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/show.html</loc>
+<loc>http://datenot.es/tag/show.html</loc>
 <lastmod>2019-02-20T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/set_index.html</loc>
+<loc>http://datenot.es/tag/set_index.html</loc>
 <lastmod>2017-10-04T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/loc.html</loc>
+<loc>http://datenot.es/tag/loc.html</loc>
 <lastmod>2017-10-04T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/drop.html</loc>
+<loc>http://datenot.es/tag/drop.html</loc>
 <lastmod>2017-10-04T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/xs.html</loc>
+<loc>http://datenot.es/tag/xs.html</loc>
 <lastmod>2017-10-04T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/lmplot.html</loc>
+<loc>http://datenot.es/tag/lmplot.html</loc>
 <lastmod>2017-09-26T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/ylabel.html</loc>
+<loc>http://datenot.es/tag/ylabel.html</loc>
 <lastmod>2017-09-26T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/date_range.html</loc>
+<loc>http://datenot.es/tag/date_range.html</loc>
 <lastmod>2017-09-25T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/randint.html</loc>
+<loc>http://datenot.es/tag/randint.html</loc>
 <lastmod>2017-09-25T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/rolling.html</loc>
+<loc>http://datenot.es/tag/rolling.html</loc>
 <lastmod>2017-09-25T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/mean.html</loc>
+<loc>http://datenot.es/tag/mean.html</loc>
 <lastmod>2019-02-20T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/max.html</loc>
+<loc>http://datenot.es/tag/max.html</loc>
 <lastmod>2019-02-20T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/resample.html</loc>
+<loc>http://datenot.es/tag/resample.html</loc>
 <lastmod>2017-09-25T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/pivot_table.html</loc>
+<loc>http://datenot.es/tag/pivot_table.html</loc>
 <lastmod>2019-02-20T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/sort_values.html</loc>
+<loc>http://datenot.es/tag/sort_values.html</loc>
 <lastmod>2017-09-25T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/sort_index.html</loc>
+<loc>http://datenot.es/tag/sort_index.html</loc>
 <lastmod>2019-02-20T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/describe.html</loc>
+<loc>http://datenot.es/tag/describe.html</loc>
 <lastmod>2019-02-20T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/scatter_matrix.html</loc>
+<loc>http://datenot.es/tag/scatter_matrix.html</loc>
 <lastmod>2019-02-20T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/figure.html</loc>
+<loc>http://datenot.es/tag/figure.html</loc>
 <lastmod>2019-02-20T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/radviz.html</loc>
+<loc>http://datenot.es/tag/radviz.html</loc>
 <lastmod>2019-02-20T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/pairplot.html</loc>
+<loc>http://datenot.es/tag/pairplot.html</loc>
 <lastmod>2017-09-25T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/plot.html</loc>
+<loc>http://datenot.es/tag/plot.html</loc>
 <lastmod>2017-09-24T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/xticks.html</loc>
+<loc>http://datenot.es/tag/xticks.html</loc>
 <lastmod>2017-09-24T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/legend.html</loc>
+<loc>http://datenot.es/tag/legend.html</loc>
 <lastmod>2017-09-24T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/scatter.html</loc>
+<loc>http://datenot.es/tag/scatter.html</loc>
 <lastmod>2017-09-24T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/nunique.html</loc>
+<loc>http://datenot.es/tag/nunique.html</loc>
 <lastmod>2019-02-20T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/cut.html</loc>
+<loc>http://datenot.es/tag/cut.html</loc>
 <lastmod>2019-02-20T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/value_counts.html</loc>
+<loc>http://datenot.es/tag/value_counts.html</loc>
 <lastmod>2019-02-20T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/floor.html</loc>
+<loc>http://datenot.es/tag/floor.html</loc>
 <lastmod>2019-02-20T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/ceil.html</loc>
+<loc>http://datenot.es/tag/ceil.html</loc>
 <lastmod>2019-02-20T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/min.html</loc>
+<loc>http://datenot.es/tag/min.html</loc>
 <lastmod>2019-02-20T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/groupby.html</loc>
+<loc>http://datenot.es/tag/groupby.html</loc>
 <lastmod>2019-02-20T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/agg.html</loc>
+<loc>http://datenot.es/tag/agg.html</loc>
 <lastmod>2019-02-20T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/info.html</loc>
+<loc>http://datenot.es/tag/info.html</loc>
 <lastmod>2017-09-21T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/to_datetime.html</loc>
+<loc>http://datenot.es/tag/to_datetime.html</loc>
 <lastmod>2017-09-21T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/read_csv.html</loc>
+<loc>http://datenot.es/tag/read_csv.html</loc>
 <lastmod>2019-02-20T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/read_sql.html</loc>
+<loc>http://datenot.es/tag/read_sql.html</loc>
 <lastmod>2017-09-21T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/parse_dates.html</loc>
+<loc>http://datenot.es/tag/parse_dates.html</loc>
 <lastmod>2017-09-21T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/count.html</loc>
+<loc>http://datenot.es/tag/count.html</loc>
 <lastmod>2017-09-24T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/ylim.html</loc>
+<loc>http://datenot.es/tag/ylim.html</loc>
 <lastmod>2017-09-24T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/select.html</loc>
+<loc>http://datenot.es/tag/select.html</loc>
 <lastmod>2017-10-23T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/from.html</loc>
+<loc>http://datenot.es/tag/from.html</loc>
 <lastmod>2017-10-23T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/where.html</loc>
+<loc>http://datenot.es/tag/where.html</loc>
 <lastmod>2017-10-23T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/with.html</loc>
+<loc>http://datenot.es/tag/with.html</loc>
 <lastmod>2017-09-03T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/as.html</loc>
+<loc>http://datenot.es/tag/as.html</loc>
 <lastmod>2017-09-03T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/group-by.html</loc>
+<loc>http://datenot.es/tag/group-by.html</loc>
 <lastmod>2017-09-03T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/order-by.html</loc>
+<loc>http://datenot.es/tag/order-by.html</loc>
 <lastmod>2017-10-23T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/over.html</loc>
+<loc>http://datenot.es/tag/over.html</loc>
 <lastmod>2017-10-23T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/array.html</loc>
+<loc>http://datenot.es/tag/array.html</loc>
 <lastmod>2017-09-03T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/within-group.html</loc>
+<loc>http://datenot.es/tag/within-group.html</loc>
 <lastmod>2017-09-03T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/ntile.html</loc>
+<loc>http://datenot.es/tag/ntile.html</loc>
 <lastmod>2017-09-03T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/unnest.html</loc>
+<loc>http://datenot.es/tag/unnest.html</loc>
 <lastmod>2017-09-03T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/percentile_disc.html</loc>
+<loc>http://datenot.es/tag/percentile_disc.html</loc>
 <lastmod>2017-09-03T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/percentile_cont.html</loc>
+<loc>http://datenot.es/tag/percentile_cont.html</loc>
 <lastmod>2017-09-03T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/case.html</loc>
+<loc>http://datenot.es/tag/case.html</loc>
 <lastmod>2017-09-03T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/when.html</loc>
+<loc>http://datenot.es/tag/when.html</loc>
 <lastmod>2017-09-03T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/then.html</loc>
+<loc>http://datenot.es/tag/then.html</loc>
 <lastmod>2017-09-03T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/filter.html</loc>
+<loc>http://datenot.es/tag/filter.html</loc>
 <lastmod>2017-09-03T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/sum.html</loc>
+<loc>http://datenot.es/tag/sum.html</loc>
 <lastmod>2017-09-03T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/limit.html</loc>
+<loc>http://datenot.es/tag/limit.html</loc>
 <lastmod>2017-10-23T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/and.html</loc>
+<loc>http://datenot.es/tag/and.html</loc>
 <lastmod>2017-08-28T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/or.html</loc>
+<loc>http://datenot.es/tag/or.html</loc>
 <lastmod>2017-08-28T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/asc.html</loc>
+<loc>http://datenot.es/tag/asc.html</loc>
 <lastmod>2017-08-28T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/true.html</loc>
+<loc>http://datenot.es/tag/true.html</loc>
 <lastmod>2017-08-28T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/false.html</loc>
+<loc>http://datenot.es/tag/false.html</loc>
 <lastmod>2017-08-28T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/null.html</loc>
+<loc>http://datenot.es/tag/null.html</loc>
 <lastmod>2017-08-28T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/cast.html</loc>
+<loc>http://datenot.es/tag/cast.html</loc>
 <lastmod>2017-08-27T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/.html</loc>
+<loc>http://datenot.es/tag/.html</loc>
 <lastmod>2017-08-27T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/float.html</loc>
+<loc>http://datenot.es/tag/float.html</loc>
 <lastmod>2017-08-27T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/int.html</loc>
+<loc>http://datenot.es/tag/int.html</loc>
 <lastmod>2017-08-27T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/date.html</loc>
+<loc>http://datenot.es/tag/date.html</loc>
 <lastmod>2017-08-27T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/time.html</loc>
+<loc>http://datenot.es/tag/time.html</loc>
 <lastmod>2017-08-27T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/avg.html</loc>
+<loc>http://datenot.es/tag/avg.html</loc>
 <lastmod>2017-08-27T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/to_char.html</loc>
+<loc>http://datenot.es/tag/to_char.html</loc>
 <lastmod>2017-08-27T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/join.html</loc>
+<loc>http://datenot.es/tag/join.html</loc>
 <lastmod>2017-08-27T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/upper.html</loc>
+<loc>http://datenot.es/tag/upper.html</loc>
 <lastmod>2017-08-27T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/lower.html</loc>
+<loc>http://datenot.es/tag/lower.html</loc>
 <lastmod>2017-08-27T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/substring.html</loc>
+<loc>http://datenot.es/tag/substring.html</loc>
 <lastmod>2017-08-27T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/left.html</loc>
+<loc>http://datenot.es/tag/left.html</loc>
 <lastmod>2017-08-27T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/right.html</loc>
+<loc>http://datenot.es/tag/right.html</loc>
 <lastmod>2017-08-27T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/partition-by.html</loc>
+<loc>http://datenot.es/tag/partition-by.html</loc>
 <lastmod>2017-10-23T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/desc.html</loc>
+<loc>http://datenot.es/tag/desc.html</loc>
 <lastmod>2017-10-23T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/rank.html</loc>
+<loc>http://datenot.es/tag/rank.html</loc>
 <lastmod>2017-10-23T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/create.html</loc>
+<loc>http://datenot.es/tag/create.html</loc>
 <lastmod>2017-08-11T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/database.html</loc>
+<loc>http://datenot.es/tag/database.html</loc>
 <lastmod>2017-08-11T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/psql.html</loc>
+<loc>http://datenot.es/tag/psql.html</loc>
 <lastmod>2017-08-11T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/pg_restore.html</loc>
+<loc>http://datenot.es/tag/pg_restore.html</loc>
 <lastmod>2017-08-11T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/offset.html</loc>
+<loc>http://datenot.es/tag/offset.html</loc>
 <lastmod>2017-08-11T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/distinct.html</loc>
+<loc>http://datenot.es/tag/distinct.html</loc>
 <lastmod>2017-08-11T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/distinct-on.html</loc>
+<loc>http://datenot.es/tag/distinct-on.html</loc>
 <lastmod>2017-08-11T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/inner-join.html</loc>
+<loc>http://datenot.es/tag/inner-join.html</loc>
 <lastmod>2017-08-09T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/outer-join.html</loc>
+<loc>http://datenot.es/tag/outer-join.html</loc>
 <lastmod>2017-08-09T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/left-join.html</loc>
+<loc>http://datenot.es/tag/left-join.html</loc>
 <lastmod>2017-08-09T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/right-join.html</loc>
+<loc>http://datenot.es/tag/right-join.html</loc>
 <lastmod>2017-08-09T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/cross-join.html</loc>
+<loc>http://datenot.es/tag/cross-join.html</loc>
 <lastmod>2017-08-09T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/union.html</loc>
+<loc>http://datenot.es/tag/union.html</loc>
 <lastmod>2017-08-09T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/union-all.html</loc>
+<loc>http://datenot.es/tag/union-all.html</loc>
 <lastmod>2017-08-09T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/in.html</loc>
+<loc>http://datenot.es/tag/in.html</loc>
 <lastmod>2017-08-09T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/not.html</loc>
+<loc>http://datenot.es/tag/not.html</loc>
 <lastmod>2017-08-09T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/between.html</loc>
+<loc>http://datenot.es/tag/between.html</loc>
 <lastmod>2017-08-27T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/like.html</loc>
+<loc>http://datenot.es/tag/like.html</loc>
 <lastmod>2017-08-09T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/median.html</loc>
+<loc>http://datenot.es/tag/median.html</loc>
 <lastmod>2017-08-05T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/std.html</loc>
+<loc>http://datenot.es/tag/std.html</loc>
 <lastmod>2017-08-05T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/corr.html</loc>
+<loc>http://datenot.es/tag/corr.html</loc>
 <lastmod>2017-08-05T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/query.html</loc>
+<loc>http://datenot.es/tag/query.html</loc>
 <lastmod>2017-10-04T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/iloc.html</loc>
+<loc>http://datenot.es/tag/iloc.html</loc>
 <lastmod>2017-09-24T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/read_excel.html</loc>
+<loc>http://datenot.es/tag/read_excel.html</loc>
 <lastmod>2019-02-20T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/tag/psycopg2.html</loc>
+<loc>http://datenot.es/tag/psycopg2.html</loc>
 <lastmod>2019-02-20T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://lewisdavi.es/author/lewis-davies.html</loc>
+<loc>http://datenot.es/author/lewis-davies.html</loc>
 <lastmod>2019-03-31T00:00:00-00:01</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>

@@ -1,5 +1,14 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*- #
+
+##########
+#
+# Do not edit pelicanconf.py directly!
+# Edit pelicanconf_base.py and the changes will propagate when
+# the updated site is regenerated.
+#
+##########
+
 from __future__ import unicode_literals
 from datetime import date
 

@@ -5,28 +5,28 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://datenot.es/</loc>
-<lastmod>2019-04-02T20:44:42-00:00</lastmod>
+<lastmod>2019-04-02T20:47:21-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://datenot.es/archives.html</loc>
-<lastmod>2019-04-02T20:44:42-00:00</lastmod>
+<lastmod>2019-04-02T20:47:21-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://datenot.es/tags.html</loc>
-<lastmod>2019-04-02T20:44:42-00:00</lastmod>
+<lastmod>2019-04-02T20:47:21-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://datenot.es/categories.html</loc>
-<lastmod>2019-04-02T20:44:42-00:00</lastmod>
+<lastmod>2019-04-02T20:47:21-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>

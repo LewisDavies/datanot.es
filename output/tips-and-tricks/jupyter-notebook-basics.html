@@ -14,7 +14,7 @@
     <link rel="manifest" href="../site.webmanifest">
     <link rel="shortcut icon" href="../favicon.ico">
 
-    <title>Making Subplots - DataNot.es</title>
+    <title>Jupyter Notebook Basics - DataNot.es</title>
 
     <!-- JQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -39,14 +39,9 @@
         
 
 
-  <!--     <meta name="tags" content="random" />
-    <meta name="tags" content="normal" />
-    <meta name="tags" content="subplots" />
-    <meta name="tags" content="hist" />
-    <meta name="tags" content="set_title" />
-    <meta name="tags" content="set_ylabel" />
-    <meta name="tags" content="xlabel" />
-    <meta name="tags" content="show" />
+  <!--     <meta name="tags" content="jupyter" />
+    <meta name="tags" content="notebook" />
+    <meta name="tags" content="lab" />
  -->
 
     <meta name="google-site-verification" content="JkHy5fcdfsQv4jcaMIGyyJpVrckuorX9DMf3o0jBpFE" />
@@ -117,62 +112,85 @@
 <section id="content" class="body">
     <header>
     <h1>
-      Making Subplots
+      Jupyter Notebook Basics
     </h1>
     <ol class="breadcrumb">
         <li>
-            <time class="published" datetime="2017-10-04T00:00:00+01:00">
-                04 October 2017
+            <time class="published" datetime="2019-04-02T00:00:00+01:00">
+                02 April 2019
             </time>
         </li>
-        <li>Matplotlib</li>
-        <!--         <li>random</li>
-        <li>normal</li>
-        <li>subplots</li>
-        <li>hist</li>
-        <li>set_title</li>
-        <li>set_ylabel</li>
-        <li>xlabel</li>
-        <li>show</li>
+        <li>Tips & Tricks</li>
+        <!--         <li>jupyter</li>
+        <li>notebook</li>
+        <li>lab</li>
  -->
     </ol>
-    <a href="https://mybinder.org/v2/gh/LewisDavies/datanot.es/master?filepath=/content/matplotlib/making-subplots.ipynb" target="_blank">
+    <a href="https://mybinder.org/v2/gh/LewisDavies/datanot.es/master?filepath=/content/tips-and-tricks/jupyter-notebook-basics.ipynb" target="_blank">
         <img src="https://mybinder.org/badge_logo.svg">
     </a>
     </header>
 <div class='article_content'>
-<h3>Import libraries</h3>
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<h3>Getting started</h3>
+<p>Start the notebook server by opening a terminal and running <code>jupyter lab</code>. The notebook server will start and should open in your web browser automatically.</p>
+<p>If you get an error, try running <code>pip install jupyterlab</code> first.</p>
+<p><strong>Note</strong>: Some older tutorials will mention <code>jupyter notebook</code>. This is just an older version of what we'll be using. Most things below will work there too, but I'd recommend using Jupyter Lab as it will receive more support in future.</p>
+<h3>Opening a notebook</h3>
+<p>The panel on the left is like Explorer in Windows or Finder in MacOS. You can move between folders and view all your files here. </p>
+<p>By default, the launcher page will open. You should see a range of icons that let you create new files (click <em>File</em> → <em>New Launcher</em> if you don't see this). To create a new notebook, click the <em>Python 3</em> under the <em>Notebook</em> section.</p>
+<h3>Running code</h3>
+<p>Now you've opened a notebook, it's time to run some code. The first thing you'll see is an empty cell, like this:</p>
+<div class="highlight"><pre><span></span>
 </pre></div>
 
 
-<h3>Generate some data</h3>
-<div class="highlight"><pre><span></span><span class="n">dist1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mf">27.5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10000</span><span class="p">)</span>
-<span class="n">dist2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+<p>Type a command and hit shift and enter to run it and move to the next cell:</p>
+<div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;Hello World!&quot;</span><span class="p">)</span>
 </pre></div>
 
 
-<h3>Plot on separate subplots</h3>
-<div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
-
-<span class="n">ax1</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">dist1</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Distribution 1&#39;</span><span class="p">)</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">dist2</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Distribution 2&#39;</span><span class="p">)</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Absolute Distribution&#39;</span><span class="p">)</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Count&#39;</span><span class="p">)</span>
-
-<span class="n">ax2</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">dist1</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">normed</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Distribution 1&#39;</span><span class="p">)</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">dist2</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">normed</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Distribution 2&#39;</span><span class="p">)</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Normalized Distribution&#39;</span><span class="p">)</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Proportion&#39;</span><span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Value&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<div class="highlight"><pre><span></span>Hello World!
 </pre></div>
 
 
-<p><img alt="png" src="making-subplots_files/making-subplots_6_0.png"></p>
+<p>Most of the time you'll want to use shift-enter to run a cell but there are other ways: 
+- control-enter runs the cell without moving to the next one
+- option-enter (alt-enter on Windows) runs the cell and inserts a new one below</p>
+<h3>Viewing documentation</h3>
+<p>If you want to find out what a function does, put a question mark in front of it and run the cell, like this:</p>
+<div class="highlight"><pre><span></span><span class="err">?</span><span class="k">print</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="err"></span><span class="cp">[</span><span class="mi">0</span><span class="p">;</span><span class="mi">31</span><span class="nx">mDocstring</span><span class="p">:</span><span class="err">[</span><span class="mi">0</span><span class="nx">m</span>
+<span class="nx">print</span><span class="p">(</span><span class="nx">value</span><span class="p">,</span> <span class="nx">...</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="nx">sys.stdout</span><span class="p">,</span> <span class="n">flush</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="nx">Prints</span> <span class="nx">the</span> <span class="nx">values</span> <span class="k">to</span> <span class="nx">a</span> <span class="nx">stream</span><span class="p">,</span> <span class="ow">or</span> <span class="k">to</span> <span class="nx">sys.stdout</span> <span class="k">by</span> <span class="nx">default.</span>
+<span class="nx">Optional</span> <span class="kt">keyword</span> <span class="nx">arguments</span><span class="p">:</span>
+<span class="nb">file</span><span class="p">:</span>  <span class="nx">a</span> <span class="nb">file</span><span class="na">-like</span> <span class="nb">object</span> <span class="p">(</span><span class="nx">stream</span><span class="p">);</span> <span class="nx">defaults</span> <span class="k">to</span> <span class="nx">the</span> <span class="nx">current</span> <span class="nx">sys.stdout.</span>
+<span class="nx">sep</span><span class="p">:</span>   <span class="kt">string</span> <span class="nx">inserted</span> <span class="nx">between</span> <span class="nx">values</span><span class="p">,</span> <span class="nb">default</span> <span class="nx">a</span> <span class="nx">space.</span>
+<span class="nx">end</span><span class="p">:</span>   <span class="kt">string</span> <span class="nx">appended</span> <span class="nx">after</span> <span class="nx">the</span> <span class="nx">last</span> <span class="nx">value</span><span class="p">,</span> <span class="nb">default</span> <span class="nx">a</span> <span class="nx">newline.</span>
+<span class="nx">flush</span><span class="p">:</span> <span class="nx">whether</span> <span class="k">to</span> <span class="nx">forcibly</span> <span class="nx">flush</span> <span class="nx">the</span> <span class="nx">stream.</span>
+<span class="err">[</span><span class="mi">0</span><span class="p">;</span><span class="mi">31</span><span class="nx">mType</span><span class="p">:</span><span class="err">[</span><span class="mi">0</span><span class="nx">m</span>      <span class="nx">builtin_function_or_method</span>
+</pre></div>
+
+
+<p>You can also view this quickly while typing by pressing shift-tab.</p>
+<h3>Command palette</h3>
+<p>There are loads of commands for moving cells, editing notebooks and changing your Jupter Lab settings. You can search through them by bringing up the command palette with cmd-shift-C (control-shift-C on Windows).</p>
+<h3>Shortcuts</h3>
+<p>The command palette shows the shortcut if a command has one. To use them, enter command mode by pressing escape, then type the command. Here are a few that I regularly use:
+- <strong>A</strong>: insert cell above
+- <strong>B</strong>: insert cell below
+- <strong>X</strong>: cut cell
+- <strong>C</strong>: copy cell
+- <strong>V</strong>: paste cell
+- <strong>DD</strong>: delete cell
+- <strong>Z</strong>: undo last action
+- <strong>II</strong>: interrupt execution (if something is taking longer than expected)
+- <strong>00</strong>: restart (if things go badly wrong!)</p>
+<h3>Saving a notebook</h3>
+<p>This is done automatically most of the time. If you want to be sure, use cmd-S (control-S on Windows) to save your work.</p>
 </div>
 </section>
 

@@ -30,9 +30,11 @@
         <li>{{tag}}</li>
         {% endfor %} -->
     </ol>
+    {% if article.category != "SQL" %}
     <a href="https://mybinder.org/v2/gh/LewisDavies/datanot.es/master?filepath=/content/{{ article.slug }}.ipynb" target="_blank">
         <img src="https://mybinder.org/badge_logo.svg">
     </a>
+    {% endif %}
     </header>
 <div class='article_content'>
 {{ article.content }}

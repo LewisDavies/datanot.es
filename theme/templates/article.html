@@ -19,18 +19,21 @@
     <h1>
       {{ article.title }}
     </h1>
-<ol class="breadcrumb">
-    <li>
-        <time class="published" datetime="{{ article.date.isoformat() }}">
-            {{ article.date.strftime("%d %B %Y") }}
-        </time>
-    </li>
-    <li>{{ article.category }}</li>
-    <!-- {% for tag in article.tags %}
-    <li>{{tag}}</li>
-    {% endfor %} -->
-</ol>
-</header>
+    <ol class="breadcrumb">
+        <li>
+            <time class="published" datetime="{{ article.date.isoformat() }}">
+                {{ article.date.strftime("%d %B %Y") }}
+            </time>
+        </li>
+        <li>{{ article.category }}</li>
+        <!-- {% for tag in article.tags %}
+        <li>{{tag}}</li>
+        {% endfor %} -->
+    </ol>
+    <a href="https://mybinder.org/v2/gh/LewisDavies/datanot.es/master?filepath=/content/{{ article.slug }}.ipynb" target="_blank">
+        <img src="https://mybinder.org/badge_logo.svg">
+    </a>
+    </header>
 <div class='article_content'>
 {{ article.content }}
 </div>

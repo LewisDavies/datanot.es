@@ -47,7 +47,7 @@ if generate_site == 0:
     print('No errors found during site generation, deploying to Github Pages')
     
     # Publish site to github
-    os.system('ghp-import -m "Generate Pelican site" -b gh-pages output -c lewisdavi.es')
+    os.system('ghp-import -m "Generate Pelican site" -b gh-pages output -c datanot.es')
     os.system('git push origin gh-pages')
 else:
     # Print error

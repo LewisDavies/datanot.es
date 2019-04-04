@@ -3,7 +3,7 @@ Slug: pandas/importing-data
 Category: Pandas
 Tags: read_csv, read_excel, psycopg2
 Date: 2017-08-01
-Modified: 2019-02-20
+Modified: 2019-04-02
 
 ### Import libraries
 
@@ -39,53 +39,6 @@ df = pd.read_excel('data.xlsx', sheetname=1) # returns second sheet
 
 # Specifying multiple sheets will return a dictionary of DataFrames
 df_dict = pd.read_excel('data.xlsx', sheetname=[0, 2, 'Sheet4', 'Sales 2016'])
-```
-
-### SQL
-Your credentials should always be stored in a separate location so you can share your notebook without sharing your login details. Ideally this would be in environment variables or your keychain, but a simple solution is to save them in a separate Python file and load them with the code below. **Make sure you don't commit these to git.**
-
-Your ```db.py``` file should look like this:
-
-
-```python
-# Example db.py file
-user = 'your_username'
-password = 'your_super_tricky_password'
-host = 'your_hostname'
-port = 5432 # this is a common setting
-database = 'your_database_identifier'
-```
-
-
-```python
-# Load database credentials
-exec(open("/path/to/file/db.py").read())
-```
-
-
-```python
-# I mainly interact with a PostgreSQL database, so I use an additional library for this
-import psycopg2
-
-# We connect to the database - use the variable names from db.py
-con = psycopg2.connect(user=user, password=password, host=host, port=port, database=database)
-
-query = """
-select
-    c.id
-    , c.name
-    , c.city
-from
-    customers c
-limit
-    10
-"""
-
-# Then run the query, save the output as a DataFrame
-df = pd.read_sql(query, con)
-
-# And finally disconnect from the database
-con.close()
 ```
 
 ### Some useful arguments

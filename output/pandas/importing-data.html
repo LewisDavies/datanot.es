@@ -161,48 +161,6 @@
 </pre></div>
 
 
-<h3>SQL</h3>
-<p>Your credentials should always be stored in a separate location so you can share your notebook without sharing your login details. Ideally this would be in environment variables or your keychain, but a simple solution is to save them in a separate Python file and load them with the code below. <strong>Make sure you don't commit these to git.</strong></p>
-<p>Your <code>db.py</code> file should look like this:</p>
-<div class="highlight"><pre><span></span><span class="c1"># Example db.py file</span>
-<span class="n">user</span> <span class="o">=</span> <span class="s1">&#39;your_username&#39;</span>
-<span class="n">password</span> <span class="o">=</span> <span class="s1">&#39;your_super_tricky_password&#39;</span>
-<span class="n">host</span> <span class="o">=</span> <span class="s1">&#39;your_hostname&#39;</span>
-<span class="n">port</span> <span class="o">=</span> <span class="mi">5432</span> <span class="c1"># this is a common setting</span>
-<span class="n">database</span> <span class="o">=</span> <span class="s1">&#39;your_database_identifier&#39;</span>
-</pre></div>
-
-
-<div class="highlight"><pre><span></span><span class="c1"># Load database credentials</span>
-<span class="k">exec</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s2">&quot;/path/to/file/db.py&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
-</pre></div>
-
-
-<div class="highlight"><pre><span></span><span class="c1"># I mainly interact with a PostgreSQL database, so I use an additional library for this</span>
-<span class="kn">import</span> <span class="nn">psycopg2</span>
-
-<span class="c1"># We connect to the database - use the variable names from db.py</span>
-<span class="n">con</span> <span class="o">=</span> <span class="n">psycopg2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">user</span><span class="o">=</span><span class="n">user</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="n">password</span><span class="p">,</span> <span class="n">host</span><span class="o">=</span><span class="n">host</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="n">port</span><span class="p">,</span> <span class="n">database</span><span class="o">=</span><span class="n">database</span><span class="p">)</span>
-
-<span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">select</span>
-<span class="s2">    c.id</span>
-<span class="s2">    , c.name</span>
-<span class="s2">    , c.city</span>
-<span class="s2">from</span>
-<span class="s2">    customers c</span>
-<span class="s2">limit</span>
-<span class="s2">    10</span>
-<span class="s2">&quot;&quot;&quot;</span>
-
-<span class="c1"># Then run the query, save the output as a DataFrame</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="n">con</span><span class="p">)</span>
-
-<span class="c1"># And finally disconnect from the database</span>
-<span class="n">con</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-</pre></div>
-
-
 <h3>Some useful arguments</h3>
 <div class="highlight"><pre><span></span><span class="c1"># Specify a column to use as the index</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data.csv&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
